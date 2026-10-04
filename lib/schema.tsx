@@ -40,6 +40,12 @@ export function homeSchema(lang: Locale, t: Dictionary) {
         url: url(lang),
         publisher: { "@id": ORG_ID },
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${url(lang)}#faq`,
+        inLanguage: lang,
+        mainEntity: t.faq.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      },
     ],
   };
 }
@@ -92,7 +98,7 @@ export function articleSchema(lang: Locale, t: Dictionary, a: Article) {
         datePublished: a.published,
         dateModified: a.updated,
         keywords: body.keywords.join(", "),
-        image: `${SITE_URL}/og/home-${lang}.png`,
+        image: `${SITE_URL}/og/${a.slug}-${lang}.png`,
         author: { "@type": "Organization", name: "Flowramo", url: SITE_URL },
         publisher: { "@id": ORG_ID },
         citation: body.sources.map((s) => s.url),

@@ -6,7 +6,8 @@ export const hasLocale = (value: string): value is Locale => (LOCALES as readonl
 
 export const dirOf = (locale: Locale) => (locale === "ar" ? "rtl" : "ltr");
 
-export const SITE_URL = "https://flowramo.com";
+/** Canonical origin. Override with NEXT_PUBLIC_SITE_URL until flowramo.com points at Vercel. */
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://flowramo.com").replace(/\/$/, "");
 
 /** Absolute URL for a locale-prefixed path, e.g. url("ar", "/blog"). */
 export const url = (locale: Locale, path = "") => `${SITE_URL}/${locale}${path}`;
@@ -22,3 +23,9 @@ export function alternates(locale: Locale, path = "") {
     },
   };
 }
+
+/** "4 October 2026" / "4 أكتوبر 2026" (Gregorian, Western digits in both languages). */
+export const formatDate = (locale: Locale, iso: string) =>
+  new Intl.DateTimeFormat(locale === "ar" ? "ar-u-ca-gregory-nu-latn" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+    new Date(iso),
+  );

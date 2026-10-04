@@ -15,6 +15,7 @@ import { Multilingual } from "@/components/sections/Multilingual";
 import { Integrations } from "@/components/sections/Integrations";
 import { HumanAI } from "@/components/sections/HumanAI";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Faq } from "@/components/sections/Faq";
 import { Closing } from "@/components/sections/Closing";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -37,6 +38,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Integrations />
       <HumanAI />
       <Testimonials />
+      <Faq t={t.faq} />
       <Closing />
     </main>
   );

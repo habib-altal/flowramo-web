@@ -23,16 +23,29 @@ Status: first full build on 2026-10-04, following Habib's brief (calm like CoreS
 | Integrations | `Integrations.tsx` | Events travel between WhatsApp, Lina, clinic knowledge, patient data, calendar and analytics. |
 | Human + AI | `HumanAI.tsx` | "Lina knows when not to be Lina." Urgent case escalated to the doctor. |
 | Social proof | `Testimonials.tsx` | Hidden until real clinics agree to be quoted. Never invent testimonials or results. |
+| FAQ | `Faq.tsx` | Seven objections answered plainly (replace the receptionist? official WhatsApp? emergencies at 2 am?). Also emitted as FAQPage structured data. |
+| From the Journal | `JournalTeaser.tsx` | Links to the four articles. |
 | Closing | `Closing.tsx` | "Your patients are already talking. Make every conversation count." |
 
 ## Data
 - "Book a Demo" writes to Supabase `website_leads` with the publishable key (RLS allows anon insert only). Verified as the `anon` role on 2026-10-04.
 - Dashboard and conversation numbers are demo values inside product mockups (the dashboard is labelled "Demo").
 
+## Languages
+English (`/en`) and Arabic (`/ar`, RTL) since 2026-10-04. Copy in `content/dictionaries/`.
+
+## Journal
+Four articles, each in English and Arabic, chosen for search intent across the buying journey:
+| Slug | Intent |
+|---|---|
+| `ai-receptionist-for-dental-clinics` | Evaluating an AI receptionist (commercial) |
+| `reduce-dental-no-shows` | Fixing no-shows (problem-aware) |
+| `whatsapp-appointment-booking-dental-clinic` | Booking on WhatsApp in the Gulf (how-to, high intent) |
+| `reactivate-inactive-dental-patients` | Revenue from the existing patient list |
+
 ## Open items
 1. WhatsApp number for the demo Lina: set `NEXT_PUBLIC_LINA_DEMO_WHATSAPP` and "Meet Lina" opens WhatsApp. Until then it scrolls to "Watch Lina think".
-2. Higgsfield: one or two cinematic shots at most (night clinic behind "While you were away").
+2. Higgsfield: one or two cinematic shots at most (night clinic behind "While you were away"), plus article cover art.
 3. Real testimonials once clinics agree.
-4. Pricing page, blog (`articles` table), privacy and terms pages.
-5. Arabic version of the site.
-6. Connect `flowramo.com` to the Vercel project.
+4. Pricing page, privacy and terms pages.
+5. Connect `flowramo.com` to the Vercel project, then verify it in Google Search Console, submit `/sitemap.xml`, and run `geo audit` against the public URL.

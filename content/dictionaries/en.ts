@@ -304,6 +304,46 @@ const en = {
       "I've alerted Dr. Kaya right now and she'll call you shortly. If you have trouble breathing or swallowing, go to the nearest emergency room.",
   },
 
+  faq: {
+    h2: "Questions clinic owners ask before they say yes.",
+    sub: "Straight answers. If yours isn't here, ask it in your private demo.",
+    items: [
+      {
+        q: "What exactly is Lina?",
+        a: "Lina is an AI receptionist that runs your clinic's WhatsApp. She answers patients in seconds, day and night, books them into your calendar, sends reminders and aftercare, follows up when someone goes quiet and brings patients back for their next visit.",
+      },
+      {
+        q: "Does Lina replace my receptionist?",
+        a: "No. Lina takes the repetitive questions, the after-hours messages and the follow-ups nobody has time for. Your team keeps the work that needs a human, and every conversation Lina hands over arrives with its full context.",
+      },
+      {
+        q: "Which languages does Lina speak?",
+        a: "Arabic, English and Turkish. Lina replies in the language and dialect the patient writes in, including Gulf Arabic, and keeps the same patient context whichever language the conversation switches to.",
+      },
+      {
+        q: "Is it the official WhatsApp?",
+        a: "Yes. Lina runs on the official WhatsApp Business Platform from Meta, not on unofficial automation tools that put a clinic's number at risk of being banned.",
+      },
+      {
+        q: "What will Lina say about prices and treatments?",
+        a: "Only what your clinic approves. You decide the services, price ranges, doctors, hours and instructions Lina can share. Lina does not diagnose, and clinical questions go to your team.",
+      },
+      {
+        q: "What happens if a patient reports an emergency at 2 am?",
+        a: "Lina recognises urgent messages, alerts your team straight away with the full conversation, and tells the patient exactly what happens next, including when to go to emergency care.",
+      },
+      {
+        q: "How do we get started?",
+        a: "Book a private demo. You will see Lina answer real questions with your own prices and hours. We onboard clinics personally, one at a time.",
+      },
+    ],
+  },
+
+  journal: {
+    h2: "From the Journal",
+    all: "All articles",
+  },
+
   closing: {
     l1: "Your patients are already talking.",
     l2: "Make every conversation count.",
