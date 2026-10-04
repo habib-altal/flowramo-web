@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+/*
+  Flowramo design tokens
+  Calm like a premium product page (warm white, black type, hairline borders),
+  with Motion Blue reserved for Lina: whenever Lina acts, blue appears.
+*/
+@theme {
+  --color-paper: #faf9f6;
+  --color-paper-2: #f2f1ec;
+  --color-ink: #0c0c0b;
+  --color-ink-2: #5d5c57;
+  --color-ink-3: #9a9892;
+  --color-line: #e6e4dd;
+  --color-card: #ffffff;
+
+  --color-blue: #2b5cff;
+  --color-blue-deep: #1d44d6;
+  --color-blue-soft: #e9eeff;
+  --color-blue-bright: #7593ff;
+
+  --color-night: #07080b;
+  --color-night-2: #0e1015;
+  --color-night-3: #161922;
+  --color-night-line: #1f232d;
+  --color-moon: #eeede8;
+  --color-moon-2: #8d8c87;
+
+  --color-alert: #e5484d;
+  --color-alert-soft: #fdeceb;
+  --color-ok: #1f9d63;
+
+  --font-sans: "Instrument Sans Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-arabic: "IBM Plex Sans Arabic", "Instrument Sans Variable", system-ui, sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-blue);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  [dir="rtl"] {
+    font-family: var(--font-arabic);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 40px);
+  }
+
+  /* Display type: big, tight, slightly condensed */
+  .display-xl,
+  .display-lg,
+  .display-md {
+    font-weight: 560;
+    font-stretch: 92%;
+    color: inherit;
+  }
+  .display-xl {
+    font-size: clamp(3rem, 8.4vw, 8.6rem);
+    line-height: 0.93;
+    letter-spacing: -0.048em;
+  }
+  .display-lg {
+    font-size: clamp(2.5rem, 6vw, 5.9rem);
+    line-height: 0.96;
+    letter-spacing: -0.044em;
+  }
+  .display-md {
+    font-size: clamp(2rem, 4.2vw, 3.9rem);
+    line-height: 1;
+    letter-spacing: -0.038em;
+  }
+  .lede {
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.5;
+    color: var(--color-ink-2);
+    letter-spacing: -0.005em;
+  }
+
+  /* Lina's machine voice */
+  .sys {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+  [dir="rtl"] .sys,
+  .sys:lang(ar) {
+    font-family: var(--font-arabic);
+    font-size: 13.5px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 48px;
+    padding-inline: 22px;
+    border-radius: 999px;
+    font-size: 15.5px;
+    font-weight: 550;
+    letter-spacing: -0.01em;
+    transition:
+      background-color 200ms var(--ease-out-soft),
+      color 200ms var(--ease-out-soft),
+      border-color 200ms var(--ease-out-soft),
+      transform 200ms var(--ease-out-soft);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:active {
+    transform: scale(0.98);
+  }
+  .btn-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .btn-ink:hover {
+    background: #2a2a28;
+  }
+  .btn-line {
+    border: 1px solid var(--color-line);
+    background: var(--color-card);
+    color: var(--color-ink);
+  }
+  .btn-line:hover {
+    border-color: var(--color-ink-3);
+  }
+  .btn-moon {
+    background: var(--color-moon);
+    color: var(--color-night);
+  }
+  .btn-moon:hover {
+    background: #fff;
+  }
+
+  .bubble {
+    border-radius: 20px;
+    padding: 11px 15px;
+    font-size: 15px;
+    line-height: 1.45;
+    max-width: 100%;
+  }
+  .bubble-patient {
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    color: var(--color-ink);
+    border-bottom-left-radius: 6px;
+  }
+  .bubble-lina {
+    background: var(--color-blue);
+    color: #fff;
+    border-bottom-right-radius: 6px;
+  }
+  [dir="rtl"] .bubble-patient,
+  .bubble-patient[dir="rtl"] {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 6px;
+  }
+  [dir="rtl"] .bubble-lina,
+  .bubble-lina[dir="rtl"] {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 30px;
+    padding-inline: 11px;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-card);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .lina-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-blue);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-blue) 18%, transparent);
+    flex: none;
+  }
+
+  .hairline {
+    border-color: var(--color-line);
+  }
+
+  /* Sticky scroll stages */
+  .scrolly {
+    position: relative;
+  }
+  .stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+}
+
+/* Motion-safe initial states for the hero (set before JS to avoid a flash) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-seq {
+    opacity: 0;
+  }
+  .js .load-in {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Reduced motion: collapse scroll stages into normal flow, everything visible */
+@media (prefers-reduced-motion: reduce) {
+  .scrolly {
+    height: auto !important;
+  }
+  .stage {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

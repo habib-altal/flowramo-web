@@ -1,66 +1,38 @@
-# Flowramo website plan
+# Flowramo website
 
-Status: proposed on 2026-10-04, waiting for Habib's approval.
-Visual preview of the direction: https://claude.ai/artifact/ShLRcdAfCJctE1drPX1ECH
+Status: first full build on 2026-10-04, following Habib's brief (calm like CoreShift, with Flowramo's own story and signature moments).
 
-## Concept: one night at a dental clinic
-The whole homepage tells one story. It opens in the dark: 2:14 AM, the clinic is closed and a patient is in pain. Lina answers and books them. As the visitor scrolls, dawn breaks. At 8:00 AM the doctor opens WhatsApp and finds the work already done.
+## Direction
+- Warm white background, black type, very light borders, large soft cards, big tight typography.
+- **Motion Blue (`#2b5cff`) belongs to Lina.** Whenever Lina does something, blue appears.
+- 80% calm, 20% wow. Signature moments: the hero message becoming a booking, the Lina convergence, the dashboard assembling, and the night section.
+- One patient's story runs through the page instead of separate feature blocks.
 
-The story is the argument: a clinic never loses a patient, even while everyone is asleep.
-
-Proposed hero line: **العيادة نايمة. ولينا صاحية.**
-
-## Identity
-| Token | Name | Use |
+## Sections (in `components/sections/`)
+| Section | File | What happens |
 |---|---|---|
-| `#0A1315` | ليل العيادة (clinic night) | Hero and night sections |
-| `#F0F4F2` | مينا (tooth enamel) | Morning sections, main light background |
-| `#F2B47E` | ضوء الفجر (dawn light) | Accent and primary buttons |
-| `#2FBF8F` | لينا متصلة (Lina online) | Online status, WhatsApp ticks |
+| Hero | `Hero.tsx` | "Your clinic keeps moving. Even when you don't." A patient message travels along a blue thread through Lina's status line and becomes "Consultation booked · Tuesday 14:30" without scrolling. |
+| One message, a whole journey | `Journey.tsx` + `MessageBridge.tsx` | The hero message floats down and becomes the first line of a conversation that follows the same patient from first question to a check-up six months later. |
+| Lina moment | `LinaMoment.tsx` | Dark. "Lina doesn't answer messages. She runs the conversation." Seven actions appear, then drift into one blue dot: LINA. |
+| Watch Lina think | `WatchLina.tsx` | Product UI: an Arabic conversation on one side, what Lina understands on the other, then a live booking with calendar slots. |
+| From first hello to loyal patient | `Lifecycle.tsx` | Interactive timeline: Discover, Ask, Trust, Book, Visit, Recover, Return. |
+| Money recovery | `Recovery.tsx` | Patients go quiet; Lina's line reaches Sara; she replies and books; more patients come back. |
+| Product reveal | `ProductReveal.tsx` + `DashboardCards.tsx` | Cards arrive one by one, then assemble into the Flowramo dashboard. |
+| While you were away | `WhileAway.tsx` | Day turns to night, Lina books at 01:42 and reschedules at 03:18, sunrise brings the overnight summary. Slot left for a Higgsfield night shot. |
+| Languages | `Multilingual.tsx` | The same conversation in Arabic, English and Turkish, with the patient's context unchanged. |
+| Integrations | `Integrations.tsx` | Events travel between WhatsApp, Lina, clinic knowledge, patient data, calendar and analytics. |
+| Human + AI | `HumanAI.tsx` | "Lina knows when not to be Lina." Urgent case escalated to the doctor. |
+| Social proof | `Testimonials.tsx` | Hidden until real clinics agree to be quoted. Never invent testimonials or results. |
+| Closing | `Closing.tsx` | "Your patients are already talking. Make every conversation count." |
 
-Type:
-- Display: Amiri (classical naskh), for large headings only.
-- Body: IBM Plex Sans Arabic.
-- Times and numbers: IBM Plex Mono.
+## Data
+- "Book a Demo" writes to Supabase `website_leads` with the publishable key (RLS allows anon insert only). Verified as the `anon` role on 2026-10-04.
+- Dashboard and conversation numbers are demo values inside product mockups (the dashboard is labelled "Demo").
 
-The single bold moment is the night-to-dawn gradient transition. Everything else stays quiet.
-
-## Homepage order
-1. **Night hero:** headline, Higgsfield video of an empty clinic at night, an example patient chat at 02:14.
-2. **What happened overnight:** counters that run as the visitor scrolls (messages answered, appointments booked, emergency escalated).
-3. **Lina with patients:** booking and rescheduling, reading tooth photos, voice notes, Arabic, Turkish and English.
-4. **The doctor runs the clinic from WhatsApp:** close days, offers, send photos to patients, today's appointments, reports.
-5. **After the appointment:** reminders, Google review requests, recall of patients absent for 90 days.
-6. **Try it yourself:** button that opens a WhatsApp chat with the demo Lina.
-7. **Plans and pricing.**
-8. **Book a demo:** short form that writes to Supabase `website_leads`.
-
-Other pages: `/pricing`, `/blog` (published `articles` from Supabase), `/demo`, `/privacy` and `/terms` (Meta requires these for WhatsApp Business).
-
-## Stack
-- Next.js (App Router) + TypeScript + Tailwind CSS.
-- Motion: Framer Motion or GSAP for the scroll story, with Lenis for smooth scrolling. Respect `prefers-reduced-motion`.
-- i18n: `ar` (default, RTL) and `en`.
-- Fonts self-hosted through `@fontsource` packages.
-- Deploy: Vercel, then point `flowramo.com` at it.
-
-## Higgsfield assets
-- Hero video: empty dental clinic at night, reception lights off, a phone on the counter lighting up with a message. 6–8 s seamless loop.
-- Dawn scene: the same clinic with sunlight coming through the window.
-- Textures: close-ups of clinic surfaces and instruments for section backgrounds.
-- No generated doctor faces presented as customers, and no invented reviews.
-
-Higgsfield API access: key from console.higgsfield.ai, pay-as-you-go balance, requests to `api.higgsfield.ai`. In the cloud environment, store it as the environment variable `HIGGSFIELD_API_KEY` and add `api.higgsfield.ai` (plus whichever host serves the generated files) to the allowed domains.
-
-## Working loop
-1. Build in this repo and commit every step.
-2. Deploy each round to Vercel and send Habib the preview link.
-3. Before sending, screenshot the site at phone and desktop widths and fix what's broken.
-4. Iterate on Habib's feedback, then connect `flowramo.com`.
-
-## Open questions for Habib
-1. Higgsfield API key and balance, or Habib generates the assets from prompts we write.
-2. WhatsApp number for the demo Lina.
-3. Plans and prices, or "contact us" for now.
-4. Logo file, if one exists.
-5. Approval of this direction, or what to change.
+## Open items
+1. WhatsApp number for the demo Lina: set `NEXT_PUBLIC_LINA_DEMO_WHATSAPP` and "Meet Lina" opens WhatsApp. Until then it scrolls to "Watch Lina think".
+2. Higgsfield: one or two cinematic shots at most (night clinic behind "While you were away").
+3. Real testimonials once clinics agree.
+4. Pricing page, blog (`articles` table), privacy and terms pages.
+5. Arabic version of the site.
+6. Connect `flowramo.com` to the Vercel project.
