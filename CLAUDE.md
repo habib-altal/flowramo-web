@@ -37,7 +37,7 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 
 ## Hosting
 - Vercel team `habibthiyazen-6000's projects`, project `flowramo-web` (`prj_STfFaJvHziMCPAsDyopca5n46VWR`), production URL https://flowramo-web.vercel.app (behind Vercel Authentication until Habib makes it public).
-- The Vercel account has no GitHub login connection yet, so pushes do not auto-deploy. Until Habib connects GitHub in Vercel, deploy with the Vercel MCP `create_deployment` (inline files, `target: production`).
+- The Vercel project is not linked to GitHub yet, so pushes do not auto-deploy, and `create_deployment` with a `gitSource` fails with `git_info_fail`. Inline-file deploys stopped being practical once the Journal landed (~450 KB of source plus OG images). Once Habib links `habib-altal/flowramo-web` under Project → Settings → Git, deploy with `create_deployment` + `gitSource` (or let pushes deploy).
 - The domain is `flowramo.com` (not connected yet).
 
 ## Content rules
