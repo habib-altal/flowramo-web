@@ -2,20 +2,24 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
 type Pos = { x: number; y: number; mx: number; my: number };
-const ACTIONS: { label: string; pos: Pos }[] = [
-  { label: "Patient identified", pos: { x: 16, y: 19, mx: 30, my: 13 } },
-  { label: "Intent detected", pos: { x: 50, y: 14, mx: 70, my: 19 } },
-  { label: "Appointment available", pos: { x: 81, y: 19, mx: 34, my: 25 } },
-  { label: "Reminder scheduled", pos: { x: 24, y: 29, mx: 68, my: 31 } },
-  { label: "Doctor notified", pos: { x: 76, y: 66, mx: 31, my: 66 } },
-  { label: "Follow-up created", pos: { x: 21, y: 70, mx: 69, my: 72 } },
-  { label: "Patient recovered", pos: { x: 83, y: 80, mx: 33, my: 92 } },
+// Where each of Lina's actions floats before it is pulled into the blue dot (labels come from the dictionary).
+const POSITIONS: Pos[] = [
+  { x: 16, y: 19, mx: 30, my: 13 },
+  { x: 50, y: 14, mx: 70, my: 19 },
+  { x: 81, y: 19, mx: 34, my: 25 },
+  { x: 24, y: 29, mx: 68, my: 31 },
+  { x: 76, y: 66, mx: 31, my: 66 },
+  { x: 21, y: 70, mx: 69, my: 72 },
+  { x: 83, y: 80, mx: 33, my: 92 },
 ];
 
 export function LinaMoment() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const ACTIONS = t.lina.actions.map((label, i) => ({ label, pos: POSITIONS[i] }));
 
   useGSAP(
     () => {
@@ -94,7 +98,7 @@ export function LinaMoment() {
   );
 
   return (
-    <section ref={root} id="lina" data-nav="dark" className="scrolly h-[330vh] bg-night text-moon" aria-label="Lina runs the conversation">
+    <section ref={root} id="lina" data-nav="dark" className="scrolly h-[330vh] bg-night text-moon" aria-label={t.lina.l2}>
       <div className="stage bg-night">
         <div className="absolute inset-0">
           {ACTIONS.map((a) => (
@@ -123,15 +127,15 @@ export function LinaMoment() {
               <span className="lm-ring absolute h-5 w-5 rounded-full border border-blue-bright opacity-0" aria-hidden="true" />
               <span className="lm-ring absolute h-5 w-5 rounded-full border border-blue-bright opacity-0" aria-hidden="true" />
               <span className="relative h-5 w-5 rounded-full bg-blue shadow-[0_0_30px_6px_rgba(43,92,255,0.55)]" />
-              <span className="lm-name sys absolute top-8 tracking-[0.32em] text-blue-bright">LINA</span>
+              <span className="lm-name sys absolute top-8 whitespace-nowrap tracking-[0.32em] text-blue-bright">{t.lina.core}</span>
             </div>
           </div>
         </div>
 
         <div className="wrap relative flex h-full flex-col items-center justify-center pb-[6vh] text-center">
           <h2 className="text-[clamp(2.3rem,4.9vw,5rem)] font-[560] leading-[1] tracking-[-0.044em]" style={{ fontStretch: "92%" }}>
-            <span className="lm-l1 block">Lina doesn&apos;t answer messages.</span>
-            <span className="lm-l2 block text-moon-2">She runs the conversation.</span>
+            <span className="lm-l1 block">{t.lina.l1}</span>
+            <span className="lm-l2 block text-moon-2">{t.lina.l2}</span>
           </h2>
         </div>
       </div>

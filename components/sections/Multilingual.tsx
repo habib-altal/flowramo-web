@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap, useGSAP, MOTION_OK, ScrollTrigger } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
 const LANGS = [
   {
@@ -30,15 +31,10 @@ const LANGS = [
   },
 ];
 
-const CONTEXT = [
-  ["Patient", "Leyla Demir"],
-  ["Treatment", "Whitening, session 2"],
-  ["Appointment", "Tomorrow, 18:00 → 17:30"],
-  ["Prefers", "Evenings"],
-];
-
 export function Multilingual() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const g = t.languages;
   const [i, setI] = useState(0);
   const [auto, setAuto] = useState(true);
   const [inView, setInView] = useState(false);
@@ -72,16 +68,17 @@ export function Multilingual() {
   const l = LANGS[i];
 
   return (
-    <section ref={root} id="languages" className="py-[clamp(100px,14vw,190px)]" aria-label="Every language">
+    <section ref={root} id="languages" className="py-[clamp(100px,14vw,190px)]" aria-label={g.h2b}>
       <div className="wrap flex flex-col items-center text-center">
         <h2 className="display-lg">
-          <span className="block">One clinic.</span>
-          <span className="block">Every patient feels understood.</span>
+          <span className="block">{g.h2a}</span>
+          <span className="block">{g.h2b}</span>
         </h2>
+        <p className="lede mt-6 max-w-[34rem]">{g.sub}</p>
 
-        <div className="mt-[clamp(48px,7vw,80px)] grid w-full max-w-[980px] items-center gap-6 text-left lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:gap-10">
+        <div className="mt-[clamp(48px,7vw,80px)] grid w-full max-w-[980px] items-center gap-6 text-start lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:gap-10">
           <div className="rounded-[32px] border border-line bg-card p-4 sm:p-6">
-            <div role="tablist" aria-label="Language" className="mx-auto flex w-fit gap-1 rounded-full bg-paper-2 p-1">
+            <div role="tablist" aria-label={g.tablist} className="mx-auto flex w-fit gap-1 rounded-full bg-paper-2 p-1">
               {LANGS.map((x, k) => (
                 <button
                   key={x.code}
@@ -113,16 +110,16 @@ export function Multilingual() {
 
           <div className="rounded-[28px] border border-line p-6">
             <div className="text-[13.5px] font-medium">
-              <div className="text-ink">What Lina keeps</div>
+              <div className="text-ink">{g.keeps}</div>
               <div className="mt-0.5 flex items-center gap-2 text-blue">
-                <span className="lina-dot scale-75" aria-hidden="true" /> Same in every language
+                <span className="lina-dot scale-75" aria-hidden="true" /> {g.same}
               </div>
             </div>
             <dl className="mt-4 flex flex-col">
-              {CONTEXT.map(([k, v]) => (
+              {g.context.map(([k, v]) => (
                 <div key={k} className="flex justify-between gap-4 border-b border-line py-3 text-[14.5px] last:border-b-0">
                   <dt className="text-ink-3">{k}</dt>
-                  <dd className="text-right font-medium">{v}</dd>
+                  <dd className="text-end font-medium">{v}</dd>
                 </div>
               ))}
             </dl>

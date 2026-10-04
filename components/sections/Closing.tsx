@@ -3,10 +3,13 @@
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { DemoButton, MeetLinaButton } from "../Demo";
-import { Logo } from "../Logo";
+import { Footer } from "../Footer";
+import { useI18n } from "../I18n";
 
 export function Closing() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const c = t.closing;
 
   useGSAP(
     () => {
@@ -24,21 +27,21 @@ export function Closing() {
   );
 
   return (
-    <section ref={root} id="start" className="flex min-h-[100svh] flex-col" aria-label="Get started">
+    <section ref={root} id="start" className="flex min-h-[100svh] flex-col" aria-label={c.l1}>
       <div className="wrap flex flex-1 flex-col items-center justify-center py-32 text-center">
         <h2 className="display-xl max-w-[13ch]">
-          <span className="c-1 block">Your patients are already talking.</span>
+          <span className="c-1 block">{c.l1}</span>
         </h2>
-        <p className="c-2 mt-6 text-[clamp(1.6rem,3vw,2.6rem)] font-[520] tracking-[-0.03em] text-ink-2">Make every conversation count.</p>
-        <div className="c-3 mt-10 flex flex-wrap justify-center gap-3">
-          <MeetLinaButton className="btn btn-line" />
-          <DemoButton className="btn btn-ink">Book a private demo</DemoButton>
+        <p className="c-2 mt-6 text-[clamp(1.6rem,3vw,2.6rem)] font-[520] tracking-[-0.03em] text-ink-2">{c.l2}</p>
+        <div className="c-3 mt-10 flex flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
+            <MeetLinaButton className="btn btn-line">{c.primary}</MeetLinaButton>
+            <DemoButton className="btn btn-ink">{c.secondary}</DemoButton>
+          </div>
+          <p className="text-[13.5px] text-ink-3">{c.note}</p>
         </div>
       </div>
-      <footer className="wrap flex flex-wrap items-center justify-between gap-4 pb-8 text-[13.5px] text-ink-3">
-        <Logo className="text-ink" />
-        <span>© 2026 HABIB ALTAL LTD</span>
-      </footer>
+      <Footer />
     </section>
   );
 }

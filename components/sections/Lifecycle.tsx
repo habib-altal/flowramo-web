@@ -2,47 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap, useGSAP, MOTION_OK, ScrollTrigger } from "@/lib/gsap";
-
-const STAGES = [
-  {
-    name: "Discover",
-    line: "A new patient finds you at 23:00 and sends a message.",
-    actions: ["Answers within seconds, day or night", "Replies in the patient's own language", "Shares your real services and prices"],
-  },
-  {
-    name: "Ask",
-    line: "They want to know what a treatment involves before they commit.",
-    actions: ["Answers from your clinic's own documents", "Explains treatments in plain words", "Shares before-and-after photos you approved"],
-  },
-  {
-    name: "Trust",
-    line: "Price and fear are the two reasons patients stall.",
-    actions: ["Notices hesitation and slows down", "Answers worries before suggesting a booking", "Brings the doctor in when it matters"],
-  },
-  {
-    name: "Book",
-    line: "The moment they're ready, the slot is already there.",
-    actions: ["Finds availability", "Confirms appointment", "Updates patient record"],
-  },
-  {
-    name: "Visit",
-    line: "Fewer no-shows, without anyone picking up the phone.",
-    actions: ["Sends reminders before the visit", "Handles reschedules in the chat", "Shares directions and preparation"],
-  },
-  {
-    name: "Recover",
-    line: "Some patients go quiet. Lina doesn't forget them.",
-    actions: ["Detects inactive patients", "Sends personalised follow-up", "Restarts the conversation"],
-  },
-  {
-    name: "Return",
-    line: "Treatment ends. The relationship doesn't.",
-    actions: ["Remembers past treatments", "Invites patients back for check-ups", "Asks happy patients for a Google review"],
-  },
-];
+import { useI18n } from "../I18n";
 
 export function Lifecycle() {
   const root = useRef<HTMLElement>(null);
+  const { t, rtl } = useI18n();
+  const STAGES = t.lifecycle.stages;
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(3);
   const [auto, setAuto] = useState(true);
@@ -63,7 +28,10 @@ export function Lifecycle() {
     const c = track.current;
     if (!c || c.scrollWidth <= c.clientWidth) return;
     const tab = c.querySelectorAll<HTMLElement>("[role=tab]")[active];
-    if (tab) c.scrollTo({ left: tab.offsetLeft - c.clientWidth / 2 + tab.offsetWidth / 2, behavior: "smooth" });
+    if (!tab) return;
+    // Works for both directions (RTL scroll offsets are negative in most browsers).
+    const delta = tab.getBoundingClientRect().left + tab.offsetWidth / 2 - (c.getBoundingClientRect().left + c.clientWidth / 2);
+    c.scrollBy({ left: delta, behavior: "smooth" });
   }, [active]);
 
   useEffect(() => {
@@ -77,12 +45,12 @@ export function Lifecycle() {
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
         const q = gsap.utils.selector(root);
-        gsap.fromTo(q(".lc-action"), { autoAlpha: 0, x: -10 }, { autoAlpha: 1, x: 0, duration: 0.5, stagger: 0.09, ease: "power3.out" });
+        gsap.fromTo(q(".lc-action"), { autoAlpha: 0, x: rtl ? 10 : -10 }, { autoAlpha: 1, x: 0, duration: 0.5, stagger: 0.09, ease: "power3.out" });
         gsap.fromTo(q(".lc-line"), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" });
       });
       return () => mm.revert();
     },
-    { scope: root, dependencies: [active], revertOnUpdate: true },
+    { scope: root, dependencies: [active, rtl], revertOnUpdate: true },
   );
 
   const pick = (i: number) => {
@@ -97,21 +65,22 @@ export function Lifecycle() {
       ref={root}
       id="lifecycle"
       className="relative z-10 -mt-10 rounded-t-[36px] bg-paper pb-[clamp(90px,12vw,170px)] pt-[clamp(90px,11vw,150px)] lg:rounded-t-[48px]"
-      aria-label="From first hello to loyal patient"
+      aria-label={t.lifecycle.h2}
     >
       <div className="wrap">
-        <h2 className="display-lg max-w-[12ch]">From first hello to loyal patient.</h2>
+        <h2 className="display-lg max-w-[12ch]">{t.lifecycle.h2}</h2>
+        <p className="lede mt-6 max-w-[34rem]">{t.lifecycle.sub}</p>
 
         {/* Stage track */}
         <div ref={track} className="relative mt-[clamp(48px,7vw,88px)] overflow-x-auto pb-2 [scrollbar-width:none]">
           <div className="relative min-w-[640px]">
-            <div className="absolute left-[7%] right-[7%] top-[15px] h-px bg-line" aria-hidden="true" />
+            <div className="absolute inset-x-[7%] top-[15px] h-px bg-line" aria-hidden="true" />
             <div
-              className="absolute left-[7%] top-[15px] h-px bg-blue transition-[width] duration-700 ease-[cubic-bezier(.22,1,.36,1)]"
+              className="absolute start-[7%] top-[15px] h-px bg-blue transition-[width] duration-700 ease-[cubic-bezier(.22,1,.36,1)]"
               style={{ width: `calc(${pct}% * 0.86)` }}
               aria-hidden="true"
             />
-            <div role="tablist" aria-label="Patient lifecycle" className="relative grid grid-cols-7">
+            <div role="tablist" aria-label={t.lifecycle.h2} className="relative grid grid-cols-7">
               {STAGES.map((s, i) => (
                 <button
                   key={s.name}

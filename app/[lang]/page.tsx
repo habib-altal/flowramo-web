@@ -1,6 +1,7 @@
-import { Nav } from "@/components/Nav";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { DemoProvider } from "@/components/Demo";
+import { notFound } from "next/navigation";
+import { hasLocale } from "@/lib/i18n";
+import { getDictionary } from "@/content/dictionaries";
+import { JsonLd, homeSchema } from "@/lib/schema";
 import { Hero } from "@/components/sections/Hero";
 import { Journey } from "@/components/sections/Journey";
 import { MessageBridge } from "@/components/sections/MessageBridge";
@@ -16,27 +17,27 @@ import { HumanAI } from "@/components/sections/HumanAI";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Closing } from "@/components/sections/Closing";
 
-export default function Home() {
+export default async function Home({ params }: PageProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const t = getDictionary(lang);
   return (
-    <DemoProvider>
-      <SmoothScroll />
-      <Nav />
-      <main id="top">
-        <Hero />
-        <Journey />
-        <MessageBridge />
-        <LinaMoment />
-        <WatchLina />
-        <Lifecycle />
-        <Recovery />
-        <ProductReveal />
-        <WhileAway />
-        <Multilingual />
-        <Integrations />
-        <HumanAI />
-        <Testimonials />
-        <Closing />
-      </main>
-    </DemoProvider>
+    <main id="top">
+      <JsonLd data={homeSchema(lang, t)} />
+      <Hero />
+      <Journey />
+      <MessageBridge />
+      <LinaMoment />
+      <WatchLina />
+      <Lifecycle />
+      <Recovery />
+      <ProductReveal />
+      <WhileAway />
+      <Multilingual />
+      <Integrations />
+      <HumanAI />
+      <Testimonials />
+      <Closing />
+    </main>
   );
 }

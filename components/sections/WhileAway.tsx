@@ -2,27 +2,16 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
-const STATS = [
-  { n: 17, label: "conversations handled" },
-  { n: 4, label: "appointments booked" },
-  { n: 3, label: "follow-ups completed" },
-  { n: 1, label: "patient recovered" },
-];
-
-const CLOCKS = [
-  { t: "18:30", c: "The last patient leaves." },
-  { t: "01:42", c: "The clinic is closed." },
-  { t: "03:18", c: "Still closed. Still answering." },
-  { t: "07:45", c: "Dr. Kaya opens the dashboard." },
-];
+const STAT_VALUES = [17, 4, 3, 1];
 
 function Msg({ who, children }: { who: "p" | "l"; children: React.ReactNode }) {
   return (
     <div className={`max-w-[88%] ${who === "l" ? "self-end" : "self-start"}`}>
       <div
         className={`bubble ${
-          who === "l" ? "bubble-lina" : "rounded-bl-[6px] border border-white/10 bg-white/[0.06] text-[var(--fg)]"
+          who === "l" ? "bubble-lina" : "rounded-es-[6px] border border-white/10 bg-white/[0.06] text-[var(--fg)]"
         }`}
       >
         {children}
@@ -33,6 +22,8 @@ function Msg({ who, children }: { who: "p" | "l"; children: React.ReactNode }) {
 
 export function WhileAway() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const a = t.away;
 
   useGSAP(
     () => {
@@ -80,7 +71,7 @@ export function WhileAway() {
         tl.to(q(".wa-summary"), { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 7.9);
         q(".wa-num").forEach((el, i) => {
           const o = { v: 0 };
-          tl.to(o, { v: STATS[i].n, duration: 0.8, ease: "power1.out", onUpdate: () => (el.textContent = String(Math.round(o.v))) }, 8.2 + i * 0.12);
+          tl.to(o, { v: STAT_VALUES[i], duration: 0.8, ease: "power1.out", onUpdate: () => (el.textContent = String(Math.round(o.v))) }, 8.2 + i * 0.12);
         });
         tl.to({}, { duration: 0.9 });
       });
@@ -90,7 +81,7 @@ export function WhileAway() {
   );
 
   return (
-    <section ref={root} id="away" className="scrolly h-[440vh]" aria-label="While you were away">
+    <section ref={root} id="away" className="scrolly h-[440vh]" aria-label={a.summary.title}>
       {/* Marks the night portion of the scroll so the nav switches to its dark style */}
       <div data-nav="dark" className="pointer-events-none absolute inset-x-0 top-[50vh] h-[180vh]" aria-hidden="true" />
 
@@ -112,7 +103,7 @@ export function WhileAway() {
 
         <div className="wrap relative flex h-full flex-col items-center pt-[clamp(96px,14vh,140px)] text-center">
           <div className="relative h-[clamp(5rem,13vw,10.5rem)] w-full">
-            {CLOCKS.map((c) => (
+            {a.clocks.map((c) => (
               <div key={c.t} className="wa-clock absolute inset-x-0 top-0 flex flex-col items-center opacity-0 first:opacity-100">
                 <div className="text-[clamp(4rem,12vw,9.5rem)] font-[520] leading-[0.9] tracking-[-0.05em] tabular-nums" style={{ fontStretch: "88%" }}>
                   {c.t}
@@ -125,33 +116,40 @@ export function WhileAway() {
           </div>
 
           <div className="relative mt-[clamp(48px,8vh,80px)] w-full max-w-[460px] flex-1">
-            <div className="wa-g1 absolute inset-x-0 top-0 flex flex-col gap-3 text-left motion-reduce:hidden">
-              <Msg who="p">Do you have an appointment tomorrow?</Msg>
-              <Msg who="l">Yes. 10:30 or 16:00 tomorrow. Which works for you?</Msg>
-              <Msg who="p">10:30 please</Msg>
-              <div className="sys flex items-center gap-2 self-end rounded-full bg-blue px-3 py-1.5 text-white">Booked · Tomorrow 10:30</div>
+            <div className="wa-g1 absolute inset-x-0 top-0 flex flex-col gap-3 text-start motion-reduce:hidden">
+              {a.g1.map((m) => (
+                <Msg key={m.text} who={m.who as "p" | "l"}>
+                  {m.text}
+                </Msg>
+              ))}
+              <div className="sys flex items-center gap-2 self-end rounded-full bg-blue px-3 py-1.5 text-white">{a.g1done}</div>
             </div>
-            <div className="wa-g2 absolute inset-x-0 top-0 flex flex-col gap-3 text-left motion-reduce:hidden">
-              <Msg who="p">Can I move my appointment to Friday?</Msg>
-              <Msg who="l">Done. You&apos;re now on Friday at 16:00 with the same doctor.</Msg>
-              <div className="sys flex items-center gap-2 self-end rounded-full bg-blue px-3 py-1.5 text-white">Rescheduled · Fri 16:00</div>
+            <div className="wa-g2 absolute inset-x-0 top-0 flex flex-col gap-3 text-start motion-reduce:hidden">
+              {a.g2.map((m) => (
+                <Msg key={m.text} who={m.who as "p" | "l"}>
+                  {m.text}
+                </Msg>
+              ))}
+              <div className="sys flex items-center gap-2 self-end rounded-full bg-blue px-3 py-1.5 text-white">{a.g2done}</div>
             </div>
           </div>
 
           <div className="wa-summary absolute inset-x-0 bottom-[clamp(40px,9vh,96px)] px-5">
-            <div className="mx-auto max-w-[880px] rounded-[30px] border border-line bg-card p-6 text-left text-ink shadow-[0_40px_100px_-50px_rgba(12,12,11,0.4)] sm:p-9">
+            <div className="mx-auto max-w-[880px] rounded-[30px] border border-line bg-card p-6 text-start text-ink shadow-[0_40px_100px_-50px_rgba(12,12,11,0.4)] sm:p-9">
               <div className="flex items-center justify-between">
-                <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.03em]">While you were away</h3>
+                <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.03em]">{a.summary.title}</h3>
                 <span className="flex items-center gap-2 text-[13.5px] text-ink-2">
-                  <span className="lina-dot scale-75" aria-hidden="true" /> 18:30 – 07:45
+                  <span className="lina-dot scale-75" aria-hidden="true" /> <span dir="ltr">{a.summary.range}</span>
                 </span>
               </div>
               <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">
-                {STATS.map((s) => (
-                  <div key={s.label} className="border-t border-line pt-4">
-                    <dt className="sr-only">{s.label}</dt>
-                    <dd className="wa-num text-[clamp(2.4rem,4vw,3.4rem)] font-[560] leading-none tracking-[-0.04em] tabular-nums">{s.n}</dd>
-                    <div className="mt-2 text-[14px] text-ink-2">{s.label}</div>
+                {a.summary.stats.map((label, i) => (
+                  <div key={label} className="border-t border-line pt-4">
+                    <dt className="sr-only">{label}</dt>
+                    <dd className="wa-num text-[clamp(2.4rem,4vw,3.4rem)] font-[560] leading-none tracking-[-0.04em] tabular-nums">{STAT_VALUES[i]}</dd>
+                    <div className="mt-2 text-[14px] text-ink-2" aria-hidden="true">
+                      {label}
+                    </div>
                   </div>
                 ))}
               </dl>

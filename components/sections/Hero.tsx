@@ -3,37 +3,40 @@
 import { useRef } from "react";
 import { gsap, useGSAP, DESKTOP, MOBILE, MOTION_OK, relPos } from "@/lib/gsap";
 import { DemoButton, MeetLinaButton } from "../Demo";
-
-const STATUSES = ["Understanding patient…", "Checking clinic knowledge…", "Finding availability…", "Consultation booked"];
+import { useI18n } from "../I18n";
 
 function PatientBubble({ id }: { id?: string }) {
+  const { t } = useI18n();
   return (
-    <div id={id} className="w-[272px] max-w-full">
-      <div className="mb-1.5 flex items-center gap-2 pl-1 text-[12.5px] text-ink-3">
+    <div id={id} className="w-[272px] max-w-full text-start">
+      <div className="mb-1.5 flex items-center gap-2 ps-1 text-[12.5px] text-ink-3">
         <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
-        WhatsApp · 23:41
+        {t.hero.bubbleMeta}
       </div>
-      <div className="bubble bubble-patient shadow-[0_18px_40px_-28px_rgba(12,12,11,0.45)]">Hi, do you offer dental implants?</div>
+      <div className="bubble bubble-patient shadow-[0_18px_40px_-28px_rgba(12,12,11,0.45)]">{t.hero.bubble}</div>
     </div>
   );
 }
 
 function BookedCard({ className = "" }: { className?: string }) {
+  const { t } = useI18n();
   return (
-    <div className={`relative w-[264px] rounded-[22px] border border-line bg-card p-4 shadow-[0_24px_60px_-34px_rgba(12,12,11,0.5)] ${className}`}>
+    <div className={`relative w-[264px] rounded-[22px] border border-line bg-card p-4 text-start shadow-[0_24px_60px_-34px_rgba(12,12,11,0.5)] ${className}`}>
       <span className="booked-ring pointer-events-none absolute -inset-px rounded-[22px] border border-blue opacity-0" aria-hidden="true" />
       <div className="flex items-center gap-2 text-[13px] font-medium text-blue">
         <span className="lina-dot" aria-hidden="true" />
-        Consultation booked
+        {t.hero.card.label}
       </div>
-      <div className="mt-2 text-[22px] font-[580] leading-tight tracking-[-0.03em]">Tuesday · 14:30</div>
-      <div className="mt-1 text-[13.5px] text-ink-2">Dr. Kaya · Implant consultation</div>
+      <div className="mt-2 text-[22px] font-[580] leading-tight tracking-[-0.03em]">{t.hero.card.when}</div>
+      <div className="mt-1 text-[13.5px] text-ink-2">{t.hero.card.who}</div>
     </div>
   );
 }
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const { t, rtl } = useI18n();
+  const STATUSES = t.hero.statuses;
 
   useGSAP(
     () => {
@@ -53,6 +56,7 @@ export function Hero() {
         const bubble = host.querySelector<HTMLElement>("#hero-bubble")!;
         const card = host.querySelector<HTMLElement>(".hero-card-desktop")!;
         const statuses = q(".hero-status-d");
+        const k = rtl ? -1 : 1;
 
         const buildPath = () => {
           const W = host.offsetWidth;
@@ -60,12 +64,11 @@ export function Hero() {
           svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
           const b = relPos(bubble, host);
           const c = relPos(card, host);
-          const sx = b.x + 34;
+          const sx = rtl ? b.x + bubble.offsetWidth - 34 : b.x + 34;
           const sy = b.y + bubble.offsetHeight + 10;
-          const ex = c.x - 14;
+          const ex = rtl ? c.x + card.offsetWidth + 14 : c.x - 14;
           const ey = c.y + card.offsetHeight * 0.55;
-          const d = `M ${sx} ${sy} C ${sx - 10} ${sy + H * 0.42}, ${ex - W * 0.42} ${ey + H * 0.2}, ${ex} ${ey}`;
-          path.setAttribute("d", d);
+          path.setAttribute("d", `M ${sx} ${sy} C ${sx - 10 * k} ${sy + H * 0.42}, ${ex - k * W * 0.42} ${ey + H * 0.2}, ${ex} ${ey}`);
         };
         buildPath();
         window.addEventListener("resize", buildPath);
@@ -79,11 +82,7 @@ export function Hero() {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6, delay: 1.4 });
         tl.to(dot, { opacity: 1, duration: 0.2 }, 0)
           .to(path, { drawSVG: "100%", duration: 3.4, ease: "power1.inOut" }, 0)
-          .to(
-            dot,
-            { motionPath: { path, align: path, alignOrigin: [0.5, 0.5] }, duration: 3.4, ease: "power1.inOut" },
-            0,
-          );
+          .to(dot, { motionPath: { path, align: path, alignOrigin: [0.5, 0.5] }, duration: 3.4, ease: "power1.inOut" }, 0);
         STATUSES.forEach((_, i) => {
           const at = i * 1.1;
           tl.to(statuses[i], { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, at);
@@ -115,7 +114,7 @@ export function Hero() {
         const card = q(".hero-card-mobile");
         gsap.set(q(".hero-seq"), { opacity: 1 });
         gsap.set(statuses, { opacity: 0, y: 6 });
-        gsap.set(bar, { scaleX: 0, transformOrigin: "left center" });
+        gsap.set(bar, { scaleX: 0, transformOrigin: rtl ? "right center" : "left center" });
         gsap.set(card, { opacity: 0, y: 12 });
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6, delay: 1.2 });
         STATUSES.forEach((_, i) => {
@@ -132,20 +131,20 @@ export function Hero() {
 
       return () => mm.revert();
     },
-    { scope: root },
+    { scope: root, dependencies: [rtl] },
   );
 
   return (
-    <section ref={root} className="relative flex min-h-[100svh] flex-col" aria-label="Introduction">
+    <section ref={root} className="relative flex min-h-[100svh] flex-col" aria-label={t.hero.h1a}>
       {/* Desktop floating story */}
       <svg className="hero-svg pointer-events-none absolute inset-0 hidden h-full w-full lg:block" aria-hidden="true">
         <path className="hero-path" fill="none" stroke="var(--color-blue)" strokeWidth="1.5" strokeLinecap="round" />
         <circle className="hero-traveler" r="5" fill="var(--color-blue)" />
       </svg>
-      <div id="hero-bubble-wrap" className="hero-seq absolute left-[4.5vw] top-[19%] z-10 hidden lg:block">
+      <div id="hero-bubble-wrap" className="hero-seq absolute start-[4.5vw] top-[19%] z-10 hidden lg:block">
         <PatientBubble id="hero-bubble" />
       </div>
-      <div className="absolute right-[4.5vw] top-[63%] z-10 hidden lg:block">
+      <div className="absolute end-[4.5vw] top-[63%] z-10 hidden lg:block">
         <BookedCard className="hero-card-desktop hero-seq" />
       </div>
 
@@ -154,20 +153,19 @@ export function Hero() {
           <PatientBubble />
         </div>
 
-        <h1 className="load-in text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
-          <span className="block">Your clinic keeps moving.</span>
-          <span className="block">Even when you don&apos;t.</span>
+        <h1 className="hero-title load-in text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
+          <span className="block">{t.hero.h1a}</span>
+          <span className="block">{t.hero.h1b}</span>
         </h1>
-        <p className="load-in lede mt-7 max-w-[34rem]">
-          Lina turns patient conversations into bookings, follow-ups and lasting relationships.
-        </p>
+        <p className="load-in lede mt-7 max-w-[36rem]">{t.hero.sub}</p>
         <div className="load-in mt-9 flex flex-wrap items-center justify-center gap-3">
-          <MeetLinaButton className="btn btn-ink" />
-          <DemoButton className="btn btn-line" />
+          <MeetLinaButton className="btn btn-ink">{t.hero.primary}</MeetLinaButton>
+          <DemoButton className="btn btn-line">{t.hero.secondary}</DemoButton>
         </div>
+        <p className="load-in mt-4 max-w-[30rem] text-[13px] text-ink-3">{t.hero.trust}</p>
 
         {/* Lina's live status line */}
-        <div className="hero-seq relative mt-12 h-6 w-full max-w-[340px]" aria-live="off">
+        <div className="hero-seq relative mt-10 h-6 w-full max-w-[340px]" aria-live="off">
           {STATUSES.map((s, i) => (
             <div
               key={s}
@@ -184,7 +182,7 @@ export function Hero() {
           <div className="hero-bar-m h-px w-full bg-blue" />
         </div>
         <div className="mt-6 lg:hidden">
-          <BookedCard className="hero-card-mobile hero-seq text-left" />
+          <BookedCard className="hero-card-mobile hero-seq" />
         </div>
       </div>
     </section>

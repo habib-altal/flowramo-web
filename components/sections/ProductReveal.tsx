@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { LayoutGrid, MessageCircle, CalendarDays, Users, Settings, Search } from "lucide-react";
 import { gsap, useGSAP, DESKTOP } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 import { BriefingCard, AppointmentsCard, LossRadarCard, RecoveryCard, ActivityCard, IntelligenceCard } from "./DashboardCards";
 
 // Design-space size of the dashboard; it is scaled to fit the viewport.
@@ -29,16 +30,19 @@ const DECK = [
 ];
 
 function Headline({ className = "" }: { className?: string }) {
+  const { t } = useI18n();
   return (
     <h2 className={`text-[clamp(2.1rem,4.4vw,4.4rem)] font-[560] leading-[1] tracking-[-0.044em] ${className}`} style={{ fontStretch: "92%" }}>
-      <span className="block">Everything Lina knows.</span>
-      <span className="block text-ink-3">Everything your clinic needs.</span>
+      <span className="block">{t.product.h2a}</span>
+      <span className="block text-ink-3">{t.product.h2b}</span>
     </h2>
   );
 }
 
 export function ProductReveal() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const c = t.product.chrome;
 
   useGSAP(
     () => {
@@ -101,7 +105,7 @@ export function ProductReveal() {
   );
 
   return (
-    <section ref={root} id="product" className="relative" aria-label="The Flowramo dashboard">
+    <section ref={root} id="product" className="relative" aria-label={t.product.h2a}>
       {/* Desktop: cards arrive one by one, then assemble into the dashboard */}
       <div className="scrolly hidden h-[480vh] lg:motion-safe:block">
         <div className="stage pr-stage">
@@ -109,12 +113,12 @@ export function ProductReveal() {
             <Headline />
           </div>
           <div className="pr-intro absolute inset-x-0 top-[96px] z-10 text-center">
-            <p className="text-[15px] font-medium text-ink-2">Every morning, before the first patient walks in</p>
+            <p className="text-[15px] font-medium text-ink-2">{t.product.intro}</p>
           </div>
 
           <div className="pr-board absolute left-1/2 top-1/2" style={{ width: DW, height: DH }}>
             <div className="pr-chrome absolute inset-0 rounded-[30px] border border-line bg-paper-2/70 shadow-[0_50px_120px_-50px_rgba(12,12,11,0.35)]">
-              <div className="absolute bottom-0 left-0 top-0 flex w-16 flex-col items-center gap-5 border-r border-line pt-5 text-ink-3">
+              <div className="absolute bottom-0 start-0 top-0 flex w-16 flex-col items-center gap-5 border-e border-line pt-5 text-ink-3">
                 <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-paper">
                   <span className="h-3 w-3 rounded-full bg-blue" />
                 </span>
@@ -124,19 +128,19 @@ export function ProductReveal() {
                 <Users size={19} />
                 <Settings size={19} className="mt-auto mb-5" />
               </div>
-              <div className="absolute left-16 right-0 top-0 flex h-14 items-center justify-between border-b border-line px-5 text-[13.5px]">
-                <span className="font-medium">Today · Wednesday</span>
+              <div className="absolute end-0 start-16 top-0 flex h-14 items-center justify-between border-b border-line px-5 text-[13.5px]">
+                <span className="font-medium">{c.today}</span>
                 <span className="flex h-8 w-[300px] items-center gap-2 rounded-full border border-line bg-card px-3 text-ink-3">
-                  <Search size={14} /> Ask Lina about any patient
+                  <Search size={14} /> {c.search}
                 </span>
                 <span className="flex items-center gap-2 text-ink-2">
-                  Kaya Dental <span className="rounded-full bg-paper px-2 py-0.5 text-[11.5px] text-ink-3">Demo</span>
+                  {c.clinic} <span className="rounded-full bg-paper px-2 py-0.5 text-[11.5px] text-ink-3">{c.demo}</span>
                 </span>
               </div>
             </div>
             <div
               className="pr-grid absolute grid gap-4"
-              style={{ left: 84, top: 76, width: DW - 104, height: DH - 96, gridTemplateColumns: "repeat(12, minmax(0, 1fr))", gridTemplateRows: "230px 180px minmax(0, 1fr)" }}
+              style={{ insetInlineStart: 84, top: 76, width: DW - 104, height: DH - 96, gridTemplateColumns: "repeat(12, minmax(0, 1fr))", gridTemplateRows: "230px 180px minmax(0, 1fr)" }}
             >
               {CARDS.map((c, i) => (
                 <div key={c.key} className="pr-card relative min-h-0 rounded-[20px]" style={{ gridArea: c.area, zIndex: 10 + i }}>

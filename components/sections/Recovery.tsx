@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Check } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
 const COLS = 15;
 const ROWS = 7;
@@ -26,10 +27,11 @@ const sara = dots[SARA];
 const LINA = { x: 34, y: H / 2 };
 const PATH = `M ${LINA.x} ${LINA.y} C ${LINA.x + 120} ${LINA.y - 10}, ${sara.cx - 160} ${sara.cy + 60}, ${sara.cx} ${sara.cy}`;
 
-const STEPS = ["Personalised follow-up sent", "Patient replied", "Consultation booked"];
 
 export function Recovery() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const r = t.recovery;
 
   useGSAP(
     () => {
@@ -71,32 +73,30 @@ export function Recovery() {
   );
 
   return (
-    <section ref={root} id="recovery" className="scrolly h-[380vh]" aria-label="Money recovery">
+    <section ref={root} id="recovery" className="scrolly h-[380vh]" aria-label={r.l2}>
       <div className="stage">
         <div className="wrap grid h-full content-center gap-8 pb-8 pt-[84px] lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-12">
           <div className="min-w-0">
-            <h2 className="text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>
-              <span className="block">Some patients don&apos;t say no.</span>
-              <span className="rc-l2 block text-ink-3">They simply disappear.</span>
+            <h2 className="rc-title text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>
+              <span className="block">{r.l1}</span>
+              <span className="rc-l2 block text-ink-3">{r.l2}</span>
             </h2>
             <div className="rc-legend mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-ink-2">
               <span className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-ink" /> Active
+                <span className="h-2.5 w-2.5 rounded-full bg-ink" /> {r.legend.active}
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#d4d2ca]" /> Went quiet
+                <span className="h-2.5 w-2.5 rounded-full bg-[#d4d2ca]" /> {r.legend.quiet}
               </span>
               <span className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-blue" /> Recovered by Lina
+                <span className="h-2.5 w-2.5 rounded-full bg-blue" /> {r.legend.recovered}
               </span>
             </div>
-            <p className="rc-close lede mt-8 max-w-[28rem] text-ink">
-              Every patient Lina brings back is revenue your clinic had already lost.
-            </p>
+            <p className="rc-close lede mt-8 max-w-[28rem] text-ink">{r.close}</p>
           </div>
 
           <div className="relative min-w-0">
-            <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full overflow-visible" role="img" aria-label="A field of patients; some go quiet and Lina brings them back">
+            <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full overflow-visible" role="img" aria-label={r.aria}>
               <path className="rc-path" d={PATH} fill="none" stroke="#2b5cff" strokeWidth="1.6" strokeLinecap="round" />
               {dots.map((d) => {
                 const cls =
@@ -109,7 +109,7 @@ export function Recovery() {
                 <circle cx={LINA.x} cy={LINA.y} r={22} fill="#2b5cff" opacity="0.12" />
                 <circle cx={LINA.x} cy={LINA.y} r={9} fill="#2b5cff" />
                 <text x={LINA.x} y={LINA.y + 40} textAnchor="middle" className="fill-blue font-mono text-[13px] tracking-[0.2em]">
-                  LINA
+                  {t.lina.core}
                 </text>
               </g>
             </svg>
@@ -119,12 +119,12 @@ export function Recovery() {
               style={{ "--l": `${((sara.cx + 24) / W) * 100}%`, "--t": `${((sara.cy + 20) / H) * 100}%` } as React.CSSProperties}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[17px] font-[580] tracking-[-0.02em]">Sara</span>
-                <span className="rc-badge rounded-full bg-blue px-2.5 py-1 text-[11.5px] font-medium text-white">Recovered by Lina</span>
+                <span className="text-[17px] font-[580] tracking-[-0.02em]">{r.card.name}</span>
+                <span className="rc-badge rounded-full bg-blue px-2.5 py-1 text-[11.5px] font-medium text-white">{r.card.badge}</span>
               </div>
-              <div className="mt-0.5 text-[13.5px] text-ink-2">Veneers inquiry · No reply for 6 days</div>
+              <div className="mt-0.5 text-[13.5px] text-ink-2">{r.card.meta}</div>
               <ul className="mt-3 flex flex-col gap-1.5 border-t border-line pt-3">
-                {STEPS.map((s) => (
+                {r.card.steps.map((s) => (
                   <li key={s} className="rc-step flex items-center gap-2 text-[13.5px] text-ink-2">
                     <Check size={14} className="text-blue" /> {s}
                   </li>

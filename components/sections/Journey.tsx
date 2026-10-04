@@ -2,61 +2,17 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
-const STAGES = [
-  "Asks",
-  "Lina answers",
-  "Asks the price",
-  "Hesitates",
-  "Disappears",
-  "Lina remembers",
-  "Lina follows up",
-  "Comes back",
-  "Books",
-  "Visits",
-  "Gets aftercare",
-  "Returns months later",
-];
+type Item = { kind: string; text: string; stage: number };
 
-type Item = { kind: "patient" | "lina" | "divider" | "system"; text: string; stage: number };
-
-const ITEMS: Item[] = [
-  { kind: "patient", text: "Hi, do you offer dental implants?", stage: 0 },
-  { kind: "lina", text: "We do. Dr. Kaya places implants here every week. Is it for one tooth or a few?", stage: 1 },
-  { kind: "patient", text: "Just one. Roughly how much?", stage: 2 },
-  {
-    kind: "lina",
-    text: "Usually €650–900 including the crown. The exact plan comes after a quick x-ray. Shall I hold a free consultation for you?",
-    stage: 2,
-  },
-  { kind: "patient", text: "Ok thanks, I'll think about it.", stage: 3 },
-  { kind: "divider", text: "No reply for 6 days", stage: 4 },
-  { kind: "system", text: "Remembered: implant, price shared, not booked", stage: 5 },
-  {
-    kind: "lina",
-    text: "Hi Omar, most people weighing up an implant ask about healing time, so here's what to expect. Tuesday 14:30 is free if you'd like to talk it through.",
-    stage: 6,
-  },
-  { kind: "patient", text: "Actually yes. Tuesday works.", stage: 7 },
-  { kind: "system", text: "Consultation booked · Tue 14:30", stage: 8 },
-  { kind: "divider", text: "Tuesday, after the visit", stage: 9 },
-  {
-    kind: "lina",
-    text: "How are you feeling, Omar? Soft food today and no hot drinks tonight. Message me if the swelling grows.",
-    stage: 10,
-  },
-  { kind: "divider", text: "6 months later", stage: 11 },
-  { kind: "lina", text: "It's been six months since your implant. Time for a check-up? Thursday morning is free.", stage: 11 },
-  { kind: "patient", text: "Perfect, book it.", stage: 11 },
-];
-
-function Row({ item, index }: { item: Item; index: number }) {
+function Row({ item, index, meta }: { item: Item; index: number; meta: string }) {
   if (index === 0) {
     return (
       <div id="journey-first" className="j-item w-[272px] max-w-full self-start">
-        <div className="mb-1.5 flex items-center gap-2 pl-1 text-[12.5px] text-ink-3">
+        <div className="mb-1.5 flex items-center gap-2 ps-1 text-[12.5px] text-ink-3">
           <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
-          WhatsApp · 23:41
+          {meta}
         </div>
         <div className="bubble bubble-patient">{item.text}</div>
       </div>
@@ -88,6 +44,9 @@ function Row({ item, index }: { item: Item; index: number }) {
 
 export function Journey() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const STAGES = t.journey.stages;
+  const ITEMS = t.journey.items as Item[];
 
   useGSAP(
     () => {
@@ -130,8 +89,8 @@ export function Journey() {
             scrub: 0.7,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              const t = self.progress * (self.animation?.duration() ?? ITEMS.length);
-              const step = Math.min(ITEMS.length - 1, Math.max(0, Math.floor(t + 0.25)));
+              const time = self.progress * (self.animation?.duration() ?? ITEMS.length);
+              const step = Math.min(ITEMS.length - 1, Math.max(0, Math.floor(time + 0.25)));
               setStage(ITEMS[step].stage);
             },
           },
@@ -153,7 +112,7 @@ export function Journey() {
   );
 
   return (
-    <section ref={root} id="journey" className="scrolly h-[560vh]" aria-label="One patient journey">
+    <section ref={root} id="journey" className="scrolly h-[560vh]" aria-label={t.journey.h2b}>
       <div className="stage">
         <div className="wrap grid h-full grid-rows-[auto_1fr] gap-5 pb-6 pt-[86px] lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:grid-rows-1 lg:items-center lg:gap-[clamp(40px,7vw,120px)] lg:pb-10 lg:pt-[96px]">
           {/* Conversation */}
@@ -161,7 +120,7 @@ export function Journey() {
             <div className="j-viewport relative h-full overflow-hidden rounded-[28px] border border-line bg-card/70">
               <div className="j-column relative flex flex-col gap-3 p-5">
                 {ITEMS.map((item, i) => (
-                  <Row key={i} item={item} index={i} />
+                  <Row key={i} item={item} index={i} meta={t.journey.meta} />
                 ))}
               </div>
               <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-card/80 to-transparent" />
@@ -171,21 +130,19 @@ export function Journey() {
           {/* Story rail */}
           <div className="order-1 flex min-w-0 flex-col lg:order-2">
             <h2 className="text-[clamp(2rem,4.6vw,4.6rem)] font-[560] leading-[0.97] tracking-[-0.044em]" style={{ fontStretch: "92%" }}>
-              <span className="block">One message.</span>
-              <span className="block">An entire patient journey.</span>
+              <span className="block">{t.journey.h2a}</span>
+              <span className="block">{t.journey.h2b}</span>
             </h2>
+            <p className="mt-5 hidden max-w-[26rem] text-[17px] text-ink-2 lg:block">{t.journey.sub}</p>
             <div className="mt-3 flex items-center gap-2 text-[14px] text-ink-2 lg:hidden">
               <span className="lina-dot scale-75" aria-hidden="true" />
               <span className="j-label font-medium text-ink">{STAGES[0]}</span>
               <span className="j-count tabular-nums text-ink-3">1 / {STAGES.length}</span>
             </div>
 
-            <ol className="relative mt-10 hidden max-w-[420px] flex-col lg:flex">
-              <span className="absolute bottom-[14px] left-[3.5px] top-[14px] w-px bg-line" aria-hidden="true" />
-              <span
-                className="j-fill absolute bottom-[14px] left-[3.5px] top-[14px] w-px origin-top bg-blue"
-                aria-hidden="true"
-              />
+            <ol className="relative mt-8 hidden max-w-[420px] flex-col lg:flex">
+              <span className="absolute bottom-[14px] start-[3.5px] top-[14px] w-px bg-line" aria-hidden="true" />
+              <span className="j-fill absolute bottom-[14px] start-[3.5px] top-[14px] w-px origin-top bg-blue" aria-hidden="true" />
               {STAGES.map((s, i) => (
                 <li
                   key={s}

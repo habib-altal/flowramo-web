@@ -3,30 +3,35 @@
 import { useRef } from "react";
 import { MessageCircle, CalendarDays, UserRound, BookOpen, Sparkles, BarChart3 } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
-type Node = { id: string; label: string; icon: React.ReactNode; x: number; y: number; mx: number; my: number };
+type NodeId = "wa" | "cal" | "pt" | "an" | "kn" | "ai";
+type Node = { id: NodeId; icon: React.ReactNode; x: number; y: number; mx: number; my: number };
 
 const NODES: Node[] = [
-  { id: "wa", label: "WhatsApp", icon: <MessageCircle size={16} />, x: 50, y: 9, mx: 50, my: 8 },
-  { id: "cal", label: "Calendar", icon: <CalendarDays size={16} />, x: 86, y: 30, mx: 78, my: 30 },
-  { id: "pt", label: "Patient data", icon: <UserRound size={16} />, x: 86, y: 70, mx: 78, my: 70 },
-  { id: "an", label: "Analytics", icon: <BarChart3 size={16} />, x: 50, y: 91, mx: 50, my: 92 },
-  { id: "kn", label: "Clinic knowledge", icon: <BookOpen size={16} />, x: 14, y: 70, mx: 22, my: 70 },
-  { id: "ai", label: "AI", icon: <Sparkles size={16} />, x: 14, y: 30, mx: 22, my: 30 },
+  { id: "wa", icon: <MessageCircle size={16} />, x: 50, y: 9, mx: 50, my: 8 },
+  { id: "cal", icon: <CalendarDays size={16} />, x: 86, y: 30, mx: 78, my: 30 },
+  { id: "pt", icon: <UserRound size={16} />, x: 86, y: 70, mx: 78, my: 70 },
+  { id: "an", icon: <BarChart3 size={16} />, x: 50, y: 91, mx: 50, my: 92 },
+  { id: "kn", icon: <BookOpen size={16} />, x: 14, y: 70, mx: 22, my: 70 },
+  { id: "ai", icon: <Sparkles size={16} />, x: 14, y: 30, mx: 22, my: 30 },
 ];
 
-const FLOW: [string, string, string][] = [
-  ["wa", "core", "New message"],
-  ["core", "ai", "Understanding intent"],
-  ["core", "kn", "Checking clinic knowledge"],
-  ["core", "pt", "Updating patient record"],
-  ["core", "cal", "Booking the slot"],
-  ["core", "an", "Logging the outcome"],
-  ["core", "wa", "Appointment confirmed"],
+// Route of one event through the system; labels come from the dictionary in the same order.
+const FLOW: [string, string][] = [
+  ["wa", "core"],
+  ["core", "ai"],
+  ["core", "kn"],
+  ["core", "pt"],
+  ["core", "cal"],
+  ["core", "an"],
+  ["core", "wa"],
 ];
 
 export function Integrations() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const g = t.integrations;
 
   useGSAP(
     () => {
@@ -46,7 +51,8 @@ export function Integrations() {
 
         gsap.set(pill, { xPercent: -50, yPercent: -50, autoAlpha: 0 });
         const tl = gsap.timeline({ repeat: -1, paused: true, onRepeat: () => tl.invalidate() });
-        FLOW.forEach(([from, to, label], i) => {
+        FLOW.forEach(([from, to], i) => {
+          const label = g.flow[i];
           const at = i * 1.5;
           const target = to === "core" ? host.querySelector(".ig-core") : node(to);
           tl.set(pill, { left: () => pos(from).left, top: () => pos(from).top }, at)
@@ -71,14 +77,11 @@ export function Integrations() {
   );
 
   return (
-    <section ref={root} id="integrations" className="border-t border-line py-[clamp(100px,13vw,180px)]" aria-label="Integrations">
+    <section ref={root} id="integrations" className="border-t border-line py-[clamp(100px,13vw,180px)]" aria-label={g.h2}>
       <div className="wrap grid items-center gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div className="min-w-0">
-          <h2 className="display-md max-w-[14ch]">Everything your clinic runs on, connected.</h2>
-          <p className="lede mt-6 max-w-[30rem]">
-            WhatsApp, your calendar, patient records and your own clinic documents. Lina reads from and writes to all of them, so
-            nothing gets typed twice.
-          </p>
+          <h2 className="display-md max-w-[14ch]">{g.h2}</h2>
+          <p className="lede mt-6 max-w-[30rem]">{g.sub}</p>
         </div>
 
         <div className="ig-map relative mx-auto aspect-[1/1] w-full max-w-[600px] sm:aspect-[5/4]">
@@ -95,7 +98,7 @@ export function Integrations() {
             <span className="absolute inset-3 rounded-full bg-blue/[0.06]" aria-hidden="true" />
             <span className="relative flex flex-col items-center gap-1.5">
               <span className="h-4 w-4 rounded-full bg-blue shadow-[0_0_24px_4px_rgba(43,92,255,0.35)]" />
-              <span className="text-[13px] font-[600] tracking-[-0.01em]">Lina</span>
+              <span className="text-[13px] font-[600] tracking-[-0.01em]">{g.core}</span>
             </span>
           </div>
 
@@ -108,14 +111,14 @@ export function Integrations() {
             >
               <span className="ig-node flex h-9 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-card px-3 text-[12.5px] font-medium sm:h-10 sm:px-4 sm:text-[14px]">
                 {n.icon}
-                {n.label}
+                {g.nodes[n.id]}
               </span>
             </div>
           ))}
 
           <div className="ig-pill sys pointer-events-none absolute left-1/2 top-1/2 z-10 flex items-center gap-2 whitespace-nowrap rounded-full bg-blue px-3 py-1.5 text-white opacity-0 shadow-[0_10px_30px_-10px_rgba(43,92,255,0.7)]">
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            <span className="ig-pill-text">New message</span>
+            <span className="ig-pill-text">{g.flow[0]}</span>
           </div>
         </div>
       </div>

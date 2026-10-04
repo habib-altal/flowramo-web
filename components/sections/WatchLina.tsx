@@ -3,20 +3,12 @@
 import { useRef, useState } from "react";
 import { RotateCcw, Check, CalendarClock, BellRing } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import { useI18n } from "../I18n";
 
-const SIGNALS = [
-  { k: "Language", v: "Arabic (Gulf)" },
-  { k: "Patient", v: "Returning · 2 past visits" },
-  { k: "Topic", v: "Implant inquiry" },
-  { k: "Feeling", v: "Anxiety detected" },
-  { k: "Intent", v: "High purchase intent" },
-];
-
-const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 const TIMES = ["10:00", "11:00", "14:30", "16:00"];
-// Free slots Lina can offer; everything else is already taken.
-const FREE = new Set(["Tue-14:30", "Thu-11:00", "Wed-16:00", "Fri-10:00"]);
-const PICK = "Tue-14:30";
+// Free slots Lina can offer (day index-time); everything else is already taken.
+const FREE = new Set(["1-14:30", "3-11:00", "2-16:00", "4-10:00"]);
+const PICK = "1-14:30";
 
 function Bubble({ who, children, cls }: { who: "p" | "l"; children: React.ReactNode; cls: string }) {
   return (
@@ -46,6 +38,9 @@ function Typing({ cls }: { cls: string }) {
 
 export function WatchLina() {
   const root = useRef<HTMLElement>(null);
+  const { t } = useI18n();
+  const w = t.watch;
+  const SIGNALS = w.signals;
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const [done, setDone] = useState(false);
 
@@ -94,21 +89,19 @@ export function WatchLina() {
   const replay = contextSafe(() => tlRef.current?.restart());
 
   return (
-    <section ref={root} id="watch" data-nav="dark" className="relative bg-night pb-[clamp(90px,12vw,160px)] pt-[clamp(72px,9vw,128px)] text-moon" aria-label="Watch Lina think">
+    <section ref={root} id="watch" data-nav="dark" className="relative bg-night pb-[clamp(90px,12vw,160px)] pt-[clamp(72px,9vw,128px)] text-moon" aria-label={w.h2}>
       <div className="wrap">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-[640px]">
-            <h2 className="display-md">Watch Lina think.</h2>
-            <p className="mt-4 text-[clamp(1.05rem,1.4vw,1.2rem)] text-moon-2">
-              A real conversation in Arabic, and everything Lina understands while it happens.
-            </p>
+            <h2 className="display-md">{w.h2}</h2>
+            <p className="mt-4 text-[clamp(1.05rem,1.4vw,1.2rem)] text-moon-2">{w.sub}</p>
           </div>
           <button
             onClick={replay}
             className={`btn h-10 border border-night-line px-4 text-[14px] text-moon-2 hover:text-moon ${done ? "" : "pointer-events-none opacity-0"}`}
             tabIndex={done ? 0 : -1}
           >
-            <RotateCcw size={15} /> Replay
+            <RotateCcw size={15} /> {w.replay}
           </button>
         </div>
 
@@ -116,22 +109,22 @@ export function WatchLina() {
           {/* Window bar */}
           <div className="flex h-14 items-center justify-between border-b border-night-line px-5 text-[13.5px]">
             <div className="flex min-w-0 items-center gap-3">
-              <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-night-3 text-[13px] font-semibold">OH</span>
+              <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-night-3 text-[12px] font-semibold">{w.initials}</span>
               <div className="min-w-0 leading-tight">
-                <div className="truncate font-medium">Omar Haddad</div>
-                <div className="truncate text-[12px] text-moon-2">WhatsApp · Returning patient</div>
+                <div className="truncate font-medium">{w.patient}</div>
+                <div className="truncate text-[12px] text-moon-2">{w.patientMeta}</div>
               </div>
             </div>
             <div className="flex items-center gap-2 text-moon-2">
               <span className="lina-dot scale-75" aria-hidden="true" />
-              <span className="hidden sm:inline">Lina is handling this chat</span>
-              <span className="sm:hidden">Lina</span>
+              <span className="hidden sm:inline">{w.handling}</span>
+              <span className="sm:hidden">{w.handlingShort}</span>
             </div>
           </div>
 
           <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
             {/* Conversation (Arabic, right-to-left) */}
-            <div dir="rtl" lang="ar" className="relative flex min-h-[460px] flex-col gap-3 p-5 pb-20 sm:p-7 sm:pb-20 lg:min-h-[560px] lg:border-l lg:border-night-line">
+            <div dir="rtl" lang="ar" className="relative flex min-h-[460px] flex-col gap-3 p-5 pb-20 sm:p-7 sm:pb-20 lg:min-h-[560px] lg:border-e lg:border-night-line">
               <Bubble who="p" cls="w-msg w-m1">أنا متردد شوي، هل الزراعة مؤلمة؟</Bubble>
               <Typing cls="w-typing w-t1" />
               <Bubble who="l" cls="w-msg w-m2">
@@ -147,19 +140,19 @@ export function WatchLina() {
             {/* What Lina understands */}
             <div className="grid border-t border-night-line p-5 sm:p-7 lg:border-t-0">
               <div className="w-signals col-start-1 row-start-1 flex flex-col">
-                <div className="sys mb-4 text-moon-2">What Lina understands</div>
+                <div className="sys mb-4 text-moon-2">{w.understands}</div>
                 <dl className="flex flex-col">
                   {SIGNALS.map((s, i) => (
                     <div key={s.k} className={`w-sig w-s${i} flex items-center justify-between gap-4 border-b border-night-line py-3.5`}>
                       <dt className="text-[13.5px] text-moon-2">{s.k}</dt>
-                      <dd className={`text-right text-[15px] font-medium ${i >= 3 ? "text-blue-bright" : ""}`}>{s.v}</dd>
+                      <dd className={`text-end text-[15px] font-medium ${i >= 3 ? "text-blue-bright" : ""}`}>{s.v}</dd>
                     </div>
                   ))}
                 </dl>
                 <div className="w-sig w-s4b mt-4">
                   <div className="flex justify-between text-[12.5px] text-moon-2">
-                    <span>Likelihood to book</span>
-                    <span className="tabular-nums">High</span>
+                    <span>{w.likelihood}</span>
+                    <span className="tabular-nums">{w.high}</span>
                   </div>
                   <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-night-3">
                     <div className="w-meter h-full w-full rounded-full bg-blue" style={{ transform: "scaleX(0.84)", transformOrigin: "left" }} />
@@ -168,16 +161,16 @@ export function WatchLina() {
               </div>
 
               <div className="w-booking col-start-1 row-start-1 flex flex-col gap-5 motion-reduce:row-start-2 motion-reduce:mt-10">
-                <div className="sys text-moon-2">Finding a slot · Next week</div>
+                <div className="sys text-moon-2">{w.finding}</div>
                 <div className="grid grid-cols-5 gap-1.5 text-center text-[12.5px]">
-                  {DAYS.map((d) => (
-                    <div key={d} className="pb-1 text-moon-2">
+                  {w.days.map((d) => (
+                    <div key={d} className="truncate pb-1 text-moon-2">
                       {d}
                     </div>
                   ))}
-                  {TIMES.map((t) =>
-                    DAYS.map((d) => {
-                      const key = `${d}-${t}`;
+                  {TIMES.map((time) =>
+                    w.days.map((_, d) => {
+                      const key = `${d}-${time}`;
                       const free = FREE.has(key);
                       const pick = key === PICK;
                       return (
@@ -189,7 +182,7 @@ export function WatchLina() {
                               : "border-transparent bg-night-3/60 text-moon-2/40 line-through decoration-moon-2/30"
                           }`}
                         >
-                          {t}
+                          {time}
                         </div>
                       );
                     }),
@@ -198,18 +191,18 @@ export function WatchLina() {
 
                 <div className="rounded-2xl border border-night-line bg-night-3/50 p-4">
                   <div className="flex items-center justify-between text-[14px]">
-                    <span className="font-medium">Omar Haddad</span>
-                    <span className="text-moon-2">Implant consultation</span>
+                    <span className="font-medium">{w.patient}</span>
+                    <span className="text-moon-2">{w.consult}</span>
                   </div>
                   <ul className="mt-3 flex flex-col gap-2.5 text-[14px]">
                     <li className="w-done flex items-center gap-2.5">
-                      <Check size={16} className="text-blue-bright" /> Booking confirmed · Tue 14:30
+                      <Check size={16} className="text-blue-bright" /> {w.done[0]}
                     </li>
                     <li className="w-done flex items-center gap-2.5">
-                      <BellRing size={16} className="text-blue-bright" /> Reminder scheduled · Mon 18:00
+                      <BellRing size={16} className="text-blue-bright" /> {w.done[1]}
                     </li>
                     <li className="w-done flex items-center gap-2.5">
-                      <CalendarClock size={16} className="text-blue-bright" /> Follow-up created · Day after the visit
+                      <CalendarClock size={16} className="text-blue-bright" /> {w.done[2]}
                     </li>
                   </ul>
                 </div>
