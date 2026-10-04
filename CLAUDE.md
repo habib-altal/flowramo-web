@@ -25,8 +25,9 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 - The `Web Chat Gateway` workflow (`/webhook/webchat`) is known to be unreliable. Do not put it on the site until it is fixed; use a WhatsApp click-to-chat link for the live demo instead.
 
 ## Hosting
-- Vercel team `habibthiyazen-6000's projects` is connected through the Vercel MCP (no projects yet).
-- The domain is `flowramo.com`.
+- Vercel team `habibthiyazen-6000's projects`, project `flowramo-web` (`prj_STfFaJvHziMCPAsDyopca5n46VWR`), production URL https://flowramo-web.vercel.app (behind Vercel Authentication until Habib makes it public).
+- The Vercel account has no GitHub login connection yet, so pushes do not auto-deploy. Until Habib connects GitHub in Vercel, deploy with the Vercel MCP `create_deployment` (inline files, `target: production`).
+- The domain is `flowramo.com` (not connected yet).
 
 ## Content rules
 - Never invent testimonials, clinic names presented as customers, reviews or usage numbers. Only real data goes on the site.
