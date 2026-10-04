@@ -7,7 +7,7 @@ const article: Article = {
   related: ["reduce-dental-no-shows", "ai-receptionist-for-dental-clinics"],
 
   en: {
-    title: "How to Reactivate Inactive Dental Patients: A WhatsApp Playbook",
+    title: "How to reactivate inactive dental patients: a WhatsApp playbook",
     seoTitle: "How to Reactivate Inactive Dental Patients: Scripts",
     description:
       "How to reactivate inactive dental patients: segment your list, send each group the right WhatsApp message, and track who comes back. Scripts included.",

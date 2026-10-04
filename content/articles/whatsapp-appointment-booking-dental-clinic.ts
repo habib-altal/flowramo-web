@@ -29,7 +29,7 @@ const article: Article = {
   related: ["ai-receptionist-for-dental-clinics", "reduce-dental-no-shows"],
 
   en: {
-    title: "WhatsApp Appointment Booking for Dental Clinics: A Practical Playbook",
+    title: "WhatsApp appointment booking for dental clinics: a practical playbook",
     seoTitle: "WhatsApp Appointment Booking for Dental Clinics (2026)",
     description:
       "WhatsApp appointment booking for dental clinics: app vs API, the 24-hour rule, templates to pre-approve and a booking script that turns chats into visits.",
@@ -58,7 +58,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Every other channel adds a step between intent and booking. A phone line needs opening hours and a free receptionist; a web form promises a callback the patient may miss. WhatsApp booking done well removes the step: the patient asks, gets an answer, picks a time and is booked in the thread where they already talk to family.",
+        text: "Every other channel adds a step between intent and booking: a phone line needs opening hours and a free receptionist; a web form promises a callback the patient may miss. WhatsApp done well removes the step. The patient asks, gets an answer, picks a time and is booked, in the thread where they already talk to family.",
       },
 
       { t: "h2", id: "three-ways", text: "What are the three ways to take bookings on WhatsApp?" },
@@ -74,7 +74,7 @@ const article: Article = {
       { t: "h3", text: "2. The WhatsApp Business Platform with an automated assistant" },
       {
         t: "p",
-        text: "This is Meta's official route for businesses that need scale, usually through the Cloud API. Software can answer instantly, read and write the clinic calendar, send approved reminder templates and pass a chat to the right person. Several staff can work one number at once, and every conversation is kept. Meta charges per delivered template message; a provider or developer connects it.",
+        text: "Meta's official route for businesses that need scale, usually via the Cloud API. Software can answer instantly, read and write the clinic calendar, send approved reminder templates and pass a chat to the right person. Several staff can work one number at once, and every conversation is kept. Meta charges per delivered template message; a provider or developer connects it.",
       },
       { t: "h3", text: "3. Unofficial automation tools and browser bots" },
       {
@@ -89,16 +89,16 @@ const article: Article = {
           ["Scale", "One primary phone and a few linked devices", "Many staff plus automation on one number", "Unstable at volume"],
           ["Automation", "Greeting, away and quick replies", "Answers, bookings, reminders, follow-ups", "Scripted and fragile"],
           ["Calendar integration", "None; bookings copied by hand", "Reads free slots, writes bookings", "Unreliable"],
-          ["Compliance", "Within terms, but manual only", "Official; templates reviewed by Meta", "Violates WhatsApp's terms"],
+          ["Compliance", "Within terms", "Official; templates reviewed by Meta", "Violates WhatsApp's terms"],
           ["Risk", "Missed messages; one person is the system", "Low with opt-in and approved templates", "Number ban and lost history"],
         ],
-        caption: "Three ways to take dental bookings on WhatsApp, compared.",
+        caption: "The three options compared.",
       },
 
       { t: "h2", id: "whatsapp-rules", text: "Which WhatsApp rules shape the booking experience?" },
       {
         t: "p",
-        text: "Five rules decide what a patient sees and what you pay. Get them right at the start and the rest is design.",
+        text: "Five rules decide what a patient sees and what you pay. None of them needs a developer to understand.",
       },
       {
         t: "ul",
@@ -106,7 +106,7 @@ const article: Article = {
           "**The 24-hour customer service window.** When a patient messages you, a 24-hour window opens and resets each time they write again. Inside it you can send free-form replies, which Meta calls service messages ([Meta: Send messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages)).",
           "**Templates outside the window.** Once the window closes, you can only start a conversation with a pre-approved template, categorised as Marketing, Utility or Authentication ([Meta: Templates overview](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview)). Utility covers factual updates on something the patient arranged, such as an appointment; anything promotional is Marketing.",
           "**Per-message pricing.** Since 1 July 2025, Meta charges per delivered template message, not per conversation. Service messages inside the window are free, utility templates sent while the window is open are free, and marketing templates are the most expensive category ([Meta: Pricing](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing)).",
-          "**Opt-in and opt-out.** The [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy) requires permission before you message someone, and that you honour requests to stop. A patient who agrees to booking reminders has not agreed to offers.",
+          "**Opt-in and opt-out.** The [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy) says you need a person's permission before messaging them and must honour requests to stop. A patient who agrees to booking reminders has not agreed to offers.",
           "**The January 2026 AI rule.** From 15 January 2026, WhatsApp's business terms bar general-purpose AI assistants, chatbots whose AI is the product. AI for customer service, such as bookings and answering customer questions, remains allowed ([TechCrunch](https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/)), and a clinic receptionist that books appointments is exactly that case.",
         ],
       },
@@ -118,7 +118,7 @@ const article: Article = {
         t: "table",
         head: ["Clinic message", "Usual type", "What to watch"],
         rows: [
-          ["Booking confirmation", "Service message", "Sent in the chat where the patient just booked, so the window is open."],
+          ["Booking confirmation", "Service message", "Sent in the booking chat while the window is open."],
           ["Reminder before the visit", "Utility template", "The window has usually closed. Keep it factual: date, time, doctor, place."],
           ["Reschedule or cancellation", "Service message or utility template", "Free-form if the patient asked; a template if the clinic starts it."],
           ["Aftercare check-in", "Utility template", "Tied to the treatment just done. An offer inside it makes it marketing."],
@@ -137,7 +137,7 @@ const article: Article = {
         t: "ol",
         items: [
           "**Answer the question first.** If they asked about implants, the first line is about implants, not “How can I help you?”",
-          "**Give a price range from approved knowledge.** A range the clinic has signed off, with what moves it up or down, beats “prices vary, please visit”.",
+          "**Give a price range from approved knowledge.** An approved range, with what moves it, beats “prices vary, please visit”.",
           "**Offer two specific slots.** “Tuesday 4:30 pm or Wednesday 11:00 am?” is a one-word decision; an open question is homework.",
           "**Confirm in one tap.** Repeat the booking back with day, date, time, doctor and treatment, and accept a simple “yes”.",
           "**Send a location pin and prep instructions.** Parking, floor, what to bring, whether to eat beforehand.",
@@ -149,12 +149,12 @@ const article: Article = {
         text: "Reminders are not a courtesy: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of eight trials found text-message reminders increased attendance compared with no reminder, with an effect similar to phone calls at lower cost per attendance. Our guide to [reducing dental no-shows](/en/blog/reduce-dental-no-shows) covers the schedule.",
       },
       { t: "h3", text: "Example: the 23:41 implant enquiry, booked" },
-      { t: "p", text: "The exchange below is illustrative; the doctor, prices and times are placeholders." },
+      { t: "p", text: "Illustrative only; names, prices and times are placeholders." },
       {
         t: "ul",
         items: [
           "**Patient, Sunday 23:41:** Hi, how much is a dental implant? I lost a back tooth last year.",
-          "**Clinic:** Hi, thanks for your message. A single implant with its crown is usually SAR 4,500–7,000 here; the exact plan follows an x-ray at the consultation. Would you like one with Dr. Sara? Tuesday 4:30 pm or Wednesday 11:00 am are free.",
+          "**Clinic:** Thanks for your message. A single implant with its crown is usually SAR 4,500–7,000 here; the exact plan follows an x-ray at the consultation. Would you like one with Dr. Sara? Tuesday 4:30 pm or Wednesday 11:00 am are free.",
           "**Patient:** Wednesday is better. Does it hurt?",
           "**Clinic:** The consultation is an examination and an x-ray, about 30 minutes, nothing invasive. If you go ahead, Dr. Sara explains the anaesthetic and recovery in detail. Shall I book Wednesday at 11:00 am?",
           "**Patient:** Yes please.",
@@ -164,8 +164,20 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Three patient messages, a few minutes, no phone call, and the clinic never once asked “when are you free?”",
+        text: "Three patient messages, no phone call, and the clinic never asked “when are you free?”",
       },
+      { t: "h2", id: "common-mistakes", text: "Which mistakes cost clinics bookings on WhatsApp?" },
+      {
+        t: "ul",
+        items: [
+          "**Making patients call instead.** “Please call us to book” turns a warm enquiry into a task for tomorrow. Book in the channel the patient chose.",
+          "**Asking open questions.** “When suits you?” is homework. Offer two times.",
+          "**Sending promotions without opt-in.** It breaches the messaging policy, pushes patients to block or report your number, and costs the highest rate.",
+          "**Letting one staff phone become the system.** When that person is on leave, the front desk and every chat history go with them.",
+          "**No follow-up after “I'll think about it”.** They told you they are interested. A respectful message a few days later that answers the likely worry can recover the booking. After 24 hours it needs a template, so write one in advance; our guide to [reactivating inactive patients](/en/blog/reactivate-inactive-dental-patients) covers the longer version.",
+        ],
+      },
+
       { t: "cta" },
 
       { t: "h2", id: "setup-checklist", text: "How do you set up WhatsApp booking, step by step?" },
@@ -175,8 +187,8 @@ const article: Article = {
           "**Get a dedicated number.** A clinic-owned number that is nobody's personal phone; it will sit on your signage, website and maps listing for years.",
           "**Verify the business with Meta.** Complete business verification in Meta Business Manager with your commercial registration, tying the account to the clinic's legal entity.",
           "**Set the display name.** Meta reviews the name patients see; it should match your real clinic brand, not a generic “Dental Clinic”.",
-          "**Pre-approve templates.** Submit them before launch; review takes time and rejected wording needs rewriting. The core set is below.",
-          "**Connect the calendar.** The assistant must read real free slots per doctor and chair and write bookings back, so the chat and the front desk never double-book.",
+          "**Pre-approve templates.** Submit them before launch; rejected wording needs rewriting. The core set is below.",
+          "**Connect the calendar.** The assistant reads real free slots per doctor and chair and writes bookings back, so chat and front desk never double-book.",
           "**Write handoff rules.** Decide what goes straight to a person: pain, swelling or bleeding after treatment, complaints, anything clinical, and anyone who asks for a human.",
           "**Publish click-to-chat links.** Put a wa.me link on your website, Instagram bio and Google Business Profile so every patient lands in the same thread.",
         ],
@@ -190,7 +202,6 @@ const article: Article = {
         t: "ul",
         items: [
           "**Appointment reminder (utility):** “Hi {{1}}, a reminder of your appointment with {{2}} on {{3}} at {{4}}. Reply 1 to confirm or 2 to reschedule.”",
-          "**Same-day reminder (utility):** “Hi {{1}}, we look forward to seeing you today at {{2}}. Our location: {{3}}.”",
           "**Phone booking confirmation (utility):** “Your appointment is confirmed: {{1}} at {{2}} with {{3}}. Reply here if you need to change it.”",
           "**Reschedule request (utility):** “Hi {{1}}, {{2}} is no longer available on {{3}}. Would {{4}} or {{5}} suit you? Reply with your choice.”",
           "**Aftercare check-in (utility):** “Hi {{1}}, how are you feeling after your {{2}}? If swelling, bleeding or pain is getting worse, reply here and our team will contact you.”",
@@ -201,7 +212,7 @@ const article: Article = {
       { t: "h3", text: "Click-to-chat links" },
       {
         t: "p",
-        text: "A wa.me link opens a chat with your number and can pre-fill the first message, with no developer account needed. Write your full international number without the + sign or leading zeros, then add ?text= and the message, URL-encoded (a space becomes %20).",
+        text: "A wa.me link opens a chat with your number and can pre-fill the first message; no developer account is needed. Use your full international number without the + or leading zeros, then add ?text= and the URL-encoded message (a space becomes %20).",
       },
       {
         t: "table",
@@ -211,11 +222,11 @@ const article: Article = {
           ["Pre-filled text", "?text=Book%20a%20check-up"],
           ["Full link", "https://wa.me/9665XXXXXXXX?text=Book%20a%20check-up"],
         ],
-        caption: "The wa.me link format. Replace the X's with your clinic number.",
+        caption: "Replace the X's with your clinic number.",
       },
       {
         t: "p",
-        text: "Vary the text by channel, such as “Hi, I found you on Instagram” or “Hi, I found you on Google Maps”, and the first message tells you where each booking came from.",
+        text: "Vary the text by channel (“Hi, I found you on Instagram”, “Hi, I found you on Google Maps”) and the first message shows where each booking came from.",
       },
 
       { t: "h2", id: "patient-privacy", text: "How do you protect patient privacy in WhatsApp booking?" },
@@ -234,25 +245,13 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "This is practical guidance, not legal advice; ask your data-protection adviser to review the final setup.",
-      },
-
-      { t: "h2", id: "common-mistakes", text: "Which mistakes cost clinics bookings on WhatsApp?" },
-      {
-        t: "ul",
-        items: [
-          "**Making patients call instead.** “Please call us to book” turns a warm enquiry into a task for tomorrow. Book in the channel the patient chose.",
-          "**Asking open questions.** “When suits you?” is homework. Offer two times.",
-          "**Sending promotions without opt-in.** It breaches the messaging policy, pushes patients to block or report your number, and costs the highest rate.",
-          "**Letting one staff phone become the system.** When that person is on leave, the front desk and every chat history go with them.",
-          "**No follow-up after “I'll think about it”.** That patient just told you they are interested. A respectful message a few days later that answers the likely worry can recover the booking. After 24 hours it needs a template, so write one in advance; our guide to [reactivating inactive patients](/en/blog/reactivate-inactive-dental-patients) covers the longer version.",
-        ],
+        text: "This is practical guidance, not legal advice.",
       },
 
       { t: "h2", id: "how-lina-works", text: "How Lina runs WhatsApp booking" },
       {
         t: "p",
-        text: "Lina is the AI receptionist Flowramo builds for dental clinics, on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
+        text: "Lina is the AI receptionist Flowramo builds for dental clinics, running on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
       },
       {
         t: "p",
@@ -296,7 +295,7 @@ const article: Article = {
       "WhatsApp 24-hour customer service window",
       "WhatsApp message templates for clinics",
     ],
-    minutes: 9,
+    minutes: 10,
   },
 
   ar: {
@@ -325,7 +324,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "وفي الخليج تحدث هذه اللحظة على الجوال. ففي السعودية بلغ عدد مستخدمي الإنترنت 33.9 مليون مستخدم مطلع 2025، بنسبة انتشار 99.0% ([DataReportal](https://datareportal.com/reports/digital-2025-saudi-arabia)). مرضاك متصلون وجوالاتهم في أيديهم، والسؤال الحقيقي: هل عيادتك متاحة لهم هناك في اللحظة نفسها؟",
+        text: "وفي الخليج تحدث هذه اللحظة على الجوال. ففي السعودية بلغ عدد مستخدمي الإنترنت 33.9 مليون مستخدم في مطلع 2025، بنسبة انتشار 99.0% ([DataReportal](https://datareportal.com/reports/digital-2025-saudi-arabia)). مرضاك متصلون وجوالاتهم في أيديهم، والسؤال الحقيقي: هل عيادتك متاحة لهم هناك في اللحظة نفسها؟",
       },
       {
         t: "p",
@@ -350,7 +349,7 @@ const article: Article = {
       { t: "h3", text: "3. الأدوات غير الرسمية وروبوتات المتصفح" },
       {
         t: "p",
-        text: "برامج تتحكم في واتساب ويب أو في التطبيق العادي عبر سكربتات، وتبدو رخيصة وسريعة. لكنها تعمل خارج شروط واتساب، وتتعطل كلما تغيّرت الواجهة، وقد يُحظر الرقم الذي تعمل عليه فتضيع معه كل محادثات المرضى. وعيادة يعرف مرضاها رقمًا واحدًا لا تحتمل هذه المخاطرة مقابل توفير بسيط.",
+        text: "هذه برامج تتحكم في واتساب ويب أو في التطبيق العادي عبر سكربتات، وتبدو رخيصة وسريعة. لكنها تعمل خارج شروط واتساب، وتتعطل كلما تغيّرت الواجهة، وقد يُحظر الرقم الذي تعمل عليه فتضيع معه كل محادثات المرضى. وعيادة يعرف مرضاها رقمًا واحدًا لا تحتمل هذه المخاطرة مقابل توفير بسيط.",
       },
       {
         t: "table",
@@ -363,7 +362,7 @@ const article: Article = {
           ["الامتثال", "ضمن الشروط، لكنه يدوي بالكامل", "رسمي، والقوالب تراجعها Meta", "مخالفة لشروط واتساب"],
           ["المخاطر", "رسائل فائتة، وشخص واحد هو النظام كله", "منخفضة مع موافقة المريض وقوالب معتمدة", "حظر الرقم وضياع السجل"],
         ],
-        caption: "مقارنة بين الطرق الثلاث لاستقبال حجوزات الأسنان على واتساب.",
+        caption: "مقارنة بين الخيارات الثلاثة.",
       },
 
       { t: "h2", id: "whatsapp-rules", text: "ما قواعد واتساب التي تحدد تجربة الحجز؟" },
@@ -420,7 +419,7 @@ const article: Article = {
         text: "الخطوة الأخيرة ليست مجاملة. فقد وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) لثماني تجارب أن رسائل التذكير النصية رفعت نسبة الحضور مقارنة بعدم التذكير، بأثر مماثل للتذكير بالاتصال الهاتفي وبتكلفة أقل لكل حضور. ويشرح دليلنا عن [تقليل غياب مرضى الأسنان عن مواعيدهم](/ar/blog/reduce-dental-no-shows) جدول التذكير بالتفصيل.",
       },
       { t: "h3", text: "مثال: استفسار الزراعة في 23:41 وقد تحوّل إلى موعد" },
-      { t: "p", text: "المحادثة التالية توضيحية، واسم الطبيبة والأسعار والمواعيد افتراضية." },
+      { t: "p", text: "مثال توضيحي فقط، والأسماء والأسعار والمواعيد افتراضية." },
       {
         t: "ul",
         items: [
@@ -428,7 +427,7 @@ const article: Article = {
           "**العيادة:** وعليكم السلام، أهلًا بك. زراعة السن الواحد مع التاج تتراوح عندنا عادةً بين 4,500 و7,000 ريال، والخطة الدقيقة تحددها الطبيبة بعد فحص العظم بالأشعة في الاستشارة. هل يناسبك أن نحجز لك استشارة مع د. سارة؟ المتاح: الثلاثاء 4:30 عصرًا أو الأربعاء 11:00 صباحًا.",
           "**المريض:** الأربعاء أنسب لي. بس الزراعة تعوّر؟",
           "**العيادة:** الاستشارة فحص وأشعة فقط، ومدتها نحو 30 دقيقة دون أي إجراء مؤلم. وإن قررت الزراعة تشرح لك د. سارة التخدير وفترة التعافي بالتفصيل. هل أؤكد لك موعد الأربعاء 11:00 صباحًا؟",
-          "**المريض:** إيه أكّديه، الله يعطيك العافية.",
+          "**المريض:** إيه تمام، أكّد الموعد الله يعطيك العافية.",
           "**العيادة:** تم الحجز: الأربعاء 7 أكتوبر، 11:00 صباحًا، استشارة زراعة مع د. سارة. هذا موقع العيادة على الخريطة، والمواقف أسفل المبنى، والعيادة في الدور الثاني. أحضر معك أي أشعة سابقة إن وُجدت، وإذا احتجت إلى تغيير الموعد فاكتب لنا هنا في أي وقت.",
           "**قالب خدمي، الثلاثاء 6:00 مساءً:** تذكير: موعدك مع د. سارة غدًا الأربعاء 7 أكتوبر الساعة 11:00 صباحًا. أرسل 1 للتأكيد أو 2 لتغيير الموعد.",
         ],
@@ -437,6 +436,18 @@ const article: Article = {
         t: "p",
         text: "ثلاث رسائل من المريض، ودقائق قليلة، دون أي اتصال هاتفي، ولم تسأله العيادة مرة واحدة «متى يناسبك؟».",
       },
+      { t: "h2", id: "common-mistakes", text: "ما الأخطاء التي تخسر بها العيادات حجوزات واتساب؟" },
+      {
+        t: "ul",
+        items: [
+          "**مطالبة المريض بالاتصال.** عبارة «تفضل اتصل علينا للحجز» تحوّل استفسارًا جادًا إلى مهمة مؤجلة للغد. احجز له في القناة التي اختارها هو.",
+          "**الأسئلة المفتوحة.** «أي وقت يناسبك؟» واجب منزلي. اعرض موعدين.",
+          "**إرسال العروض دون موافقة.** يخالف سياسة الرسائل، ويدفع المرضى إلى حظر رقمك والإبلاغ عنه، وهو فوق ذلك الأعلى تكلفة.",
+          "**جوال موظفة واحدة يصبح هو النظام.** حين تأخذ إجازة، يغيب معها مكتب الاستقبال وسجل المحادثات كله.",
+          "**لا متابعة بعد «بفكر وأرد عليك».** هذا المريض أخبرك للتو أنه مهتم. رسالة لبقة بعد أيام قليلة تجيب عن قلقه المتوقع قد تعيد حجزًا كان سيضيع. وبعد 24 ساعة تحتاج هذه الرسالة إلى قالب، فاكتبه مسبقًا. ويتناول دليلنا عن [إعادة المرضى المنقطعين](/ar/blog/reactivate-inactive-dental-patients) هذه المتابعة بتوسع.",
+        ],
+      },
+
       { t: "cta" },
 
       { t: "h2", id: "setup-checklist", text: "كيف تجهّز الحجز عبر واتساب خطوة بخطوة؟" },
@@ -461,13 +472,11 @@ const article: Article = {
         t: "ul",
         items: [
           "**تذكير بالموعد (خدمي):** «مرحبًا {{1}}، نذكّرك بموعدك مع {{2}} يوم {{3}} الساعة {{4}}. أرسل 1 للتأكيد أو 2 لتغيير الموعد.»",
-          "**تذكير يوم الموعد (خدمي):** «مرحبًا {{1}}، بانتظارك اليوم الساعة {{2}}. موقعنا: {{3}}.»",
           "**تأكيد حجز تم بالهاتف (خدمي):** «تم تأكيد موعدك: {{1}} الساعة {{2}} مع {{3}}. للتعديل يمكنك الرد هنا.»",
           "**طلب تغيير موعد (خدمي):** «مرحبًا {{1}}، {{2}} لن يكون متاحًا يوم {{3}}. هل يناسبك {{4}} أو {{5}}؟ أرسل اختيارك.»",
           "**الاطمئنان بعد العلاج (خدمي):** «مرحبًا {{1}}، كيف حالك بعد {{2}}؟ إذا زاد التورم أو النزيف أو الألم فاكتب لنا هنا وسيتواصل معك فريقنا.»",
           "**موعد فائت (خدمي غالبًا):** «مرحبًا {{1}}، افتقدناك في موعد اليوم. هل تود حجز موعد جديد؟ ردّ علينا ونرسل لك أقرب المواعيد المتاحة.»",
           "**تذكير الفحص الدوري (تسويقي غالبًا):** «مرحبًا {{1}}، مرّ {{2}} أشهر على آخر فحص لك. هل تود أن نجد لك موعدًا مناسبًا؟»",
-          "**متابعة خطة العلاج (تسويقي غالبًا):** «مرحبًا {{1}}، طلب منا د. {{2}} أن نتأكد إن كان لديك أي سؤال عن خطة {{3}} التي ناقشتماها.»",
         ],
       },
       { t: "h3", text: "روابط المحادثة المباشرة" },
@@ -483,7 +492,7 @@ const article: Article = {
           ["رابط مع رسالة جاهزة", "https://wa.me/9665XXXXXXXX?text=%D8%AD%D8%AC%D8%B2%20%D9%85%D9%88%D8%B9%D8%AF"],
           ["ما يظهر للمريض في خانة الكتابة", "حجز موعد"],
         ],
-        caption: "صيغة رابط wa.me. استبدل الرموز X برقم عيادتك.",
+        caption: "استبدل الرموز X برقم عيادتك.",
       },
       {
         t: "p",
@@ -506,19 +515,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "هذه إرشادات عملية وليست استشارة قانونية، ويُستحسن أن يراجع مستشار حماية البيانات لديك الإعداد النهائي.",
-      },
-
-      { t: "h2", id: "common-mistakes", text: "ما الأخطاء التي تخسر بها العيادات حجوزات واتساب؟" },
-      {
-        t: "ul",
-        items: [
-          "**مطالبة المريض بالاتصال.** عبارة «تفضل اتصل علينا للحجز» تحوّل استفسارًا جادًا إلى مهمة مؤجلة للغد. احجز له في القناة التي اختارها هو.",
-          "**الأسئلة المفتوحة.** «أي وقت يناسبك؟» واجب منزلي. اعرض موعدين.",
-          "**إرسال العروض دون موافقة.** يخالف سياسة الرسائل، ويدفع المرضى إلى حظر رقمك والإبلاغ عنه، وتدفع عليه أعلى سعر.",
-          "**جوال موظفة واحدة يصبح هو النظام.** حين تأخذ إجازة، يغيب معها مكتب الاستقبال وسجل المحادثات كله.",
-          "**لا متابعة بعد «بفكر وأرد عليك».** هذا المريض أخبرك للتو أنه مهتم. رسالة لبقة بعد أيام قليلة تجيب عن قلقه المتوقع قد تعيد حجزًا كان سيضيع. وبعد 24 ساعة تحتاج هذه الرسالة إلى قالب، فاكتبه مسبقًا. ويتناول دليلنا عن [إعادة المرضى المنقطعين](/ar/blog/reactivate-inactive-dental-patients) هذه المتابعة بتوسع.",
-        ],
+        text: "هذه إرشادات عملية وليست استشارة قانونية.",
       },
 
       { t: "h2", id: "how-lina-works", text: "كيف تدير لينا الحجز عبر واتساب" },
@@ -528,7 +525,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "تبحث لينا عن المواعيد المتاحة، وتحجز المواعيد أو تغيّرها أو تلغيها في تقويم العيادة، ثم ترسل التأكيدات والتذكيرات. وتتذكر كل محادثة، وتتابع المريض حين يتوقف عن الرد، وترسل رسائل ما بعد العلاج، وتعيد المرضى إلى فحوصاتهم الدورية. وإذا كان الأمر عاجلًا أو سريريًا أو حساسًا أو خارج ما تعرفه، حوّلت المحادثة إلى فريقك مع سياقها كاملًا، فهي لا تشخّص. وكل يوم تتلقى العيادة ملخصًا بالحجوزات والمحادثات والمرضى المعرّضين للضياع.",
+        text: "تبحث لينا عن المواعيد المتاحة، وتحجز المواعيد أو تغيّرها أو تلغيها في تقويم العيادة، ثم ترسل التأكيدات والتذكيرات. وتتذكر كل محادثة، وتتابع المريض حين يتوقف عن الرد، وترسل رسائل ما بعد العلاج، وتعيد المرضى إلى فحوصاتهم الدورية. وإذا كان الأمر عاجلًا أو سريريًا أو حساسًا أو خارج ما تعرفه، حوّلت المحادثة إلى فريقك مع سياقها كاملًا، ولينا لا تشخّص أبدًا. وكل يوم تتلقى العيادة ملخصًا بالحجوزات والمحادثات والمرضى المعرّضين للضياع.",
       },
       {
         t: "p",
@@ -569,7 +566,7 @@ const article: Article = {
       "حجز مواعيد عيادة اسنان",
       "رابط واتساب مباشر للعيادة",
     ],
-    minutes: 9,
+    minutes: 12,
   },
 };
 

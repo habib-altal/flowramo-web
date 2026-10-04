@@ -64,7 +64,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Why do people miss? A 2025 study of 420 adults who missed outpatient appointments at [Ibra Hospital in Oman](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12696599/) found the most common reason was simply **forgetting** (12.09%), followed by no leave from work (9.13%), needing to reschedule (6.91%) and transport problems (6.41%). In a [pediatric dental clinic survey](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6102432/) of 294 parents, 52.0% said they had missed an appointment; parents' forgetfulness and children's school exams (17.0% each) topped the reasons, and about half relied on memory alone.",
+        text: "Why do people miss? A 2025 study of 420 adults who missed outpatient appointments at [Ibra Hospital in Oman](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12696599/) found the most common reason was simply **forgetting** (12.09%), followed by no leave from work (9.13%), needing to reschedule (6.91%) and transport problems (6.41%). In a [pediatric dental clinic survey](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6102432/) of 294 parents, 52.0% said they had missed an appointment; parents' forgetfulness and children's school exams topped the reasons, and 52.0% relied on memory alone to remember the date.",
       },
       {
         t: "p",
@@ -163,7 +163,7 @@ const article: Article = {
       { t: "h3", text: "6. Treat the repeat few differently" },
       {
         t: "p",
-        text: "Remember the Helsinki concentration: 5% of patients produced more than a fifth of no-shows, and the pediatric survey also found that patients with previously broken appointments were among the most likely to miss. Flag anyone with two or more missed visits. For them, require an active confirmation (no reply means a phone call the day before), offer shorter lead times, and don't give them your longest, most valuable blocks without a deposit.",
+        text: "Remember the Helsinki concentration: 5% of patients produced more than a fifth of no-shows. Flag anyone with two or more missed visits. For them, require an active confirmation (no reply means a phone call the day before), offer shorter lead times, and don't give them your longest, most valuable blocks without a deposit.",
       },
       { t: "h3", text: "7. Use deposits for long or expensive procedures" },
       {
@@ -386,7 +386,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "أما الأسباب، فقد شملت دراسة نُشرت عام 2025 في [مستشفى إبراء بسلطنة عُمان](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12696599/) 420 بالغًا فاتتهم مواعيد في العيادات الخارجية، وكان السبب الأكثر شيوعًا هو **النسيان** (12.09%)، ثم عدم الحصول على إذن من العمل (9.13%)، ثم الحاجة إلى تغيير الموعد (6.91%)، ثم مشكلات المواصلات (6.41%). وفي [استبيان لعيادة أسنان أطفال](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6102432/) شمل 294 من الآباء والأمهات، قال 52.0% إنهم فوّتوا موعدًا من قبل، وتصدّر الأسباب نسيانُ الأهل واختباراتُ الأبناء المدرسية (17.0% لكل منهما)، واعتمد نحو نصفهم على الذاكرة وحدها.",
+        text: "أما الأسباب، فقد شملت دراسة نُشرت عام 2025 في [مستشفى إبراء بسلطنة عُمان](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12696599/) 420 بالغًا فاتتهم مواعيد في العيادات الخارجية، وكان السبب الأكثر شيوعًا هو **النسيان** (12.09%)، ثم عدم الحصول على إذن من العمل (9.13%)، ثم الحاجة إلى تغيير الموعد (6.91%)، ثم مشكلات المواصلات (6.41%). وفي [استبيان لعيادة أسنان أطفال](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6102432/) شمل 294 من الآباء والأمهات، قال 52.0% إنهم فوّتوا موعدًا من قبل، وتصدّر الأسباب نسيانُ الأهل واختباراتُ الأبناء المدرسية، واعتمد 52.0% منهم على الذاكرة وحدها لتذكّر الموعد.",
       },
       {
         t: "p",
@@ -483,7 +483,7 @@ const article: Article = {
       { t: "h3", text: "6. تعامل مع القلة المتكررة بطريقة مختلفة" },
       {
         t: "p",
-        text: "تذكّر نتيجة هلسنكي: 5% من المرضى كانوا وراء أكثر من خُمس حالات الغياب، ووجد استبيان عيادة الأطفال كذلك أن من فوّتوا مواعيد سابقة كانوا من الأكثر عرضة للغياب. ضع علامة على كل مريض فاته موعدان أو أكثر. واطلب منه تأكيدًا صريحًا (عدم الرد يعني اتصالًا في اليوم السابق)، واعرض عليه مواعيد أقرب، ولا تعطه أطول فتراتك وأعلاها قيمة دون عربون.",
+        text: "تذكّر نتيجة هلسنكي: 5% من المرضى كانوا وراء أكثر من خُمس حالات الغياب. ضع علامة على كل مريض فاته موعدان أو أكثر. واطلب منه تأكيدًا صريحًا (عدم الرد يعني اتصالًا في اليوم السابق)، واعرض عليه مواعيد أقرب، ولا تعطه أطول فتراتك وأعلاها قيمة دون عربون.",
       },
       { t: "h3", text: "7. اطلب عربونًا في الإجراءات الطويلة أو المكلفة" },
       {

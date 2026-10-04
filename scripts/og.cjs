@@ -21,7 +21,9 @@ function page({ lang, kicker, title, sub, home }) {
   const body = rtl ? `"PA", "IS"` : `"IS"`;
   return `<!doctype html><html lang="${lang}" dir="${rtl ? "rtl" : "ltr"}"><head><meta charset="utf-8"><style>${FONTS}
 *{margin:0;box-sizing:border-box}
+html{overflow:hidden}
 body{width:1200px;height:630px;background:#faf9f6;color:#0c0c0b;font-family:${body};overflow:hidden;position:relative}
+.frame{position:absolute;inset:0;overflow:hidden}
 .glow{position:absolute;inset:auto -120px -260px auto;width:720px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(43,92,255,.16),rgba(43,92,255,0));${rtl ? "inset:auto auto -260px -120px;" : ""}}
 .top{position:absolute;inset:56px 72px auto 72px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;font-family:"IS";font-weight:620;font-size:30px;letter-spacing:-.03em;font-stretch:94%;direction:ltr}
@@ -34,7 +36,7 @@ p{margin-top:22px;font-size:${rtl ? 25 : 26}px;line-height:1.45;color:#5d5c57;ma
 .b{padding:14px 20px;border-radius:24px;font-size:22px;line-height:1.35;max-width:430px}
 .bp{background:#fff;border:1px solid #e6e4dd}
 .bl{background:#2b5cff;color:#fff}
-</style></head><body><div class="glow"></div>
+</style></head><body><div class="frame"><div class="glow"></div></div>
 <div class="top"><div class="logo"><svg width="34" height="34" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="none" stroke="#0c0c0b" stroke-opacity=".22" stroke-width="1.25"/><circle cx="11" cy="11" r="4.5" fill="#2b5cff"/></svg>Flowramo</div>
 <div class="kicker"><span class="dot"></span>${esc(kicker)}</div></div>
 ${home ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل تقدمون زراعة الأسنان؟" : "Hi, do you offer dental implants?"}</div><div class="b bl">${rtl ? "تم حجز الاستشارة · الثلاثاء 14:30" : "Consultation booked · Tue 14:30"}</div></div>` : ""}

@@ -32,7 +32,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "There is a quieter cost too. On the WhatsApp Business Platform, a patient's message opens a 24-hour [customer service window](https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages) that resets with each new message. Inside it the clinic can reply freely; outside it, only pre-approved template messages can be sent. A message sent on the eve of Eid and opened after the holiday has already missed that window.",
+        text: "There is a quieter cost too. On the WhatsApp Business Platform, a patient's message opens a 24-hour [customer service window](https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages) that resets with each new message. Inside it the clinic can reply freely; outside it, only pre-approved templates. A message sent on the eve of Eid and opened after the holiday has already missed that window.",
       },
       { t: "h3", text: "The arithmetic of a closed inbox" },
       { t: "p", text: "Put your own numbers in. This is an illustrative example, not an industry benchmark:" },
@@ -40,7 +40,7 @@ const article: Article = {
         t: "ul",
         items: [
           "**After-hours inquiries:** say 40 new-patient messages a month arrive after closing.",
-          "**Lost before morning:** if 1 in 4 of those patients books elsewhere before you reply, that is 10 first visits a month.",
+          "**Lost before morning:** if 1 in 4 book elsewhere before you reply, that is 10 first visits a month.",
           "**What they were worth:** multiply by the value of a typical first treatment plan, not the consultation fee. For an implant inquiry, that is the whole case.",
         ],
       },
@@ -115,7 +115,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "On cost, Meta's [WhatsApp pricing](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing) charges per delivered template message, while free-form replies inside the customer service window are free. A system that answers within the window keeps those fees low.",
+        text: "On cost, Meta's [WhatsApp pricing](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing) charges per delivered template message, while free-form replies inside the customer service window are free. Answering inside the window keeps fees low.",
       },
 
       { t: "h2", id: "why-whatsapp", text: "Why WhatsApp, and is AI still allowed on it in 2026?" },
@@ -144,7 +144,7 @@ const article: Article = {
       { t: "h3", text: "1. The official platform, not a workaround" },
       {
         t: "p",
-        text: "Some cheap “WhatsApp automation” tools drive the ordinary WhatsApp app or WhatsApp Web with scripts instead of the official platform. That breaks WhatsApp's terms and risks a ban on the number your patients have saved for years. Only consider tools built on the official platform.",
+        text: "Some cheap “WhatsApp automation” tools drive the ordinary WhatsApp app or WhatsApp Web with scripts instead of the official platform. That breaks [WhatsApp's Terms of Service](https://www.whatsapp.com/legal/terms-of-service), which prohibit unauthorised bulk and automated messaging, and risks a ban on the number your patients have saved for years. Only consider tools built on the official platform.",
       },
       { t: "h3", text: "2. Health data is sensitive data" },
       {
@@ -164,7 +164,7 @@ const article: Article = {
       { t: "h3", text: "5. A full audit trail" },
       {
         t: "p",
-        text: "You should be able to read every conversation, see what the AI said and when, and see who took over. If a vendor can't show you that, you can't supervise the system.",
+        text: "You should be able to read every conversation and see what the AI said, when, and who took over. If a vendor can't show you that, you can't supervise it.",
       },
       {
         t: "callout",
@@ -196,12 +196,12 @@ const article: Article = {
       { t: "h2", id: "30-day-rollout", text: "A 30-day rollout plan" },
       {
         t: "p",
-        text: "You can go live in a month without risking a single patient relationship, if you move in this order.",
+        text: "You can go live in a month without risking a patient relationship, in this order.",
       },
       { t: "h3", text: "Week 1: Write down what the clinic knows" },
       {
         t: "p",
-        text: "Export last month's WhatsApp chats and list the 30 questions patients ask most. Write approved answers, prices or ranges, each doctor's schedule, and dentist-signed preparation and aftercare sheets. Then write the handoff rules and the on-call contacts for nights and holidays.",
+        text: "Export last month's WhatsApp chats and list the 30 questions patients ask most. Write approved answers, prices or ranges, each doctor's schedule, and dentist-signed preparation and aftercare sheets. Then set the handoff rules and on-call contacts for nights and holidays.",
       },
       { t: "h3", text: "Week 2: Connect and rehearse" },
       {
@@ -263,6 +263,10 @@ const article: Article = {
       },
     ],
     sources: [
+      {
+        label: "WhatsApp — Terms of Service",
+        url: "https://www.whatsapp.com/legal/terms-of-service",
+      },
       {
         label: "TechCrunch — WhatsApp changes its terms to bar general-purpose chatbots from its platform (2025)",
         url: "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/",
@@ -437,7 +441,7 @@ const article: Article = {
       { t: "h3", text: "1. المنصة الرسمية، لا الطرق الالتفافية" },
       {
         t: "p",
-        text: "بعض أدوات «أتمتة واتساب» الرخيصة تشغّل تطبيق واتساب العادي أو واتساب ويب ببرامج نصية، بدل استخدام منصة واتساب للأعمال الرسمية. هذا يخالف شروط واتساب ويعرّض للحظر الرقمَ الذي يحفظه مرضاك في جوالاتهم منذ سنوات. لا تنظر إلا في الأدوات المبنية على المنصة الرسمية.",
+        text: "بعض أدوات «أتمتة واتساب» الرخيصة تشغّل تطبيق واتساب العادي أو واتساب ويب ببرامج نصية، بدل استخدام منصة واتساب للأعمال الرسمية. هذا يخالف [شروط خدمة واتساب](https://www.whatsapp.com/legal/terms-of-service) التي تمنع المراسلة الآلية والجماعية غير المصرّح بها، ويعرّض للحظر الرقمَ الذي يحفظه مرضاك في جوالاتهم منذ سنوات. لا تنظر إلا في الأدوات المبنية على المنصة الرسمية.",
       },
       { t: "h3", text: "2. البيانات الصحية بيانات حساسة" },
       {
@@ -556,6 +560,10 @@ const article: Article = {
       },
     ],
     sources: [
+      {
+        label: "WhatsApp — Terms of Service",
+        url: "https://www.whatsapp.com/legal/terms-of-service",
+      },
       {
         label: "TechCrunch — WhatsApp changes its terms to bar general-purpose chatbots from its platform (2025)",
         url: "https://techcrunch.com/2025/10/18/whatssapp-changes-its-terms-to-bar-general-purpose-chatbots-from-its-platform/",
