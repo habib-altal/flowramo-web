@@ -74,7 +74,7 @@ export function Nav() {
       />
       <nav className="wrap flex h-[68px] items-center justify-between" aria-label="Main">
         <Link {...anchor("top")} aria-label={t.nav.home}>
-          <Logo />
+          <Logo onDark={dark} />
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

@@ -40,6 +40,11 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 - The Vercel project is not linked to GitHub yet, so pushes do not auto-deploy, and `create_deployment` with a `gitSource` fails with `git_info_fail`. Inline-file deploys stopped being practical once the Journal landed (~450 KB of source plus OG images). Once Habib links `habib-altal/flowramo-web` under Project → Settings → Git, deploy with `create_deployment` + `gitSource` (or let pushes deploy).
 - The domain is `flowramo.com` (not connected yet).
 
+## Brand
+- Logo: the "Monolith F" mark plus the FLOWRAMO wordmark. Brand blue `#0050F8`; on dark backgrounds the mark turns cyan `#00CEFF` and the wordmark white. The site's UI accent (`--color-blue`, Lina's colour) stays `#2b5cff`.
+- Source artwork lives in `design/brand-source/`. `scripts/brand/trace.py` traces it to vector paths and `scripts/brand/build.py` writes `public/brand/*.svg`, `app/icon.svg` and `components/brand-paths.ts`; `scripts/og.cjs` then renders `public/logo.png`, `app/apple-icon.png`, `app/favicon.ico` and the OG images. Never hand-edit the traced paths.
+- Use `<Logo onDark />` (`components/Logo.tsx`) wherever the logo sits on a dark surface.
+
 ## Higgsfield (generated imagery)
 - SDK: `@higgsfield/client` (v2 client, `import { createHiggsfieldClient } from "@higgsfield/client/v2"`), dev dependency, server-side only. Example: `scripts/higgsfield/index.ts` (Seedance 2.5 text-to-video via `subscribe`), run with `npm run higgsfield:example` (Node strips the TypeScript types itself; `.env.local` is loaded if present).
 - Credentials: `HF_CREDENTIALS` in `key-id:key-secret` format, from `.env.local` (git-ignored) or the cloud environment's variables. Never print, log or commit it; never prefix it with `NEXT_PUBLIC_`.

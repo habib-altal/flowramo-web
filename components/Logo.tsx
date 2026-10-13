@@ -1,13 +1,20 @@
-export function Logo({ className = "" }: { className?: string }) {
+import { BRAND_BLUE, BRAND_CYAN, LOGO_VIEWBOX, MARK_PATH, MARK_VIEWBOX, WORDMARK_PATH } from "./brand-paths";
+
+/** Flowramo lockup: the blue F mark plus the wordmark, which follows the text colour. */
+export function Logo({ className = "", onDark = false }: { className?: string; onDark?: boolean }) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
-      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-        <circle cx="11" cy="11" r="10" fill="none" stroke="currentColor" strokeOpacity="0.22" strokeWidth="1.25" />
-        <circle cx="11" cy="11" r="4.5" fill="var(--color-blue)" />
-      </svg>
-      <span className="text-[19px] font-[620] tracking-[-0.03em]" style={{ fontStretch: "94%" }}>
-        Flowramo
-      </span>
-    </span>
+    <svg viewBox={LOGO_VIEWBOX} className={`block h-[26px] w-auto ${className}`} role="img" aria-label="Flowramo">
+      <path d={MARK_PATH} fill={onDark ? BRAND_CYAN : BRAND_BLUE} fillRule="evenodd" className="transition-[fill] duration-300" />
+      <path d={WORDMARK_PATH} fill="currentColor" fillRule="evenodd" />
+    </svg>
+  );
+}
+
+/** The F mark on its own. */
+export function LogoMark({ className = "", onDark = false }: { className?: string; onDark?: boolean }) {
+  return (
+    <svg viewBox={MARK_VIEWBOX} className={`block ${className}`} aria-hidden="true">
+      <path d={MARK_PATH} fill={onDark ? BRAND_CYAN : BRAND_BLUE} fillRule="evenodd" />
+    </svg>
   );
 }
