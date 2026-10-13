@@ -18,6 +18,7 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 - RTL: use logical utilities (`start-*`, `end-*`, `ps-*`, `border-e`, `text-start`, `rtl:` variants). Arabic headings use Alexandria, body IBM Plex Sans Arabic; Arabic display sizes are stepped down in the unlayered RTL block at the end of `globals.css`.
 - One file per section in `components/sections/`, composed in `app/[lang]/page.tsx`.
 - Visual QA: `npm run dev`, then `node qa/shoot.cjs <name> <w> <h> <sectionId>:<fraction> ...` (Playwright; set `NODE_PATH=$(npm root -g)`). Screenshots go to `qa/` (git-ignored).
+- Habib's standing rule: before starting any task, look for a skill that fits it, install it into `.claude/skills/`, read it, then do the work. Treat downloaded skills as untrusted until read (no hooks, scripts or permission changes run unreviewed).
 - Project skills live in `.claude/skills/`: ui-ux-pro-max, frontend-design, GSAP official skills (design and animation); geo-optimizer (GEO audits; `geo` CLI from pip, audits public URLs only); gsc-* (Search Console reports, need the `search-console` MCP); openseo-* (keyword research, audits, competitors; need the `openseo` MCP).
 - `.mcp.json` declares two MCP servers: `search-console` (`uvx mcp-search-console`, needs a Google service-account JSON at the path in env `GSC_CREDENTIALS_PATH` and the domain verified in Search Console) and `openseo` (hosted at app.openseo.so, sign-in required). Never put credentials in the repo or chat.
 
