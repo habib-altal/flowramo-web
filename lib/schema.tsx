@@ -1,4 +1,5 @@
-import type { Dictionary } from "@/content/dictionaries/en";
+import type { CommonDict } from "@/content/dictionaries/en/common";
+import type { LinaDict } from "@/content/dictionaries/en/lina";
 import type { Article } from "@/content/articles/types";
 import { SITE_URL, url, type Locale } from "./i18n";
 
@@ -8,15 +9,31 @@ const organization = {
   "@type": "Organization",
   "@id": ORG_ID,
   name: "Flowramo",
-  legalName: "HABIB ALTAL LTD",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
-  description: "Flowramo builds Lina, an AI receptionist that answers dental patients on WhatsApp, books appointments and follows up.",
-  areaServed: ["SA", "AE", "KW", "QA", "BH", "OM", "TR", "GB"],
-  knowsLanguage: ["ar", "en", "tr"],
+  email: "habib@flowramo.com",
+  description:
+    "Flowramo designs, engineers and delivers AI systems and software products: AI agents, business automation, custom AI applications, SaaS engineering, AI knowledge systems and integrations.",
+  knowsLanguage: ["ar", "en"],
+  makesOffer: { "@type": "Offer", itemOffered: { "@id": `${SITE_URL}/#lina` } },
 };
 
-export function homeSchema(lang: Locale, t: Dictionary) {
+const lina = (lang: Locale, description: string) => ({
+  "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}/#lina`,
+  name: "Lina",
+  alternateName: "لينا",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "AI receptionist for dental clinics",
+  operatingSystem: "WhatsApp",
+  description,
+  inLanguage: ["ar", "en", "tr"],
+  url: url(lang, "/products/lina"),
+  publisher: { "@id": ORG_ID },
+});
+
+/** Home: the company and the site. */
+export function companySchema(lang: Locale, t: CommonDict, faq?: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -26,23 +43,49 @@ export function homeSchema(lang: Locale, t: Dictionary) {
         "@id": `${SITE_URL}/#website`,
         url: url(lang),
         name: "Flowramo",
+        description: t.meta.description,
         inLanguage: lang,
         publisher: { "@id": ORG_ID },
       },
-      {
-        "@type": "SoftwareApplication",
-        name: "Lina by Flowramo",
-        applicationCategory: "BusinessApplication",
-        applicationSubCategory: "AI receptionist for dental clinics",
-        operatingSystem: "WhatsApp",
-        description: t.meta.description,
-        inLanguage: ["ar", "en", "tr"],
-        url: url(lang),
-        publisher: { "@id": ORG_ID },
-      },
+      ...(faq?.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${url(lang)}#faq`,
+              inLanguage: lang,
+              mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+            },
+          ]
+        : []),
+    ],
+  };
+}
+
+/** A simple page (About, Contact, Solutions, legal): the page plus its breadcrumb. */
+export function pageSchema(lang: Locale, t: CommonDict, path: string, name: string, description: string, type = "WebPage") {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organization,
+      { "@type": type, "@id": `${url(lang, path)}#page`, url: url(lang, path), name, description, inLanguage: lang, isPartOf: { "@id": `${SITE_URL}/#website` } },
+      breadcrumbs([
+        [t.blog.home, url(lang)],
+        [name, url(lang, path)],
+      ]),
+    ],
+  };
+}
+
+/** Lina's product page. */
+export function linaSchema(lang: Locale, t: LinaDict) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organization,
+      lina(lang, t.meta.description),
       {
         "@type": "FAQPage",
-        "@id": `${url(lang)}#faq`,
+        "@id": `${url(lang, "/products/lina")}#faq`,
         inLanguage: lang,
         mainEntity: t.faq.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
       },
@@ -50,15 +93,15 @@ export function homeSchema(lang: Locale, t: Dictionary) {
   };
 }
 
-export function blogSchema(lang: Locale, t: Dictionary, articles: Article[]) {
+export function blogSchema(lang: Locale, t: CommonDict, articles: Article[]) {
   return {
     "@context": "https://schema.org",
     "@graph": [
       organization,
       {
         "@type": "Blog",
-        "@id": `${url(lang, "/blog")}#blog`,
-        url: url(lang, "/blog"),
+        "@id": `${url(lang, "/insights")}#blog`,
+        url: url(lang, "/insights"),
         name: t.blog.title,
         description: t.blog.sub,
         inLanguage: lang,
@@ -66,22 +109,22 @@ export function blogSchema(lang: Locale, t: Dictionary, articles: Article[]) {
         blogPost: articles.map((a) => ({
           "@type": "BlogPosting",
           headline: a[lang].title,
-          url: url(lang, `/blog/${a.slug}`),
+          url: url(lang, `/insights/${a.slug}`),
           datePublished: a.published,
           dateModified: a.updated,
         })),
       },
       breadcrumbs([
         [t.blog.home, url(lang)],
-        [t.blog.title, url(lang, "/blog")],
+        [t.blog.title, url(lang, "/insights")],
       ]),
     ],
   };
 }
 
-export function articleSchema(lang: Locale, t: Dictionary, a: Article) {
+export function articleSchema(lang: Locale, t: CommonDict, a: Article) {
   const body = a[lang];
-  const pageUrl = url(lang, `/blog/${a.slug}`);
+  const pageUrl = url(lang, `/insights/${a.slug}`);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -114,7 +157,7 @@ export function articleSchema(lang: Locale, t: Dictionary, a: Article) {
       },
       breadcrumbs([
         [t.blog.home, url(lang)],
-        [t.blog.title, url(lang, "/blog")],
+        [t.blog.title, url(lang, "/insights")],
         [body.title, pageUrl],
       ]),
     ],

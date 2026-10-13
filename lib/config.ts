@@ -5,6 +5,5 @@ export const SUPABASE_URL =
 export const SUPABASE_PUBLISHABLE_KEY =
   process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "sb_publishable_ivccS09z8Re2RqFdya1fiw_Jxn95OMx";
 
-// Set NEXT_PUBLIC_LINA_DEMO_WHATSAPP (digits only, e.g. 905xxxxxxxxx) to send
-// "Meet Lina" straight into a WhatsApp chat with the demo Lina.
-export const LINA_DEMO_WHATSAPP = process.env.NEXT_PUBLIC_LINA_DEMO_WHATSAPP ?? "";
+// The demo Lina on WhatsApp (digits only, international format, no +).
+export const LINA_DEMO_WHATSAPP = process.env.NEXT_PUBLIC_LINA_DEMO_WHATSAPP || "905510380320";

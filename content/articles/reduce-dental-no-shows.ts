@@ -177,7 +177,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Then message every patient who doesn't turn up, the same day, without blame, with two new slots. A same-day message reaches them while the missed visit is still fresh; wait a month and they may drift away from your clinic entirely. If they do, our guide to [reactivating inactive dental patients](/en/blog/reactivate-inactive-dental-patients) shows how to bring them back.",
+        text: "Then message every patient who doesn't turn up, the same day, without blame, with two new slots. A same-day message reaches them while the missed visit is still fresh; wait a month and they may drift away from your clinic entirely. If they do, our guide to [reactivating inactive dental patients](/en/insights/reactivate-inactive-dental-patients) shows how to bring them back.",
       },
 
       { t: "cta" },
@@ -185,7 +185,7 @@ const article: Article = {
       { t: "h2", id: "whatsapp-reminder-scripts", text: "WhatsApp appointment reminder scripts you can copy" },
       {
         t: "p",
-        text: "Adapt the wording to your clinic's voice; items in curly brackets are variables. One rule first: messages sent outside the 24-hour customer service window, which opens when the patient messages you, must be [pre-approved template messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview). Appointment reminders belong in the **Utility** category, so keep them strictly about the appointment. Promotional wording turns a template into **Marketing**, the [most expensive category](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing). Our guide to [WhatsApp appointment booking for dental clinics](/en/blog/whatsapp-appointment-booking-dental-clinic) covers templates and setup in detail.",
+        text: "Adapt the wording to your clinic's voice; items in curly brackets are variables. One rule first: messages sent outside the 24-hour customer service window, which opens when the patient messages you, must be [pre-approved template messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview). Appointment reminders belong in the **Utility** category, so keep them strictly about the appointment. Promotional wording turns a template into **Marketing**, the [most expensive category](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing). Our guide to [WhatsApp appointment booking for dental clinics](/en/insights/whatsapp-appointment-booking-dental-clinic) covers templates and setup in detail.",
       },
       {
         t: "callout",
@@ -253,7 +253,7 @@ const article: Article = {
       { t: "h2", id: "where-ai-fits", text: "Where an AI receptionist fits" },
       {
         t: "p",
-        text: "Most of this playbook is simple. The hard part is doing it every day, including at 22:00 when a patient replies 2 and the front desk has gone home. That is the gap an [AI receptionist for dental clinics](/en/blog/ai-receptionist-for-dental-clinics) is built to close.",
+        text: "Most of this playbook is simple. The hard part is doing it every day, including at 22:00 when a patient replies 2 and the front desk has gone home. That is the gap an [AI receptionist for dental clinics](/en/insights/ai-receptionist-for-dental-clinics) is built to close.",
       },
       {
         t: "p",
@@ -497,7 +497,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "ثم راسل كل مريض لم يحضر، في اليوم نفسه، دون لوم، مع موعدين جديدين. الرسالة في اليوم نفسه تصله والموعد ما زال حاضرًا في ذهنه، أما الانتظار شهرًا فقد يعني أنه ابتعد عن العيادة تمامًا. وإن حدث ذلك، فدليلنا عن [إعادة المرضى غير النشطين إلى عيادة الأسنان](/ar/blog/reactivate-inactive-dental-patients) يشرح كيف تستعيدهم.",
+        text: "ثم راسل كل مريض لم يحضر، في اليوم نفسه، دون لوم، مع موعدين جديدين. الرسالة في اليوم نفسه تصله والموعد ما زال حاضرًا في ذهنه، أما الانتظار شهرًا فقد يعني أنه ابتعد عن العيادة تمامًا. وإن حدث ذلك، فدليلنا عن [إعادة المرضى غير النشطين إلى عيادة الأسنان](/ar/insights/reactivate-inactive-dental-patients) يشرح كيف تستعيدهم.",
       },
 
       { t: "cta" },
@@ -505,7 +505,7 @@ const article: Article = {
       { t: "h2", id: "whatsapp-reminder-scripts", text: "رسائل تذكير المرضى بالمواعيد على واتساب، جاهزة للنسخ" },
       {
         t: "p",
-        text: "عدّل الصياغة لتناسب أسلوب عيادتك، واجعل كل رسالة قصيرة، وما بين الأقواس المعقوفة متغيرات. وقبل أي إرسال، هناك قاعدة مهمة: الرسائل التي تُرسل خارج نافذة خدمة العملاء، ومدتها 24 ساعة تبدأ حين يراسلك المريض، يجب أن تكون [رسائل قوالب معتمدة مسبقًا](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview). وتذكيرات المواعيد تندرج في فئة **Utility** (الرسائل الخدمية)، فاجعلها عن الموعد وحده، لأن أي صياغة ترويجية تنقل القالب إلى فئة **Marketing** (التسويقية)، وهي [الفئة الأعلى سعرًا](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing). ودليلنا عن [حجز مواعيد الأسنان عبر واتساب](/ar/blog/whatsapp-appointment-booking-dental-clinic) يشرح القوالب وطريقة الإعداد بالتفصيل.",
+        text: "عدّل الصياغة لتناسب أسلوب عيادتك، واجعل كل رسالة قصيرة، وما بين الأقواس المعقوفة متغيرات. وقبل أي إرسال، هناك قاعدة مهمة: الرسائل التي تُرسل خارج نافذة خدمة العملاء، ومدتها 24 ساعة تبدأ حين يراسلك المريض، يجب أن تكون [رسائل قوالب معتمدة مسبقًا](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview). وتذكيرات المواعيد تندرج في فئة **Utility** (الرسائل الخدمية)، فاجعلها عن الموعد وحده، لأن أي صياغة ترويجية تنقل القالب إلى فئة **Marketing** (التسويقية)، وهي [الفئة الأعلى سعرًا](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing). ودليلنا عن [حجز مواعيد الأسنان عبر واتساب](/ar/insights/whatsapp-appointment-booking-dental-clinic) يشرح القوالب وطريقة الإعداد بالتفصيل.",
       },
       {
         t: "callout",
@@ -573,7 +573,7 @@ const article: Article = {
       { t: "h2", id: "where-ai-fits", text: "أين تأتي موظفة الاستقبال الذكية؟" },
       {
         t: "p",
-        text: "أغلب ما في هذه الخطة بسيط. الصعب هو تطبيقه كل يوم، بما في ذلك الساعة العاشرة ليلًا حين يرد مريض بـ2 ويكون فريق الاستقبال قد غادر. هذه هي الفجوة التي صُممت لها [موظفة الاستقبال الذكية لعيادات الأسنان](/ar/blog/ai-receptionist-for-dental-clinics).",
+        text: "أغلب ما في هذه الخطة بسيط. الصعب هو تطبيقه كل يوم، بما في ذلك الساعة العاشرة ليلًا حين يرد مريض بـ2 ويكون فريق الاستقبال قد غادر. هذه هي الفجوة التي صُممت لها [موظفة الاستقبال الذكية لعيادات الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
       },
       {
         t: "p",

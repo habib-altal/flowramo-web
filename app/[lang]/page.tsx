@@ -1,47 +1,54 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { hasLocale } from "@/lib/i18n";
-import { getDictionary } from "@/content/dictionaries";
-import { JsonLd, homeSchema } from "@/lib/schema";
-import { Hero } from "@/components/sections/Hero";
-import { Journey } from "@/components/sections/Journey";
-import { MessageBridge } from "@/components/sections/MessageBridge";
-import { LinaMoment } from "@/components/sections/LinaMoment";
-import { WatchLina } from "@/components/sections/WatchLina";
-import { Lifecycle } from "@/components/sections/Lifecycle";
-import { Recovery } from "@/components/sections/Recovery";
-import { ProductReveal } from "@/components/sections/ProductReveal";
-import { WhileAway } from "@/components/sections/WhileAway";
-import { Multilingual } from "@/components/sections/Multilingual";
-import { Integrations } from "@/components/sections/Integrations";
-import { HumanAI } from "@/components/sections/HumanAI";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Faq } from "@/components/sections/Faq";
-import { JournalTeaser } from "@/components/sections/JournalTeaser";
-import { Closing } from "@/components/sections/Closing";
+import { alternates, hasLocale } from "@/lib/i18n";
+import { getCommon, getHome } from "@/content/dictionaries";
+import { JsonLd, companySchema } from "@/lib/schema";
+import { PageDictProvider } from "@/components/PageDict";
+import { HomeHero } from "@/components/home/HomeHero";
+import { Problem } from "@/components/home/Problem";
+import { Capabilities } from "@/components/home/Capabilities";
+import { LinaShowcase } from "@/components/home/LinaShowcase";
+import { Process } from "@/components/home/Process";
+import { Ownership } from "@/components/home/Ownership";
+import { HomeClosing } from "@/components/home/HomeClosing";
+import { Faq } from "@/components/Faq";
+import { JournalTeaser } from "@/components/JournalTeaser";
 
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const t = getHome(lang);
+  return {
+    title: { absolute: t.meta.title },
+    description: t.meta.description,
+    alternates: alternates(lang),
+  };
+}
+
+/*
+  The company home. Order follows the reader's questions: what do you do (hero),
+  why would I need it (problem), what exactly (capabilities), does it work (Lina),
+  how (process), what do I keep (ownership), what about… (FAQ), then the ask.
+*/
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const t = getDictionary(lang);
+  const t = getHome(lang);
+  const common = getCommon(lang);
   return (
-    <main id="top">
-      <JsonLd data={homeSchema(lang, t)} />
-      <Hero />
-      <Journey />
-      <MessageBridge />
-      <LinaMoment />
-      <WatchLina />
-      <Lifecycle />
-      <Recovery />
-      <ProductReveal />
-      <WhileAway />
-      <Multilingual />
-      <Integrations />
-      <HumanAI />
-      <Testimonials />
-      <Faq t={t.faq} />
-      <JournalTeaser lang={lang} t={t} />
-      <Closing />
-    </main>
+    <PageDictProvider value={t}>
+      <main id="main">
+        <JsonLd data={companySchema(lang, common, t.faq.items)} />
+        <HomeHero t={t} lang={lang} />
+        <Problem t={t.problem} />
+        <Capabilities />
+        <LinaShowcase />
+        <Process />
+        <Ownership t={t.own} />
+        <Faq t={t.faq} />
+        <JournalTeaser lang={lang} t={common} />
+        <HomeClosing t={t.closing} lang={lang} email={common.footer.email} />
+      </main>
+    </PageDictProvider>
   );
 }

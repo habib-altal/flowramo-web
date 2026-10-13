@@ -1,9 +1,9 @@
 import type { Block } from "@/content/articles/types";
-import type { Dictionary } from "@/content/dictionaries/en";
+import type { CommonDict } from "@/content/dictionaries/en/common";
 import { DemoButton } from "@/components/Demo";
 import { Inline } from "./Inline";
 
-export function Blocks({ blocks, cta }: { blocks: Block[]; cta: Dictionary["blog"]["cta"] }) {
+export function Blocks({ blocks, cta }: { blocks: Block[]; cta: CommonDict["blog"]["cta"] }) {
   return (
     <>
       {blocks.map((b, i) => {

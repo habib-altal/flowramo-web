@@ -9,7 +9,7 @@ export const dirOf = (locale: Locale) => (locale === "ar" ? "rtl" : "ltr");
 /** Canonical origin. Override with NEXT_PUBLIC_SITE_URL until flowramo.com points at Vercel. */
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://flowramo.com").replace(/\/$/, "");
 
-/** Absolute URL for a locale-prefixed path, e.g. url("ar", "/blog"). */
+/** Absolute URL for a locale-prefixed path, e.g. url("ar", "/insights"). */
 export const url = (locale: Locale, path = "") => `${SITE_URL}/${locale}${path}`;
 
 /** hreflang alternates for a path that exists in every locale. */

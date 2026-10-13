@@ -1,14 +1,22 @@
 # Flowramo website
 
-Status: first full build on 2026-10-04, following Habib's brief (calm like CoreShift, with Flowramo's own story and signature moments).
+## 2026-10-13: repositioned as a company site
+Flowramo is now presented as an AI systems and product engineering studio; Lina moved to `/products/lina` and is shown on the home page as "a system we built", not as a portfolio of one.
+
+- **Home** (`components/home/`): hero with the System Canvas (inputs → Monolith F core → outcomes; DrawSVG intro, one signal at a time), the problem, What we build (six capabilities as a disclosure list, each with a "Running in Lina" proof line), the Lina showcase (night section, a 02:07 WhatsApp conversation that plays once), how we work (five steps), ownership (your infrastructure, accounts, data, no subscription), FAQ, Insights, closing.
+- **Pages**: Solutions (anchors match the footer: `#ai-agents`, `#automation`, `#custom-ai`, `#saas`, `#knowledge`, `#integrations`), About (founder-led, principles, "Lina came first"), Contact (intent chips + short form to `website_leads`), Privacy and Terms (plain-language notices for the website and the Lina demo; recommend a legal review before the domain goes public).
+- **Brand**: one blue (`#0050F8`), cyan only on night, sentence-case labels, no legal entity named anywhere.
+- **Psychology** (see `.claude/skills/marketing-psychology`): problem → capabilities → proof (Lina, live on WhatsApp) → process (risk reduction) → ownership (no lock-in) → objections → ask. Never invented proof.
+
+Status before the repositioning: first full build on 2026-10-04, following Habib's brief (calm like CoreShift, with Flowramo's own story and signature moments). The sections below describe the Lina story, which now lives at `/products/lina`.
 
 ## Direction
 - Warm white background, black type, very light borders, large soft cards, big tight typography.
-- **Motion Blue (`#2b5cff`) belongs to Lina.** Whenever Lina does something, blue appears.
+- **Blue belongs to systems at work** (`#0050F8` since 2026-10-13; it was `#2b5cff`). Whenever Lina or a system does something, blue appears.
 - 80% calm, 20% wow. Signature moments: the hero message becoming a booking, the Lina convergence, the dashboard assembling, and the night section.
 - One patient's story runs through the page instead of separate feature blocks.
 
-## Sections (in `components/sections/`)
+## Lina sections (in `components/lina/`)
 | Section | File | What happens |
 |---|---|---|
 | Hero | `Hero.tsx` | "Your clinic keeps moving. Even when you don't." A patient message travels along a blue thread through Lina's status line and becomes "Consultation booked · Tuesday 14:30" without scrolling. |
@@ -24,17 +32,16 @@ Status: first full build on 2026-10-04, following Habib's brief (calm like CoreS
 | Human + AI | `HumanAI.tsx` | "Lina knows when not to be Lina." Urgent case escalated to the doctor. |
 | Social proof | `Testimonials.tsx` | Hidden until real clinics agree to be quoted. Never invent testimonials or results. |
 | FAQ | `Faq.tsx` | Seven objections answered plainly (replace the receptionist? official WhatsApp? emergencies at 2 am?). Also emitted as FAQPage structured data. |
-| From the Journal | `JournalTeaser.tsx` | Links to the four articles. |
 | Closing | `Closing.tsx` | "Your patients are already talking. Make every conversation count." |
 
 ## Data
-- "Book a Demo" writes to Supabase `website_leads` with the publishable key (RLS allows anon insert only). Verified as the `anon` role on 2026-10-04.
+- "Book a Demo" (Lina page) and the `/contact` form write to Supabase `website_leads` with the publishable key (RLS allows anon insert only). Verified as the `anon` role on 2026-10-04.
 - Dashboard and conversation numbers are demo values inside product mockups (the dashboard is labelled "Demo").
 
 ## Languages
 English (`/en`) and Arabic (`/ar`, RTL) since 2026-10-04. Copy in `content/dictionaries/`.
 
-## Journal
+## Insights (formerly the Journal)
 Four articles, each in English and Arabic, chosen for search intent across the buying journey:
 | Slug | Intent |
 |---|---|
@@ -44,8 +51,8 @@ Four articles, each in English and Arabic, chosen for search intent across the b
 | `reactivate-inactive-dental-patients` | Revenue from the existing patient list |
 
 ## Open items
-1. WhatsApp number for the demo Lina: set `NEXT_PUBLIC_LINA_DEMO_WHATSAPP` and "Meet Lina" opens WhatsApp. Until then it scrolls to "Watch Lina think".
-2. Higgsfield: one or two cinematic shots at most (night clinic behind "While you were away"), plus article cover art.
-3. Real testimonials once clinics agree.
-4. Pricing page, privacy and terms pages.
-5. Connect `flowramo.com` to the Vercel project, then verify it in Google Search Console, submit `/sitemap.xml`, and run `geo audit` against the public URL.
+1. Higgsfield works from the cloud container (2026-10-13). Allow `d3u0tzju9qaucj.cloudfront.net` too, so generated media can be downloaded into `public/`. Candidate shots: the night clinic behind "While you were away", Insights cover art.
+2. Real testimonials once clinics agree (the Lina page's `Testimonials.tsx` stays hidden until then).
+3. Lead notifications (an email or WhatsApp alert when `website_leads` gets a row) and a `message` column for the contact form: both need Habib's approval.
+4. Connect `flowramo.com` to the Vercel project, then verify it in Google Search Console, submit `/sitemap.xml`, and run `geo audit` against the public URL.
+5. Legal review of `/privacy` and `/terms`, and add the company entity once it exists.

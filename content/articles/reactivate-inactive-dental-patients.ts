@@ -105,7 +105,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Step 8 is where most campaigns leak: if a reply cannot become a booking inside the chat, the patient has to call in opening hours, and many will not. Our guide to [WhatsApp appointment booking for dental clinics](/en/blog/whatsapp-appointment-booking-dental-clinic) shows how to close that gap.",
+        text: "Step 8 is where most campaigns leak: if a reply cannot become a booking inside the chat, the patient has to call in opening hours, and many will not. Our guide to [WhatsApp appointment booking for dental clinics](/en/insights/whatsapp-appointment-booking-dental-clinic) shows how to close that gap.",
       },
 
       { t: "h2", id: "segment-decision-table", text: "What does each segment need to hear?" },
@@ -224,7 +224,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Missed appointments are the other leak: a no-show not rebooked within a week is on the way to going inactive. Our guide on [how to reduce dental no-shows](/en/blog/reduce-dental-no-shows) covers reminders, confirmations and rebooking.",
+        text: "Missed appointments are the other leak: a no-show not rebooked within a week is on the way to going inactive. Our guide on [how to reduce dental no-shows](/en/insights/reduce-dental-no-shows) covers reminders, confirmations and rebooking.",
       },
 
       { t: "h2", id: "how-lina-brings-patients-back", text: "How Lina brings patients back" },
@@ -234,7 +234,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "She also sends aftercare check-ins and recall messages, replies in seconds in Arabic, English or Turkish when a patient answers at night, and either books the slot into your calendar or hands the warm reply to your team with full context. She does not diagnose. For the wider picture, read [what an AI receptionist does for dental clinics](/en/blog/ai-receptionist-for-dental-clinics).",
+        text: "She also sends aftercare check-ins and recall messages, replies in seconds in Arabic, English or Turkish when a patient answers at night, and either books the slot into your calendar or hands the warm reply to your team with full context. She does not diagnose. For the wider picture, read [what an AI receptionist does for dental clinics](/en/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [
@@ -406,7 +406,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "الخطوة الثامنة هي حيث تتسرب أغلب الحملات: إن لم يتحول الرد إلى حجز داخل المحادثة، سيضطر المريض للاتصال في ساعات الدوام، وكثيرون لن يفعلوا. ويشرح دليلنا عن [حجز مواعيد عيادة الأسنان عبر واتساب](/ar/blog/whatsapp-appointment-booking-dental-clinic) كيف تسد هذه الفجوة.",
+        text: "الخطوة الثامنة هي حيث تتسرب أغلب الحملات: إن لم يتحول الرد إلى حجز داخل المحادثة، سيضطر المريض للاتصال في ساعات الدوام، وكثيرون لن يفعلوا. ويشرح دليلنا عن [حجز مواعيد عيادة الأسنان عبر واتساب](/ar/insights/whatsapp-appointment-booking-dental-clinic) كيف تسد هذه الفجوة.",
       },
 
       { t: "h2", id: "segment-decision-table", text: "ماذا تحتاج كل فئة أن تسمع؟" },
@@ -520,7 +520,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "والمواعيد الفائتة هي التسرب الآخر: فالمريض الذي يغيب ولا يُحجز له موعد بديل خلال أسبوع في طريقه ليصبح مريضًا منقطعًا. ويشرح دليلنا عن [كيفية تقليل غياب المرضى عن مواعيد الأسنان](/ar/blog/reduce-dental-no-shows) التذكير والتأكيد وإعادة الحجز.",
+        text: "والمواعيد الفائتة هي التسرب الآخر: فالمريض الذي يغيب ولا يُحجز له موعد بديل خلال أسبوع في طريقه ليصبح مريضًا منقطعًا. ويشرح دليلنا عن [كيفية تقليل غياب المرضى عن مواعيد الأسنان](/ar/insights/reduce-dental-no-shows) التذكير والتأكيد وإعادة الحجز.",
       },
 
       { t: "h2", id: "how-lina-brings-patients-back", text: "كيف تعيد لينا المرضى إلى عيادتك" },
@@ -530,7 +530,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "وترسل لينا أيضًا رسائل المتابعة بعد العلاج وتذكير الفحص الدوري، وترد خلال ثوانٍ بالعربية أو الإنجليزية أو التركية حين يرد المريض ليلًا، ثم إما تحجز الموعد مباشرة في تقويمك أو تسلّم الرد لفريقك مع السياق كاملًا، ولا تقدّم أي تشخيص. وللصورة الأشمل، اقرأ [ما الذي تقدمه موظفة الاستقبال الذكية لعيادات الأسنان](/ar/blog/ai-receptionist-for-dental-clinics).",
+        text: "وترسل لينا أيضًا رسائل المتابعة بعد العلاج وتذكير الفحص الدوري، وترد خلال ثوانٍ بالعربية أو الإنجليزية أو التركية حين يرد المريض ليلًا، ثم إما تحجز الموعد مباشرة في تقويمك أو تسلّم الرد لفريقك مع السياق كاملًا، ولا تقدّم أي تشخيص. وللصورة الأشمل، اقرأ [ما الذي تقدمه موظفة الاستقبال الذكية لعيادات الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [

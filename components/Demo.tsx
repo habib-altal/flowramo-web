@@ -2,8 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useId, useRef, useState } from "react";
 import { X, Check } from "lucide-react";
-import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL, LINA_DEMO_WHATSAPP } from "@/lib/config";
-import { scrollToId } from "./SmoothScroll";
+import { SUPABASE_PUBLISHABLE_KEY, SUPABASE_URL } from "@/lib/config";
 import { fill, useI18n } from "./I18n";
 
 type DemoCtx = { open: () => void };
@@ -180,32 +179,5 @@ export function DemoButton({ className = "btn btn-ink", children }: { className?
     <button type="button" onClick={open} className={className}>
       {children ?? t.nav.demo}
     </button>
-  );
-}
-
-/** "Meet Lina" opens WhatsApp with the demo Lina when a number is configured, otherwise shows her at work on the page. */
-export function MeetLinaButton({ className = "btn btn-line", children }: { className?: string; children?: React.ReactNode }) {
-  const { t, locale } = useI18n();
-  const label = children ?? t.hero.primary;
-  if (LINA_DEMO_WHATSAPP) {
-    return (
-      <a className={className} href={`https://wa.me/${LINA_DEMO_WHATSAPP}`} target="_blank" rel="noopener noreferrer">
-        {label}
-      </a>
-    );
-  }
-  return (
-    <a
-      className={className}
-      href={`/${locale}#watch`}
-      onClick={(e) => {
-        if (document.getElementById("watch")) {
-          e.preventDefault();
-          scrollToId("watch");
-        }
-      }}
-    >
-      {label}
-    </a>
   );
 }

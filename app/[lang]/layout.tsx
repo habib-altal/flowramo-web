@@ -9,11 +9,13 @@ import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
 import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
 import "../globals.css";
 import { LOCALES, SITE_URL, alternates, dirOf, hasLocale, url } from "@/lib/i18n";
-import { getDictionary } from "@/content/dictionaries";
+import { getCommon } from "@/content/dictionaries";
 import { I18nProvider } from "@/components/I18n";
 import { DemoProvider } from "@/components/Demo";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const dynamicParams = false;
 
@@ -24,7 +26,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const t = getDictionary(lang);
+  const t = getCommon(lang);
   return {
     metadataBase: new URL(SITE_URL),
     title: { default: t.meta.title, template: "%s · Flowramo" },
@@ -56,7 +58,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const t = getDictionary(lang);
+  const t = getCommon(lang);
   return (
     <html lang={lang} dir={dirOf(lang)} suppressHydrationWarning>
       <head>
@@ -68,8 +70,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
             <SmoothScroll />
             <Nav />
             {children}
+            <Footer />
           </DemoProvider>
         </I18nProvider>
+        <Analytics />
       </body>
     </html>
   );

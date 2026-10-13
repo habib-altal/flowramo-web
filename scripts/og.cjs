@@ -39,7 +39,7 @@ const FONTS = `
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
-function page({ lang, kicker, title, sub, home }) {
+function page({ lang, kicker, title, sub, home, lina }) {
   const rtl = lang === "ar";
   const display = rtl ? `"AX", "IS"` : `"IS"`;
   const body = rtl ? `"PA", "IS"` : `"IS"`;
@@ -48,22 +48,29 @@ function page({ lang, kicker, title, sub, home }) {
 html{overflow:hidden}
 body{width:1200px;height:630px;background:#faf9f6;color:#0c0c0b;font-family:${body};overflow:hidden;position:relative}
 .frame{position:absolute;inset:0;overflow:hidden}
-.glow{position:absolute;inset:auto -120px -260px auto;width:720px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(43,92,255,.16),rgba(43,92,255,0));${rtl ? "inset:auto auto -260px -120px;" : ""}}
+.glow{position:absolute;inset:auto -120px -260px auto;width:720px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,80,248,.14),rgba(0,80,248,0));${rtl ? "inset:auto auto -260px -120px;" : ""}}
 .top{position:absolute;inset:56px 72px auto 72px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;direction:ltr}.logo svg{height:38px;width:auto;display:block}
 .kicker{display:flex;align-items:center;gap:12px;font-size:22px;color:#5d5c57;font-weight:500}
-.dot{width:12px;height:12px;border-radius:99px;background:#2b5cff;box-shadow:0 0 0 6px rgba(43,92,255,.18)}
+.dot{width:12px;height:12px;border-radius:99px;background:#0050f8;box-shadow:0 0 0 6px rgba(0,80,248,.18)}
 .main{position:absolute;inset:auto 72px 64px 72px}
-h1{font-family:${display};font-weight:${rtl ? 600 : 560};font-size:${home ? (rtl ? 74 : 86) : rtl ? 56 : 66}px;line-height:${rtl ? 1.25 : 1.0};letter-spacing:${rtl ? 0 : "-0.042em"};font-stretch:92%;max-width:${home ? 1000 : 1040}px;text-wrap:balance}
+h1{font-family:${display};font-weight:${rtl ? 600 : 560};font-size:${home || lina ? (rtl ? 62 : 86) : rtl ? 56 : 66}px;line-height:${rtl ? 1.25 : 1.0};letter-spacing:${rtl ? 0 : "-0.042em"};font-stretch:92%;max-width:${home || lina ? 1056 : 1040}px;text-wrap:balance}
 p{margin-top:22px;font-size:${rtl ? 25 : 26}px;line-height:1.45;color:#5d5c57;max-width:900px}
 .bubble{position:absolute;top:150px;${rtl ? "left" : "right"}:72px;display:flex;flex-direction:column;gap:12px;align-items:${rtl ? "flex-start" : "flex-end"}}
 .b{padding:14px 20px;border-radius:24px;font-size:22px;line-height:1.35;max-width:430px}
 .bp{background:#fff;border:1px solid #e6e4dd}
-.bl{background:#2b5cff;color:#fff}
+.bl{background:#0050f8;color:#fff}
+.sys{position:absolute;top:150px;${rtl ? "left" : "right"}:72px;display:flex;flex-direction:column;gap:14px}
+.row{display:flex;align-items:center;gap:14px;direction:${rtl ? "rtl" : "ltr"}}
+.pill{height:46px;padding:0 20px;border-radius:99px;border:1px solid #e6e4dd;background:#fff;display:flex;align-items:center;font-size:20px;color:#5d5c57;min-width:150px;justify-content:center}
+.out{color:#0c0c0b;font-weight:500}
+.wire{width:70px;height:1.5px;background:#0050f8;position:relative}
+.wire::after{content:"";position:absolute;top:-4px;${rtl ? "left" : "right"}:-2px;width:9px;height:9px;border-radius:99px;background:#0050f8}
 </style></head><body><div class="frame"><div class="glow"></div></div>
 <div class="top"><div class="logo">${LOGO_SVG}</div>
 <div class="kicker"><span class="dot"></span>${esc(kicker)}</div></div>
-${home ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل تقدمون زراعة الأسنان؟" : "Hi, do you offer dental implants?"}</div><div class="b bl">${rtl ? "تم حجز الاستشارة · الثلاثاء 14:30" : "Consultation booked · Tue 14:30"}</div></div>` : ""}
+${home ? `<div class="sys">${home.map(([a, b]) => `<div class="row"><span class="pill">${esc(a)}</span><span class="wire"></span><span class="pill out">${esc(b)}</span></div>`).join("")}</div>` : ""}
+${lina ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل تقدمون زراعة الأسنان؟" : "Hi, do you offer dental implants?"}</div><div class="b bl">${rtl ? "تم حجز الاستشارة · الثلاثاء 14:30" : "Consultation booked · Tue 14:30"}</div></div>` : ""}
 <div class="main"><h1>${title}</h1>${sub ? `<p>${esc(sub)}</p>` : ""}</div></body></html>`;
 }
 
@@ -72,16 +79,30 @@ ${home ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل ت�
   const ctx = await browser.newPage({ viewport: { width: 1200, height: 630 } });
   const reader = await browser.newPage();
   const shots = [
-    { file: "home-en", lang: "en", home: true, kicker: "AI WhatsApp receptionist for dental clinics", title: "Your clinic keeps moving.<br>Even when you don't." },
-    { file: "home-ar", lang: "ar", home: true, kicker: "موظفة استقبال ذكية على واتساب لعيادات الأسنان", title: "عيادتك لا تتوقف.<br>حتى عندما تتوقف أنت." },
+    {
+      file: "home-en",
+      lang: "en",
+      home: [["WhatsApp", "Booked"], ["Documents", "Answered"], ["Forms", "Updated"]],
+      kicker: "AI systems and product engineering",
+      title: "We engineer AI systems<br>that carry real work.",
+    },
+    {
+      file: "home-ar",
+      lang: "ar",
+      home: [["واتساب", "حُجز الموعد"], ["المستندات", "أُجيب العميل"], ["النماذج", "تحدّثت البيانات"]],
+      kicker: "هندسة أنظمة ومنتجات الذكاء الاصطناعي",
+      title: "نهندس أنظمة ذكاء اصطناعي<br>تحمل العمل الحقيقي.",
+    },
+    { file: "lina-en", lang: "en", lina: true, kicker: "Lina · AI receptionist for dental clinics", title: "Your clinic keeps moving.<br>Even when you don't." },
+    { file: "lina-ar", lang: "ar", lina: true, kicker: "لينا · موظفة استقبال ذكية لعيادات الأسنان", title: "عيادتك لا تتوقف.<br>حتى عندما تتوقف أنت." },
   ];
   for (const lang of ["en", "ar"]) {
-    await reader.goto(`${BASE}/${lang}/blog`, { waitUntil: "networkidle" });
-    const links = await reader.$$eval(`a[href^="/${lang}/blog/"]`, (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
+    await reader.goto(`${BASE}/${lang}/insights`, { waitUntil: "networkidle" });
+    const links = await reader.$$eval(`a[href^="/${lang}/insights/"]`, (as) => [...new Set(as.map((a) => a.getAttribute("href")))]);
     for (const href of links) {
       await reader.goto(BASE + href, { waitUntil: "domcontentloaded" });
       const title = await reader.$eval("h1", (h) => h.textContent.trim());
-      shots.push({ file: `${href.split("/").pop()}-${lang}`, lang, kicker: lang === "ar" ? "مدونة Flowramo" : "The Flowramo Journal", title: esc(title) });
+      shots.push({ file: `${href.split("/").pop()}-${lang}`, lang, kicker: lang === "ar" ? "رؤى Flowramo" : "Flowramo Insights", title: esc(title) });
     }
   }
   for (const s of shots) {

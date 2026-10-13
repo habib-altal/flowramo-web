@@ -2,22 +2,25 @@
 
 /*
   Flowramo design tokens
-  Calm like a premium product page (warm white, black type, hairline borders),
-  with Motion Blue reserved for Lina: whenever Lina acts, blue appears.
+  Calm like a premium product page (warm white, black type, hairline borders).
+  Brand blue (#0050F8) is reserved for systems at work: whenever something acts, blue appears.
+  On night sections the mark turns cyan (#00CEFF).
 */
 @theme {
   --color-paper: #faf9f6;
   --color-paper-2: #f2f1ec;
   --color-ink: #0c0c0b;
   --color-ink-2: #5d5c57;
-  --color-ink-3: #9a9892;
+  --color-ink-3: #73726d;
   --color-line: #e6e4dd;
+  --color-line-strong: #d3d0c6;
   --color-card: #ffffff;
 
-  --color-blue: #2b5cff;
-  --color-blue-deep: #1d44d6;
-  --color-blue-soft: #e9eeff;
-  --color-blue-bright: #7593ff;
+  --color-blue: #0050f8;
+  --color-blue-deep: #0040c4;
+  --color-blue-soft: #e8eeff;
+  --color-blue-bright: #6e9bff;
+  --color-cyan: #00ceff;
 
   --color-night: #07080b;
   --color-night-2: #0e1015;
@@ -114,6 +117,13 @@
     line-height: 1;
     letter-spacing: -0.038em;
   }
+  .home-title {
+    font-size: clamp(2.9rem, 6.4vw, 6.3rem);
+    font-weight: 560;
+    font-stretch: 92%;
+    line-height: 0.95;
+    letter-spacing: -0.047em;
+  }
   .lede {
     font-size: clamp(1.05rem, 1.5vw, 1.3rem);
     line-height: 1.5;
@@ -177,6 +187,13 @@
   }
   .btn-moon:hover {
     background: #fff;
+  }
+  .btn-night-line {
+    border: 1px solid var(--color-night-line);
+    color: var(--color-moon);
+  }
+  .btn-night-line:hover {
+    border-color: var(--color-moon-2);
   }
 
   .bubble {
@@ -410,6 +427,26 @@
   .js .load-in {
     opacity: 0;
     transform: translateY(14px);
+  }
+  /* The System Canvas draws itself in; if its script never runs, show it anyway. */
+  .js .sc-host {
+    opacity: 0;
+    animation: reveal-fallback 0.01s linear 3s forwards;
+  }
+  /* A capability panel answers the click that opened it. */
+  .cap-in {
+    animation: cap-in 520ms var(--ease-out-soft) both;
+  }
+}
+@keyframes reveal-fallback {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cap-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
 

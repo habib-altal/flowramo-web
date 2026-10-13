@@ -1,13 +1,13 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import type { Dictionary } from "@/content/dictionaries/en";
+import type { CommonDict } from "@/content/dictionaries/en/common";
 import type { Locale } from "@/lib/i18n";
 
-type I18n = { locale: Locale; rtl: boolean; t: Dictionary };
+type I18n = { locale: Locale; rtl: boolean; t: CommonDict };
 const Ctx = createContext<I18n | null>(null);
 
-export function I18nProvider({ locale, t, children }: { locale: Locale; t: Dictionary; children: React.ReactNode }) {
+export function I18nProvider({ locale, t, children }: { locale: Locale; t: CommonDict; children: React.ReactNode }) {
   return <Ctx.Provider value={{ locale, rtl: locale === "ar", t }}>{children}</Ctx.Provider>;
 }
 

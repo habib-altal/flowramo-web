@@ -72,7 +72,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Booking is where most of the value sits, and where weak products fall short: a bot that collects a “preferred time” for someone to call back has booked nothing. Our guide to [WhatsApp appointment booking for dental clinics](/en/blog/whatsapp-appointment-booking-dental-clinic) shows a flow that does.",
+        text: "Booking is where most of the value sits, and where weak products fall short: a bot that collects a “preferred time” for someone to call back has booked nothing. Our guide to [WhatsApp appointment booking for dental clinics](/en/insights/whatsapp-appointment-booking-dental-clinic) shows a flow that does.",
       },
       { t: "h3", text: "What it must never do" },
       {
@@ -216,7 +216,7 @@ const article: Article = {
       { t: "h3", text: "Week 4: Full day, plus reminders and follow-ups" },
       {
         t: "p",
-        text: "Extend to all hours, then switch on reminders, follow-ups for patients who went quiet, and aftercare messages. Reminders are not a nice-to-have: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of randomised trials found that text-message reminders increased attendance compared with no reminder. See our guides to [reducing dental no-shows](/en/blog/reduce-dental-no-shows) and [reactivating inactive dental patients](/en/blog/reactivate-inactive-dental-patients) for timing and wording.",
+        text: "Extend to all hours, then switch on reminders, follow-ups for patients who went quiet, and aftercare messages. Reminders are not a nice-to-have: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of randomised trials found that text-message reminders increased attendance compared with no reminder. See our guides to [reducing dental no-shows](/en/insights/reduce-dental-no-shows) and [reactivating inactive dental patients](/en/insights/reactivate-inactive-dental-patients) for timing and wording.",
       },
       {
         t: "p",
@@ -369,7 +369,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "الحجز هو المكان الذي تتركز فيه القيمة، وهو أيضًا المكان الذي تسقط فيه المنتجات الضعيفة: النظام الذي يكتفي بسؤال المريض عن «الوقت المناسب له» ثم ينتظر موظفًا ليتصل به لم يحجز شيئًا. شرحنا مسار الحجز الكامل في دليل [حجز مواعيد عيادة الأسنان عبر واتساب](/ar/blog/whatsapp-appointment-booking-dental-clinic).",
+        text: "الحجز هو المكان الذي تتركز فيه القيمة، وهو أيضًا المكان الذي تسقط فيه المنتجات الضعيفة: النظام الذي يكتفي بسؤال المريض عن «الوقت المناسب له» ثم ينتظر موظفًا ليتصل به لم يحجز شيئًا. شرحنا مسار الحجز الكامل في دليل [حجز مواعيد عيادة الأسنان عبر واتساب](/ar/insights/whatsapp-appointment-booking-dental-clinic).",
       },
       { t: "h3", text: "ما لا يجوز أن يفعله أبدًا" },
       {
@@ -513,7 +513,7 @@ const article: Article = {
       { t: "h3", text: "الأسبوع 4: اليوم كاملًا، مع التذكيرات والمتابعات" },
       {
         t: "p",
-        text: "وسّع العمل إلى كل الساعات، ثم فعّل التذكيرات، ومتابعة المرضى الذين توقفوا عن الرد، ورسائل ما بعد العلاج. والتذكيرات ليست إضافة شكلية: وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) للتجارب العشوائية أن التذكير بالرسائل النصية رفع نسبة الحضور مقارنة بعدم التذكير. وتجد التوقيت والصياغة في دليلَي [تقليل تغيّب المرضى عن مواعيد الأسنان](/ar/blog/reduce-dental-no-shows) و[إعادة المرضى غير النشطين إلى عيادة الأسنان](/ar/blog/reactivate-inactive-dental-patients).",
+        text: "وسّع العمل إلى كل الساعات، ثم فعّل التذكيرات، ومتابعة المرضى الذين توقفوا عن الرد، ورسائل ما بعد العلاج. والتذكيرات ليست إضافة شكلية: وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) للتجارب العشوائية أن التذكير بالرسائل النصية رفع نسبة الحضور مقارنة بعدم التذكير. وتجد التوقيت والصياغة في دليلَي [تقليل تغيّب المرضى عن مواعيد الأسنان](/ar/insights/reduce-dental-no-shows) و[إعادة المرضى غير النشطين إلى عيادة الأسنان](/ar/insights/reactivate-inactive-dental-patients).",
       },
       {
         t: "p",

@@ -146,7 +146,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Reminders are not a courtesy: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of eight trials found text-message reminders increased attendance compared with no reminder, with an effect similar to phone calls at lower cost per attendance. Our guide to [reducing dental no-shows](/en/blog/reduce-dental-no-shows) covers the schedule.",
+        text: "Reminders are not a courtesy: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of eight trials found text-message reminders increased attendance compared with no reminder, with an effect similar to phone calls at lower cost per attendance. Our guide to [reducing dental no-shows](/en/insights/reduce-dental-no-shows) covers the schedule.",
       },
       { t: "h3", text: "Example: the 23:41 implant enquiry, booked" },
       { t: "p", text: "Illustrative only; names, prices and times are placeholders." },
@@ -174,7 +174,7 @@ const article: Article = {
           "**Asking open questions.** “When suits you?” is homework. Offer two times.",
           "**Sending promotions without opt-in.** It breaches the messaging policy, pushes patients to block or report your number, and costs the highest rate.",
           "**Letting one staff phone become the system.** When that person is on leave, the front desk and every chat history go with them.",
-          "**No follow-up after “I'll think about it”.** They told you they are interested. A respectful message a few days later that answers the likely worry can recover the booking. After 24 hours it needs a template, so write one in advance; our guide to [reactivating inactive patients](/en/blog/reactivate-inactive-dental-patients) covers the longer version.",
+          "**No follow-up after “I'll think about it”.** They told you they are interested. A respectful message a few days later that answers the likely worry can recover the booking. After 24 hours it needs a template, so write one in advance; our guide to [reactivating inactive patients](/en/insights/reactivate-inactive-dental-patients) covers the longer version.",
         ],
       },
 
@@ -259,7 +259,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "More on the role: [what an AI receptionist does for a dental clinic](/en/blog/ai-receptionist-for-dental-clinics).",
+        text: "More on the role: [what an AI receptionist does for a dental clinic](/en/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [
@@ -416,7 +416,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "الخطوة الأخيرة ليست مجاملة. فقد وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) لثماني تجارب أن رسائل التذكير النصية رفعت نسبة الحضور مقارنة بعدم التذكير، بأثر مماثل للتذكير بالاتصال الهاتفي وبتكلفة أقل لكل حضور. ويشرح دليلنا عن [تقليل غياب مرضى الأسنان عن مواعيدهم](/ar/blog/reduce-dental-no-shows) جدول التذكير بالتفصيل.",
+        text: "الخطوة الأخيرة ليست مجاملة. فقد وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) لثماني تجارب أن رسائل التذكير النصية رفعت نسبة الحضور مقارنة بعدم التذكير، بأثر مماثل للتذكير بالاتصال الهاتفي وبتكلفة أقل لكل حضور. ويشرح دليلنا عن [تقليل غياب مرضى الأسنان عن مواعيدهم](/ar/insights/reduce-dental-no-shows) جدول التذكير بالتفصيل.",
       },
       { t: "h3", text: "مثال: استفسار الزراعة في 23:41 وقد تحوّل إلى موعد" },
       { t: "p", text: "مثال توضيحي فقط، والأسماء والأسعار والمواعيد افتراضية." },
@@ -444,7 +444,7 @@ const article: Article = {
           "**الأسئلة المفتوحة.** «أي وقت يناسبك؟» واجب منزلي. اعرض موعدين.",
           "**إرسال العروض دون موافقة.** يخالف سياسة الرسائل، ويدفع المرضى إلى حظر رقمك والإبلاغ عنه، وهو فوق ذلك الأعلى تكلفة.",
           "**جوال موظفة واحدة يصبح هو النظام.** حين تأخذ إجازة، يغيب معها مكتب الاستقبال وسجل المحادثات كله.",
-          "**لا متابعة بعد «بفكر وأرد عليك».** هذا المريض أخبرك للتو أنه مهتم. رسالة لبقة بعد أيام قليلة تجيب عن قلقه المتوقع قد تعيد حجزًا كان سيضيع. وبعد 24 ساعة تحتاج هذه الرسالة إلى قالب، فاكتبه مسبقًا. ويتناول دليلنا عن [إعادة المرضى المنقطعين](/ar/blog/reactivate-inactive-dental-patients) هذه المتابعة بتوسع.",
+          "**لا متابعة بعد «بفكر وأرد عليك».** هذا المريض أخبرك للتو أنه مهتم. رسالة لبقة بعد أيام قليلة تجيب عن قلقه المتوقع قد تعيد حجزًا كان سيضيع. وبعد 24 ساعة تحتاج هذه الرسالة إلى قالب، فاكتبه مسبقًا. ويتناول دليلنا عن [إعادة المرضى المنقطعين](/ar/insights/reactivate-inactive-dental-patients) هذه المتابعة بتوسع.",
         ],
       },
 
@@ -529,7 +529,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "وللصورة الأوسع عن هذا الدور، اقرأ [ماذا تقدم موظفة الاستقبال الذكية لعيادة الأسنان](/ar/blog/ai-receptionist-for-dental-clinics).",
+        text: "وللصورة الأوسع عن هذا الدور، اقرأ [ماذا تقدم موظفة الاستقبال الذكية لعيادة الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [
