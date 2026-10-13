@@ -40,6 +40,12 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 - The Vercel project is not linked to GitHub yet, so pushes do not auto-deploy, and `create_deployment` with a `gitSource` fails with `git_info_fail`. Inline-file deploys stopped being practical once the Journal landed (~450 KB of source plus OG images). Once Habib links `habib-altal/flowramo-web` under Project → Settings → Git, deploy with `create_deployment` + `gitSource` (or let pushes deploy).
 - The domain is `flowramo.com` (not connected yet).
 
+## Higgsfield (generated imagery)
+- SDK: `@higgsfield/client` (v2 client, `import { createHiggsfieldClient } from "@higgsfield/client/v2"`), dev dependency, server-side only. Example: `scripts/higgsfield/index.ts` (Seedance 2.5 text-to-video via `subscribe`), run with `npm run higgsfield:example` (Node strips the TypeScript types itself; `.env.local` is loaded if present).
+- Credentials: `HF_CREDENTIALS` in `key-id:key-secret` format, from `.env.local` (git-ignored) or the cloud environment's variables. Never print, log or commit it; never prefix it with `NEXT_PUBLIC_`.
+- The cloud environment must allow `api.higgsfield.ai` (Network access → Custom), plus the CDN host that serves results. The SDK reports any HTTP 403, including a proxy refusal, as `NotEnoughCreditsError`.
+- Every generation is billable. Generated media is for atmosphere only (see Content rules); download results into `public/` and commit them rather than hot-linking.
+
 ## Content rules
 - Never invent testimonials, clinic names presented as customers, reviews or usage numbers. Only real data goes on the site.
 - AI-generated imagery (Higgsfield) is for atmosphere only: no fake doctor portraits presented as customers.
