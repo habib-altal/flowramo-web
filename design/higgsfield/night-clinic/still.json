@@ -1,0 +1,24 @@
+{
+  "model": "higgsfield-ai/soul/v2/standard",
+  "input": {
+    "prompt": "Wide cinematic architectural photograph of an empty modern dental clinic reception at night with the lights off. A minimal reception desk in pale stone and light oak; on the desk a single smartphone lies face up, its screen softly glowing blue, the only light source inside. Floor-to-ceiling windows behind the desk show a calm city skyline at night with scattered warm window lights under a deep navy sky. Through a glass partition on one side, the dark silhouette of a dental treatment chair. Cool moonlight falls across a polished floor. Quiet, calm, premium and trustworthy. 24mm lens, eye level, balanced symmetrical composition with generous empty space in the upper middle. Deep navy and midnight blue palette with subtle cyan highlights. No people, no text, no logos, no signage. Realistic, high dynamic range, fine film grain.",
+    "aspect_ratio": "16:9",
+    "resolution": "1080p",
+    "batch_size": 4,
+    "enhance_prompt": false
+  },
+  "request_id": "0e4ca706-44ba-4c40-b564-919e7d6fa7ef",
+  "created": "2026-10-14T16:29:47.381Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/a76e4ce4-e136-46bf-a2a3-d6d2c8a9b8ae.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/f3d9b38c-9bfd-4338-b675-b9a28da7946f.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/5363c2bd-ee0a-466f-9e19-26ea9821ad80.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/ad7f5e45-1583-4ed1-b675-289bf6bbc9e4.png"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/still-1.png",
+    "design/higgsfield/night-clinic/still-2.png",
+    "design/higgsfield/night-clinic/still-3.png",
+    "design/higgsfield/night-clinic/still-4.png"
+  ]
+}

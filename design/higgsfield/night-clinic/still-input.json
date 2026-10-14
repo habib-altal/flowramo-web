@@ -1,0 +1,7 @@
+{
+  "prompt": "Wide cinematic architectural photograph of an empty modern dental clinic reception at night with the lights off. A minimal reception desk in pale stone and light oak; on the desk a single smartphone lies face up, its screen softly glowing blue, the only light source inside. Floor-to-ceiling windows behind the desk show a calm city skyline at night with scattered warm window lights under a deep navy sky. Through a glass partition on one side, the dark silhouette of a dental treatment chair. Cool moonlight falls across a polished floor. Quiet, calm, premium and trustworthy. 24mm lens, eye level, balanced symmetrical composition with generous empty space in the upper middle. Deep navy and midnight blue palette with subtle cyan highlights. No people, no text, no logos, no signage. Realistic, high dynamic range, fine film grain.",
+  "aspect_ratio": "16:9",
+  "resolution": "1080p",
+  "batch_size": 4,
+  "enhance_prompt": false
+}

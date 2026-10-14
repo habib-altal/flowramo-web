@@ -1,18 +1,18 @@
 // Seedance 2.5 text-to-video through the official Higgsfield SDK (v2 client).
-// Credentials come from HF_CREDENTIALS ("key-id:key-secret"), read by the SDK from the environment:
-// either .env.local (git-ignored, loaded by `npm run higgsfield:example`) or the cloud environment's variables.
+// Credentials come from HF_CREDENTIALS ("key-id:key-secret"): .env.local (git-ignored, loaded by
+// `npm run higgsfield:example`) or the environment. In Claude Code cloud sessions the key is a Network Secret
+// instead and the egress proxy replaces the Authorization header, so a placeholder is enough there.
 // Every successful run is a billable generation.
 import { createHiggsfieldClient, HiggsfieldError, NotEnoughCreditsError, type V2Response } from "@higgsfield/client/v2";
 
 const MODEL = "bytedance/seedance-2.5/text-to-video";
 
-if (!process.env.HF_CREDENTIALS) {
-  console.error("HF_CREDENTIALS is not set. Add it to .env.local (key-id:key-secret) or to the environment, then run again.");
-  process.exit(1);
-}
-
 // Video renders take longer than the SDK's 5-minute default polling window.
-const client = createHiggsfieldClient({ maxPollTime: 15 * 60 * 1000, pollInterval: 5000 });
+const client = createHiggsfieldClient({
+  credentials: process.env.HF_CREDENTIALS || "network-secret:injected-by-proxy",
+  maxPollTime: 15 * 60 * 1000,
+  pollInterval: 5000,
+});
 
 let result: V2Response;
 try {

@@ -1,0 +1,20 @@
+{
+  "model": "bytedance/seedance-2.5/image-to-video",
+  "input": {
+    "image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/ad7f5e45-1583-4ed1-b675-289bf6bbc9e4.png",
+    "end_image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/ad7f5e45-1583-4ed1-b675-289bf6bbc9e4.png",
+    "prompt": "Locked-off tripod shot, the camera does not move. A quiet empty dental clinic reception at night. Distant city lights twinkle gently and a few far windows switch softly on and off. Thin night haze drifts slowly past the moon. On the reception desk, the smartphone screen glows a little brighter with a soft blue light, as if a message arrived, then settles back. Everything else stays perfectly still. No people, no text. Calm, slow, cinematic, seamless loop.",
+    "duration": 6,
+    "resolution": "1080p",
+    "bitrate_mode": "standard",
+    "generate_audio": false
+  },
+  "request_id": "dd0a2bf8-9699-4f96-9d1c-2918be86818a",
+  "created": "2026-10-14T16:33:43.485Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/6b1fe56a-3055-4e62-b8fa-5f0c93480745.mp4"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/loop-1.mp4"
+  ]
+}
