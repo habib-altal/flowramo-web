@@ -1,0 +1,24 @@
+{
+  "model": "higgsfield-ai/soul/v2/standard",
+  "input": {
+    "prompt": "Cinematic photograph of a modern dental clinic treatment room at night, closed and empty, lights off. Slightly left of center, a white dental treatment chair, reclined, unmistakably a dentist's chair: a round dental operating lamp on an articulated arm hangs above it, switched off; beside the chair a dental instrument tray on a swivel arm and a small white cuspidor. White cabinets along the wall with neatly arranged dental instruments in sealed sterilization pouches on the counter. On the counter to the right, a smartphone lies face up, its screen softly glowing blue, the only light inside the room. A large floor-to-ceiling window behind shows a calm city skyline at night with scattered warm lights and a small moon in a deep navy sky; cool moonlight falls across the chair and the polished floor. Calm, clean, premium and trustworthy. 28mm lens, eye level, balanced composition with empty space in the upper middle. Deep navy and midnight blue palette with subtle cyan highlights. No people, no text, no logos, no signage.",
+    "aspect_ratio": "16:9",
+    "resolution": "1080p",
+    "batch_size": 4,
+    "enhance_prompt": false
+  },
+  "request_id": "2aec5189-d289-4e37-b48f-7c1dbb21c8c5",
+  "created": "2026-10-14T16:41:10.310Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/8c18800c-ab0e-4f5f-865b-4a7deaeff2d6.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/be5ebc4f-415f-4cb1-b7af-b218cb78c07e.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/859c256a-5f9c-44e3-8e29-118439bf8056.png",
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/f4c60c22-29b4-463d-ab23-48787578cf1c.png"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/room-soul-1.png",
+    "design/higgsfield/night-clinic/room-soul-2.png",
+    "design/higgsfield/night-clinic/room-soul-3.png",
+    "design/higgsfield/night-clinic/room-soul-4.png"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "Cinematic photograph of a modern dental clinic treatment room at night, closed and empty, lights off. Slightly left of center, a white dental treatment chair, reclined, unmistakably a dentist's chair: a round dental operating lamp on an articulated arm hangs above it, switched off; beside the chair a dental instrument tray on a swivel arm and a small white cuspidor. White cabinets along the wall with neatly arranged dental instruments in sealed sterilization pouches on the counter. On the counter to the right, a smartphone lies face up, its screen softly glowing blue, the only light inside the room. A large floor-to-ceiling window behind shows a calm city skyline at night with scattered warm lights and a small moon in a deep navy sky; cool moonlight falls across the chair and the polished floor. Calm, clean, premium and trustworthy. 28mm lens, eye level, balanced composition with empty space in the upper middle. Deep navy and midnight blue palette with subtle cyan highlights. No people, no text, no logos, no signage.",
+    "aspect_ratio": "16:9",
+    "resolution": "2k",
+    "negative_prompt": "people, person, hands, text, letters, logo, watermark, signage, office desk, conference room"
+  },
+  "request_id": "716ba95d-1412-4f59-b2cd-40e49b9ad528",
+  "created": "2026-10-14T16:41:44.248Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/dd8d9ea5-f1b3-4f42-9340-f7b376ab7c39.png"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/room-qwen-1.png"
+  ]
+}
