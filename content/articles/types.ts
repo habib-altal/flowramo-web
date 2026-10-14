@@ -34,4 +34,6 @@ export type Article = {
   published: string;
   updated: string;
   related: string[];
+  /** "lina" (default): dental-clinic articles whose CTA books a Lina demo. "studio": articles on AI systems in general, whose CTA starts a project. */
+  topic?: "lina" | "studio";
 } & Record<Locale, ArticleBody>;

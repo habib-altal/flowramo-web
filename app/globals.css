@@ -177,6 +177,13 @@
   .btn-ink:hover {
     background: #2a2a28;
   }
+  .btn-blue {
+    background: var(--color-blue);
+    color: #fff;
+  }
+  .btn-blue:hover {
+    background: var(--color-blue-deep);
+  }
   .btn-line {
     border: 1px solid var(--color-line);
     background: var(--color-card);

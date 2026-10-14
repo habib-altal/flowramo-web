@@ -35,7 +35,7 @@ export function Closing() {
         <p className="c-2 mt-6 text-[clamp(1.6rem,3vw,2.6rem)] font-[520] tracking-[-0.03em] text-ink-2">{c.l2}</p>
         <div className="c-3 mt-10 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-3">
-            <TryLinaButton className="btn btn-line">{c.primary}</TryLinaButton>
+            <TryLinaButton className="btn btn-blue">{c.primary}</TryLinaButton>
             <DemoButton className="btn btn-ink">{c.secondary}</DemoButton>
           </div>
           <p className="text-[13.5px] text-ink-3">{c.note}</p>

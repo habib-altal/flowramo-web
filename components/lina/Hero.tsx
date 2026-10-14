@@ -162,7 +162,7 @@ export function Hero() {
         </h1>
         <p className="load-in lede mt-7 max-w-[36rem]">{t.hero.sub}</p>
         <div className="load-in mt-9 flex flex-wrap items-center justify-center gap-3">
-          <TryLinaButton className="btn btn-ink">{t.hero.primary}</TryLinaButton>
+          <TryLinaButton className="btn btn-blue">{t.hero.primary}</TryLinaButton>
           <DemoButton className="btn btn-line">{t.hero.secondary}</DemoButton>
         </div>
         <p className="load-in mt-4 max-w-[30rem] text-[13px] text-ink-3">{t.hero.trust}</p>

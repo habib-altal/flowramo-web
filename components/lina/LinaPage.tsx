@@ -17,6 +17,7 @@ import { Integrations } from "./Integrations";
 import { HumanAI } from "./HumanAI";
 import { Testimonials } from "./Testimonials";
 import { Closing } from "./Closing";
+import { TryLinaBar } from "./TryLinaBar";
 
 /** The Lina product story, unchanged from the original home page. */
 export function LinaPage({ lang }: { lang: Locale }) {
@@ -40,6 +41,7 @@ export function LinaPage({ lang }: { lang: Locale }) {
         <Testimonials />
         <Faq t={t.faq} />
         <Closing />
+        <TryLinaBar />
       </main>
     </PageDictProvider>
   );

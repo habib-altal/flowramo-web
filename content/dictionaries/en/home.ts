@@ -13,8 +13,8 @@ const home = {
     h1b: "that carry real work.",
     sub: "Agents that answer, book and follow up. Automations that move data to where it belongs. Products built to last. Designed around how your business runs, and installed on infrastructure you own.",
     primary: "Start a project",
-    secondary: "See a system at work",
-    proof: { text: "One of our systems is live on WhatsApp now.", link: "Message Lina" },
+    secondary: "Try Lina on WhatsApp",
+    proof: { text: "One of our systems is live on WhatsApp now.", link: "See how it works" },
     canvas: {
       label: "How a Flowramo system works: messages, email, documents, calls and forms come in, the system does the work, and bookings, answers, follow-ups, updates and reports come out.",
       inputs: ["WhatsApp", "Email", "Documents", "Voice notes", "Forms"],

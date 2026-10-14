@@ -58,7 +58,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-ink-2">
               {c.tryLina}
-              <TryLinaLink message={patient} source="contact" className="inline-flex items-center gap-1.5 font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink">
+              <TryLinaLink message={patient} source="contact" className="btn btn-blue h-11 px-5 text-[15px]">
                 {c.tryLinaCta}
               </TryLinaLink>
             </div>

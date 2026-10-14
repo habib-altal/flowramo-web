@@ -29,21 +29,17 @@ export function HomeHero({ t, lang }: { t: HomeDict; lang: Locale }) {
               <Link href={`/${lang}/contact`} className="btn btn-ink">
                 {h.primary}
               </Link>
-              <a href="#lina" className="btn btn-line">
+              <TryLinaLink message={t.lina.chat.patient} source="home-hero" className="btn btn-blue">
                 {h.secondary}
-              </a>
+              </TryLinaLink>
             </div>
             <p className="flex items-start gap-2.5 text-[14px] leading-[1.5] text-ink-2">
               <span className="lina-dot mt-[6px] scale-75" aria-hidden="true" />
               <span>
                 {h.proof.text}{" "}
-                <TryLinaLink
-                  message={t.lina.chat.patient}
-                  source="home-hero"
-                  className="inline-flex items-center gap-1.5 whitespace-nowrap font-medium text-ink underline decoration-line-strong decoration-1 underline-offset-4 transition-colors hover:decoration-ink"
-                >
+                <a href="#lina" className="whitespace-nowrap font-medium text-ink underline decoration-line-strong decoration-1 underline-offset-4 transition-colors hover:decoration-ink">
                   {h.proof.link}
-                </TryLinaLink>
+                </a>
               </span>
             </p>
           </div>
