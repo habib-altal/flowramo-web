@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, MOTION_OK, ScrollTrigger } from "@/lib/gsap";
+import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { useLina } from "../PageDict";
 
 const STAT_VALUES = [17, 4, 3, 1];
@@ -53,7 +53,8 @@ export function WhileAway() {
         tl.to(stage, { "--bg": "#1b2033", "--fg": "#eeede8", "--fg2": "#9da0ab", duration: 0.9 }, 0.4)
           .to(stage, { "--bg": "#080b16", duration: 0.7 }, 1.3)
           .to(q(".wa-moon"), { autoAlpha: 1, duration: 1 }, 1)
-          .to(q(".wa-night"), { autoAlpha: 1, duration: 1.1 }, 1.1);
+          .to(q(".wa-night"), { autoAlpha: 1, duration: 1.1 }, 1.1)
+          .fromTo(q(".wa-night img"), { scale: 1.08 }, { scale: 1, duration: 6.4 }, 1.1);
         swapClock(0, 1, 1.5);
 
         tl.to(q(".wa-g1 > *"), { ...show, stagger: 0.55 }, 2.1);
@@ -76,17 +77,6 @@ export function WhileAway() {
           tl.to(o, { v: STAT_VALUES[i], duration: 0.8, ease: "power1.out", onUpdate: () => (el.textContent = String(Math.round(o.v))) }, 8.2 + i * 0.12);
         });
         tl.to({}, { duration: 0.9 });
-
-        const video = host.querySelector<HTMLVideoElement>(".wa-night video");
-        if (video) {
-          ScrollTrigger.create({
-            trigger: host,
-            start: "top bottom",
-            end: "bottom top",
-            onToggle: (self) => (self.isActive && video.offsetWidth > 0 ? video.play().catch(() => {}) : video.pause()),
-          });
-        }
-        return () => video?.pause();
       });
       return () => mm.revert();
     },
@@ -102,13 +92,9 @@ export function WhileAway() {
         className="stage"
         style={{ background: "var(--bg, #faf9f6)", color: "var(--fg, #0c0c0b)" } as React.CSSProperties}
       >
-        {/* The clinic at night (Higgsfield: Soul 2 still, Seedance 2.5 loop). Phones get the still, larger screens the loop. */}
-        <div className="wa-night pointer-events-none absolute inset-0 opacity-0" aria-hidden="true">
-          <img src="/media/night-clinic.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-[18%_50%] md:hidden" />
-          <video className="hidden h-full w-full object-cover md:block" muted loop playsInline preload="none" poster="/media/night-clinic.webp">
-            <source src="/media/night-clinic.webm" type="video/webm" />
-            <source src="/media/night-clinic.mp4" type="video/mp4" />
-          </video>
+        {/* The clinic at night: a Higgsfield still (Qwen Image 3), slowly zoomed by the timeline. */}
+        <div className="wa-night pointer-events-none absolute inset-0 overflow-hidden opacity-0" aria-hidden="true">
+          <img src="/media/night-clinic.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-[40%_50%]" />
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(8,11,22,0.7), rgba(8,11,22,0.25) 38%, rgba(8,11,22,0.45) 72%, rgba(8,11,22,0.92))" }}
