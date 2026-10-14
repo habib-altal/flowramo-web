@@ -48,8 +48,8 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
 - The domain is `flowramo.com` (not connected yet).
 
 ## Brand
-- Logo: the "Monolith F" mark plus the FLOWRAMO wordmark. Brand blue `#0050F8`; on dark backgrounds the mark turns cyan `#00CEFF` and the wordmark white. Since 2026-10-13 the UI accent `--color-blue` is the brand blue `#0050F8` (it marks a system at work), and `--color-cyan` is used only on night sections. No all-caps labels.
-- Source artwork lives in `design/brand-source/`. `scripts/brand/trace.py` traces it to vector paths and `scripts/brand/build.py` writes `public/brand/*.svg`, `app/icon.svg` and `components/brand-paths.ts`; `scripts/og.cjs` then renders `public/logo.png`, `app/apple-icon.png`, `app/favicon.ico` and the OG images. Never hand-edit the traced paths.
+- Logo (refined 2026-10-14, Habib's go-ahead: "show trust and strength"): the F mark is three stepped bars with one shared forward slant on a common left edge (the old play-button triangle is gone), plus the FLOWRAMO wordmark in Instrument Sans 640, normal width, +4% tracking. Brand blue `#0050F8`; on dark backgrounds the mark turns cyan `#00CEFF` and the wordmark white. App/tab icon: the mark in white on a blue rounded tile (`public/brand/flowramo-icon.svg`). The UI accent `--color-blue` is the brand blue (it marks a system at work); `--color-cyan` is used only on night sections. No all-caps labels.
+- `scripts/brand/construct.py` builds the mark geometrically and the wordmark from the font (HarfBuzz-shaped, overlaps merged); `scripts/brand/build.py` writes `public/brand/*.svg`, `app/icon.svg` and `components/brand-paths.ts`; `scripts/og.cjs` then renders `public/logo.png`, `app/apple-icon.png`, `app/favicon.ico` and the OG images. Never hand-edit the generated paths. The original artwork stays in `design/brand-source/` (`trace.py` can still trace it).
 - Use `<Logo onDark />` (`components/Logo.tsx`) wherever the logo sits on a dark surface.
 
 ## Higgsfield (generated imagery)

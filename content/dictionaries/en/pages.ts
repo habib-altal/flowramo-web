@@ -83,6 +83,8 @@ const pages = {
       country: "Country",
       countryPh: "United Arab Emirates",
       intent: "What do you need?",
+      message: "What should the system take off your team?",
+      messagePh: "A few lines are enough: what happens today, where it waits, what you would like instead.",
       intents: [
         { id: "lina", label: "Lina for my clinic" },
         { id: "ai-agents", label: "An AI agent" },
@@ -122,7 +124,7 @@ const pages = {
       {
         h2: "What we collect",
         body: [
-          "When you send a project or demo request: your name, your company or clinic name, your WhatsApp number, your country, your email if you give it, what you are interested in, and the language you used.",
+          "When you send a project or demo request: your name, your company or clinic name, your WhatsApp number, your country, your email if you give it, what you are interested in, any message you write, and the language you used.",
           "When you message the Lina demo on WhatsApp: the messages you send and the number you send them from, so the demo can reply.",
           "When you browse the site: anonymous, aggregated usage figures (pages viewed, referrer, country, device type) from Vercel Web Analytics, which does not use cookies. Our hosting provider also keeps short-lived technical logs, such as IP addresses, to run and protect the site.",
         ],
@@ -136,7 +138,7 @@ const pages = {
       {
         h2: "Who processes it",
         body: [
-          "We use a small number of service providers: Vercel (website hosting and analytics), Supabase (the database that stores requests), Meta (WhatsApp), and AI model providers that process demo messages so Lina can reply. They handle the information on our behalf and only for these purposes.",
+          "We use a small number of service providers: Vercel (website hosting and analytics), Supabase (the database that stores requests), Google (the email that tells us a request arrived), Meta (WhatsApp), and AI model providers that process demo messages so Lina can reply. They handle the information on our behalf and only for these purposes.",
         ],
       },
       {

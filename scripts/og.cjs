@@ -8,7 +8,7 @@ const { chromium } = require("playwright");
 const BASE = process.argv[2] || "http://localhost:3100";
 const ROOT = path.join(__dirname, "..");
 const LOGO_SVG = fs.readFileSync(path.join(ROOT, "public", "brand", "flowramo-logo.svg"), "utf8");
-const MARK_SVG = fs.readFileSync(path.join(ROOT, "public", "brand", "flowramo-mark.svg"), "utf8");
+const ICON_SVG = fs.readFileSync(path.join(ROOT, "public", "brand", "flowramo-icon.svg"), "utf8");
 
 /** ICO container holding PNG images (supported by every current browser). */
 function ico(pngs) {
@@ -111,21 +111,18 @@ ${lina ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل ت�
     await ctx.screenshot({ path: path.join(__dirname, "..", "public", "og", `${s.file}.png`) });
     console.log("og", s.file);
   }
-  // Brand PNGs: the mark centred on white for structured data and Apple touch icons, transparent for the favicon.
-  const markPng = async (size, { pad, bg }) => {
+  // Brand PNGs from the blue tile: square-cornered where the platform rounds it (Apple, structured data), rounded for the tab icon.
+  const iconPng = async (size, { square }) => {
     await ctx.setViewportSize({ width: size, height: size });
-    const inner = Math.round(size * (1 - 2 * pad));
-    await ctx.setContent(
-      `<body style="margin:0;width:${size}px;height:${size}px;display:grid;place-items:center;background:${bg}">` +
-        `<div style="width:${inner}px;height:${inner}px">${MARK_SVG.replace("<svg ", '<svg width="100%" height="100%" ')}</div></body>`,
-    );
-    return ctx.screenshot({ omitBackground: bg === "transparent" });
+    const svg = (square ? ICON_SVG.replace('rx="28"', 'rx="0"') : ICON_SVG).replace("<svg ", '<svg width="100%" height="100%" ');
+    await ctx.setContent(`<body style="margin:0;width:${size}px;height:${size}px;background:transparent">${svg}</body>`);
+    return ctx.screenshot({ omitBackground: !square });
   };
-  fs.writeFileSync(path.join(ROOT, "public", "logo.png"), await markPng(512, { pad: 0.14, bg: "#ffffff" }));
-  fs.writeFileSync(path.join(ROOT, "app", "apple-icon.png"), await markPng(180, { pad: 0.16, bg: "#ffffff" }));
+  fs.writeFileSync(path.join(ROOT, "public", "logo.png"), await iconPng(512, { square: true }));
+  fs.writeFileSync(path.join(ROOT, "app", "apple-icon.png"), await iconPng(180, { square: true }));
   const sizes = [16, 32, 48];
   const pngs = [];
-  for (const size of sizes) pngs.push({ size, data: await markPng(size, { pad: 0.02, bg: "transparent" }) });
+  for (const size of sizes) pngs.push({ size, data: await iconPng(size, { square: false }) });
   fs.writeFileSync(path.join(ROOT, "app", "favicon.ico"), ico(pngs));
   console.log("logo.png, apple-icon.png, favicon.ico");
   await browser.close();

@@ -137,7 +137,7 @@ const home = {
       },
       {
         q: "How is a project priced?",
-        a: "Each system is scoped and priced as a project after a discovery call. You pay for a system you own, not a monthly subscription.",
+        a: "Each system is scoped and priced on a call, because every project adds some things and leaves others out. You pay once for a system you own, not a monthly subscription.",
       },
       {
         q: "Who owns the system and the data?",
@@ -150,6 +150,10 @@ const home = {
       {
         q: "What if the AI gets something wrong with a customer?",
         a: "Every system we build has limits. It answers from approved knowledge, says when it does not know, and hands sensitive or urgent cases to a person with the full conversation.",
+      },
+      {
+        q: "What happens after launch?",
+        a: "We train your team, and an AI assistant set up for your system, to handle everyday issues. Hosting and messaging are billed by those providers straight to your own accounts. When you need us, we are still here.",
       },
       {
         q: "How do we start?",

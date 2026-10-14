@@ -12,7 +12,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 
 /*
   Writes to Supabase `website_leads` with the public key (RLS allows anon INSERT only).
-  The table has no free-text column yet, so the need is stored in `source` as "contact:<id>".
+  A database trigger then alerts Habib (n8n "Flowramo — Website Lead Alert").
 */
 export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contact"]["form"]; intent?: string }) {
   const { locale } = useI18n();
@@ -38,6 +38,8 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
       country: String(data.get("country") ?? "").trim().slice(0, 80),
       email: String(data.get("email") ?? "").trim().slice(0, 160) || null,
       source: `contact:${intent || "unsure"}`,
+      intent: intent || "unsure",
+      message: String(data.get("message") ?? "").trim().slice(0, 2000) || null,
       language: locale,
     };
     try {
@@ -111,6 +113,18 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
             {f.email} <span className="font-normal text-ink-3">{f.optional}</span>
           </span>
           <input name="email" type="email" autoComplete="email" maxLength={160} placeholder={f.emailPh} dir="ltr" className={`${field} text-start rtl:text-end`} />
+        </label>
+        <label className="block sm:col-span-2">
+          <span className={label}>
+            {f.message} <span className="font-normal text-ink-3">{f.optional}</span>
+          </span>
+          <textarea
+            name="message"
+            rows={4}
+            maxLength={2000}
+            placeholder={f.messagePh}
+            className="mt-2 block w-full resize-y rounded-2xl border border-line bg-card px-4 py-3 text-[16px] leading-[1.55] text-ink outline-none transition-colors placeholder:text-ink-3 focus:border-blue"
+          />
         </label>
         <label className="absolute -start-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
           Website
