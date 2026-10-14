@@ -41,6 +41,7 @@ Read `docs/website-plan.md` before starting any work here. It holds the agreed d
   - Trigger `website_leads_notify` (pg_net) posts only the new row's id to the n8n workflow "Flowramo — Website Lead Alert" (`bVDbtgfwXEJP9EmG`, `/webhook/website-lead`), which re-reads the row, sets `notified_at` and alerts Habib by WhatsApp and Gmail once. The webhook needs no secret because it never trusts the request body beyond a UUID.
   - `articles`: the RLS policy `public_read_published_articles` allows anon SELECT where `status = 'approved_published'`. The site's Journal currently ships its articles as TS files (`content/articles/`), not from this table.
 - n8n at `n8n.flowramo.com` runs the product (WhatsApp, booking, admin bot). The website must not change any live workflow without Habib's explicit approval.
+- Since 2026-10-14 the internal webhooks `admin-bot`, `admin-confirm` and `bulk-campaign` answer only callers that send the shared `x-flowramo-internal` header (an "Internal Caller?" IF right after each Webhook node; admin hooks return 401 otherwise). The value lives only inside n8n (the Dispatcher forwards, Admin Bot's auto-execute and the Auto Recall Scheduler send it); never put it in this repo or in chat. The Dispatcher's public `/webhook/flowramo-chatbot` node is disabled.
 - The `Web Chat Gateway` workflow (`/webhook/webchat`) is known to be unreliable. Do not put it on the site until it is fixed; use a WhatsApp click-to-chat link for the live demo instead.
 
 ## Hosting

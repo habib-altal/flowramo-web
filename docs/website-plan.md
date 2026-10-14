@@ -63,4 +63,5 @@ Four articles, each in English and Arabic, chosen for search intent across the b
 2. Real testimonials once clinics agree (the Lina page's `Testimonials.tsx` stays hidden until then).
 3. Lead alerts are live (2026-10-14): trigger `website_leads_notify` → n8n "Flowramo — Website Lead Alert" (`bVDbtgfwXEJP9EmG`) → WhatsApp + Gmail to Habib, once per lead (`notified_at`). WhatsApp free-form messages only arrive inside Meta's 24-hour window; the email always does.
 4. Connect `flowramo.com` to the Vercel project, then verify it in Google Search Console, submit `/sitemap.xml`, and run `geo audit` against the public URL.
-5. Legal review of `/privacy` and `/terms`, and add the company entity once it exists.
+5. Habib reviewed `/privacy` and `/terms` on 2026-10-14. Add the company entity once it exists.
+6. Webhook hardening (2026-10-14): `admin-bot`, `admin-confirm` and `bulk-campaign` now require the internal header. Still open: the dashboard that calls `/webhook/bulk-campaign` must send the same header; the Dispatcher's WhatsApp Trigger should verify Meta's `X-Hub-Signature-256` once the Meta App Secret is stored in n8n.
