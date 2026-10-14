@@ -67,6 +67,10 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
   }
+  /* Side-entering motion starts slightly off its column; never let it widen the page (clip keeps sticky working). */
+  main {
+    overflow-x: clip;
+  }
   ::selection {
     background: var(--color-blue);
     color: #fff;
@@ -406,6 +410,21 @@
     border-bottom: 0;
   }
 
+  /* Headline lines and their masks (SplitText). Padding keeps descenders, deep in Arabic, inside the mask. */
+  .hl {
+    display: block;
+    overflow: clip;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+  [data-split] {
+    text-wrap: wrap;
+  }
+  [data-split] > * {
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+  }
+
   /* Sticky scroll stages */
   .scrolly {
     position: relative;
@@ -428,19 +447,68 @@
     opacity: 0;
     transform: translateY(14px);
   }
+  /* Scroll motion (components/motion/ScrollFx.tsx): hidden until the script takes over, shown anyway if it never does. */
+  .js:not(.fx-ready) [data-reveal],
+  .js:not(.fx-ready) [data-split],
+  .js:not(.fx-ready) [data-words] {
+    opacity: 0;
+    animation: reveal-fallback 0.01s linear 3.5s forwards;
+  }
+  /* Home headline: lines rise from a mask with pure CSS, so it starts on first paint. */
+  .hl > span {
+    display: block;
+    animation: hl-in 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hl:nth-child(2) > span {
+    animation-delay: 0.12s;
+  }
+  .hero-in {
+    animation: hero-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0.45s);
+  }
   /* The System Canvas draws itself in; if its script never runs, show it anyway. */
   .js .sc-host {
     opacity: 0;
     animation: reveal-fallback 0.01s linear 3s forwards;
   }
-  /* A capability panel answers the click that opened it. */
+  /* A capability panel answers the click (or scroll) that opened it: text first, then each part in order. */
   .cap-in {
-    animation: cap-in 520ms var(--ease-out-soft) both;
+    animation: cap-in 600ms var(--ease-out-soft) both;
+  }
+  .cap-in .cap-rail {
+    animation: cap-rail 700ms var(--ease-out-soft) 120ms both;
+    transform-origin: 50% 0;
+  }
+  .cap-in .cap-node {
+    animation: cap-node 560ms var(--ease-out-soft) both;
+    animation-delay: calc(180ms + var(--i, 0) * 110ms);
   }
 }
 @keyframes reveal-fallback {
   to {
     opacity: 1;
+  }
+}
+@keyframes hl-in {
+  from {
+    transform: translateY(110%);
+  }
+}
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+@keyframes cap-rail {
+  from {
+    transform: scaleY(0);
+  }
+}
+@keyframes cap-node {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--dir, 1) * -10px));
   }
 }
 @keyframes cap-in {

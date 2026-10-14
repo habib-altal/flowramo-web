@@ -4,10 +4,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin, useGSAP);
+  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin, SplitText, useGSAP);
 }
 
 export const MOTION_OK = "(prefers-reduced-motion: no-preference)";
@@ -38,7 +39,9 @@ export function relPos(el: HTMLElement, ancestor: HTMLElement): { x: number; y: 
   return { x, y };
 }
 
-export { gsap, ScrollTrigger, useGSAP };
+export { gsap, ScrollTrigger, SplitText, useGSAP };
+export const TABLET_UP = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
+export const PHONE = "(max-width: 767px) and (prefers-reduced-motion: no-preference)";
 
 /** Document-relative position of an element, ignoring transforms. */
 export function docPos(el: HTMLElement): { x: number; y: number } {

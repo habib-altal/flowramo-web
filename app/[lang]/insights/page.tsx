@@ -38,14 +38,19 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
           <span className="lina-dot scale-75" aria-hidden="true" />
           Flowramo
         </p>
-        <h1 className="display-lg mt-5 max-w-[14ch]">{b.title}</h1>
-        <p className="lede mt-6 max-w-[38rem]">{b.sub}</p>
+        <h1 className="display-lg mt-5 max-w-[14ch]" data-split>
+          {b.title}
+        </h1>
+        <p className="lede mt-6 max-w-[38rem]" data-reveal>
+          {b.sub}
+        </p>
       </header>
 
       <section className="wrap" aria-label={b.title}>
         <Link
           href={`/${lang}/insights/${featured.slug}`}
           className="group grid overflow-hidden rounded-[28px] border border-line bg-card transition-colors hover:border-ink-3 lg:grid-cols-[1.15fr_1fr]"
+          data-reveal="scale"
         >
           <div className="flex flex-col p-7 sm:p-10">
             <span className="text-[13.5px] text-ink-3">
@@ -73,7 +78,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
 
         <ul className="mt-4 grid gap-4 md:grid-cols-3">
           {rest.map((a) => (
-            <li key={a.slug}>
+            <li key={a.slug} data-reveal>
               <Link
                 href={`/${lang}/insights/${a.slug}`}
                 className="group flex h-full flex-col rounded-[24px] border border-line bg-card p-6 transition-colors hover:border-ink-3 sm:p-7"

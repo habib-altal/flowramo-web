@@ -74,10 +74,12 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
             </ol>
           </nav>
           <div className="max-w-[54rem]">
-            <h1 className="article-title text-[clamp(2.3rem,4.8vw,4.3rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>
+            <h1 className="article-title text-[clamp(2.3rem,4.8vw,4.3rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }} data-split>
               {body.title}
             </h1>
-            <p className="lede mt-6 max-w-[42rem]">{body.description}</p>
+            <p className="lede mt-6 max-w-[42rem]" data-reveal>
+              {body.description}
+            </p>
             <p className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-ink-3">
               <span className="font-medium text-ink-2">{b.by}</span>
               <span aria-hidden="true">·</span>
@@ -99,7 +101,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
 
           <div className="min-w-0">
             {/* The quotable answer comes first: it is what readers and AI search engines take away. */}
-            <section aria-labelledby="short-answer" className="rounded-[24px] border border-line bg-card p-6 sm:p-8">
+            <section aria-labelledby="short-answer" className="rounded-[24px] border border-line bg-card p-6 sm:p-8" data-reveal="scale">
               <h2 id="short-answer" className="flex items-center gap-2.5 text-[13.5px] font-medium text-blue">
                 <span className="lina-dot scale-75" aria-hidden="true" />
                 {b.answer}

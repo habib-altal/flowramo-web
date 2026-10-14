@@ -27,11 +27,12 @@ const home = {
   problem: {
     h2: "Most businesses still run on people doing the work of software.",
     items: [
-      { title: "Messages wait.", text: "A customer writes at night. Your team replies in the morning, after they have asked someone else." },
-      { title: "Knowledge leaks.", text: "Answers live in one person's head or a folder nobody opens. When that person is away, so is the answer." },
-      { title: "Follow-ups slip.", text: "The second message, the one that turns interest into revenue, is the one nobody has time to send." },
+      { title: "Messages wait.", text: "A customer writes at night. Your team replies in the morning, after they have asked someone else.", before: "Unanswered since 23:48", after: "Answered at 23:48" },
+      { title: "Knowledge leaks.", text: "Answers live in one person's head or a folder nobody opens. When that person is away, so is the answer.", before: "Only one person knows the answer", after: "Answered from approved knowledge" },
+      { title: "Follow-ups slip.", text: "The second message, the one that turns interest into revenue, is the one nobody has time to send.", before: "Follow-up not sent, day 6", after: "Followed up on day 2" },
     ],
     close: "Each of these is a system problem, and each has a system answer.",
+    labels: { waiting: "Customer waiting", replied: "Replied at", knows: "Who can answer", days: "Days since the enquiry" },
   },
 
   build: {
@@ -107,11 +108,11 @@ const home = {
   process: {
     h2: "From the first conversation to a system that runs.",
     steps: [
-      { name: "Map the work", text: "We sit with the work as it happens today: who does what, where it waits and what it costs." },
-      { name: "Design the system", text: "You get a written blueprint: the system, its limits, what stays human and how we will measure it." },
-      { name: "Engineer and connect", text: "We build, connect and test against your real cases, in Arabic and English." },
-      { name: "Install", text: "The system goes live on infrastructure you choose, connected to your own accounts." },
-      { name: "Improve", text: "We watch it work, fix what we learn and tune it with your team until it earns its place." },
+      { name: "Map the work", text: "We sit with the work as it happens today: who does what, where it waits and what it costs.", out: "A map of the work" },
+      { name: "Design the system", text: "You get a written blueprint: the system, its limits, what stays human and how we will measure it. Change or add anything before we build.", out: "A written blueprint" },
+      { name: "Engineer and connect", text: "We build, connect and test against your real cases, in Arabic and English.", out: "A system tested on your cases" },
+      { name: "Install", text: "The system goes live on infrastructure you choose, connected to your own accounts.", out: "Live on your infrastructure" },
+      { name: "Train and stay", text: "We train your team, and an AI assistant set up for your system, to handle everyday issues. When you need us, we are still here.", out: "A team that can run it" },
     ],
   },
 

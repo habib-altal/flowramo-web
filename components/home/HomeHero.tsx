@@ -14,13 +14,17 @@ export function HomeHero({ t, lang }: { t: HomeDict; lang: Locale }) {
     <section className="relative pb-[clamp(72px,9vw,128px)] pt-[clamp(120px,9.5vw,140px)]" aria-labelledby="home-title">
       <div className="wrap">
         <h1 id="home-title" className="hero-title home-title max-w-[17ch] rtl:max-w-[24ch]">
-          <span className="block">{h.h1a}</span>
-          <span className="block">{h.h1b}</span>
+          <span className="hl">
+            <span>{h.h1a}</span>
+          </span>
+          <span className="hl">
+            <span>{h.h1b}</span>
+          </span>
         </h1>
 
         <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
-          <p className="lede max-w-[40rem]">{h.sub}</p>
-          <div className="flex flex-col items-start gap-4 lg:items-end">
+          <p className="hero-in lede max-w-[40rem]">{h.sub}</p>
+          <div className="hero-in flex flex-col items-start gap-4 lg:items-end" style={{ "--d": "0.6s" } as React.CSSProperties}>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${lang}/contact`} className="btn btn-ink">
                 {h.primary}

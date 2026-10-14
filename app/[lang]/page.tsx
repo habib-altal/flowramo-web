@@ -40,11 +40,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <main id="main">
         <JsonLd data={companySchema(lang, common, t.faq.items)} />
         <HomeHero t={t} lang={lang} />
-        <Problem t={t.problem} />
+        <Problem />
         <Capabilities />
         <LinaShowcase />
         <Process />
-        <Ownership t={t.own} />
+        <Ownership />
         <Faq t={t.faq} />
         <JournalTeaser lang={lang} t={common} />
         <HomeClosing t={t.closing} lang={lang} email={common.footer.email} />

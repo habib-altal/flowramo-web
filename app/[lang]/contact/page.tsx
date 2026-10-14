@@ -26,14 +26,22 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
       <JsonLd data={pageSchema(lang, common, "/contact", c.meta.title, c.meta.description, "ContactPage")} />
       <div className="wrap grid gap-14 pb-[clamp(96px,12vw,160px)] pt-[clamp(132px,13vw,184px)] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div>
-          <h1 className="display-md">{c.h1}</h1>
-          <p className="lede mt-7 max-w-[30rem]">{c.sub}</p>
+          <h1 className="display-md" data-split>
+            {c.h1}
+          </h1>
+          <p className="lede mt-7 max-w-[30rem]" data-reveal>
+            {c.sub}
+          </p>
 
-          <h2 className="mt-14 text-[15px] font-semibold">{c.next.h2}</h2>
-          <ol className="mt-5 flex flex-col gap-4">
+          <h2 className="mt-14 text-[15px] font-semibold" data-reveal>
+            {c.next.h2}
+          </h2>
+          <ol className="relative mt-5 flex flex-col gap-4">
+            <span className="absolute bottom-3 start-[13.5px] top-3 w-px bg-line" aria-hidden="true" />
+            <span className="absolute bottom-3 start-[13.5px] top-3 w-px bg-blue" data-draw="y" aria-hidden="true" />
             {c.next.steps.map((s, i) => (
-              <li key={s} className="flex items-start gap-4 text-[16px] leading-[1.55] text-ink-2">
-                <span className="grid h-7 w-7 flex-none place-items-center rounded-full border-[1.5px] border-blue text-[12.5px] font-semibold tabular-nums text-blue" aria-hidden="true">
+              <li key={s} className="relative flex items-start gap-4 text-[16px] leading-[1.55] text-ink-2" data-reveal="start">
+                <span className="grid h-7 w-7 flex-none place-items-center rounded-full border-[1.5px] border-blue bg-paper text-[12.5px] font-semibold tabular-nums text-blue" aria-hidden="true">
                   {i + 1}
                 </span>
                 <span className="pt-0.5">{s}</span>
@@ -41,7 +49,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             ))}
           </ol>
 
-          <div className="mt-14 flex flex-col gap-5 border-t border-line pt-8 text-[15px]">
+          <div className="mt-14 flex flex-col gap-5 border-t border-line pt-8 text-[15px]" data-reveal>
             <p className="text-ink-2">
               {c.direct}{" "}
               <a href={`mailto:${common.footer.email}`} dir="ltr" className="font-medium text-ink underline decoration-line-strong underline-offset-4 hover:decoration-ink">
@@ -57,7 +65,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
           </div>
         </div>
 
-        <div className="lg:pt-3">
+        <div className="lg:pt-3" data-reveal="end">
           <ContactForm f={c.form} />
         </div>
       </div>

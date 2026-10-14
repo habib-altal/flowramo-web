@@ -16,6 +16,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { ScrollFx } from "@/components/motion/ScrollFx";
 
 export const dynamicParams = false;
 
@@ -68,6 +69,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         <I18nProvider locale={lang} t={t}>
           <DemoProvider>
             <SmoothScroll />
+            <ScrollFx />
             <Nav />
             {children}
             <Footer />
