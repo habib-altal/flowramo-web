@@ -8,6 +8,14 @@ Flowramo is now presented as an AI systems and product engineering studio; Lina 
 - **Brand**: one blue (`#0050F8`), cyan only on night, sentence-case labels, no legal entity named anywhere.
 - **Psychology** (see `.claude/skills/marketing-psychology`): problem → capabilities → proof (Lina, live on WhatsApp) → process (risk reduction) → ownership (no lock-in) → objections → ask. Never invented proof.
 
+## 2026-10-14: every page tells its story on scroll
+Habib found the company pages static next to the Lina page, so they now use the same motion language:
+- **Shared layer** `components/motion/ScrollFx.tsx`: `data-split` (headline lines rise from a mask; lines/words only, never letters, for Arabic), `data-reveal`, `data-words` (word-by-word read-in), `data-parallax`, `data-draw`, `data-progress`.
+- **Home scenes** (sticky stages, scrubbed on tablet/desktop, played on phones): problems answered by a sweeping blue line (`Problem.tsx`); capabilities walked through by scroll (`Capabilities.tsx`); Lina from day to night with the chat in step (`LinaShowcase.tsx`); steps on a horizontal track (`Process.tsx`); "Yours to keep" drawn as your-infrastructure boundary (`Ownership.tsx`).
+- **System Canvas** rebuilt: orthogonal bus routing, one constant signal speed through the core, separate desktop / iPad / phone drawings (the old curves read as random lines on phones).
+- **iPad**: tablet layouts checked at 820×1180, 1180×820 and 1024×1366; `main { overflow-x: clip }` stops side-entering motion from widening the page.
+- **Logo** refined (see CLAUDE.md → Brand).
+
 Status before the repositioning: first full build on 2026-10-04, following Habib's brief (calm like CoreShift, with Flowramo's own story and signature moments). The sections below describe the Lina story, which now lives at `/products/lina`.
 
 ## Direction
@@ -51,8 +59,8 @@ Four articles, each in English and Arabic, chosen for search intent across the b
 | `reactivate-inactive-dental-patients` | Revenue from the existing patient list |
 
 ## Open items
-1. Higgsfield works from the cloud container (2026-10-13). Allow `d3u0tzju9qaucj.cloudfront.net` too, so generated media can be downloaded into `public/`. Candidate shots: the night clinic behind "While you were away", Insights cover art.
+1. Higgsfield: the network path works, but on 2026-10-14 the key from Network Secrets was rejected by Higgsfield (401 "Invalid credentials"). The header must be `Authorization: Key <key-id>:<key-secret>` for `api.higgsfield.ai`. Also allow `d3u0tzju9qaucj.cloudfront.net` so results can be downloaded into `public/`. Candidate shots: the night clinic behind "While you were away", Insights cover art.
 2. Real testimonials once clinics agree (the Lina page's `Testimonials.tsx` stays hidden until then).
-3. Lead notifications (an email or WhatsApp alert when `website_leads` gets a row) and a `message` column for the contact form: both need Habib's approval.
+3. Lead alerts are live (2026-10-14): trigger `website_leads_notify` → n8n "Flowramo — Website Lead Alert" (`bVDbtgfwXEJP9EmG`) → WhatsApp + Gmail to Habib, once per lead (`notified_at`). WhatsApp free-form messages only arrive inside Meta's 24-hour window; the email always does.
 4. Connect `flowramo.com` to the Vercel project, then verify it in Google Search Console, submit `/sitemap.xml`, and run `geo audit` against the public URL.
 5. Legal review of `/privacy` and `/terms`, and add the company entity once it exists.
