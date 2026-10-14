@@ -1,11 +1,15 @@
 import type { Article } from "./types";
+import aiAgents from "./ai-agents-for-business";
 import aiReceptionist from "./ai-receptionist-for-dental-clinics";
+import automation from "./ai-automation-for-business-processes";
 import noShows from "./reduce-dental-no-shows";
+import ownership from "./own-your-ai-system";
 import whatsappBooking from "./whatsapp-appointment-booking-dental-clinic";
+import scoping from "./how-to-scope-an-ai-project";
 import reactivation from "./reactivate-inactive-dental-patients";
 
-/** Journal order: the first article is featured on the index. */
-export const ARTICLES: Article[] = [aiReceptionist, noShows, whatsappBooking, reactivation];
+/** Insights order: the first article is featured on the index. Studio articles and Lina articles alternate. */
+export const ARTICLES: Article[] = [aiAgents, aiReceptionist, automation, noShows, ownership, whatsappBooking, scoping, reactivation];
 
 export const getArticle = (slug: string) => ARTICLES.find((a) => a.slug === slug);
 
