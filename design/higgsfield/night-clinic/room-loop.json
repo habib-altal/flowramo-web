@@ -1,0 +1,20 @@
+{
+  "model": "bytedance/seedance-2.5/image-to-video",
+  "input": {
+    "image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/dd8d9ea5-f1b3-4f42-9340-f7b376ab7c39.png",
+    "end_image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/dd8d9ea5-f1b3-4f42-9340-f7b376ab7c39.png",
+    "prompt": "Locked-off tripod shot, the camera does not move. A quiet, empty dental treatment room at night. Distant city lights twinkle gently and a few far windows switch softly on and off. Thin night haze drifts slowly past the moon. On the counter, the smartphone screen glows a little brighter with a soft blue light, as if a message arrived, then settles back. The dental chair, the lamp and everything else stay perfectly still. No people, no text. Calm, slow, cinematic, seamless loop.",
+    "duration": 6,
+    "resolution": "1080p",
+    "bitrate_mode": "standard",
+    "generate_audio": false
+  },
+  "request_id": null,
+  "note": "Submitted 2026-10-14 17:26 UTC; the script stopped waiting after 20 minutes, the render completed later and Habib copied its URL from the dashboard (Seedance 2.5, Image-to-Video, Requests).",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/4a94100c-07a3-4bea-b919-9b96a6c09239.mp4"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/room-loop-1.mp4"
+  ]
+}
