@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A smartphone on a small stand on a clinic counter, its screen glowing blue with blurred message bubbles, next to a white plaster dental model of teeth and a blank appointment card. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "9b71d739-a4a2-4c11-af89-1696e5a80690",
+  "created": "2026-10-14T18:26:01.288Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/d5e038bd-b072-4a59-a963-e38131609914.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/whatsapp-appointment-booking-dental-clinic-1.png"
+  ]
+}

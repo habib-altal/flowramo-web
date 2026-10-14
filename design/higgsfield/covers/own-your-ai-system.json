@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A small sleek server unit on a shelf inside a glass cabinet in a dark office, a soft blue status light on its front, a brass key resting on the shelf beside it. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "ec85a6f9-1f75-47b8-94b3-f6e9da3734c1",
+  "created": "2026-10-14T18:27:07.405Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/b7cd7d7c-9b65-4cb5-8252-8c5939c4db47.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/own-your-ai-system-1.png"
+  ]
+}

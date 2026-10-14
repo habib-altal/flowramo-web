@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A smartphone glowing softly blue on a bedside table at early dawn, beside a glass with a toothbrush, first pale light at the window behind; the feeling of a gentle reminder. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "3958a739-c977-4bdd-aa2a-d0df89050261",
+  "created": "2026-10-14T18:23:33.234Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/25b4c57d-aff3-455a-9091-5c83acccb37a.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/reactivate-inactive-dental-patients-1.png"
+  ]
+}

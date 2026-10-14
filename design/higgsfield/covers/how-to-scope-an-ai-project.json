@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A large architectural blueprint sheet spread across a dark desk with a pencil, a steel ruler and a compass, its fine lines glowing faintly blue; abstract shapes only, nothing readable. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "52382819-8ab7-4618-8b8c-50185eb2e8ed",
+  "created": "2026-10-14T18:28:13.301Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/c6b75ede-b307-4022-a37d-4642c2a23fa6.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/how-to-scope-an-ai-project-1.png"
+  ]
+}

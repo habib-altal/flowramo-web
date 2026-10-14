@@ -1,9 +1,12 @@
 import type { Block } from "@/content/articles/types";
 import type { CommonDict } from "@/content/dictionaries/en/common";
+import Link from "next/link";
 import { DemoButton } from "@/components/Demo";
 import { Inline } from "./Inline";
 
-export function Blocks({ blocks, cta }: { blocks: Block[]; cta: CommonDict["blog"]["cta"] }) {
+type Cta = CommonDict["blog"]["cta"] & { href?: string };
+
+export function Blocks({ blocks, cta }: { blocks: Block[]; cta: Cta }) {
   return (
     <>
       {blocks.map((b, i) => {
@@ -99,7 +102,13 @@ export function Blocks({ blocks, cta }: { blocks: Block[]; cta: CommonDict["blog
                   </p>
                   <p className="mt-2 max-w-[30rem] text-[15px] leading-[1.55] text-moon-2">{cta.sub}</p>
                 </div>
-                <DemoButton className="btn btn-moon flex-none">{cta.button}</DemoButton>
+                {cta.href ? (
+                  <Link href={cta.href} className="btn btn-moon flex-none">
+                    {cta.button}
+                  </Link>
+                ) : (
+                  <DemoButton className="btn btn-moon flex-none">{cta.button}</DemoButton>
+                )}
               </aside>
             );
         }

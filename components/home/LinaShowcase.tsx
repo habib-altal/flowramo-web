@@ -61,6 +61,7 @@ export function LinaShowcase() {
             },
           },
         );
+        gsap.fromTo(q(".lc-photo"), { autoAlpha: 0 }, { autoAlpha: 1, ease: "none", scrollTrigger: { trigger: host, start: "top 40%", end: "top 5%", scrub: true } });
         const split = SplitText.create(q(".lc-h2")[0], {
           type: "lines",
           mask: "lines",
@@ -111,6 +112,18 @@ export function LinaShowcase() {
   return (
     <section ref={root} id="lina" data-nav="dark" className="relative bg-night text-moon md:h-[300vh]" aria-labelledby="lina-title">
       <div className="lc-stage relative overflow-hidden bg-night md:sticky md:top-0 md:flex md:h-svh md:items-center md:pt-[68px]">
+        {/* The clinic Lina works for, at night (the Higgsfield still from the Lina page), kept dark behind the copy. */}
+        <div className="lc-photo pointer-events-none absolute inset-0" aria-hidden="true">
+          <picture>
+            <source media="(max-aspect-ratio: 4/5)" srcSet="/media/night-clinic-portrait.webp" />
+            <img src="/media/night-clinic.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-[60%_50%] opacity-60" />
+          </picture>
+          <div
+            className="absolute inset-0 rtl:-scale-x-100"
+            style={{ background: "linear-gradient(to right, rgba(7,8,11,0.94) 0%, rgba(7,8,11,0.78) 42%, rgba(7,8,11,0.3) 100%)" }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(7,8,11,0.85), transparent 22%, transparent 78%, rgba(7,8,11,0.9))" }} />
+        </div>
         <div
           className="lc-glow pointer-events-none absolute end-[-10%] top-[10%] h-[70%] w-[60%] opacity-60"
           style={{
@@ -139,10 +152,10 @@ export function LinaShowcase() {
             </ul>
 
             <div className="mt-11 flex flex-wrap gap-3">
-              <Link href={`/${locale}/products/lina`} className="lc-cta btn btn-moon">
+              <Link href={`/${locale}/products/lina`} className="lc-cta btn btn-night-line">
                 {l.primary}
               </Link>
-              <TryLinaLink message={c.patient} source="home-lina" className="lc-cta btn btn-night-line">
+              <TryLinaLink message={c.patient} source="home-lina" className="lc-cta btn btn-blue">
                 {l.secondary}
               </TryLinaLink>
             </div>

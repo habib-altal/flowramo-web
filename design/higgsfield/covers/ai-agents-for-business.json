@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A laptop and a smartphone on a dark oak desk in an empty office at night, connected by thin glowing blue lines of light to a small matte black box, like a quiet system working alone. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "f2b373d7-f38d-4c1b-9422-f213d6c6d767",
+  "created": "2026-10-14T18:23:28.199Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/69739fd1-71c2-4f1c-b93d-98e15bb1a6a3.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/ai-agents-for-business-1.png"
+  ]
+}

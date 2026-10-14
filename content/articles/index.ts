@@ -8,3 +8,6 @@ import reactivation from "./reactivate-inactive-dental-patients";
 export const ARTICLES: Article[] = [aiReceptionist, noShows, whatsappBooking, reactivation];
 
 export const getArticle = (slug: string) => ARTICLES.find((a) => a.slug === slug);
+
+/** Cover art (Higgsfield, `design/higgsfield/covers/`), 1280×720 WebP, one per slug. */
+export const coverOf = (slug: string) => `/media/covers/${slug}.webp`;

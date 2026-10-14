@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import { alternates, formatDate, hasLocale, url } from "@/lib/i18n";
 import { getCommon } from "@/content/dictionaries";
-import { ARTICLES } from "@/content/articles";
+import { ARTICLES, coverOf } from "@/content/articles";
 import { JsonLd, blogSchema } from "@/lib/schema";
 import { Inline, plain } from "@/components/blog/Inline";
 import { DemoButton } from "@/components/Demo";
@@ -52,6 +52,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
           className="group grid overflow-hidden rounded-[28px] border border-line bg-card transition-colors hover:border-ink-3 lg:grid-cols-[1.15fr_1fr]"
           data-reveal="scale"
         >
+          <img src={coverOf(featured.slug)} alt="" width={1280} height={720} fetchPriority="high" decoding="async" className="aspect-[16/9] w-full border-b border-line object-cover object-[70%_50%] sm:aspect-[21/9] lg:col-span-2" />
           <div className="flex flex-col p-7 sm:p-10">
             <span className="text-[13.5px] text-ink-3">
               <time dateTime={featured.published}>{formatDate(lang, featured.published)}</time> · {minutes(featured[lang].minutes)}
@@ -81,14 +82,17 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
             <li key={a.slug} data-reveal>
               <Link
                 href={`/${lang}/insights/${a.slug}`}
-                className="group flex h-full flex-col rounded-[24px] border border-line bg-card p-6 transition-colors hover:border-ink-3 sm:p-7"
+                className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-line bg-card transition-colors hover:border-ink-3"
               >
+                <img src={coverOf(a.slug)} alt="" width={1280} height={720} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover object-[70%_50%]" />
+                <span className="flex flex-1 flex-col p-6 sm:p-7">
                 <span className="text-[13px] text-ink-3">{minutes(a[lang].minutes)}</span>
                 <h2 className="mt-3 text-[clamp(1.25rem,1.7vw,1.45rem)] font-[560] leading-[1.2] tracking-[-0.025em]">{a[lang].title}</h2>
                 <p className="mt-3 line-clamp-3 text-[15px] leading-[1.6] text-ink-2">{plain(a[lang].description)}</p>
                 <span className="mt-auto flex items-center gap-1.5 pt-6 text-[14.5px] font-medium">
                   {b.read}
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" aria-hidden="true" />
+                </span>
                 </span>
               </Link>
             </li>
@@ -99,10 +103,15 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
       <section className="wrap flex flex-col items-center py-32 text-center">
         <span className="lina-dot" aria-hidden="true" />
         <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.02] tracking-[-0.04em]" style={{ fontStretch: "92%" }}>
-          {b.cta.title}
+          {b.ctaStudio.title}
         </p>
-        <p className="lede mt-5 max-w-[32rem]">{b.cta.sub}</p>
-        <DemoButton className="btn btn-ink mt-9">{b.cta.button}</DemoButton>
+        <p className="lede mt-5 max-w-[32rem]">{b.ctaStudio.sub}</p>
+        <div className="mt-9 flex flex-wrap justify-center gap-3">
+          <Link href={`/${lang}/contact`} className="btn btn-ink">
+            {b.ctaStudio.button}
+          </Link>
+          <DemoButton className="btn btn-line">{b.cta.button}</DemoButton>
+        </div>
       </section>
 
     </main>

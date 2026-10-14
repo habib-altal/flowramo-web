@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "An empty white dental treatment chair in a dark treatment room, a single soft beam of blue light falling across the empty seat, the round operating lamp switched off above it. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen"
+  },
+  "request_id": "3837cc96-a005-444e-a3d1-b841a7fa30da",
+  "created": "2026-10-14T18:23:34.292Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/40bec1d2-91dc-4585-9dbf-2172102b31a5.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/reduce-dental-no-shows-1.png"
+  ]
+}

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Check, Plus } from "lucide-react";
 import { alternates, formatDate, hasLocale, url } from "@/lib/i18n";
 import { getCommon } from "@/content/dictionaries";
-import { ARTICLES, getArticle } from "@/content/articles";
+import { ARTICLES, coverOf, getArticle } from "@/content/articles";
 import { JsonLd, articleSchema } from "@/lib/schema";
 import { Blocks } from "@/components/blog/Blocks";
 import { Inline, plain } from "@/components/blog/Inline";
@@ -47,6 +47,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
   if (!hasLocale(lang) || !article) notFound();
   const t = getCommon(lang);
   const b = t.blog;
+  const cta = article.topic === "studio" ? { ...b.ctaStudio, href: `/${lang}/contact` } : { ...b.cta, href: undefined };
   const body = article[lang];
   const toc = body.blocks.flatMap((x) => (x.t === "h2" ? [{ id: x.id, text: x.text }] : []));
   const related = article.related.map(getArticle).filter((a) => a !== undefined);
@@ -90,6 +91,9 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
               <span>{b.minutes.replace("{n}", String(body.minutes))}</span>
             </p>
           </div>
+          <figure className="mt-10 overflow-hidden rounded-[28px] border border-line bg-night lg:mt-14">
+            <img src={coverOf(article.slug)} alt="" width={1280} height={720} fetchPriority="high" decoding="async" className="aspect-[16/9] w-full object-cover object-[70%_50%] sm:aspect-[21/9]" />
+          </figure>
         </header>
 
         <div className="wrap grid gap-12 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[250px_minmax(0,46rem)]">
@@ -144,7 +148,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
             </details>
 
             <div className="prose-f mt-4">
-              <Blocks blocks={body.blocks} cta={b.cta} />
+              <Blocks blocks={body.blocks} cta={cta} />
             </div>
 
             <section aria-labelledby="faq" className="mt-20">
@@ -199,14 +203,17 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
               <li key={r.slug}>
                 <Link
                   href={`/${lang}/insights/${r.slug}`}
-                  className="group flex h-full flex-col rounded-[24px] border border-line bg-card p-6 transition-colors hover:border-ink-3 sm:p-7"
+                  className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-line bg-card transition-colors hover:border-ink-3"
                 >
+                  <img src={coverOf(r.slug)} alt="" width={1280} height={720} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover object-[70%_50%]" />
+                  <span className="flex flex-1 flex-col p-6 sm:p-7">
                   <span className="text-[13px] text-ink-3">{b.minutes.replace("{n}", String(r[lang].minutes))}</span>
                   <span className="mt-3 text-[clamp(1.25rem,1.8vw,1.5rem)] font-[560] leading-[1.2] tracking-[-0.025em]">{r[lang].title}</span>
                   <span className="mt-3 line-clamp-2 text-[15px] leading-[1.6] text-ink-2">{plain(r[lang].description)}</span>
                   <span className="mt-auto flex items-center gap-1.5 pt-6 text-[14.5px] font-medium">
                     {b.read}
                     <ArrowRight size={16} className="transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" aria-hidden="true" />
+                  </span>
                   </span>
                 </Link>
               </li>
@@ -218,10 +225,16 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
       <section className="wrap flex flex-col items-center py-32 text-center">
         <span className="lina-dot" aria-hidden="true" />
         <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.02] tracking-[-0.04em]" style={{ fontStretch: "92%" }}>
-          {b.cta.title}
+          {cta.title}
         </p>
-        <p className="lede mt-5 max-w-[32rem]">{b.cta.sub}</p>
-        <DemoButton className="btn btn-ink mt-9">{b.cta.button}</DemoButton>
+        <p className="lede mt-5 max-w-[32rem]">{cta.sub}</p>
+        {cta.href ? (
+          <Link href={cta.href} className="btn btn-ink mt-9">
+            {cta.button}
+          </Link>
+        ) : (
+          <DemoButton className="btn btn-ink mt-9">{cta.button}</DemoButton>
+        )}
       </section>
 
     </main>

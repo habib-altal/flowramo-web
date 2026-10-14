@@ -141,7 +141,7 @@ export function articleSchema(lang: Locale, t: CommonDict, a: Article) {
         datePublished: a.published,
         dateModified: a.updated,
         keywords: body.keywords.join(", "),
-        image: `${SITE_URL}/og/${a.slug}-${lang}.png`,
+        image: [`${SITE_URL}/og/${a.slug}-${lang}.png`, `${SITE_URL}/media/covers/${a.slug}.webp`],
         author: { "@type": "Organization", name: "Flowramo", url: SITE_URL },
         publisher: { "@id": ORG_ID },
         citation: body.sources.map((s) => s.url),

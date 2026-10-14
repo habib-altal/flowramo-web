@@ -73,7 +73,7 @@ const common = {
 
   blog: {
     title: "Flowramo Insights",
-    sub: "Practical guides on AI systems at work, starting with dental clinics: filling chairs, ending no-shows and turning WhatsApp into a receptionist.",
+    sub: "Practical guides on AI systems at work: agents, automation, owning what you build, and what we learned building Lina for dental clinics.",
     read: "Read article",
     minutes: "{n} min read",
     answer: "The short answer",
@@ -90,6 +90,11 @@ const common = {
       title: "See Lina answer your patients.",
       sub: "A private demo with your clinic's own prices, hours and questions. No commitment.",
       button: "Book a private demo",
+    },
+    ctaStudio: {
+      title: "Have work a system should carry?",
+      sub: "Tell us how the work runs today. We'll set up a call and map what a system could take off your team.",
+      button: "Start a project",
     },
   },
 
