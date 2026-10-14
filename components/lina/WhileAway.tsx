@@ -92,9 +92,12 @@ export function WhileAway() {
         className="stage"
         style={{ background: "var(--bg, #faf9f6)", color: "var(--fg, #0c0c0b)" } as React.CSSProperties}
       >
-        {/* The clinic at night: a Higgsfield still (Qwen Image 3), slowly zoomed by the timeline. */}
+        {/* The clinic at night (Higgsfield, Qwen Image 3): a vertical still on portrait screens, the wide one elsewhere. */}
         <div className="wa-night pointer-events-none absolute inset-0 overflow-hidden opacity-0" aria-hidden="true">
-          <img src="/media/night-clinic.webp" alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-[40%_50%]" />
+          <picture>
+            <source media="(max-aspect-ratio: 4/5)" srcSet="/media/night-clinic-portrait.webp" />
+            <img src="/media/night-clinic.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-[60%_50%]" />
+          </picture>
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(8,11,22,0.7), rgba(8,11,22,0.25) 38%, rgba(8,11,22,0.45) 72%, rgba(8,11,22,0.92))" }}

@@ -20,26 +20,43 @@ if (!model || !inputPath || !outPrefix) {
 }
 
 const input = JSON.parse(await readFile(inputPath, "utf8"));
-const client = createHiggsfieldClient({
-  credentials: process.env.HF_CREDENTIALS || "network-secret:injected-by-proxy",
-  maxPollTime: 20 * 60 * 1000,
-  pollInterval: 5000,
-});
-
-let result: V2Response;
-try {
-  result = await client.subscribe(model, { input, withPolling: true });
-} catch (error) {
-  // Never print the error object itself: request configs can carry the Authorization header.
-  const name = error instanceof HiggsfieldError ? error.constructor.name : "Error";
-  console.error(`Request failed (${name}): ${error instanceof Error ? error.message : "unknown error"}`);
+const credentials = process.env.HF_CREDENTIALS || "network-secret:injected-by-proxy";
+const client = createHiggsfieldClient({ credentials });
+const fail = (message: string) => {
+  console.error(message);
   process.exit(1);
+};
+
+// Submit, or rejoin a request that is already running (HF_REQUEST_ID=<id>) so a slow render is never paid for twice.
+let requestId = process.env.HF_REQUEST_ID;
+if (!requestId) {
+  try {
+    requestId = (await client.subscribe(model, { input, withPolling: false })).request_id;
+  } catch (error) {
+    // Never print the error object itself: request configs can carry the Authorization header.
+    const name = error instanceof HiggsfieldError ? error.constructor.name : "Error";
+    fail(`Request failed (${name}): ${error instanceof Error ? error.message : "unknown error"}`);
+  }
+  console.log(`Submitted ${requestId} (rejoin with HF_REQUEST_ID=${requestId} if this run stops early)`);
 }
+
+// Video renders can sit in Higgsfield's queue for a long time; wait up to an hour.
+const DONE = ["completed", "failed", "nsfw", "canceled", "cancelled"];
+let result: V2Response | undefined;
+for (const deadline = Date.now() + 60 * 60 * 1000; Date.now() < deadline; await new Promise((r) => setTimeout(r, 10_000))) {
+  const res = await fetch(`https://api.higgsfield.ai/requests/${requestId}/status`, { headers: { Authorization: `Key ${credentials}` } });
+  if (res.status >= 500) continue;
+  if (!res.ok) fail(`Status check for ${requestId} answered ${res.status}.`);
+  result = (await res.json()) as V2Response;
+  if (DONE.includes(result.status)) break;
+}
+if (!result || !DONE.includes(result.status)) fail(`Request ${requestId} is still running after an hour; rejoin later with HF_REQUEST_ID=${requestId}.`);
+result = result!;
+const error = (result as V2Response & { error?: string }).error;
 
 const urls = [...(result.images ?? []).map((i) => i.url), ...(result.video?.url ? [result.video.url] : [])];
 if (result.status !== "completed" || urls.length === 0) {
-  console.error(`Request ${result.request_id} ended as "${result.status}" with ${urls.length} file(s); nothing saved.`);
-  process.exit(1);
+  fail(`Request ${result.request_id} ended as "${result.status}"${error ? ` (${error})` : ""} with ${urls.length} file(s); nothing saved.`);
 }
 
 await mkdir(dirname(outPrefix), { recursive: true });

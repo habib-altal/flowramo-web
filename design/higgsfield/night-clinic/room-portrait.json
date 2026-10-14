@@ -1,0 +1,20 @@
+{
+  "model": "alibaba/qwen-image-3/edit",
+  "input": {
+    "image_urls": [
+      "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/dd8d9ea5-f1b3-4f42-9340-f7b376ab7c39.png"
+    ],
+    "prompt": "Recompose this exact dental treatment room as a tall vertical photograph. Keep the same white dental chair with its round operating lamp on the articulated arm, the instrument tray, the cuspidor, the white counter with sealed sterilization pouches and the softly glowing smartphone, the floor-to-ceiling window with the city at night and the small moon, and the same deep navy moonlit mood, materials and lighting. Place the dental chair and its lamp in the lower two thirds of the frame, with the window and the night sky above. Photorealistic, sharp, fine detail.",
+    "negative_prompt": "people, person, hands, text, letters, logo, watermark, signage, blur",
+    "aspect_ratio": "9:16",
+    "resolution": "2k"
+  },
+  "request_id": "ad4e541e-3413-40f5-b3aa-eac707045f56",
+  "created": "2026-10-14T17:26:53.899Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/295165cd-57dd-44b0-950f-e4cbf9e86ff5.png"
+  ],
+  "files": [
+    "design/higgsfield/night-clinic/room-portrait-1.png"
+  ]
+}
