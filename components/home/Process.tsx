@@ -72,7 +72,8 @@ export function Process() {
                       <span className="grid h-11 w-11 place-items-center rounded-2xl bg-blue-soft text-blue-deep" aria-hidden="true">
                         <Icon size={20} strokeWidth={1.75} />
                       </span>
-                      <h3 className="mt-6 text-[clamp(1.4rem,1.9vw,1.75rem)] font-[560] leading-tight tracking-[-0.025em]">{s.name}</h3>
+                      {/* The phone list below carries the step headings; this desktop copy is a paragraph so each name is a heading once. */}
+                      <p className="mt-6 text-[clamp(1.4rem,1.9vw,1.75rem)] font-[560] leading-tight tracking-[-0.025em]">{s.name}</p>
                       <p className="mt-3 text-[15.5px] leading-[1.62] text-ink-2">{s.text}</p>
                       <p className="mt-auto flex items-center gap-2 pt-5 text-[13.5px] font-medium text-blue-deep">
                         <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden="true" />
