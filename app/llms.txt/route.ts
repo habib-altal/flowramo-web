@@ -42,7 +42,7 @@ The site is in English (/en) and Arabic (/ar). Full text of every guide and FAQ:
 
 ${page("Home", "", "what Flowramo builds and how it works.")}
 ${page("Solutions", "/solutions", "the six kinds of systems, what goes into each and where each fits.")}
-${page("Lina", "/products/lina", "the AI receptionist for dental clinics, from a patient's first WhatsApp message to their next check-up.")}
+${page("Lina", "/products/lina", "the AI receptionist for dental clinics, from a patient's first message, on WhatsApp or the clinic's website, to their next check-up.")}
 ${page("About", "/about", "who builds the systems and how Flowramo works.")}
 ${page("Insights", "/insights", "practical guides on AI systems for business and for dental clinics.")}
 ${page("Start a project", "/contact", "the project request form.")}

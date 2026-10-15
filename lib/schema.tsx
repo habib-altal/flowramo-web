@@ -173,7 +173,7 @@ export function linaSchema(lang: Locale, t: LinaDict, common: CommonDict) {
       alternateName: "لينا",
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "AI receptionist for dental clinics",
-      operatingSystem: "WhatsApp",
+      operatingSystem: "WhatsApp, Web",
       description: t.meta.description,
       inLanguage: ["ar", "en", "tr"],
       url: pageUrl,

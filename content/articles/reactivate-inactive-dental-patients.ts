@@ -234,7 +234,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-brings-patients-back", text: "How Lina brings patients back" },
       {
         t: "p",
-        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist Flowramo built for dental clinics, runs on the official WhatsApp Business Platform. She remembers each conversation: what the patient asked, whether a price was shared, whether they booked. When a patient goes quiet after asking about an implant, she follows up with an answer to the likely question and two open slots.",
+        text: "[Lina](/en/products/lina), the AI receptionist Flowramo built for dental clinics, runs on the official WhatsApp Business Platform and can also answer patients on the clinic's website. She remembers each conversation: what the patient asked, whether a price was shared, whether they booked. When a patient goes quiet after asking about an implant, she follows up with an answer to the likely question and two open slots.",
       },
       {
         t: "p",
@@ -539,7 +539,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-brings-patients-back", text: "كيف تعيد لينا المرضى إلى عيادتك" },
       {
         t: "p",
-        text: "[لينا](/ar/products/lina) موظفة استقبال ذكية على واتساب بنتها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. تتذكر كل محادثة: ماذا سأل المريض، وهل أُرسل له السعر، وهل حجز. وعندما يسكت مريض بعد سؤاله عن الزراعة، تتابعه بجواب عن السؤال المتوقع وموعدين متاحين.",
+        text: "[لينا](/ar/products/lina) موظفة استقبال ذكية بنتها Flowramo لعيادات الأسنان، تعمل على منصة واتساب للأعمال الرسمية، ويمكن ربطها بموقع العيادة أيضًا. تتذكر كل محادثة: ماذا سأل المريض، وهل أُرسل له السعر، وهل حجز. وعندما يسكت مريض بعد سؤاله عن الزراعة، تتابعه بجواب عن السؤال المتوقع وموعدين متاحين.",
       },
       {
         t: "p",

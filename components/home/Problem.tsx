@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import { gsap, useGSAP, SplitText, TABLET_UP, PHONE, focusFrom, FOCUS_TO } from "@/lib/gsap";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 /*
   Scroll story: three problems pile up, then a blue line passes over them and each
@@ -152,8 +153,9 @@ export function Problem() {
   );
 
   return (
-    <section ref={root} id="problem" className="relative bg-paper-2 md:h-[320vh]" aria-labelledby="problem-title">
-      <div className="py-[clamp(88px,12vw,140px)] md:sticky md:top-0 md:flex md:h-svh md:flex-col md:justify-center md:py-0 md:pt-[68px]">
+    <section ref={root} id="problem" className="pin-host relative bg-paper-2 md:h-[320vh]" aria-labelledby="problem-title">
+      <div className="pin-stage py-[clamp(88px,12vw,140px)] md:sticky md:top-0 md:flex md:h-svh md:flex-col md:justify-center md:py-0 md:pt-[68px]">
+        <StageProgress />
         <div className="wrap">
           <h2 id="problem-title" className="pr-h2 display-md max-w-[20ch]">
             {t.h2}

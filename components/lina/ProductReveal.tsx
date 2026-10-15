@@ -5,6 +5,7 @@ import { LayoutGrid, MessageCircle, CalendarDays, Users, Settings, Search } from
 import { gsap, useGSAP, DESKTOP } from "@/lib/gsap";
 import { useLina } from "../PageDict";
 import { BriefingCard, AppointmentsCard, LossRadarCard, RecoveryCard, ActivityCard, IntelligenceCard } from "./DashboardCards";
+import { StageProgress } from "../motion/StageProgress";
 
 // Design-space size of the dashboard; it is scaled to fit the viewport.
 const DW = 1200;
@@ -119,6 +120,7 @@ export function ProductReveal() {
       {/* Desktop: cards arrive one by one, then assemble into the dashboard */}
       <div className="scrolly hidden h-[480vh] lg:motion-safe:block">
         <div className="stage pr-stage">
+          <StageProgress />
           <div className="pr-head absolute inset-x-0 top-[88px] z-10 text-center opacity-0">
             <Headline decorative />
           </div>

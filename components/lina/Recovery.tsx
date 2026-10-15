@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Check } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { useLina } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 const COLS = 15;
 const ROWS = 7;
@@ -77,6 +78,7 @@ export function Recovery() {
   return (
     <section ref={root} id="recovery" className="scrolly h-[380vh]" aria-label={r.l2}>
       <div className="stage">
+        <StageProgress />
         <div className="wrap grid h-full content-center gap-8 pb-8 pt-[84px] lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-12">
           <div className="min-w-0">
             <h2 className="rc-title text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK, ScrollTrigger } from "@/lib/gsap";
 import { useLina } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 const STAT_VALUES = [17, 4, 3, 1];
 
@@ -120,6 +121,8 @@ export function WhileAway() {
         className="stage"
         style={{ background: "var(--bg, #faf9f6)", color: "var(--fg, #0c0c0b)" } as React.CSSProperties}
       >
+        {/* The rail follows the stage's own colour, which turns from day to night and back. */}
+        <StageProgress tone="auto" />
         {/* The clinic at night (Higgsfield): a vertical still on portrait screens, the Seedance 2.5 loop on wide ones. */}
         <div className="wa-night pointer-events-none absolute inset-0 overflow-hidden opacity-0" aria-hidden="true">
           <picture>

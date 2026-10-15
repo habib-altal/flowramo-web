@@ -28,7 +28,9 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()" },
-  { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+  // No includeSubDomains: n8n, evolution and docling live on flowramo.com subdomains run elsewhere, and a browser
+  // that visited the site must never be forced onto HTTPS for one of them that doesn't serve it.
+  { key: "Strict-Transport-Security", value: "max-age=31536000" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
 

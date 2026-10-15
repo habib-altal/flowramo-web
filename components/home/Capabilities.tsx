@@ -5,6 +5,7 @@ import Link from "next/link";
 import { gsap, useGSAP, ScrollTrigger, DESKTOP } from "@/lib/gsap";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 /*
   Six capabilities. Desktop (and iPad landscape): the section holds still in a sticky
@@ -66,8 +67,9 @@ export function Capabilities() {
   };
 
   return (
-    <section ref={root} id="build" className="relative lg:h-[460vh]" aria-labelledby="build-title">
-      <div className="py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:py-0 lg:pt-[68px]">
+    <section ref={root} id="build" className="pin-host relative lg:h-[460vh]" aria-labelledby="build-title">
+      <div className="pin-stage py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:py-0 lg:pt-[68px]">
+        <StageProgress />
         <div className="wrap w-full">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
             <h2 id="build-title" className="display-lg" data-split>

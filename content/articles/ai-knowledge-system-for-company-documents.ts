@@ -386,7 +386,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "An example: Lina answers only from clinic-approved knowledge" },
       {
         t: "p",
-        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist we built for dental clinics, is built on the same idea for one narrow job. She answers patients only from knowledge the clinic has approved, retrieving from that knowledge for each conversation, and she does not diagnose. Urgent, clinical and sensitive questions go to the clinic team with the full conversation, so the patient never has to start again. She runs on hosting the clinic chooses and owns, connected to the clinic's own accounts.",
+        text: "[Lina](/en/products/lina), the AI receptionist we built for dental clinics on WhatsApp and the clinic's website, is built on the same idea for one narrow job. She answers patients only from knowledge the clinic has approved, retrieving from that knowledge for each conversation, and she does not diagnose. Urgent, clinical and sensitive questions go to the clinic team with the full conversation, so the patient never has to start again. She runs on hosting the clinic chooses and owns, connected to the clinic's own accounts.",
       },
       {
         t: "p",
@@ -763,7 +763,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "مثال: لينا تجيب من المعرفة التي اعتمدتها العيادة فقط" },
       {
         t: "p",
-        text: "[لينا](/ar/products/lina)، موظفة الاستقبال الذكية على واتساب التي بنيناها لعيادات الأسنان، قائمة على الفكرة نفسها في مهمة محددة. فهي تجيب المرضى من المعرفة التي اعتمدتها العيادة فقط، وتسترجع منها في كل محادثة، ولا تشخّص. والأسئلة العاجلة والسريرية والحساسة تذهب إلى فريق العيادة مع المحادثة كاملة، فلا يضطر المريض إلى إعادة قصته من البداية. وتعمل على استضافة تختارها العيادة وتملكها، مربوطة بحسابات العيادة نفسها.",
+        text: "[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان على واتساب وموقع العيادة، قائمة على الفكرة نفسها في مهمة محددة. فهي تجيب المرضى من المعرفة التي اعتمدتها العيادة فقط، وتسترجع منها في كل محادثة، ولا تشخّص. والأسئلة العاجلة والسريرية والحساسة تذهب إلى فريق العيادة مع المحادثة كاملة، فلا يضطر المريض إلى إعادة قصته من البداية. وتعمل على استضافة تختارها العيادة وتملكها، مربوطة بحسابات العيادة نفسها.",
       },
       {
         t: "p",

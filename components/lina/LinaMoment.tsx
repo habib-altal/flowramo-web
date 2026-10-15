@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { useLina } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 type Pos = { x: number; y: number; mx: number; my: number };
 // Where each of Lina's actions floats before it is pulled into the blue dot (labels come from the dictionary).
@@ -97,6 +98,7 @@ export function LinaMoment() {
   return (
     <section ref={root} id="lina" data-nav="dark" className="scrolly h-[330vh] overflow-clip rounded-t-[36px] bg-night text-moon lg:rounded-t-[48px]" aria-label={t.lina.l2}>
       <div className="stage">
+        <StageProgress tone="dark" />
         <div className="absolute inset-0">
           {ACTIONS.map((a) => (
             <div

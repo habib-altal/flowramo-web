@@ -5,6 +5,7 @@ import { LifeBuoy, Map, ScrollText, Server, Workflow } from "lucide-react";
 import { gsap, useGSAP, DESKTOP } from "@/lib/gsap";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 const ICONS = [Map, ScrollText, Workflow, Server, LifeBuoy];
 
@@ -46,8 +47,9 @@ export function Process() {
   );
 
   return (
-    <section ref={root} id="how" className="relative border-t border-line lg:h-[380vh]" aria-labelledby="process-title">
-      <div className="py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden lg:py-0 lg:pt-[68px]">
+    <section ref={root} id="how" className="pin-host relative border-t border-line lg:h-[380vh]" aria-labelledby="process-title">
+      <div className="pin-stage py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden lg:py-0 lg:pt-[68px]">
+        <StageProgress />
         <div className="wrap w-full">
           <h2 id="process-title" className="display-md max-w-[22ch]" data-split>
             {t.h2}
@@ -89,7 +91,7 @@ export function Process() {
         </div>
 
         {/* Below 1024px: numbered steps that play in order, each line drawing on to the next number. */}
-        <ol className="wrap relative mt-14 grid gap-10 ps-[calc(clamp(20px,4vw,40px)+52px)] lg:hidden" data-steps>
+        <ol className="pr-list wrap relative mt-14 grid gap-10 ps-[calc(clamp(20px,4vw,40px)+52px)] lg:hidden" data-steps>
           {t.steps.map((s, i) => {
             const Icon = ICONS[i];
             return (

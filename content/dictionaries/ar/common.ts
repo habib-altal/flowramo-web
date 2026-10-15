@@ -24,6 +24,9 @@ const common: CommonDict = {
     productTag: "منتج",
   },
 
+  /** The quiet cue under a pinned scroll story (StageProgress). */
+  scrollCue: "تابع النزول",
+
   footer: {
     statement: "هندسة أنظمة ومنتجات الذكاء الاصطناعي، تُبنى لتملكها الشركة التي تشغّلها.",
     company: "الشركة",

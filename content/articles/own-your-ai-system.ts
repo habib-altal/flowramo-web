@@ -324,7 +324,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist we built for dental clinics, is one example. She runs on hosting the clinic owns, connected to the clinic's own WhatsApp and calendar, and patient records stay on the clinic's infrastructure. As with any system of this kind, each message still passes through WhatsApp and the AI model provider, so both belong on the clinic's list of processors. If you are weighing a system of your own, [tell us what it needs to do](/en/contact).",
+        text: "[Lina](/en/products/lina), the AI receptionist we built for dental clinics on WhatsApp and the clinic's website, is one example. She runs on hosting the clinic owns, connected to the clinic's own WhatsApp and calendar, and patient records stay on the clinic's infrastructure. As with any system of this kind, each message still passes through WhatsApp and the AI model provider, so both belong on the clinic's list of processors. If you are weighing a system of your own, [tell us what it needs to do](/en/contact).",
       },
     ],
     faq: [
@@ -716,7 +716,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "و[لينا](/ar/products/lina)، موظفة الاستقبال الذكية على واتساب التي بنيناها لعيادات الأسنان، مثال على ذلك. تعمل على استضافة تملكها العيادة، ومربوطة بحساب واتساب وتقويم العيادة نفسها، وتبقى سجلات المرضى على البنية التحتية للعيادة. وكما في أي نظام من هذا النوع، تمر كل رسالة عبر واتساب ومزوّد نموذج الذكاء الاصطناعي، فكلاهما يجب أن يكون في قائمة الجهات التي تعالج بيانات العيادة. وإن كنت تفكر في نظام خاص بعملك، [أخبرنا بما تحتاجه](/ar/contact).",
+        text: "و[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان على واتساب وموقع العيادة، مثال على ذلك. تعمل على استضافة تملكها العيادة، ومربوطة بحساب واتساب وتقويم العيادة نفسها، وتبقى سجلات المرضى على البنية التحتية للعيادة. وكما في أي نظام من هذا النوع، تمر كل رسالة عبر واتساب ومزوّد نموذج الذكاء الاصطناعي، فكلاهما يجب أن يكون في قائمة الجهات التي تعالج بيانات العيادة. وإن كنت تفكر في نظام خاص بعملك، [أخبرنا بما تحتاجه](/ar/contact).",
       },
     ],
     faq: [

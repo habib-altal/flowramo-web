@@ -265,7 +265,7 @@ const article: Article = {
         text: "Drift is measurable. Researchers at Stanford and UC Berkeley [compared two versions of GPT-4](https://hdsr.mitpress.mit.edu/pub/y95zitmz/release/2) from March and June 2023 and found its accuracy at telling prime from composite numbers fell from 84% to 51%. Models are also retired outright: OpenAI's [deprecations page](https://developers.openai.com/api/docs/deprecations) lists gpt-3.5-turbo-0613 as shut down on 13 September 2024 and gpt-4-32k on 6 June 2025, each with a recommended replacement. A system built on one model needs a tested path to the next.",
       },
 
-      { t: "h2", id: "example-lina", text: "An example: a WhatsApp receptionist for dental clinics" },
+      { t: "h2", id: "example-lina", text: "An example: an AI receptionist for dental clinics" },
       {
         t: "p",
         text: "Lina, the AI receptionist Flowramo built for dental clinics, shows how these choices fit together in one system. A clinic's WhatsApp scores high on the table: many messages, mostly the same questions and booking requests, and a real cost when a patient waits until morning for an answer.",
@@ -620,7 +620,7 @@ const article: Article = {
         text: "والانحراف قابل للقياس. [قارن باحثون](https://hdsr.mitpress.mit.edu/pub/y95zitmz/release/2) من جامعتي Stanford وUC Berkeley بين إصدارين من GPT-4 في مارس ويونيو 2023، فوجدوا أن دقته في التمييز بين الأعداد الأولية وغير الأولية انخفضت من 84% إلى 51%. والنماذج تُوقف أيضًا بالكامل: تُظهر [صفحة النماذج المتوقفة لدى OpenAI](https://developers.openai.com/api/docs/deprecations) أن gpt-3.5-turbo-0613 أُوقف في 13 سبتمبر 2024، وأن gpt-4-32k أُوقف في 6 يونيو 2025، مع بديل موصى به لكل منهما. فالنظام المبني على نموذج معين يحتاج إلى طريق مُختبَر للانتقال إلى النموذج التالي.",
       },
 
-      { t: "h2", id: "example-lina", text: "مثال: موظفة استقبال ذكية على واتساب لعيادات الأسنان" },
+      { t: "h2", id: "example-lina", text: "مثال: موظفة استقبال ذكية لعيادات الأسنان" },
       {
         t: "p",
         text: "لينا، موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، توضح كيف تجتمع هذه الاختيارات في نظام واحد. واتساب العيادة يحصل على درجة عالية في جدول التقييم: رسائل كثيرة، معظمها الأسئلة وطلبات الحجز نفسها، وتكلفة حقيقية حين ينتظر المريض حتى الصباح ليحصل على رد.",

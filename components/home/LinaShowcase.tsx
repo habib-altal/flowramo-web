@@ -8,6 +8,7 @@ import { MARK_PATH, MARK_VIEWBOX } from "../brand-paths";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
 import { TryLinaLink } from "../lina/TryLina";
+import { StageProgress } from "../motion/StageProgress";
 
 /*
   Lina, shown as one example of what Flowramo builds rather than as "our work".
@@ -109,8 +110,9 @@ export function LinaShowcase() {
   const [mvx, mvy, mvs] = MARK_VIEWBOX.split(" ").map(Number);
 
   return (
-    <section ref={root} id="lina" data-nav="dark" className="relative bg-night text-moon md:h-[300vh]" aria-labelledby="lina-title">
-      <div className="lc-stage relative overflow-hidden bg-night md:sticky md:top-0 md:flex md:h-svh md:items-center md:pt-[68px]">
+    <section ref={root} id="lina" data-nav="dark" className="pin-host relative bg-night text-moon md:h-[300vh]" aria-labelledby="lina-title">
+      <div className="pin-stage lc-stage relative overflow-hidden bg-night md:sticky md:top-0 md:flex md:h-svh md:items-center md:pt-[68px]">
+        <StageProgress tone="dark" />
         {/* The clinic Lina works for, at night (the Higgsfield still from the Lina page), kept dark behind the copy. */}
         <div className="lc-photo pointer-events-none absolute inset-0" aria-hidden="true">
           <picture>

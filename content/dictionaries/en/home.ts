@@ -14,7 +14,7 @@ const home = {
     sub: "Agents that answer, book and follow up. Automations that move data to where it belongs. Products built to last. Designed around how your business runs, and installed on infrastructure you own.",
     primary: "Start a project",
     secondary: "Try Lina on WhatsApp",
-    proof: { text: "Lina, the AI receptionist we built for dental clinics, is live on WhatsApp.", link: "See her at work" },
+    proof: { text: "Lina, the AI receptionist we built for dental clinics, answers patients on WhatsApp and on the clinic's website.", link: "See her at work" },
     canvas: {
       label: "How a Flowramo system works: messages, email, documents, calls and forms come in, the system does the work, and bookings, answers, follow-ups, updates and reports come out.",
       inputs: ["WhatsApp", "Email", "Documents", "Voice notes", "Forms"],
@@ -137,7 +137,7 @@ const home = {
       },
       {
         q: "Do you only build for dental clinics?",
-        a: "No. Lina, our AI WhatsApp receptionist for dental clinics, is one system we built. The same methods apply to any business whose work runs through conversations, documents and repeatable steps.",
+        a: "No. Lina, the AI receptionist we made for dental clinics, which answers patients on WhatsApp and on the clinic's website, is one system we built. The same methods apply to any business whose work runs through conversations, documents and repeatable steps.",
       },
       {
         q: "What kinds of businesses do you work with?",

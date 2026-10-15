@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { useLina } from "../PageDict";
+import { StageProgress } from "../motion/StageProgress";
 
 type Item = { kind: string; text: string; stage: number };
 
@@ -133,6 +134,7 @@ export function Journey() {
   return (
     <section ref={root} id="journey" className="scrolly h-[560vh]" aria-label={t.journey.h2b}>
       <div className="stage">
+        <StageProgress />
         <div className="wrap grid h-full grid-rows-[auto_1fr] gap-5 pb-6 pt-[86px] lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:grid-rows-1 lg:items-center lg:gap-[clamp(40px,7vw,120px)] lg:pb-10 lg:pt-[96px]">
           {/* Conversation */}
           <div className="relative order-2 h-full min-h-0 lg:order-1 lg:h-[min(640px,76svh)]">

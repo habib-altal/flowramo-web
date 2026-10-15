@@ -378,7 +378,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist we built for dental clinics, shows what clear scope lines look like. She answers only from clinic-approved knowledge, books and reschedules into the clinic's calendar, and does not diagnose. Urgent, clinical or sensitive cases go to the clinic team with the full conversation. She is installed on hosting the clinic chooses and owns, connected to the clinic's own WhatsApp and calendar. Each of those sentences is the kind of line a blueprint should contain.",
+        text: "[Lina](/en/products/lina), the AI receptionist we built for dental clinics on WhatsApp and the clinic's website, shows what clear scope lines look like. She answers only from clinic-approved knowledge, books and reschedules into the clinic's calendar, and does not diagnose. Urgent, clinical or sensitive cases go to the clinic team with the full conversation. She is installed on hosting the clinic chooses and owns, connected to the clinic's own WhatsApp and calendar. Each of those sentences is the kind of line a blueprint should contain.",
       },
       {
         t: "p",
@@ -767,7 +767,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "و[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان على واتساب، مثال على شكل حدود النطاق الواضحة. تجيب من المعرفة التي اعتمدتها العيادة فقط، وتحجز المواعيد وتغيّرها في تقويم العيادة، ولا تشخّص. والحالات العاجلة أو السريرية أو الحساسة تُحوَّل إلى فريق العيادة مع المحادثة كاملة. وتُثبَّت على استضافة تختارها العيادة وتملكها، مرتبطة بواتساب العيادة وتقويمها. وكل جملة من هذه الجمل من نوع السطور التي ينبغي أن يحتويها المخطط.",
+        text: "و[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان على واتساب وموقع العيادة، مثال على شكل حدود النطاق الواضحة. تجيب من المعرفة التي اعتمدتها العيادة فقط، وتحجز المواعيد وتغيّرها في تقويم العيادة، ولا تشخّص. والحالات العاجلة أو السريرية أو الحساسة تُحوَّل إلى فريق العيادة مع المحادثة كاملة. وتُثبَّت على استضافة تختارها العيادة وتملكها، مرتبطة بواتساب العيادة وتقويمها. وكل جملة من هذه الجمل من نوع السطور التي ينبغي أن يحتويها المخطط.",
       },
       {
         t: "p",

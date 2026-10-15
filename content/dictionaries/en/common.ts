@@ -24,6 +24,9 @@ const common = {
     productTag: "Product",
   },
 
+  /** The quiet cue under a pinned scroll story (StageProgress). */
+  scrollCue: "Keep scrolling",
+
   footer: {
     statement: "AI systems and product engineering, built to be owned by the business that runs them.",
     company: "Company",

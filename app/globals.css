@@ -444,6 +444,118 @@
     height: 100svh;
     overflow: hidden;
   }
+
+  /* StageProgress: a short rail at the inline end that fills with a pinned story's progress, plus the
+     "Keep scrolling" cue at the bottom. Hidden until JS finds the stage pinned. */
+  .sp {
+    --sp-fill: var(--color-blue);
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+  .sp[data-tone="dark"] {
+    --sp-fill: var(--color-cyan);
+  }
+  .sp[data-tone="auto"] {
+    --sp-fill: currentColor;
+  }
+  .sp[data-on] {
+    opacity: 1;
+  }
+  .sp-rail {
+    position: absolute;
+    inset-inline-end: 8px;
+    top: calc(50% - 36px);
+    width: 2px;
+    height: 72px;
+    border-radius: 2px;
+    background: color-mix(in oklab, currentColor 15%, transparent);
+  }
+  .sp-fill {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--sp-fill);
+    transform-origin: 50% 0;
+    transform: scaleY(var(--p, 0));
+  }
+  .sp-dot {
+    position: absolute;
+    left: -2px;
+    top: calc(var(--p, 0) * 100% - 3px);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sp-fill);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--sp-fill) 20%, transparent);
+  }
+  /* A small floating chip, so it stays legible even where the story's content reaches the bottom edge. */
+  .sp {
+    --sp-surface: #faf9f6;
+  }
+  .sp[data-tone="dark"] {
+    --sp-surface: #10131c;
+  }
+  .sp[data-tone="auto"] {
+    --sp-surface: var(--bg, #faf9f6);
+  }
+  .sp-cue {
+    position: absolute;
+    left: 50%;
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 10px));
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 34px;
+    padding-inline: 14px 16px;
+    border: 1px solid color-mix(in oklab, currentColor 12%, transparent);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--sp-surface) 86%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px -18px rgba(12, 12, 11, 0.4);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .sp-cue > span:last-child {
+    opacity: 0.78;
+  }
+  .sp-cue[data-on] {
+    opacity: 1;
+  }
+  .sp-cue-arrow {
+    flex: none;
+    animation: sp-bob 1.8s ease-in-out infinite;
+  }
+  @keyframes sp-bob {
+    0%,
+    100% {
+      transform: translateY(-1.5px);
+    }
+    50% {
+      transform: translateY(1.5px);
+    }
+  }
+  @media (min-width: 768px) {
+    .sp-rail {
+      inset-inline-end: 20px;
+      top: calc(50% - 56px);
+      height: 112px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .sp-rail {
+      inset-inline-end: 28px;
+    }
+  }
 }
 
 /* Motion-safe initial states for the hero (set before JS to avoid a flash) */
@@ -527,6 +639,16 @@
   }
 }
 
+/* Reduced motion on desktop: the process steps' sideways track only moves with scroll, so show them as the numbered list instead. */
+@media (prefers-reduced-motion: reduce) and (min-width: 1024px) {
+  .pr-view {
+    display: none !important;
+  }
+  .pr-list {
+    display: grid !important;
+  }
+}
+
 /* Reduced motion: collapse scroll stages into normal flow, everything visible */
 @media (prefers-reduced-motion: reduce) {
   .scrolly {
@@ -537,6 +659,17 @@
     height: auto;
     min-height: 100svh;
     overflow: visible;
+  }
+  /* The home stories pin with Tailwind sticky classes; with nothing animating, a pinned stage would only
+     hold a still screen, so they too fall back into normal flow. */
+  .pin-host {
+    height: auto !important;
+  }
+  .pin-host > .pin-stage {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100svh;
+    overflow: visible !important;
   }
   *,
   *::before,

@@ -2,7 +2,7 @@
 
 const lina = {
   meta: {
-    title: "Lina by Flowramo: AI WhatsApp receptionist for dental clinics",
+    title: "Lina by Flowramo: AI receptionist for dental clinics, on WhatsApp and the web",
     description:
       "Lina answers dental patients in seconds, in any language, on WhatsApp and your website. She books into your calendar and hands urgent cases to your team.",
     ogTitle: "Your clinic keeps moving. Even when you don't.",
@@ -33,7 +33,7 @@ const lina = {
     bubble: "Hi, do you offer dental implants?",
     h1a: "Your clinic keeps moving.",
     h1b: "Even when you don't.",
-    sub: "Lina is an AI receptionist for your clinic's WhatsApp. She answers patients within seconds, at 2 pm or 2 am, books them into your calendar and follows up with the ones who go quiet.",
+    sub: "Lina is an AI receptionist for your clinic's WhatsApp and website. She answers patients within seconds, at 2 pm or 2 am, books them into your calendar and follows up with the ones who go quiet.",
     primary: "Try Lina on WhatsApp",
     secondary: "Book a private demo",
     trust: "Runs on the official WhatsApp Business Platform, on hosting your clinic owns. You approve everything Lina knows.",
@@ -286,7 +286,7 @@ const lina = {
 
   integrations: {
     h2: "WhatsApp, clinic knowledge and calendar, connected.",
-    sub: "Lina works inside your clinic's WhatsApp, reads only the knowledge you approved and writes each booking straight into your calendar. Nobody types an appointment twice.",
+    sub: "Lina works inside your clinic's WhatsApp and website chat, reads only the knowledge you approved and writes each booking straight into your calendar. Nobody types an appointment twice.",
     nodes: { wa: "WhatsApp", cal: "Calendar", pt: "Patient data", an: "Analytics", kn: "Clinic knowledge", ai: "AI" },
     flow: [
       "New message",
@@ -377,7 +377,7 @@ const lina = {
       },
       {
         q: "Who builds Lina?",
-        a: "Flowramo, an AI systems and product engineering studio, designs and builds Lina. She runs in production on WhatsApp, and Flowramo installs her for each clinic on hosting the clinic owns.",
+        a: "Flowramo, an AI systems and product engineering studio, designs and builds Lina. She runs in production on WhatsApp, can also answer patients on the clinic's website, and Flowramo installs her for each clinic on hosting the clinic owns.",
       },
       {
         q: "How do we get started?",
