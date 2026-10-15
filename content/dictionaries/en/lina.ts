@@ -103,7 +103,7 @@ const lina = {
       "Follow-up created",
       "Patient recovered",
     ],
-    core: "LINA",
+    core: "Lina",
   },
 
   watch: {

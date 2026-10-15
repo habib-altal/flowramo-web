@@ -78,7 +78,17 @@ export function Journey() {
           if (label) label.textContent = STAGES[s];
           if (count) count.textContent = `${s + 1} / ${STAGES.length}`;
         };
-        setStage(0);
+        setStage(ITEMS[0].stage);
+
+        // How far down the rail the fill must reach to sit exactly on a stage's dot (measured, so it holds at any size).
+        const dots = railItems.map((el) => el.querySelector<HTMLElement>("span"));
+        const dotFrac = (s: number) => {
+          const d = dots[s];
+          if (!fill || !d || !fill.offsetHeight) return 0;
+          return gsap.utils.clamp(0, 1, (d.offsetTop + d.offsetHeight / 2 - fill.offsetTop) / fill.offsetHeight);
+        };
+        // The fill reaches the new dot this long after its message starts; the dot lights up only then.
+        const REACH = 0.45;
 
         const tl = gsap.timeline({
           defaults: { ease: "power2.out" },
@@ -88,12 +98,14 @@ export function Journey() {
             end: "bottom bottom",
             scrub: 0.7,
             invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              const time = self.progress * (self.animation?.duration() ?? ITEMS.length);
-              const step = Math.min(ITEMS.length - 1, Math.max(0, Math.floor(time + 0.25)));
-              setStage(ITEMS[step].stage);
-            },
           },
+        });
+        // Driven by the (smoothed) timeline time, so each dot lights only when the fill drawn on screen reaches it.
+        tl.eventCallback("onUpdate", () => {
+          const time = tl.time();
+          let step = 0;
+          for (let i = 1; i < ITEMS.length; i++) if (time >= i + REACH - 0.02) step = i;
+          setStage(ITEMS[step].stage);
         });
 
         items.forEach((el, i) => {
@@ -102,7 +114,14 @@ export function Journey() {
           tl.to(column, { y: () => offsetFor(i), duration: 0.5, ease: "power2.inOut" }, i);
         });
         if (fill) {
-          tl.fromTo(fill, { scaleY: 1 / STAGES.length }, { scaleY: 1, duration: ITEMS.length - 1, ease: "none" }, 1);
+          let first = true;
+          ITEMS.forEach((item, i) => {
+            if (i === 0 || item.stage === ITEMS[i - 1].stage) return;
+            const to = { scaleY: () => dotFrac(item.stage), duration: REACH, ease: "power1.inOut" };
+            if (first) tl.fromTo(fill, { scaleY: () => dotFrac(ITEMS[0].stage) }, to, i);
+            else tl.to(fill, to, i);
+            first = false;
+          });
         }
         tl.to({}, { duration: 0.6 });
       });
@@ -130,7 +149,7 @@ export function Journey() {
           {/* Story rail */}
           <div className="order-1 flex min-w-0 flex-col lg:order-2">
             <h2 className="text-[clamp(2rem,4.6vw,4.6rem)] font-[560] leading-[0.97] tracking-[-0.044em]" style={{ fontStretch: "92%" }}>
-              <span className="block">{t.journey.h2a}</span>
+              <span className="block">{t.journey.h2a}</span>{" "}
               <span className="block">{t.journey.h2b}</span>
             </h2>
             <p className="mt-5 hidden max-w-[26rem] text-[17px] text-ink-2 lg:block">{t.journey.sub}</p>

@@ -49,8 +49,12 @@ export function WhileAway() {
         const swapClock = (from: number, to: number, at: number) =>
           tl.to(clocks[from], { autoAlpha: 0, y: -14, duration: 0.3, ease: "power2.in" }, at).to(clocks[to], { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, at + 0.25);
 
-        // Dusk into night
-        tl.to(stage, { "--bg": "#1b2033", "--fg": "#eeede8", "--fg2": "#9da0ab", duration: 0.9 }, 0.4)
+        // Dusk into night. The background moves through the mid-tones quickly, and the text flips from ink to light
+        // where both read about equally (~4:1), so the clock is never mid-grey on mid-grey.
+        tl.to(stage, { "--bg": "#1b2033", duration: 0.9, ease: "power2.inOut" }, 0.4)
+          .to(stage, { "--fg2": "#0c0c0b", duration: 0.5 }, 0.4)
+          .set(stage, { "--fg": "#eeede8", "--fg2": "#eeede8" }, 0.9)
+          .to(stage, { "--fg2": "#9da0ab", duration: 0.5 }, 1.3)
           .to(stage, { "--bg": "#080b16", duration: 0.7 }, 1.3)
           .to(q(".wa-moon"), { autoAlpha: 1, duration: 1 }, 1)
           .to(q(".wa-night"), { autoAlpha: 1, duration: 1.1 }, 1.1)
@@ -62,19 +66,28 @@ export function WhileAway() {
         swapClock(1, 2, 4.6);
         tl.to(q(".wa-g2 > *"), { ...show, stagger: 0.55 }, 5.0);
 
-        // Sunrise
+        // Sunrise. The night shot leaves completely while it is still dark, a warm glow comes up on the horizon,
+        // then morning light rises from the bottom (a soft-edged mask, not a cross-fade, so there is no grey wash).
+        // 07:45 appears in ink only once the light has reached it.
+        // The night clock holds until the glow arrives, so the screen is never empty for long.
         tl.to(q(".wa-g2"), { autoAlpha: 0, y: -20, duration: 0.4, ease: "power2.in" }, 6.9)
-          .to(q(".wa-moon"), { autoAlpha: 0, duration: 0.6 }, 6.9)
-          .to(q(".wa-night"), { autoAlpha: 0, duration: 0.7 }, 6.9)
-          .to(q(".wa-sun"), { autoAlpha: 1, duration: 0.8 }, 7.0)
-          .to(stage, { "--bg": "#efe0cf", "--fg": "#0c0c0b", "--fg2": "#5d5c57", duration: 0.7 }, 7.0)
-          .to(stage, { "--bg": "#faf9f6", duration: 0.8 }, 7.7);
-        swapClock(2, 3, 7.0);
+          .to(q(".wa-moon"), { autoAlpha: 0, duration: 0.5 }, 6.9)
+          .to(q(".wa-night"), { autoAlpha: 0, duration: 0.4 }, 6.9)
+          .fromTo(q(".wa-sun"), { autoAlpha: 0, yPercent: 18 }, { autoAlpha: 1, yPercent: 0, duration: 0.6, ease: "power1.out" }, 7.05)
+          .to(clocks[2], { autoAlpha: 0, y: -14, duration: 0.3, ease: "power2.in" }, 7.2)
+          .set(q(".wa-day"), { autoAlpha: 1 }, 7.3)
+          .fromTo(q(".wa-day"), { "--rise": "-45%" }, { "--rise": "100%", duration: 0.8, ease: "power1.inOut" }, 7.3)
+          .set(stage, { "--fg": "#0c0c0b", "--fg2": "#5d5c57" }, 7.85)
+          .to(clocks[3], { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, 7.95)
+          .set(stage, { "--bg": "#faf9f6" }, 8.1);
 
-        tl.to(q(".wa-summary"), { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 7.9);
-        q(".wa-num").forEach((el, i) => {
+        // The markup holds the final numbers (no JS, reduced motion); here they start at zero and count up once the card is in.
+        const nums = q(".wa-num");
+        nums.forEach((el) => (el.textContent = "0"));
+        tl.to(q(".wa-summary"), { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 8.2);
+        nums.forEach((el, i) => {
           const o = { v: 0 };
-          tl.to(o, { v: STAT_VALUES[i], duration: 0.8, ease: "power1.out", onUpdate: () => (el.textContent = String(Math.round(o.v))) }, 8.2 + i * 0.12);
+          tl.to(o, { v: STAT_VALUES[i], duration: 0.8, ease: "power1.out", onUpdate: () => (el.textContent = String(Math.round(o.v))) }, 8.45 + i * 0.12);
         });
         tl.to({}, { duration: 0.9 });
 
@@ -88,7 +101,10 @@ export function WhileAway() {
             onToggle: (self) => (self.isActive && video.offsetWidth > 0 ? video.play().catch(() => {}) : video.pause()),
           });
         }
-        return () => video?.pause();
+        return () => {
+          video?.pause();
+          nums.forEach((el, i) => (el.textContent = String(STAT_VALUES[i])));
+        };
       });
       return () => mm.revert();
     },
@@ -97,8 +113,8 @@ export function WhileAway() {
 
   return (
     <section ref={root} id="away" className="scrolly h-[440vh]" aria-label={a.summary.title}>
-      {/* Marks the night portion of the scroll so the nav switches to its dark style */}
-      <div data-nav="dark" className="pointer-events-none absolute inset-x-0 top-[50vh] h-[180vh]" aria-hidden="true" />
+      {/* Marks the night portion of the scroll so the nav switches to its dark style (zero height under reduced motion, where the section stays light; display: none would not do, ScrollTrigger measures hidden triggers anyway) */}
+      <div data-nav="dark" className="pointer-events-none absolute inset-x-0 top-[30vh] h-[220vh] motion-reduce:h-0" aria-hidden="true" />
 
       <div
         className="stage"
@@ -131,16 +147,29 @@ export function WhileAway() {
           style={{ background: "radial-gradient(closest-side, rgba(117,147,255,0.22), rgba(117,147,255,0.05) 60%, transparent)" }}
           aria-hidden="true"
         />
+        {/* Dawn: a warm glow that lightens the dark (screen blend), then the morning light rising from the horizon. */}
         <div
           className="wa-sun pointer-events-none absolute bottom-[-45%] left-1/2 h-[110vh] w-[130vw] -translate-x-1/2 rounded-full opacity-0"
-          style={{ background: "radial-gradient(closest-side, rgba(255,196,140,0.45), rgba(255,214,170,0.12) 55%, transparent)" }}
+          style={{ background: "radial-gradient(closest-side, rgba(255,170,110,0.6), rgba(255,190,140,0.18) 55%, transparent)", mixBlendMode: "screen" }}
+          aria-hidden="true"
+        />
+        <div
+          className="wa-day pointer-events-none absolute inset-0 opacity-0"
+          style={
+            {
+              "--rise": "-45%",
+              background: "radial-gradient(65% 55% at 50% 100%, rgba(255,196,140,0.42), rgba(255,214,170,0.12) 55%, rgba(255,214,170,0) 80%), #faf9f6",
+              maskImage: "linear-gradient(to top, #000 var(--rise), transparent calc(var(--rise) + 45%))",
+              WebkitMaskImage: "linear-gradient(to top, #000 var(--rise), transparent calc(var(--rise) + 45%))",
+            } as React.CSSProperties
+          }
           aria-hidden="true"
         />
 
         <div className="wrap relative flex h-full flex-col items-center pt-[clamp(96px,14vh,140px)] text-center">
           <div className="relative h-[clamp(5rem,13vw,10.5rem)] w-full">
             {a.clocks.map((c) => (
-              <div key={c.t} className="wa-clock absolute inset-x-0 top-0 flex flex-col items-center opacity-0 first:opacity-100">
+              <div key={c.t} className="wa-clock absolute inset-x-0 top-0 flex flex-col items-center opacity-0 last:opacity-100">
                 <div className="text-[clamp(4rem,12vw,9.5rem)] font-[520] leading-[0.9] tracking-[-0.05em] tabular-nums" style={{ fontStretch: "88%" }}>
                   {c.t}
                 </div>
@@ -170,7 +199,7 @@ export function WhileAway() {
             </div>
           </div>
 
-          <div className="wa-summary absolute inset-x-0 bottom-[clamp(40px,9vh,96px)] px-5">
+          <div className="wa-summary absolute inset-x-0 bottom-[clamp(40px,9vh,96px)] px-5 motion-reduce:static motion-reduce:mt-6 motion-reduce:w-full motion-reduce:pb-16">
             <div className="mx-auto max-w-[880px] rounded-[30px] border border-line bg-card p-6 text-start text-ink shadow-[0_40px_100px_-50px_rgba(12,12,11,0.4)] sm:p-9">
               <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
                 <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.03em]">{a.summary.title}</h3>

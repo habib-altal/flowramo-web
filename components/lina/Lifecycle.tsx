@@ -25,7 +25,27 @@ export function Lifecycle() {
     return () => st.kill();
   }, []);
 
-  // On narrow screens the track scrolls sideways; keep the active stage in view.
+  // On narrow screens the track scrolls sideways: fade whichever edge still hides stages (inline start/end, so it
+  // follows the reading direction), and nothing where the track ends.
+  useEffect(() => {
+    const c = track.current;
+    if (!c) return;
+    const edges = () => {
+      const max = c.scrollWidth - c.clientWidth;
+      const pos = Math.abs(c.scrollLeft); // RTL scroll offsets run negative in most browsers
+      c.style.setProperty("--fade-s", max > 1 && pos > 2 ? "40px" : "0px");
+      c.style.setProperty("--fade-e", max > 1 && pos < max - 2 ? "40px" : "0px");
+    };
+    edges();
+    c.addEventListener("scroll", edges, { passive: true });
+    window.addEventListener("resize", edges);
+    return () => {
+      c.removeEventListener("scroll", edges);
+      window.removeEventListener("resize", edges);
+    };
+  }, []);
+
+  // Keep the active stage centred in the track (only the track scrolls, never the page).
   useEffect(() => {
     const c = track.current;
     if (!c || c.scrollWidth <= c.clientWidth) return;
@@ -74,7 +94,16 @@ export function Lifecycle() {
         <p className="lede mt-6 max-w-[34rem]">{t.lifecycle.sub}</p>
 
         {/* Stage track */}
-        <div ref={track} className="relative mt-[clamp(48px,7vw,88px)] overflow-x-auto pb-2 [scrollbar-width:none]">
+        <div
+          ref={track}
+          className="relative mt-[clamp(48px,7vw,88px)] scroll-px-6 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={
+            {
+              maskImage: `linear-gradient(to ${rtl ? "left" : "right"}, transparent, #000 var(--fade-s, 0px), #000 calc(100% - var(--fade-e, 0px)), transparent)`,
+              WebkitMaskImage: `linear-gradient(to ${rtl ? "left" : "right"}, transparent, #000 var(--fade-s, 0px), #000 calc(100% - var(--fade-e, 0px)), transparent)`,
+            } as React.CSSProperties
+          }
+        >
           <div className="relative min-w-[640px]">
             <div className="absolute inset-x-[7%] top-[15px] h-px bg-line" aria-hidden="true" />
             <div

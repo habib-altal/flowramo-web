@@ -41,11 +41,30 @@ export function Integrations() {
         const map = host.querySelector<HTMLElement>(".ig-map")!;
         const pill = host.querySelector<HTMLElement>(".ig-pill")!;
         const text = host.querySelector<HTMLElement>(".ig-pill-text")!;
-        const pos = (id: string) => {
-          if (id === "core") return { left: "50%", top: "50%" };
-          const el = host.querySelector<HTMLElement>(`[data-node="${id}"]`)!;
-          const cs = getComputedStyle(el);
-          return { left: `${(parseFloat(cs.left) / map.clientWidth) * 100}%`, top: `${(parseFloat(cs.top) / map.clientHeight) * 100}%` };
+        const core = host.querySelector<HTMLElement>(".ig-core")!;
+        // Centre of a node (or of the core) in px inside the map.
+        const center = (id: string) => {
+          if (id === "core") return { x: map.clientWidth / 2, y: map.clientHeight / 2 };
+          const cs = getComputedStyle(host.querySelector<HTMLElement>(`[data-node="${id}"]`)!);
+          return { x: parseFloat(cs.left), y: parseFloat(cs.top) };
+        };
+        // Where the pill starts or stops: a node's centre, or for the core a point just outside its ring on the way to
+        // the other end, so the pill never sits on the "Lina" label (it fades out there and the core lights up instead).
+        const pos = (id: string, other: string) => {
+          const p = center(id);
+          if (id === "core") {
+            const o = center(other);
+            const dx = o.x - p.x;
+            const dy = o.y - p.y;
+            const len = Math.hypot(dx, dy) || 1;
+            const ux = dx / len;
+            const uy = dy / len;
+            const reach = core.offsetWidth / 2 + 8 + (Math.abs(ux) * pill.offsetWidth + Math.abs(uy) * pill.offsetHeight) / 2;
+            const d = Math.min(reach, len * 0.6);
+            p.x += ux * d;
+            p.y += uy * d;
+          }
+          return { left: `${(p.x / map.clientWidth) * 100}%`, top: `${(p.y / map.clientHeight) * 100}%` };
         };
         const node = (id: string) => host.querySelector(`[data-node="${id}"] .ig-node`);
 
@@ -54,14 +73,16 @@ export function Integrations() {
         FLOW.forEach(([from, to], i) => {
           const label = g.flow[i];
           const at = i * 1.5;
-          const target = to === "core" ? host.querySelector(".ig-core") : node(to);
-          tl.set(pill, { left: () => pos(from).left, top: () => pos(from).top }, at)
-            .call(() => void (text.textContent = label), undefined, at)
+          const intoCore = to === "core";
+          const target = intoCore ? core : node(to);
+          // The label changes first, so the stop point is measured with the pill's new width.
+          tl.call(() => void (text.textContent = label), undefined, at)
+            .set(pill, { left: () => pos(from, to).left, top: () => pos(from, to).top }, at)
             .to(pill, { autoAlpha: 1, duration: 0.2 }, at)
-            .to(pill, { left: () => pos(to).left, top: () => pos(to).top, duration: 1.05, ease: "power2.inOut" }, at)
+            .to(pill, { left: () => pos(to, from).left, top: () => pos(to, from).top, duration: 1.05, ease: "power2.inOut" }, at)
             .to(target, { borderColor: "#0050f8", color: "#0050f8", duration: 0.2 }, at + 0.95)
             .to(target, { borderColor: "#e6e4dd", color: "#0c0c0b", duration: 0.4 }, at + 1.4)
-            .to(pill, { autoAlpha: 0, duration: 0.2 }, at + 1.25);
+            .to(pill, { autoAlpha: 0, duration: 0.2 }, intoCore ? at + 0.9 : at + 1.25);
         });
         const st = gsap.timeline({
           scrollTrigger: { trigger: map, start: "top 80%", end: "bottom 20%", onToggle: (s) => (s.isActive ? tl.play() : tl.pause()) },

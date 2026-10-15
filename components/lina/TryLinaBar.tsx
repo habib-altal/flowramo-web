@@ -4,20 +4,43 @@ import { useRef } from "react";
 import { useGSAP, ScrollTrigger } from "@/lib/gsap";
 import { TryLinaButton } from "./TryLina";
 
+/** True while a scroll story's sticky stage fills the screen (its section between "top top" and "bottom bottom"). */
+function stagePinned() {
+  const vh = window.innerHeight;
+  for (const el of document.querySelectorAll<HTMLElement>(".scrolly")) {
+    const stage = el.querySelector<HTMLElement>(":scope > .stage");
+    // Reduced motion (and hidden desktop-only stories) leave the stage in normal flow: nothing is pinned.
+    if (!stage || !el.offsetHeight || getComputedStyle(stage).position !== "sticky") continue;
+    const r = el.getBoundingClientRect();
+    if (r.top <= 40 && r.bottom >= vh - 40) return true;
+  }
+  return false;
+}
+
 /**
  * Phones only: once the hero has scrolled away, "Try Lina on WhatsApp" stays in reach at the bottom of the screen.
- * It steps aside for the closing section, which has its own buttons. Without JS it never shows (the hero button is enough).
+ * It steps aside while a scroll story is pinned (its newest message lands at the bottom, where the bar would sit)
+ * and for the closing section, which has its own buttons. Without JS it never shows (the hero button is enough).
  */
 export function TryLinaBar() {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const el = ref.current!;
+    let shown: boolean | null = null;
+    const update = (inRange: boolean) => {
+      const on = inRange && el.offsetWidth > 0 && !stagePinned();
+      if (on === shown) return;
+      shown = on;
+      el.toggleAttribute("data-on", on);
+    };
     ScrollTrigger.create({
       start: () => window.innerHeight * 0.9,
       endTrigger: "#start",
       end: "top bottom",
-      onToggle: (self) => el.toggleAttribute("data-on", self.isActive),
+      onToggle: (self) => update(self.isActive),
+      onUpdate: (self) => update(self.isActive),
+      onRefresh: (self) => update(self.isActive),
     });
   });
 

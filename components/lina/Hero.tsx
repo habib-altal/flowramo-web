@@ -47,7 +47,8 @@ export function Hero() {
       const mm = gsap.matchMedia();
       const q = gsap.utils.selector(root);
 
-      // Desktop: a thin blue thread carries the message from the patient to the booked slot.
+      // Desktop: a thin blue thread carries the message from the patient into Lina's status "station"
+      // (it passes behind the pill, never through the words), waits there while she works, then carries the booking out to the card.
       mm.add(DESKTOP, () => {
         const host = root.current!;
         const svg = host.querySelector<SVGSVGElement>(".hero-svg")!;
@@ -55,8 +56,13 @@ export function Hero() {
         const dot = host.querySelector<SVGCircleElement>(".hero-traveler")!;
         const bubble = host.querySelector<HTMLElement>("#hero-bubble")!;
         const card = host.querySelector<HTMLElement>(".hero-card-desktop")!;
+        const station = host.querySelector<HTMLElement>(".hero-station")!;
         const statuses = q(".hero-status-d");
         const k = rtl ? -1 : 1;
+        const n = STATUSES.length;
+        // Fractions of the thread's length where it slips behind the station and comes out again.
+        let fIn = 0.5;
+        let fOut = 0.6;
 
         const buildPath = () => {
           const W = host.offsetWidth;
@@ -64,37 +70,92 @@ export function Hero() {
           svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
           const b = relPos(bubble, host);
           const c = relPos(card, host);
+          const s = relPos(station, host);
+          const half = station.offsetWidth / 2;
+          const cx = s.x + half;
+          const cy = s.y + station.offsetHeight / 2;
+          const inX = cx - k * half;
+          const outX = cx + k * half;
           const sx = rtl ? b.x + bubble.offsetWidth - 34 : b.x + 34;
           const sy = b.y + bubble.offsetHeight + 10;
           const ex = rtl ? c.x + card.offsetWidth + 14 : c.x - 14;
           const ey = c.y + card.offsetHeight * 0.55;
-          path.setAttribute("d", `M ${sx} ${sy} C ${sx - 10 * k} ${sy + H * 0.42}, ${ex - k * W * 0.42} ${ey + H * 0.2}, ${ex} ${ey}`);
+          const a1 = Math.abs(inX - sx) * 0.55;
+          const a2 = Math.abs(ex - outX) * 0.5;
+          const leg1 = `M ${sx} ${sy} C ${sx} ${sy + (cy - sy) * 0.8}, ${inX - k * a1} ${cy}, ${inX} ${cy}`;
+          const d = `${leg1} L ${outX} ${cy} C ${outX + k * a2} ${cy}, ${ex - k * a2 * 0.6} ${ey}, ${ex} ${ey}`;
+          path.setAttribute("d", leg1);
+          const l1 = path.getTotalLength();
+          path.setAttribute("d", d);
+          const total = path.getTotalLength() || 1;
+          fIn = l1 / total;
+          fOut = (l1 + 2 * half) / total;
+          return d;
         };
-        buildPath();
-        window.addEventListener("resize", buildPath);
 
-        gsap.set(q(".hero-seq"), { opacity: 1 });
-        gsap.set(path, { drawSVG: "0%" });
-        gsap.set(dot, { opacity: 0 });
-        gsap.set(card, { opacity: 0, y: 14, scale: 0.97 });
-        gsap.set(statuses, { opacity: 0, y: 8 });
+        const T1 = 1.2; // bubble → station
+        const STEP = 0.75; // one status per step while the message is inside the station
+        const T2 = 0.9; // station → booked card
+        const along = (start: number, end: number) => ({ path, align: path, alignOrigin: [0.5, 0.5], start, end });
 
-        const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6, delay: 1.4 });
-        tl.to(dot, { opacity: 1, duration: 0.2 }, 0)
-          .to(path, { drawSVG: "100%", duration: 3.4, ease: "power1.inOut" }, 0)
-          .to(dot, { motionPath: { path, align: path, alignOrigin: [0.5, 0.5] }, duration: 3.4, ease: "power1.inOut" }, 0);
-        STATUSES.forEach((_, i) => {
-          const at = i * 1.1;
-          tl.to(statuses[i], { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, at);
-          if (i < STATUSES.length - 1) tl.to(statuses[i], { opacity: 0, y: -8, duration: 0.3, ease: "power2.in" }, at + 0.85);
-        });
-        tl.to(dot, { opacity: 0, duration: 0.25 }, 3.35)
-          .to(card, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "expo.out" }, 3.3)
-          .fromTo(card.querySelector(".booked-ring"), { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 1.08, duration: 1.1, ease: "power2.out" }, 3.4)
-          .to({}, { duration: 4.2 })
-          .to(card, { opacity: 0, y: -8, duration: 0.5, ease: "power2.in" })
-          .to(statuses[STATUSES.length - 1], { opacity: 0, y: -8, duration: 0.4 }, "<")
-          .to(path, { drawSVG: "100% 100%", duration: 0.9, ease: "power2.inOut" }, "<");
+        const build = () => {
+          gsap.set(q(".hero-seq"), { opacity: 1 });
+          gsap.set(path, { drawSVG: "0% 0%" });
+          gsap.set(dot, { opacity: 0 });
+          gsap.set(card, { opacity: 0, y: 14, scale: 0.97 });
+          gsap.set(statuses, { opacity: 0, y: 6 });
+
+          const exitAt = T1 + (n - 1) * STEP;
+          const arrive = exitAt + T2;
+          const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6, delay: 1.4 });
+          tl.to(dot, { opacity: 1, duration: 0.2 }, 0)
+            .to(path, { drawSVG: `0% ${fIn * 100}%`, duration: T1, ease: "power1.inOut" }, 0)
+            .to(dot, { motionPath: along(0, fIn), duration: T1, ease: "power1.inOut" }, 0)
+            .set(dot, { opacity: 0 }, T1);
+          // Each working status starts only once the message has reached the station.
+          for (let i = 0; i < n - 1; i++) {
+            const at = T1 + i * STEP;
+            tl.fromTo(statuses[i], { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, at).to(
+              statuses[i],
+              { opacity: 0, y: -6, duration: 0.25, ease: "power2.in" },
+              at + STEP - 0.25,
+            );
+          }
+          // The booking leaves the station and lands as the card.
+          tl.set(path, { drawSVG: `0% ${fOut * 100}%` }, exitAt)
+            .set(dot, { opacity: 1 }, exitAt)
+            .fromTo(statuses[n - 1], { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, exitAt)
+            .to(path, { drawSVG: "0% 100%", duration: T2, ease: "power1.inOut" }, exitAt)
+            .to(dot, { motionPath: along(fOut, 1), duration: T2, ease: "power1.inOut" }, exitAt)
+            .to(dot, { opacity: 0, duration: 0.25 }, arrive - 0.1)
+            .to(card, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "expo.out" }, arrive - 0.1)
+            .fromTo(card.querySelector(".booked-ring"), { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 1.08, duration: 1.1, ease: "power2.out" }, arrive)
+            .to({}, { duration: 3.6 })
+            .to(card, { opacity: 0, y: -8, duration: 0.5, ease: "power2.in" })
+            .to(statuses[n - 1], { opacity: 0, y: -6, duration: 0.4 }, "<")
+            .to(path, { drawSVG: "100% 100%", duration: 0.9, ease: "power2.inOut" }, "<");
+          return tl;
+        };
+
+        let d = buildPath();
+        let tl = build();
+        // Rebuild when the layout moves (resize, late web fonts), so the thread always runs through the station.
+        const rebuild = () => {
+          const next = buildPath();
+          if (next === d) return;
+          d = next;
+          const paused = tl.paused();
+          tl.kill();
+          tl = build();
+          if (paused) tl.pause();
+        };
+        let timer = 0;
+        const onResize = () => {
+          window.clearTimeout(timer);
+          timer = window.setTimeout(rebuild, 200);
+        };
+        window.addEventListener("resize", onResize);
+        document.fonts?.ready.then(rebuild);
 
         // Pause the loop while the hero is off screen.
         const st = gsap.timeline({
@@ -102,7 +163,9 @@ export function Hero() {
         });
 
         return () => {
-          window.removeEventListener("resize", buildPath);
+          window.removeEventListener("resize", onResize);
+          window.clearTimeout(timer);
+          tl.kill();
           st.kill();
         };
       });
@@ -141,26 +204,26 @@ export function Hero() {
         <path className="hero-path" fill="none" stroke="var(--color-blue)" strokeWidth="1.5" strokeLinecap="round" />
         <circle className="hero-traveler" r="5" fill="var(--color-blue)" />
       </svg>
-      <div id="hero-bubble-wrap" className="hero-seq absolute start-[4.5vw] top-[19%] z-10 hidden lg:block">
-        <PatientBubble id="hero-bubble" />
-      </div>
-      <div className="absolute end-[4.5vw] top-[63%] z-10 hidden lg:block">
-        <BookedCard className="hero-card-desktop hero-seq" />
-      </div>
-
-      <div className="wrap relative z-10 flex flex-1 flex-col items-center justify-center pb-16 pt-[120px] text-center lg:pt-[104px]">
+      {/* Short desktop screens get extra top room so the patient's bubble never meets the nav. */}
+      <div className="wrap relative z-10 flex flex-1 flex-col items-center justify-center pb-16 pt-[120px] text-center lg:pt-[max(104px,calc(920px_-_100svh))]">
         <div className="hero-in mb-8 self-start lg:hidden" style={{ "--d": "0.1s" } as React.CSSProperties}>
           <PatientBubble />
         </div>
 
-        <h1 className="hero-title text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
-          <span className="block">
-            <FocusWords text={t.hero.h1a} />
-          </span>
-          <span className="block">
-            <FocusWords text={t.hero.h1b} from={wordCount(t.hero.h1a)} />
-          </span>
-        </h1>
+        <div className="relative w-full">
+          {/* Desktop: the patient's message sits at the start of the column, just above the headline (never on it). */}
+          <div id="hero-bubble-wrap" aria-hidden="true" className="hero-seq absolute bottom-[calc(100%+28px)] start-0 hidden lg:block">
+            <PatientBubble id="hero-bubble" />
+          </div>
+          <h1 className="hero-title text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
+            <span className="block">
+              <FocusWords text={t.hero.h1a} />
+            </span>{" "}
+            <span className="block">
+              <FocusWords text={t.hero.h1b} from={wordCount(t.hero.h1a)} />
+            </span>
+          </h1>
+        </div>
         <p className="hero-in lede mt-7 max-w-[36rem]" style={{ "--d": "0.6s" } as React.CSSProperties}>{t.hero.sub}</p>
         <div className="hero-in mt-9 flex flex-wrap items-center justify-center gap-3" style={{ "--d": "0.72s" } as React.CSSProperties}>
           <TryLinaButton className="btn btn-blue">{t.hero.primary}</TryLinaButton>
@@ -168,19 +231,25 @@ export function Hero() {
         </div>
         <p className="hero-in mt-4 max-w-[30rem] text-[13px] text-ink-3" style={{ "--d": "0.84s" } as React.CSSProperties}>{t.hero.trust}</p>
 
-        {/* Lina's live status line */}
-        <div className="hero-seq relative mt-10 h-6 w-full max-w-[340px]" aria-live="off">
-          {STATUSES.map((s, i) => (
-            <div
-              key={s}
-              className={`hero-status-d hero-status-m sys absolute inset-0 flex items-center justify-center gap-2 ${
-                i === STATUSES.length - 1 ? "text-blue" : "text-ink-2"
-              } ${i === STATUSES.length - 1 ? "" : "opacity-0"}`}
-            >
-              <span className="lina-dot scale-75" aria-hidden="true" />
-              {s}
-            </div>
-          ))}
+        {/* Lina's live status: a station the thread passes behind. Its statuses share one grid cell, so it is as wide as the longest. */}
+        <div className="hero-seq relative mt-10 flex w-full justify-center" aria-live="off">
+          <div className="hero-station relative z-10 grid rounded-full bg-paper px-3 py-1">
+            {STATUSES.map((s, i) => (
+              <div
+                key={s}
+                className={`hero-status-d hero-status-m sys col-start-1 row-start-1 flex items-center justify-center gap-2 whitespace-nowrap ${
+                  i === STATUSES.length - 1 ? "text-blue" : "text-ink-2"
+                } ${i === STATUSES.length - 1 ? "" : "opacity-0"}`}
+              >
+                <span className="lina-dot scale-75" aria-hidden="true" />
+                {s}
+              </div>
+            ))}
+          </div>
+          {/* Desktop booked card at the end of the content column: level with the station on narrow desktops, just above it from xl. The phone copy below carries the same content. */}
+          <div aria-hidden="true" className="absolute inset-y-0 end-0 hidden items-center lg:flex xl:inset-y-auto xl:bottom-[calc(50%+20px)]">
+            <BookedCard className="hero-card-desktop hero-seq" />
+          </div>
         </div>
         <div className="mt-3 h-px w-full max-w-[220px] bg-line lg:hidden">
           <div className="hero-bar-m h-px w-full bg-blue" />

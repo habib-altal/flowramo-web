@@ -32,6 +32,8 @@ export function Recovery() {
   const root = useRef<HTMLElement>(null);
   const t = useLina();
   const r = t.recovery;
+  // Sentence case in the UI font, never tracked caps (the name may arrive capitalised from the dictionary).
+  const name = t.lina.core.charAt(0) + t.lina.core.slice(1).toLowerCase();
 
   useGSAP(
     () => {
@@ -78,7 +80,7 @@ export function Recovery() {
         <div className="wrap grid h-full content-center gap-8 pb-8 pt-[84px] lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-12">
           <div className="min-w-0">
             <h2 className="rc-title text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>
-              <span className="block">{r.l1}</span>
+              <span className="block">{r.l1}</span>{" "}
               <span className="rc-l2 block text-ink-3">{r.l2}</span>
             </h2>
             <div className="rc-legend mt-7 flex flex-wrap gap-x-5 gap-y-2 text-[14px] text-ink-2">
@@ -108,8 +110,8 @@ export function Recovery() {
               <g className="rc-lina">
                 <circle cx={LINA.x} cy={LINA.y} r={22} fill="#0050f8" opacity="0.12" />
                 <circle cx={LINA.x} cy={LINA.y} r={9} fill="#0050f8" />
-                <text x={LINA.x} y={LINA.y + 40} textAnchor="middle" className="fill-blue font-mono text-[13px] tracking-[0.2em]">
-                  {t.lina.core}
+                <text x={LINA.x} y={LINA.y + 40} textAnchor="middle" className="fill-blue text-[22px] font-medium sm:text-[14px]">
+                  {name}
                 </text>
               </g>
             </svg>

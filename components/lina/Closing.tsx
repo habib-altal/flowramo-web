@@ -36,7 +36,7 @@ export function Closing() {
         <div className="c-3 mt-10 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-3">
             <TryLinaButton className="btn btn-blue">{c.primary}</TryLinaButton>
-            <DemoButton className="btn btn-ink">{c.secondary}</DemoButton>
+            <DemoButton className="btn btn-line">{c.secondary}</DemoButton>
           </div>
           <p className="text-[13.5px] text-ink-3">{c.note}</p>
         </div>
