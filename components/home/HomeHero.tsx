@@ -25,8 +25,8 @@ export function HomeHero({ t, lang }: { t: HomeDict; lang: Locale }) {
 
         <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
           <p className="hero-in lede max-w-[40rem]">{h.sub}</p>
-          <div className="hero-in flex flex-col items-start gap-4 lg:items-end" style={{ "--d": "0.75s" } as React.CSSProperties}>
-            <div className="flex flex-wrap gap-3">
+          <div className="hero-in flex flex-col items-start gap-4 max-sm:items-stretch lg:items-end" style={{ "--d": "0.75s" } as React.CSSProperties}>
+            <div className="flex flex-wrap gap-3 max-sm:flex-col">
               <Link href={`/${lang}/contact`} className="btn btn-ink">
                 {h.primary}
               </Link>

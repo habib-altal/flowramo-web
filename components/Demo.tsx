@@ -84,7 +84,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
   }
 
   const field =
-    "h-12 w-full rounded-xl border border-line bg-card px-4 text-[15.5px] outline-none transition-colors placeholder:text-ink-3 focus:border-ink";
+    "h-12 w-full rounded-xl border border-line bg-card px-4 text-[15.5px] outline-none transition-colors placeholder:text-ink-3 focus:border-blue focus-visible:ring-4 focus-visible:ring-blue/15";
   const label = "flex flex-col gap-1.5 text-[13.5px] font-medium text-ink-2";
 
   return (

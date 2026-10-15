@@ -79,8 +79,9 @@ export function LinaShowcase() {
           .from(q(".lc-show"), { autoAlpha: 0, y: 16, duration: 0.5, stagger: 0.15 }, 1.3)
           .from(q(".lc-phone"), { autoAlpha: 0, y: 90, scale: 0.96, duration: 1.2 }, 0.4)
           .from(q(".lc-glow"), { opacity: 0, scale: 0.7, duration: 1.4 }, 0.4);
-        conversation(tl, 2.1);
-        tl.from(q(".lc-cta"), { autoAlpha: 0, y: 16, duration: 0.5, stagger: 0.12 }, 5.4).to({}, { duration: 0.8 });
+        // The first message lands with the phone, so the panel is never an empty box.
+        conversation(tl, 0.9);
+        tl.from(q(".lc-cta"), { autoAlpha: 0, y: 16, duration: 0.5, stagger: 0.12 }, 4.4).to({}, { duration: 0.8 });
         return () => split.revert();
       });
 
@@ -120,7 +121,7 @@ export function LinaShowcase() {
             className="absolute inset-0 rtl:-scale-x-100"
             style={{ background: "linear-gradient(to right, rgba(7,8,11,0.94) 0%, rgba(7,8,11,0.78) 42%, rgba(7,8,11,0.3) 100%)" }}
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(7,8,11,0.85), transparent 22%, transparent 78%, rgba(7,8,11,0.9))" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(7,8,11,0.95), rgba(7,8,11,0.6) 20%, transparent 36%, transparent 78%, rgba(7,8,11,0.9))" }} />
         </div>
         <div
           className="lc-glow pointer-events-none absolute end-[-10%] top-[10%] h-[70%] w-[60%] opacity-60"
@@ -149,7 +150,7 @@ export function LinaShowcase() {
               ))}
             </ul>
 
-            <div className="mt-11 flex flex-wrap gap-3">
+            <div className="mt-11 flex flex-wrap gap-3 max-sm:flex-col">
               <Link href={`/${locale}/products/lina`} className="lc-cta btn btn-night-line">
                 {l.primary}
               </Link>
@@ -181,9 +182,10 @@ export function LinaShowcase() {
               </div>
 
               <div className="flex flex-col gap-3 px-4 pb-5 pt-6 sm:px-5">
-                <div className="lc-msg max-w-[84%] self-start rounded-[20px] rounded-es-[6px] bg-night-3 px-4 py-3 text-[15px] leading-[1.45] text-moon">{c.patient}</div>
-                <div className="lc-msg max-w-[84%] self-end rounded-[20px] rounded-ee-[6px] bg-blue px-4 py-3 text-[15px] leading-[1.45] text-white">{c.lina}</div>
-                <div className="lc-msg max-w-[84%] self-start rounded-[20px] rounded-es-[6px] bg-night-3 px-4 py-3 text-[15px] leading-[1.45] text-moon">{c.patient2}</div>
+                {/* The patient's own phone: their messages on the end side, Lina's replies on the start side. */}
+                <div className="lc-msg max-w-[84%] self-end rounded-[20px] rounded-ee-[6px] bg-night-3 px-4 py-3 text-[15px] leading-[1.45] text-moon">{c.patient}</div>
+                <div className="lc-msg max-w-[84%] self-start rounded-[20px] rounded-es-[6px] bg-blue px-4 py-3 text-[15px] leading-[1.45] text-white">{c.lina}</div>
+                <div className="lc-msg max-w-[84%] self-end rounded-[20px] rounded-ee-[6px] bg-night-3 px-4 py-3 text-[15px] leading-[1.45] text-moon">{c.patient2}</div>
 
                 <div className="lc-card relative mt-3 rounded-[22px] border border-night-line bg-night p-4">
                   <span className="lc-ring pointer-events-none absolute -inset-px rounded-[22px] border border-cyan opacity-0" aria-hidden="true" />

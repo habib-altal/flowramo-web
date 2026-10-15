@@ -17,8 +17,8 @@ export function PageHeader({ h1, sub, children }: { h1: string; sub?: string; ch
   );
 }
 
-/** A quiet closing band that sends the reader to the project form. */
-export function PageCta({ h2, text, cta, href }: { h2: string; text?: string; cta: string; href: string }) {
+/** A quiet closing band that sends the reader to the project form. `children` sits under the text (e.g. guides worth reading first). */
+export function PageCta({ h2, text, cta, href, children }: { h2: string; text?: string; cta: string; href: string; children?: React.ReactNode }) {
   return (
     <section className="border-t border-line" aria-labelledby="page-cta">
       <div className="wrap flex flex-col gap-8 py-[clamp(96px,12vw,160px)] lg:flex-row lg:items-end lg:justify-between">
@@ -31,6 +31,7 @@ export function PageCta({ h2, text, cta, href }: { h2: string; text?: string; ct
               {text}
             </p>
           )}
+          {children}
         </div>
         <a href={href} className="btn btn-ink h-[54px] flex-none self-start px-7 text-[16px] lg:self-auto" data-reveal>
           {cta}

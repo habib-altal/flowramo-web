@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { RotateCcw, Check, CalendarClock, BellRing } from "lucide-react";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { useLina } from "../PageDict";
+import { useI18n } from "../I18n";
 
 const TIMES = ["10:00", "11:00", "14:30", "16:00"];
 // Free slots Lina can offer (day index-time); everything else is already taken.
@@ -39,6 +40,7 @@ function Typing({ cls }: { cls: string }) {
 export function WatchLina() {
   const root = useRef<HTMLElement>(null);
   const t = useLina();
+  const { locale, rtl } = useI18n();
   const w = t.watch;
   const SIGNALS = w.signals;
   const tlRef = useRef<gsap.core.Timeline | null>(null);
@@ -125,6 +127,10 @@ export function WatchLina() {
           <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
             {/* Conversation (Arabic, right-to-left) */}
             <div dir="rtl" lang="ar" className="relative flex min-h-[460px] flex-col gap-3 p-5 pb-20 sm:p-7 sm:pb-20 lg:min-h-[560px] lg:border-e lg:border-night-line">
+              {/* Like WhatsApp's date chip: says plainly that this chat is an illustration, not a real patient. */}
+              <p lang={locale} dir={rtl ? "rtl" : "ltr"} className="mb-1 self-center rounded-full bg-night-3 px-3 py-1 text-[12px] text-moon-2">
+                {t.example}
+              </p>
               <Bubble who="p" cls="w-msg w-m1">أنا متردد شوي، هل الزراعة مؤلمة؟</Bubble>
               <Typing cls="w-typing w-t1" />
               <Bubble who="l" cls="w-msg w-m2">

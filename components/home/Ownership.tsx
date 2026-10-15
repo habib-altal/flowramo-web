@@ -95,7 +95,7 @@ export function Ownership() {
           </div>
 
           {/* The drawing */}
-          <div className="ow-art relative mx-auto aspect-square w-full max-w-[min(480px,62svh)] max-md:order-first max-md:max-w-[340px]" aria-hidden="true">
+          <div className="ow-art relative mx-auto aspect-square w-full max-w-[min(480px,62svh)] max-md:max-w-[340px]" aria-hidden="true">
             <svg viewBox="0 0 480 480" className="absolute inset-0 h-full w-full overflow-visible">
               <rect className="ow-glow" x="24" y="24" width="432" height="432" rx="34" fill="color-mix(in oklab, var(--color-blue) 5%, transparent)" stroke="none" opacity="1" />
               <rect className="ow-border" x="24" y="24" width="432" height="432" rx="34" fill="none" stroke="var(--color-blue)" strokeWidth="1.5" />

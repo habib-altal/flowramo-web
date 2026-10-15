@@ -5,7 +5,8 @@ import { ArrowRight, Check, Plus } from "lucide-react";
 import { alternates, formatDate, hasLocale, readingTime, url } from "@/lib/i18n";
 import { getCommon } from "@/content/dictionaries";
 import { ARTICLES, coverOf, getArticle } from "@/content/articles";
-import { JsonLd, articleSchema } from "@/lib/schema";
+import { JsonLd, articleSchema, dateTime } from "@/lib/schema";
+import { ogBase } from "@/lib/meta";
 import { Blocks } from "@/components/blog/Blocks";
 import { Inline, plain } from "@/components/blog/Inline";
 import { ReadingProgress, Toc } from "@/components/blog/Toc";
@@ -30,11 +31,14 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/insights/[
     alternates: alternates(lang, `/insights/${slug}`),
     openGraph: {
       type: "article",
+      ...ogBase(lang),
       url: url(lang, `/insights/${slug}`),
       title: body.title,
       description: body.description,
-      publishedTime: article.published,
-      modifiedTime: article.updated,
+      publishedTime: dateTime(article.published),
+      modifiedTime: dateTime(article.updated),
+      section: getCommon(lang).journal.topics[article.topic ?? "lina"],
+      authors: [url(lang, "/about")],
       images: [{ url: image, width: 1200, height: 630, alt: body.title }],
     },
     twitter: { card: "summary_large_image", title: body.title, description: body.description, images: [image] },

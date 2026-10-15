@@ -28,6 +28,7 @@ export function Process() {
         const distance = () => Math.max(0, track.scrollWidth - (track.parentElement as HTMLElement).clientWidth);
         const nodes = q(".pr-num");
         const tl = gsap.timeline({ scrollTrigger: { trigger: root.current, start: "top top", end: "bottom bottom", scrub: 0.8, invalidateOnRefresh: true } });
+        // The rail runs inside the track from the first number to the last, so its blue tip reaches number i at exactly i / (n - 1).
         tl.to(track, { x: () => (rtl ? 1 : -1) * distance(), ease: "none", duration: 1 }, 0).fromTo(
           q(".pr-rail-fill"),
           { scaleX: 0 },
@@ -35,7 +36,8 @@ export function Process() {
           0,
         );
         nodes.forEach((n, i) => {
-          tl.fromTo(n, { backgroundColor: "#ffffff", color: "#0050f8" }, { backgroundColor: "#0050f8", color: "#ffffff", duration: 0.04 }, Math.max(0, (i / (nodes.length - 1)) * 0.96 - 0.02));
+          if (i === 0) return;
+          tl.fromTo(n, { backgroundColor: "#ffffff", color: "#0050f8" }, { backgroundColor: "#0050f8", color: "#ffffff", duration: 0.03, immediateRender: true }, i / (nodes.length - 1) - 0.015);
         });
       });
       return () => mm.revert();
@@ -44,7 +46,7 @@ export function Process() {
   );
 
   return (
-    <section ref={root} className="relative border-t border-line lg:h-[380vh]" aria-labelledby="process-title">
+    <section ref={root} id="how" className="relative border-t border-line lg:h-[380vh]" aria-labelledby="process-title">
       <div className="py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden lg:py-0 lg:pt-[68px]">
         <div className="wrap w-full">
           <h2 id="process-title" className="display-md max-w-[22ch]" data-split>
@@ -55,9 +57,10 @@ export function Process() {
         {/* Desktop: a horizontal track inside the wrap's measure. */}
         <div className="wrap pr-view mt-[clamp(40px,7vh,80px)] hidden lg:block">
           <div className="relative">
-            <span className="absolute inset-x-0 top-[27px] h-px bg-line" aria-hidden="true" />
-            <span className="pr-rail-fill absolute inset-x-0 top-[27px] h-px origin-left bg-blue rtl:origin-right" aria-hidden="true" />
-            <ol className="pr-track relative flex gap-6 will-change-transform">
+            <div className="pr-track relative w-max will-change-transform">
+            <span className="absolute end-[calc(min(430px,34vw)-28px)] start-[28px] top-[27px] h-px bg-line" aria-hidden="true" />
+            <span className="pr-rail-fill absolute end-[calc(min(430px,34vw)-28px)] start-[28px] top-[27px] h-px origin-left bg-blue rtl:origin-right" aria-hidden="true" />
+            <ol className="relative flex gap-6">
               {t.steps.map((s, i) => {
                 const Icon = ICONS[i];
                 return (
@@ -80,6 +83,7 @@ export function Process() {
                 );
               })}
             </ol>
+            </div>
           </div>
         </div>
 

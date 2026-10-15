@@ -29,13 +29,23 @@ const DECK = [
   { x: 24, y: 58, r: 2.5 },
 ];
 
-function Headline({ className = "" }: { className?: string }) {
+/**
+ * The section headline. It is drawn twice (the desktop scroll story and the phone stack), so only one
+ * copy is the real H2; the other is a visual duplicate hidden from headings and assistive tech.
+ */
+function Headline({ decorative = false }: { decorative?: boolean }) {
   const t = useLina();
+  const Tag = decorative ? "p" : "h2";
   return (
-    <h2 className={`text-[clamp(2.1rem,4.4vw,4.4rem)] font-[560] leading-[1] tracking-[-0.044em] ${className}`} style={{ fontStretch: "92%" }}>
-      <span className="block">{t.product.h2a}</span>
+    <Tag
+      id={decorative ? undefined : "product-title"}
+      aria-hidden={decorative || undefined}
+      className="text-[clamp(2.1rem,4.4vw,4.4rem)] font-[560] leading-[1] tracking-[-0.044em]"
+      style={{ fontStretch: "92%" }}
+    >
+      <span className="block">{t.product.h2a}</span>{" "}
       <span className="block text-ink-3">{t.product.h2b}</span>
-    </h2>
+    </Tag>
   );
 }
 
@@ -105,12 +115,12 @@ export function ProductReveal() {
   );
 
   return (
-    <section ref={root} id="product" className="relative" aria-label={t.product.h2a}>
+    <section ref={root} id="product" className="relative" aria-labelledby="product-title">
       {/* Desktop: cards arrive one by one, then assemble into the dashboard */}
       <div className="scrolly hidden h-[480vh] lg:motion-safe:block">
         <div className="stage pr-stage">
           <div className="pr-head absolute inset-x-0 top-[88px] z-10 text-center opacity-0">
-            <Headline />
+            <Headline decorative />
           </div>
           <div className="pr-intro absolute inset-x-0 top-[96px] z-10 text-center">
             <p className="text-[15px] font-medium text-ink-2">{t.product.intro}</p>

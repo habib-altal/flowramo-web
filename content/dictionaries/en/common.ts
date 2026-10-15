@@ -73,6 +73,9 @@ const common = {
 
   blog: {
     title: "Flowramo Insights",
+    // The /insights <title> (absolute) and the RSS feed's name.
+    seoTitle: "Guides on AI agents, automation and clinic AI · Flowramo",
+    feed: "Flowramo Insights (RSS)",
     sub: "Practical guides on AI systems at work: agents, automation, owning what you build, and what we learned building Lina for dental clinics.",
     read: "Read article",
     minutes: "{n} min read",

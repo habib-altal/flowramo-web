@@ -75,7 +75,7 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
     );
   }
 
-  const field = "mt-2 block h-12 w-full rounded-2xl border border-line bg-card px-4 text-[16px] text-ink outline-none transition-colors placeholder:text-ink-3 focus:border-blue focus-visible:outline-none";
+  const field = "mt-2 block h-12 w-full rounded-2xl border border-line bg-card px-4 text-[16px] text-ink outline-none transition-colors placeholder:text-ink-3 focus:border-blue focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue/15";
   const label = "text-[14px] font-medium text-ink";
 
   return (

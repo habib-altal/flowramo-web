@@ -26,28 +26,24 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     <main id="main">
       <JsonLd data={pageSchema(lang, common, "/about", a.meta.title, a.meta.description, "AboutPage")} />
       <PageHeader h1={a.h1} />
-      {/* The blueprint comes before the build (Higgsfield still). */}
-      <div className="wrap pb-[clamp(56px,7vw,96px)]">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-night sm:aspect-[21/9]" data-reveal="fade">
+      <section className="wrap grid gap-10 pb-[clamp(72px,9vw,128px)] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-20" aria-label={a.meta.title}>
+        {/* The blueprint comes before the build (Higgsfield still), cropped to the drawing itself. */}
+        <div className="relative aspect-square overflow-hidden rounded-[28px] bg-night lg:aspect-[4/5]" data-reveal="fade">
           <img
             src="/media/blueprint.webp"
             srcSet="/media/blueprint-960.webp 960w, /media/blueprint.webp 1920w"
-            sizes="(min-width: 1240px) 1160px, 100vw"
+            sizes="(min-width: 1024px) 480px, 100vw"
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-[62%_50%]"
+            className="absolute inset-0 h-full w-full object-cover object-[92%_50%]"
           />
         </div>
-      </div>
-
-      <section className="wrap grid gap-6 pb-[clamp(72px,9vw,128px)] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20" aria-label={a.meta.title}>
-        <div aria-hidden="true" className="hidden lg:block" />
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 lg:pt-2">
           {a.intro.map((p, i) => (
             <p
               key={i}
-              {...(i === 0 ? { "data-words": "" } : { "data-reveal": "" })}
+              data-reveal=""
               className={i === 0 ? "text-[clamp(1.35rem,2.2vw,1.9rem)] font-[500] leading-[1.38] tracking-[-0.02em]" : "text-[17px] leading-[1.7] text-ink-2"}
             >
               {p}

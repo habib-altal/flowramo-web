@@ -109,13 +109,16 @@ export function Problem() {
         const h2 = q(".pr-h2")[0];
         const split = SplitText.create(h2, { type: "words" });
 
-        const tl = gsap.timeline({ defaults: { ease: "power2.out" }, scrollTrigger: { trigger: host, start: "top top", end: "bottom bottom", scrub: 0.7, invalidateOnRefresh: true } });
-        tl.fromTo(split.words, focusFrom(h2), { ...FOCUS_TO, duration: 0.9, stagger: 0.07 }, 0)
-          .from(q(".pr-card"), { autoAlpha: 0, y: 60, duration: 0.8, stagger: 1 }, 1)
+        // No invalidateOnRefresh: re-recording start values mid-scroll made later words and cards blink. The sweep moves in
+        // percent of its full-width track instead, so nothing here depends on measured sizes.
+        // The headline sharpens as the section arrives, so the stage is never an empty screen when it pins.
+        gsap.fromTo(split.words, focusFrom(h2), { ...FOCUS_TO, duration: 1.1, ease: "power2.out", stagger: 0.065, clearProps: "filter", scrollTrigger: { trigger: host, start: "top 72%", once: true } });
+        const tl = gsap.timeline({ defaults: { ease: "power2.out" }, scrollTrigger: { trigger: host, start: "top top", end: "bottom bottom", scrub: 0.7 } });
+        tl.from(q(".pr-card"), { autoAlpha: 0, y: 60, duration: 0.8, stagger: 1 }, 0.2)
           .to(time, { m: START + WAIT, duration: 1.6, ease: "none", onUpdate: paint }, 1.4)
           .from(q(".pr-day"), { scaleY: 0, transformOrigin: "50% 100%", duration: 0.25, stagger: 0.15 }, 3.2)
-          .fromTo(q(".pr-sweep"), { autoAlpha: 0, x: 0 }, { autoAlpha: 1, duration: 0.2 }, 4.6)
-          .to(q(".pr-sweep"), { x: () => (rtl ? -1 : 1) * q(".pr-grid")[0].offsetWidth, duration: 1.6, ease: "none" }, 4.7)
+          .fromTo(q(".pr-sweep"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 4.6)
+          .fromTo(q(".pr-sweep-track"), { xPercent: 0 }, { xPercent: rtl ? -100 : 100, duration: 1.6, ease: "none" }, 4.7)
           .to(time, { solved: 1, duration: 0.01, onUpdate: paint }, 4.75)
           .add(flip(0), 4.75)
           .add(flip(1), 5.25)
@@ -158,7 +161,9 @@ export function Problem() {
 
           <div className="relative mt-[clamp(36px,5vh,64px)]">
             {/* The blue line that answers each card as it passes. */}
-            <span className="pr-sweep pointer-events-none absolute -bottom-4 -top-4 start-0 z-10 hidden w-px bg-blue opacity-0 shadow-[0_0_18px_2px_rgba(0,80,248,0.45)] md:block" aria-hidden="true" />
+            <span className="pr-sweep-track pointer-events-none absolute -bottom-4 -top-4 inset-x-0 z-10 hidden md:block" aria-hidden="true">
+              <span className="pr-sweep absolute inset-y-0 start-0 w-px bg-blue opacity-0 shadow-[0_0_18px_2px_rgba(0,80,248,0.45)]" />
+            </span>
             <ul className="pr-grid grid gap-4 md:grid-cols-3 lg:gap-5">
               {t.items.map((it, i) => (
                 <li key={it.title} className="pr-card flex flex-col rounded-[24px] border border-[color-mix(in_oklab,var(--color-blue)_35%,var(--color-line))] bg-card p-6 lg:p-7">

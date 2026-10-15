@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n";
-import { getLina } from "@/content/dictionaries";
+import { getCommon, getLina } from "@/content/dictionaries";
 import { JsonLd, linaSchema } from "@/lib/schema";
 import { PageDictProvider } from "../PageDict";
 import { Faq } from "../Faq";
@@ -16,6 +16,8 @@ import { Multilingual } from "./Multilingual";
 import { Integrations } from "./Integrations";
 import { HumanAI } from "./HumanAI";
 import { Testimonials } from "./Testimonials";
+import { AtAGlance } from "./AtAGlance";
+import { ClinicGuides } from "./ClinicGuides";
 import { Closing } from "./Closing";
 import { TryLinaBar } from "./TryLinaBar";
 
@@ -25,7 +27,7 @@ export function LinaPage({ lang }: { lang: Locale }) {
   return (
     <PageDictProvider value={t}>
       <main id="main">
-        <JsonLd data={linaSchema(lang, t)} />
+        <JsonLd data={linaSchema(lang, t, getCommon(lang))} />
         <Hero />
         <Journey />
         <MessageBridge />
@@ -39,6 +41,8 @@ export function LinaPage({ lang }: { lang: Locale }) {
         <Integrations />
         <HumanAI />
         <Testimonials />
+        <AtAGlance t={t.glance} lang={lang} />
+        <ClinicGuides h2={t.guides.h2} lang={lang} />
         <Faq t={t.faq} />
         <Closing />
         <TryLinaBar />

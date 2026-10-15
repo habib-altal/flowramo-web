@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { alternates, formatDate, hasLocale, readingTime, url } from "@/lib/i18n";
+import { formatDate, hasLocale, readingTime, url } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/meta";
 import { getCommon } from "@/content/dictionaries";
 import { ARTICLES, coverOf } from "@/content/articles";
 import { JsonLd, blogSchema } from "@/lib/schema";
@@ -12,13 +13,8 @@ import { DemoButton } from "@/components/Demo";
 export async function generateMetadata({ params }: PageProps<"/[lang]/insights">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const t = getCommon(lang);
-  return {
-    title: t.blog.title,
-    description: t.blog.sub,
-    alternates: alternates(lang, "/insights"),
-    openGraph: { type: "website", url: url(lang, "/insights"), title: t.blog.title, description: t.blog.sub },
-  };
+  const b = getCommon(lang).blog;
+  return pageMetadata(lang, "/insights", b.seoTitle, b.sub, { absolute: true, feed: { url: url(lang, "/insights/feed.xml"), title: b.feed } });
 }
 
 export default async function BlogIndex({ params }: PageProps<"/[lang]/insights">) {

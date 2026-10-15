@@ -65,7 +65,7 @@ export function Nav() {
       </a>
       <div
         className={`absolute inset-0 -z-10 transition-[background-color,border-color,backdrop-filter] duration-300 ${
-          scrolled ? (dark ? "bg-night/70 backdrop-blur-xl" : "bg-paper/75 backdrop-blur-xl") : "bg-transparent"
+          scrolled ? (dark ? "bg-night/90 backdrop-blur-xl" : "bg-paper/92 backdrop-blur-xl") : "bg-transparent"
         } ${scrolled ? (dark ? "border-b border-night-line" : "border-b border-line/70") : "border-b border-transparent"}`}
       />
       <nav className="wrap flex h-[68px] items-center justify-between gap-6" aria-label="Main">

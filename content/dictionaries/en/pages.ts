@@ -4,9 +4,11 @@
 const pages = {
   solutions: {
     meta: {
+      // title names the page in breadcrumbs and structured data; seoTitle is the <title> (the layout adds "· Flowramo").
       title: "Solutions",
+      seoTitle: "AI agents, automation and custom AI systems",
       description:
-        "AI agents, business automation, custom AI applications, SaaS engineering, AI knowledge systems and integrations, designed around how your business runs and installed on infrastructure you own.",
+        "Six kinds of AI systems: agents, business automation, custom AI apps, SaaS, knowledge systems and integrations, installed on infrastructure you own.",
     },
     h1: "Systems for the work your team repeats every day.",
     sub: "Six kinds of systems. One project can combine several into a single system that fits how your business already runs.",
@@ -21,18 +23,23 @@ const pages = {
       knowledge: ["An internal assistant for your policies and procedures", "Customer answers drawn only from approved content", "Faster onboarding for new staff"],
       integrations: ["WhatsApp Business Platform set-up", "Calendar, CRM and database connections", "Custom APIs and webhooks between your systems"],
     } as Record<string, string[]>,
+    // Label above the Insights guides linked from a capability.
+    guide: "Further reading",
     closing: {
       h2: "Not sure which one you need?",
       text: "Most people are not. Describe the work that slows your team down and we will tell you which system would clear it, and what it would take.",
       cta: "Start a project",
+      guides: "Read before you start",
     },
   },
 
   about: {
     meta: {
       title: "About",
+      // Used as an absolute <title> (it already names Flowramo).
+      seoTitle: "About Flowramo: a founder-led AI systems studio",
       description:
-        "Flowramo is a founder-led AI systems and product engineering studio. We build agents, automation and software products in Arabic and English, installed on infrastructure our clients own.",
+        "Flowramo is a founder-led studio that designs and builds AI agents, automation and software products in Arabic and English, on infrastructure you own.",
     },
     h1: "We build AI systems we would trust with our own business.",
     intro: [

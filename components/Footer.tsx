@@ -75,12 +75,14 @@ export function Footer() {
         </nav>
       </div>
 
-      <div className="wrap flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-[13.5px] text-ink-3">
+      <div className="wrap">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-[13.5px] text-ink-3">
         <span>{f.rights}</span>
         <Link href={switchHref} hrefLang={other} className="inline-flex items-center gap-1.5 transition-colors hover:text-ink">
           <Globe size={14} aria-hidden="true" />
           <span lang={other}>{t.nav.switchLabel}</span>
         </Link>
+      </div>
       </div>
     </footer>
   );

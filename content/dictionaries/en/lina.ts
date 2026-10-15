@@ -2,11 +2,31 @@
 
 const lina = {
   meta: {
-    title: "Flowramo · Lina, the AI WhatsApp receptionist for dental clinics",
+    title: "Lina by Flowramo: AI WhatsApp receptionist for dental clinics",
     description:
-      "Lina answers every patient on WhatsApp in seconds, books them straight into your calendar, follows up when they go quiet and brings them back for their next visit. Day and night, in Arabic, English and Turkish.",
+      "Lina answers dental patients on WhatsApp in seconds, books them into your calendar, follows up and hands urgent cases to your team. Arabic, English, Turkish.",
     ogTitle: "Your clinic keeps moving. Even when you don't.",
   },
+
+  // Structured data only (lib/schema.tsx). Facts from .claude/product-marketing.md; nothing that is not live.
+  schema: {
+    audience: "Dental clinics",
+    features: [
+      "Answers patients on WhatsApp within seconds, day and night",
+      "Arabic (including Gulf dialect), English and Turkish",
+      "Answers only from knowledge the clinic approves",
+      "Books and reschedules appointments in the clinic calendar",
+      "Appointment reminders and aftercare messages",
+      "Follow-ups with patients who go quiet",
+      "Check-up recalls",
+      "Voice-note transcription and image understanding",
+      "Hands urgent, clinical and sensitive cases to the clinic team with full context",
+      "Runs on the official WhatsApp Business Platform",
+    ],
+  },
+
+  /** Marks every demo chat on the page as an illustration, never real patient data. */
+  example: "Example conversation",
 
   hero: {
     bubbleMeta: "WhatsApp · 23:41",
@@ -291,6 +311,22 @@ const lina = {
       "I've alerted Dr. Kaya right now and she'll call you shortly. If you have trouble breathing or swallowing, go to the nearest emergency room.",
   },
 
+  // The facts in one place, before the FAQ (components/lina/AtAGlance.tsx).
+  glance: {
+    h2: "Lina at a glance",
+    builtBy: "Built by",
+    items: [
+      { k: "Channel", v: "The official WhatsApp Business Platform" },
+      { k: "Languages", v: "Arabic (including Gulf dialect), English and Turkish" },
+      { k: "Does", v: "Answers patients, books and reschedules in your calendar, sends reminders and aftercare, follows up with patients who go quiet and recalls them for check-ups" },
+      { k: "Does not", v: "Diagnose. Urgent, clinical or sensitive cases go to your team with the full conversation" },
+      { k: "Data", v: "Stays on hosting your clinic owns, connected to your clinic's own accounts" },
+      { k: "Business model", v: "Sold as a project, not a subscription" },
+    ],
+  },
+
+  guides: { h2: "Guides for clinic owners" },
+
   faq: {
     h2: "Questions clinic owners ask before they say yes.",
     sub: "Straight answers. If yours isn't here, ask it in your private demo.",
@@ -300,12 +336,20 @@ const lina = {
         a: "Lina is an AI receptionist that runs your clinic's WhatsApp. She answers patients in seconds, day and night, books them into your calendar, sends reminders and aftercare, follows up when someone goes quiet and brings patients back for their next visit.",
       },
       {
+        q: "How is Lina different from a WhatsApp auto-reply or chatbot?",
+        a: "An auto-reply sends the same message to everyone, and many chatbots only follow fixed menus. Lina understands messages written in the patient's own words, answers only from knowledge your clinic has approved, books into your calendar, follows up with patients who go quiet and hands urgent, clinical or sensitive cases to your team with the full conversation.",
+      },
+      {
         q: "Does Lina replace my receptionist?",
         a: "No. Lina takes the repetitive questions, the after-hours messages and the follow-ups nobody has time for. Your team keeps the work that needs a human, and every conversation Lina hands over arrives with its full context.",
       },
       {
         q: "Which languages does Lina speak?",
         a: "Arabic, English and Turkish. Lina replies in the language and dialect the patient writes in, including Gulf Arabic, and keeps the same patient context whichever language the conversation switches to.",
+      },
+      {
+        q: "Can Lina understand voice notes and photos?",
+        a: "Yes. Lina transcribes the voice notes patients send and understands the photos they share, and passes them to your team with the conversation. She does not diagnose from a photo or a description: clinical questions go to your team.",
       },
       {
         q: "Is it the official WhatsApp?",
@@ -330,6 +374,10 @@ const lina = {
       {
         q: "What if something stops working, or Lina gets an answer wrong?",
         a: "Before launch we test Lina on your clinic's real questions, and you approve what she knows. After launch we train your team, or set up an AI assistant for your system, to handle everyday issues, and you can reach the person who built it.",
+      },
+      {
+        q: "Who builds Lina?",
+        a: "Flowramo, an AI systems and product engineering studio, designs and builds Lina. She runs in production on WhatsApp, and Flowramo installs her for each clinic on hosting the clinic owns.",
       },
       {
         q: "How do we get started?",

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { hasLocale } from "@/lib/i18n";
+import { hasLocale, type Locale } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/meta";
 import { getCommon, getHome, getPages } from "@/content/dictionaries";
-import { JsonLd, pageSchema } from "@/lib/schema";
+import { getArticle } from "@/content/articles";
+import type { Article } from "@/content/articles/types";
+import { JsonLd, solutionsSchema } from "@/lib/schema";
 import { PageCta, PageHeader } from "@/components/pages/PageHeader";
 import { SolutionsNav } from "@/components/pages/SolutionsNav";
 import { AmbientVideo } from "@/components/motion/AmbientVideo";
@@ -13,7 +15,36 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/solutions"
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const m = getPages(lang).solutions.meta;
-  return pageMetadata(lang, "/solutions", m.title, m.description);
+  return pageMetadata(lang, "/solutions", m.seoTitle, m.description);
+}
+
+/** Insights guides for each capability, and for the closing. Slugs missing from ARTICLES are skipped. */
+const GUIDES: Record<string, string[]> = {
+  "ai-agents": ["ai-agents-for-business", "arabic-ai-agent-whatsapp-gulf-dialect"],
+  automation: ["ai-automation-for-business-processes"],
+  knowledge: ["ai-knowledge-system-for-company-documents"],
+  integrations: ["whatsapp-appointment-booking-dental-clinic"],
+  closing: ["how-to-scope-an-ai-project", "own-your-ai-system"],
+};
+const guidesFor = (key: string) => (GUIDES[key] ?? []).map(getArticle).filter((a) => a !== undefined);
+
+/** Quiet text links to the guides: a small label, then each title as an underlined link. */
+function GuideLinks({ label, guides, lang, className = "" }: { label: string; guides: Article[]; lang: Locale; className?: string }) {
+  if (guides.length === 0) return null;
+  return (
+    <div className={`max-w-[30rem] ${className}`} data-reveal>
+      <p className="text-[13px] font-medium text-ink-3">{label}</p>
+      <ul className="mt-2 flex flex-col gap-2">
+        {guides.map((g) => (
+          <li key={g.slug} className="text-[15.5px] leading-[1.5]">
+            <Link href={`/${lang}/insights/${g.slug}`} className="text-ink-2 underline decoration-line underline-offset-[4px] transition-colors hover:text-ink hover:decoration-ink-3">
+              {g[lang].title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default async function SolutionsPage({ params }: PageProps<"/[lang]/solutions">) {
@@ -23,10 +54,11 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
   const build = getHome(lang).build;
   const s = getPages(lang).solutions;
   const names = Object.fromEntries(common.capabilities.map((c) => [c.id, c.name]));
+  const outcomes = Object.fromEntries(build.items.map((it) => [it.id, it.outcome]));
 
   return (
     <main id="main">
-      <JsonLd data={pageSchema(lang, common, "/solutions", s.meta.title, s.meta.description, "CollectionPage")} />
+      <JsonLd data={solutionsSchema(lang, common, s.meta.title, s.meta.description, outcomes)} />
       <PageHeader h1={s.h1} sub={s.sub} />
       {/* Infrastructure at work, quietly (Higgsfield loop). */}
       <div className="wrap pb-[clamp(40px,5vw,72px)]">
@@ -46,6 +78,7 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
               <p className="mt-5 max-w-[30rem] text-[clamp(1.1rem,1.5vw,1.3rem)] leading-[1.5] text-ink-2" data-reveal>
                 {it.outcome}
               </p>
+              <GuideLinks label={s.guide} guides={guidesFor(it.id)} lang={lang} className="mt-7" />
             </div>
             <div className="grid gap-10 sm:grid-cols-2 sm:gap-8">
               <div>
@@ -82,7 +115,9 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
         ))}
       </div>
 
-      <PageCta h2={s.closing.h2} text={s.closing.text} cta={s.closing.cta} href={`/${lang}/contact`} />
+      <PageCta h2={s.closing.h2} text={s.closing.text} cta={s.closing.cta} href={`/${lang}/contact`}>
+        <GuideLinks label={s.closing.guides} guides={guidesFor("closing")} lang={lang} className="mt-8" />
+      </PageCta>
     </main>
   );
 }

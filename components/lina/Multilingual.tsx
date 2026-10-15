@@ -71,7 +71,7 @@ export function Multilingual() {
     <section ref={root} id="languages" className="py-[clamp(100px,14vw,190px)]" aria-label={g.h2b}>
       <div className="wrap flex flex-col items-center text-center">
         <h2 className="display-lg">
-          <span className="block">{g.h2a}</span>
+          <span className="block">{g.h2a}</span>{" "}
           <span className="block">{g.h2b}</span>
         </h2>
         <p className="lede mt-6 max-w-[34rem]">{g.sub}</p>

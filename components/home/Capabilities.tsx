@@ -121,7 +121,7 @@ export function Capabilities() {
                       <ul className="relative mt-8 flex flex-col gap-4 ps-8">
                         {it.parts.map((p, n) => (
                           <li key={p} className="cap-node relative text-[16px] leading-[1.5] text-ink-2" style={{ "--i": n } as React.CSSProperties}>
-                            {n < it.parts.length - 1 && <span className="cap-link absolute -bottom-[22px] -start-[27px] top-[17px] w-px bg-line-strong" aria-hidden="true" />}
+                            {n < it.parts.length - 1 && <span className="cap-link absolute -bottom-[22px] -start-[27px] top-[17px] w-px bg-blue" aria-hidden="true" />}
                             <span className="absolute -start-8 top-[6px] h-[11px] w-[11px] rounded-full border-[1.5px] border-blue bg-card" aria-hidden="true" />
                             {p}
                           </li>

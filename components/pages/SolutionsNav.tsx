@@ -37,7 +37,7 @@ export function SolutionsNav({ label, items }: { label: string; items: Item[] })
   };
 
   return (
-    <nav aria-label={label} className="sticky top-[68px] z-30 bg-paper/85 backdrop-blur-xl" data-reveal="fade">
+    <nav aria-label={label} className="sticky top-[68px] z-30 border-b border-line bg-paper/95 backdrop-blur-xl" data-reveal="fade">
       <div ref={bar} className="wrap flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {items.map((c) => (
           <a

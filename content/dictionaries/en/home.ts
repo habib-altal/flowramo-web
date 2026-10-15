@@ -132,6 +132,14 @@ const home = {
     sub: "If yours is not here, send it with your project and we will answer it directly.",
     items: [
       {
+        q: "What is Flowramo?",
+        a: "Flowramo is a founder-led AI systems and product engineering studio. It designs, engineers and installs AI agents, business automation, custom AI applications, SaaS products, AI knowledge systems and integrations, in Arabic and English, on infrastructure the client owns.",
+      },
+      {
+        q: "Do you only build for dental clinics?",
+        a: "No. Lina, our AI WhatsApp receptionist for dental clinics, is one system we built. The same methods apply to any business whose work runs through conversations, documents and repeatable steps.",
+      },
+      {
         q: "What kinds of businesses do you work with?",
         a: "Businesses whose work runs through conversations, documents and repeatable steps: clinics, service companies, operators and product teams. If your team does the same task a hundred times a week, it is a candidate for a system.",
       },
