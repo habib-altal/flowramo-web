@@ -83,7 +83,7 @@ const home = {
   lina: {
     kicker: "A system we built",
     h2: "One of our systems answers patients at 2 am.",
-    sub: "Lina is the AI receptionist we built for dental clinics. She runs a clinic's WhatsApp in Arabic, English and Turkish, books into the calendar, follows up when patients go quiet and hands urgent cases to the doctor. Lina is the clearest way to see how we build.",
+    sub: "Lina is the AI receptionist we built for dental clinics. She runs a clinic's WhatsApp and website chat in whatever language the patient writes, books into the calendar, follows up when patients go quiet and hands urgent cases to the doctor. Lina is the clearest way to see how we build.",
     shows: [
       "Agents that book, follow up and escalate",
       "Answers drawn from approved knowledge",

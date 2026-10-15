@@ -343,7 +343,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "An example: the guardrails inside Lina" },
       {
         t: "p",
-        text: "Lina is the AI receptionist we built for dental clinics. She runs on the clinic's WhatsApp, answers patients day and night in Arabic (including Gulf dialect), English and Turkish, books and reschedules appointments in the clinic's calendar, and sends reminders and aftercare messages. Under the hood she is several cooperating agents with retrieval over the clinic's knowledge. Each failure mode above shaped a design decision:",
+        text: "Lina is the AI receptionist we built for dental clinics. She runs on the clinic's WhatsApp, answers patients day and night in their own language, from Gulf Arabic to English and Turkish, books and reschedules appointments in the clinic's calendar, and sends reminders and aftercare messages. Under the hood she is several cooperating agents with retrieval over the clinic's knowledge. Each failure mode above shaped a design decision:",
       },
       {
         t: "ul",
@@ -684,7 +684,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "مثال عملي: الضوابط داخل لينا" },
       {
         t: "p",
-        text: "لينا موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان. تعمل على واتساب العيادة، وترد على المرضى ليلًا ونهارًا بالعربية (ومنها اللهجة الخليجية) والإنجليزية والتركية، وتحجز المواعيد وتغيّرها في تقويم العيادة، وترسل التذكيرات ورسائل ما بعد العلاج. ومن الداخل هي عدة وكلاء يعملون معًا، ويسترجعون المعلومات من معرفة العيادة. وكل خطأ من الأخطاء الأربعة السابقة صنع قرارًا في تصميمها:",
+        text: "لينا موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان. تعمل على واتساب العيادة، وترد على المرضى ليلًا ونهارًا بلغتهم، من اللهجة الخليجية إلى الإنجليزية والتركية، وتحجز المواعيد وتغيّرها في تقويم العيادة، وترسل التذكيرات ورسائل ما بعد العلاج. ومن الداخل هي عدة وكلاء يعملون معًا، ويسترجعون المعلومات من معرفة العيادة. وكل خطأ من الأخطاء الأربعة السابقة صنع قرارًا في تصميمها:",
       },
       {
         t: "ul",

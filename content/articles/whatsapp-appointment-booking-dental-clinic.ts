@@ -255,7 +255,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-works", text: "How Lina runs WhatsApp booking" },
       {
         t: "p",
-        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, running on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
+        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, running on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in the patient's own language and dialect, whether Arabic, English, Turkish or another, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
       },
       {
         t: "p",
@@ -529,7 +529,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-works", text: "كيف تدير لينا الحجز عبر واتساب" },
       {
         t: "p",
-        text: "[لينا](/ar/products/lina) موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. ترد على المرضى خلال ثوانٍ، ليلًا ونهارًا، بالعربية والإنجليزية والتركية، بلغة المريض ولهجته، ومن المعلومات التي تعتمدها العيادة فقط: الخدمات ونطاقات الأسعار والأطباء وساعات العمل والموقع وتعليمات التحضير وما بعد العلاج.",
+        text: "[لينا](/ar/products/lina) موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. ترد على المرضى خلال ثوانٍ، ليلًا ونهارًا، بلغة المريض ولهجته، عربيةً كانت أو إنجليزية أو تركية أو غيرها، ومن المعلومات التي تعتمدها العيادة فقط: الخدمات ونطاقات الأسعار والأطباء وساعات العمل والموقع وتعليمات التحضير وما بعد العلاج.",
       },
       {
         t: "p",

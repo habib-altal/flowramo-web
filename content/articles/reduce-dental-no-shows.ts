@@ -255,7 +255,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist Flowramo built for dental clinics, runs this on your clinic's WhatsApp. She sends confirmations and two-way reminders, understands the reply even when it is free text in Arabic, English or Turkish (“Thursday doesn't work, anything next week after 5?”), and reschedules straight into your calendar at any hour. When someone misses a visit, she messages them the same day with new slots, and patients at risk of being lost appear in the clinic's daily briefing. Anything clinical, urgent or sensitive goes to your team with the full conversation.",
+        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist Flowramo built for dental clinics, runs this on your clinic's WhatsApp. She sends confirmations and two-way reminders, understands the reply even when it is free text in any language (“Thursday doesn't work, anything next week after 5?”), and reschedules straight into your calendar at any hour. When someone misses a visit, she messages them the same day with new slots, and patients at risk of being lost appear in the clinic's daily briefing. Anything clinical, urgent or sensitive goes to your team with the full conversation.",
       },
     ],
     faq: [
@@ -573,7 +573,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، تتولى ذلك كله على واتساب عيادتك. ترسل التأكيدات والتذكيرات التفاعلية، وتفهم الرد حتى لو كان نصًا حرًا بالعربية أو الإنجليزية أو التركية («الخميس ما يناسبني، فيه شي الأسبوع الجاي بعد الخمس؟»)، وتغيّر الموعد مباشرة في تقويم العيادة في أي ساعة. وإذا فات مريضًا موعده، تراسله في اليوم نفسه بمواعيد جديدة، ويظهر المرضى المعرّضون للضياع في الملخص اليومي للعيادة. وأي أمر سريري أو عاجل أو حساس يُحوَّل إلى فريقك مع المحادثة كاملة.",
+        text: "[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، تتولى ذلك كله على واتساب عيادتك. ترسل التأكيدات والتذكيرات التفاعلية، وتفهم الرد حتى لو كان نصًا حرًا بأي لغة («الخميس ما يناسبني، فيه شي الأسبوع الجاي بعد الخمس؟»)، وتغيّر الموعد مباشرة في تقويم العيادة في أي ساعة. وإذا فات مريضًا موعده، تراسله في اليوم نفسه بمواعيد جديدة، ويظهر المرضى المعرّضون للضياع في الملخص اليومي للعيادة. وأي أمر سريري أو عاجل أو حساس يُحوَّل إلى فريقك مع المحادثة كاملة.",
       },
     ],
     faq: [

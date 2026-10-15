@@ -234,7 +234,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-does-this", text: "How Lina does this" },
       {
         t: "p",
-        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, designed around the rules above. She runs your clinic's WhatsApp on the official WhatsApp Business Platform and replies in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect.",
+        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, designed around the rules above. She runs your clinic's WhatsApp on the official WhatsApp Business Platform and replies in seconds, day and night, in the patient's own language and dialect, from Arabic to English, Turkish and beyond. She can also answer on the clinic's website.",
       },
       {
         t: "ul",
@@ -535,7 +535,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-does-this", text: "كيف تفعل لينا ذلك" },
       {
         t: "p",
-        text: "[لينا](/ar/products/lina) هي موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان على واتساب، وقد صُممت حول القواعد السابقة نفسها. تدير واتساب عيادتك على منصة واتساب للأعمال الرسمية، وترد خلال ثوانٍ ليلًا ونهارًا بالعربية والإنجليزية والتركية، بلغة المريض ولهجته.",
+        text: "[لينا](/ar/products/lina) هي موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان على واتساب، وقد صُممت حول القواعد السابقة نفسها. تدير واتساب عيادتك على منصة واتساب للأعمال الرسمية، وترد خلال ثوانٍ ليلًا ونهارًا بلغة المريض ولهجته أيًّا كانت، من العربية إلى الإنجليزية والتركية وغيرها. ويمكن ربطها بموقع العيادة أيضًا.",
       },
       {
         t: "ul",

@@ -272,7 +272,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "AI handles the unstructured part: understanding messages and voice notes in Arabic (including Gulf dialect), English and Turkish, and answering only from knowledge the clinic has approved. Rules and integrations handle the rest: bookings and reschedules go straight into the clinic's calendar, and reminders go out on schedule. Urgent, clinical and sensitive cases go to the clinic team with the full context, and Lina does not diagnose. The system is installed on hosting the clinic chooses and owns, connected to the clinic's own accounts.",
+        text: "AI handles the unstructured part: understanding messages and voice notes in whatever language patients write, including Gulf Arabic, English and Turkish, and answering only from knowledge the clinic has approved. Rules and integrations handle the rest: bookings and reschedules go straight into the clinic's calendar, and reminders go out on schedule. Urgent, clinical and sensitive cases go to the clinic team with the full context, and Lina does not diagnose. The system is installed on hosting the clinic chooses and owns, connected to the clinic's own accounts.",
       },
       {
         t: "p",
@@ -627,7 +627,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "الذكاء الاصطناعي يتولى الجزء غير المنظم: فهم الرسائل المكتوبة والصوتية بالعربية (ومنها اللهجة الخليجية) والإنجليزية والتركية، والإجابة من المعرفة التي اعتمدتها العيادة فقط. والقواعد والتكاملات تتولى الباقي: الحجوزات وتغيير المواعيد تدخل مباشرة في تقويم العيادة، والتذكيرات تُرسل في وقتها. أما الحالات العاجلة والسريرية والحساسة فتُحوَّل إلى فريق العيادة مع السياق كاملًا، ولينا لا تشخّص. ويُثبَّت النظام على استضافة تختارها العيادة وتملكها، مربوطًا بحسابات العيادة نفسها.",
+        text: "الذكاء الاصطناعي يتولى الجزء غير المنظم: فهم الرسائل المكتوبة والصوتية بأي لغة يكتب بها المرضى، ومنها اللهجة الخليجية والإنجليزية والتركية، والإجابة من المعرفة التي اعتمدتها العيادة فقط. والقواعد والتكاملات تتولى الباقي: الحجوزات وتغيير المواعيد تدخل مباشرة في تقويم العيادة، والتذكيرات تُرسل في وقتها. أما الحالات العاجلة والسريرية والحساسة فتُحوَّل إلى فريق العيادة مع السياق كاملًا، ولينا لا تشخّص. ويُثبَّت النظام على استضافة تختارها العيادة وتملكها، مربوطًا بحسابات العيادة نفسها.",
       },
       {
         t: "p",

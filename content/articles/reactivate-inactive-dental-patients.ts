@@ -238,7 +238,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "She also sends aftercare check-ins and recall messages, replies in seconds in Arabic, English or Turkish when a patient answers at night, and either books the slot into your calendar or hands the warm reply to your team with full context. She does not diagnose. For the wider picture, read [what an AI receptionist does for dental clinics](/en/insights/ai-receptionist-for-dental-clinics).",
+        text: "She also sends aftercare check-ins and recall messages, replies in seconds, in the patient's own language, when a patient answers at night, and either books the slot into your calendar or hands the warm reply to your team with full context. She does not diagnose. For the wider picture, read [what an AI receptionist does for dental clinics](/en/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [
@@ -543,7 +543,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "وترسل لينا أيضًا رسائل المتابعة بعد العلاج وتذكير الفحص الدوري، وترد خلال ثوانٍ بالعربية أو الإنجليزية أو التركية حين يرد المريض ليلًا، ثم إما تحجز الموعد مباشرة في تقويمك أو تسلّم الرد لفريقك مع السياق كاملًا، ولا تقدّم أي تشخيص. وللصورة الأشمل، اقرأ [ما الذي تقدمه موظفة الاستقبال الذكية لعيادات الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
+        text: "وترسل لينا أيضًا رسائل المتابعة بعد العلاج وتذكير الفحص الدوري، وترد خلال ثوانٍ بلغة المريض نفسها حين يرد ليلًا، ثم إما تحجز الموعد مباشرة في تقويمك أو تسلّم الرد لفريقك مع السياق كاملًا، ولا تقدّم أي تشخيص. وللصورة الأشمل، اقرأ [ما الذي تقدمه موظفة الاستقبال الذكية لعيادات الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
       },
     ],
     faq: [

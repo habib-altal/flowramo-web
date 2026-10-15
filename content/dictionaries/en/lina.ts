@@ -4,7 +4,7 @@ const lina = {
   meta: {
     title: "Lina by Flowramo: AI WhatsApp receptionist for dental clinics",
     description:
-      "Lina answers dental patients on WhatsApp in seconds, books them into your calendar, follows up and hands urgent cases to your team. Arabic, English, Turkish.",
+      "Lina answers dental patients in seconds, in any language, on WhatsApp and your website. She books into your calendar and hands urgent cases to your team.",
     ogTitle: "Your clinic keeps moving. Even when you don't.",
   },
 
@@ -12,8 +12,8 @@ const lina = {
   schema: {
     audience: "Dental clinics",
     features: [
-      "Answers patients on WhatsApp within seconds, day and night",
-      "Arabic (including Gulf dialect), English and Turkish",
+      "Answers patients within seconds, day and night, on WhatsApp and on the clinic's website",
+      "Replies in the patient's own language: Arabic (including Gulf dialect), English, Turkish and the many other languages AI understands",
       "Answers only from knowledge the clinic approves",
       "Books and reschedules appointments in the clinic calendar",
       "Appointment reminders and aftercare messages",
@@ -316,8 +316,8 @@ const lina = {
     h2: "Lina at a glance",
     builtBy: "Built by",
     items: [
-      { k: "Channel", v: "The official WhatsApp Business Platform" },
-      { k: "Languages", v: "Arabic (including Gulf dialect), English and Turkish" },
+      { k: "Channels", v: "WhatsApp (the official Business Platform) and your clinic's own website" },
+      { k: "Languages", v: "Any language the patient writes in, including Arabic (with Gulf dialect), English and Turkish" },
       { k: "Does", v: "Answers patients, books and reschedules in your calendar, sends reminders and aftercare, follows up with patients who go quiet and recalls them for check-ups" },
       { k: "Does not", v: "Diagnose. Urgent, clinical or sensitive cases go to your team with the full conversation" },
       { k: "Data", v: "Stays on hosting your clinic owns, connected to your clinic's own accounts" },
@@ -333,7 +333,7 @@ const lina = {
     items: [
       {
         q: "What exactly is Lina?",
-        a: "Lina is an AI receptionist that runs your clinic's WhatsApp. She answers patients in seconds, day and night, books them into your calendar, sends reminders and aftercare, follows up when someone goes quiet and brings patients back for their next visit.",
+        a: "Lina is an AI receptionist that runs your clinic's WhatsApp, and can also answer patients on your clinic's website. She answers patients in seconds, day and night, books them into your calendar, sends reminders and aftercare, follows up when someone goes quiet and brings patients back for their next visit.",
       },
       {
         q: "How is Lina different from a WhatsApp auto-reply or chatbot?",
@@ -345,7 +345,7 @@ const lina = {
       },
       {
         q: "Which languages does Lina speak?",
-        a: "Arabic, English and Turkish. Lina replies in the language and dialect the patient writes in, including Gulf Arabic, and keeps the same patient context whichever language the conversation switches to.",
+        a: "Any language the patient writes in: Arabic, including Gulf dialect, English, Turkish and the many other languages today's AI understands. Lina replies in the patient's own language and dialect, and keeps the same patient context whichever language the conversation switches to.",
       },
       {
         q: "Can Lina understand voice notes and photos?",

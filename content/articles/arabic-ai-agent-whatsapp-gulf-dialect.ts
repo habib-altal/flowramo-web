@@ -318,7 +318,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "An example: Lina, an Arabic receptionist on WhatsApp" },
       {
         t: "p",
-        text: "Lina is the AI receptionist we built for dental clinics, and each section above shaped how she works. She runs on the official WhatsApp Business Platform and answers patients in Arabic, including Gulf dialect, in English and in Turkish. She transcribes voice notes before she replies, answers only from knowledge the clinic has approved, and does not diagnose. Urgent, clinical and sensitive cases go to the clinic team with the full conversation. She is installed on hosting the clinic chooses and owns, connected to the clinic's own accounts, so patient data stays on the clinic's infrastructure.",
+        text: "Lina is the AI receptionist we built for dental clinics, and each section above shaped how she works. She runs on the official WhatsApp Business Platform and answers patients in their own language: Arabic including Gulf dialect, English, Turkish and the many other languages AI understands. She can also be connected to the clinic's website. She transcribes voice notes before she replies, answers only from knowledge the clinic has approved, and does not diagnose. Urgent, clinical and sensitive cases go to the clinic team with the full conversation. She is installed on hosting the clinic chooses and owns, connected to the clinic's own accounts, so patient data stays on the clinic's infrastructure.",
       },
       {
         t: "p",
@@ -597,7 +597,7 @@ const article: Article = {
       { t: "h2", id: "example-lina", text: "مثال عملي: لينا، موظفة استقبال تتحدث العربية على واتساب" },
       {
         t: "p",
-        text: "لينا موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان، وكل قسم في هذا الدليل صنع جانبًا من طريقة عملها. تعمل على منصة واتساب للأعمال الرسمية، وترد على المرضى بالعربية، ومنها اللهجة الخليجية، وبالإنجليزية والتركية. تحوّل الرسائل الصوتية إلى نص قبل أن ترد، وتجيب فقط من المعرفة التي اعتمدتها العيادة، ولا تشخّص. والحالات العاجلة والسريرية والحساسة تذهب إلى فريق العيادة مع المحادثة كاملة. وتُثبَّت على استضافة تختارها العيادة وتملكها، موصولة بحسابات العيادة نفسها، فتبقى بيانات المرضى على بنية العيادة التقنية.",
+        text: "لينا موظفة الاستقبال الذكية التي بنيناها لعيادات الأسنان، وكل قسم في هذا الدليل صنع جانبًا من طريقة عملها. تعمل على منصة واتساب للأعمال الرسمية، وترد على المرضى بلغتهم: العربية ومنها اللهجة الخليجية، والإنجليزية، والتركية، وغيرها من اللغات الكثيرة التي يفهمها الذكاء الاصطناعي. ويمكن ربطها بموقع العيادة أيضًا. تحوّل الرسائل الصوتية إلى نص قبل أن ترد، وتجيب فقط من المعرفة التي اعتمدتها العيادة، ولا تشخّص. والحالات العاجلة والسريرية والحساسة تذهب إلى فريق العيادة مع المحادثة كاملة. وتُثبَّت على استضافة تختارها العيادة وتملكها، موصولة بحسابات العيادة نفسها، فتبقى بيانات المرضى على بنية العيادة التقنية.",
       },
       {
         t: "p",

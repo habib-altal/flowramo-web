@@ -56,7 +56,7 @@ const pages = {
     origin: {
       h2: "Lina came first.",
       text: [
-        "We built Lina for dental clinics because a clinic's WhatsApp shows every hard problem at once: urgent messages at night, three languages, private information, and a calendar that cannot be wrong.",
+        "We built Lina for dental clinics because a clinic's WhatsApp shows every hard problem at once: urgent messages at night, patients writing in many languages, private information, and a calendar that cannot be wrong.",
         "What we learned building it is how we build everything else.",
       ],
       cta: "Explore Lina",

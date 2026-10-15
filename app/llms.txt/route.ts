@@ -25,7 +25,7 @@ export function GET() {
 
 > Flowramo is a founder-led AI systems and product engineering studio. It designs, engineers and installs AI agents, business automation, custom AI applications, SaaS products, AI knowledge systems and integrations for businesses whose work runs through conversations, documents and repeatable steps. It works in Arabic and English, installs each system on infrastructure the client chooses and owns, connects it to the client's own accounts, and sells systems as projects rather than subscriptions.
 
-Its flagship system is Lina (لينا), an AI receptionist for dental clinics that runs the clinic's WhatsApp on the official WhatsApp Business Platform. Lina answers patients day and night in Arabic, English and Turkish; answers only from knowledge the clinic approves; books, reschedules and confirms appointments in the clinic calendar; follows up with patients who go quiet; sends aftercare and recall messages; and hands urgent, clinical or sensitive conversations to the clinic team with full context. It does not diagnose. Lina is installed on hosting the clinic owns, so patient data stays with the clinic.
+Its flagship system is Lina (لينا), an AI receptionist for dental clinics that runs the clinic's WhatsApp on the official WhatsApp Business Platform and can also be connected to the clinic's own website. Lina answers patients day and night in their own language (Arabic including Gulf dialect, English, Turkish and the many other languages AI understands); answers only from knowledge the clinic approves; books, reschedules and confirms appointments in the clinic calendar; follows up with patients who go quiet; sends aftercare and recall messages; and hands urgent, clinical or sensitive conversations to the clinic team with full context. It does not diagnose. Lina is installed on hosting the clinic owns, so patient data stays with the clinic.
 
 The site is in English (/en) and Arabic (/ar). Full text of every guide and FAQ: ${SITE_URL}/llms-full.txt
 
@@ -33,8 +33,8 @@ The site is in English (/en) and Arabic (/ar). Full text of every guide and FAQ:
 
 - Business model: each system is sold as a project, priced after a call and fixed in a written blueprint before any build begins. There is no subscription to Flowramo; hosting and messaging are billed by those providers to the client's own accounts.
 - Ownership: systems are installed on hosting the client chooses and owns, connected to the client's own accounts (WhatsApp, calendar, CRM and other tools). The client keeps the system and the data.
-- Languages: Arabic (including Gulf dialect in customer conversations) and English. Lina also speaks Turkish.
-- Lina runs in production on WhatsApp, on the official WhatsApp Business Platform. Lina does not diagnose: urgent, clinical or sensitive cases go to the clinic team with the full conversation.
+- Languages: Flowramo works in Arabic (including Gulf dialect in customer conversations) and English. Lina replies in whatever language the patient writes in.
+- Lina runs in production on WhatsApp, on the official WhatsApp Business Platform, and can also be connected to the clinic's website. Lina does not diagnose: urgent, clinical or sensitive cases go to the clinic team with the full conversation.
 - Founder-led: Habib designs and engineers the systems, and clients talk to him directly.
 - Contact: habib@flowramo.com · project requests: ${url("en", "/contact")} · try Lina on WhatsApp: https://wa.me/${LINA_DEMO_WHATSAPP}
 
