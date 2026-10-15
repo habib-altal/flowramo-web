@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { alternates, formatDate, hasLocale, url } from "@/lib/i18n";
+import { alternates, formatDate, hasLocale, readingTime, url } from "@/lib/i18n";
 import { getCommon } from "@/content/dictionaries";
 import { ARTICLES, coverOf } from "@/content/articles";
 import { JsonLd, blogSchema } from "@/lib/schema";
@@ -27,7 +27,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
   const t = getCommon(lang);
   const b = t.blog;
   const [featured, ...rest] = ARTICLES;
-  const minutes = (n: number) => b.minutes.replace("{n}", String(n));
+  const minutes = (n: number) => readingTime(lang, b.minutes, n);
 
   return (
     <main id="main" className="pt-[68px]">

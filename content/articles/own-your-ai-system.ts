@@ -34,11 +34,15 @@ const article: Article = {
       { t: "h2", id: "rent-vs-own", text: "What is the difference between renting and owning an AI system?" },
       {
         t: "p",
+        text: "Renting means a vendor runs the system, holds your data and sets the terms while you pay for access. Owning means the parts that make the system work are in your name, so you can change suppliers without starting over.",
+      },
+      {
+        t: "p",
         text: "Renting usually means software as a service (SaaS). The US standards body NIST defines SaaS as using a provider's applications on the provider's infrastructure, where the customer [does not manage or control the underlying infrastructure, or even individual application capabilities](https://csrc.nist.gov/pubs/sp/800/145/final), apart from limited user settings. You pay per seat, per month or per conversation, and the vendor decides how the product works, where it runs and what it will cost next year.",
       },
       {
         t: "p",
-        text: "Owning means the system is built for you and the parts that matter are in your name. An AI system has six of them:",
+        text: "An owned system is built for you, and you hold the six layers that make it up:",
       },
       {
         t: "table",
@@ -146,7 +150,7 @@ const article: Article = {
       { t: "h2", id: "vendor-lock-in", text: "How does vendor lock-in happen with AI tools?" },
       {
         t: "p",
-        text: "Lock-in rarely comes from one clause. It builds up as the cost of leaving grows. In its [cloud services market investigation](https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf), the UK Competition and Markets Authority found that fewer than 1% of cloud customers switch provider each year and that many believe the costs of switching outweigh the benefits. It named data transfer (egress) fees and technical differences between providers as the main barriers, with egress fees weighing most on smaller customers.",
+        text: "Vendor lock-in is when leaving a supplier would cost so much in money, data or rework that you stay even when you would rather go. Lock-in rarely comes from one clause. It builds up as the cost of leaving grows. In its [cloud services market investigation](https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf), the UK Competition and Markets Authority found that fewer than 1% of cloud customers switch provider each year and that many believe the costs of switching outweigh the benefits. It named data transfer (egress) fees and technical differences between providers as the main barriers, and found that using more than one cloud provider at once is still uncommon among small and medium-sized customers.",
       },
       { t: "p", text: "AI tools add layers of their own:" },
       {
@@ -167,7 +171,7 @@ const article: Article = {
       { t: "h2", id: "real-costs", text: "What does each option really cost?" },
       {
         t: "p",
-        text: "Comparisons usually set a monthly fee against a project quote. A fair comparison counts every line over the same period, three years for example:",
+        text: "Renting costs less up front; owning costs more to start and less to leave. Comparisons usually set a monthly fee against a project quote. A fair comparison counts every line over the same period, three years for example:",
       },
       {
         t: "table",
@@ -204,7 +208,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "Model usage deserves a closer look. Providers bill per million input and output tokens, and on one provider's [current price list](https://developers.openai.com/api/docs/pricing) the most capable model costs about a hundred times more per token than the smallest. Matching the model to each step of the workflow is worth testing before launch, because a routine step such as sorting messages rarely needs the largest model.",
+        text: "Model usage deserves a closer look. Providers bill per million input and output tokens, and on one provider's [current price list](https://developers.openai.com/api/docs/pricing) the most capable model costs tens to hundreds of times more per token than the smallest. Matching the model to each step of the workflow is worth testing before launch, because a routine step such as sorting messages rarely needs the largest model.",
       },
       {
         t: "p",
@@ -412,7 +416,7 @@ const article: Article = {
   },
 
   ar: {
-    title: "هل تمتلك نظام الذكاء الاصطناعي أم تستأجره؟ الاستضافة والبيانات والارتباط بمزوّد واحد",
+    title: "هل تمتلك نظام الذكاء الاصطناعي أم تستأجره؟ الاستضافة والبيانات والارتهان لمزوّد واحد",
     seoTitle: "امتلاك نظام الذكاء الاصطناعي أم استئجاره؟",
     description:
       "هل تمتلك نظام الذكاء الاصطناعي أم تستأجره؟ أين تذهب بياناتك، وما تقوله قوانين الإمارات والسعودية وتركيا وأوروبا، والتكلفة الحقيقية، وقائمة بنود العقد.",
@@ -422,7 +426,7 @@ const article: Article = {
       "امتلاك نظام الذكاء الاصطناعي يعني أن ستة أشياء مسجّلة باسمك: الكود، والاستضافة، والحسابات، والبيانات، والتعليمات، وقاعدة المعرفة. أما النموذج اللغوي نفسه فيبقى غالبًا مستأجرًا عبر واجهة API.",
       "الاستضافة في الخارج لا تُخرجك من نطاق القانون المحلي: دليل سدايا نفسه يذكر أن بيانات المقيمين في المملكة المستضافة في الولايات المتحدة تبقى خاضعة لنظام حماية البيانات الشخصية.",
       "في الإمارات، لا يجوز تخزين البيانات الصحية المتعلقة بخدمات مقدَّمة داخل الدولة أو معالجتها خارجها إلا بقرار من الجهة الصحية، ويجب حفظها 25 سنة على الأقل.",
-      "الارتباط بمزوّد واحد ظاهرة يمكن قياسها: وجدت هيئة المنافسة البريطانية أن أقل من 1% من عملاء الخدمات السحابية يغيّرون مزوّدهم كل عام، بسبب رسوم نقل البيانات والعوائق التقنية.",
+      "الارتهان لمزوّد واحد ظاهرة يمكن قياسها: وجدت هيئة المنافسة البريطانية أن أقل من 1% من عملاء الخدمات السحابية يغيّرون مزوّدهم كل عام، بسبب رسوم نقل البيانات والعوائق التقنية.",
       "قبل التوقيع، اطلب الكود المصدري، وصلاحية المدير على كل حساب، وتصديرًا موثّقًا للبيانات، ووثائق التسليم. استأجر للمهام العامة، وامتلك الأنظمة التي يقوم عليها عملك.",
     ],
     blocks: [
@@ -432,17 +436,21 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "هكذا يبدو استئجار نظام الذكاء الاصطناعي يوم تقرر المغادرة. في هذا الدليل نشرح ما الذي يشمله امتلاك النظام فعلًا، وأين تنتقل بياناتك، وما الذي تقوله قوانين حماية البيانات في الإمارات والسعودية وتركيا والاتحاد الأوروبي بصورة عامة، وكيف يتكوّن الارتباط بمزوّد واحد، وكم يكلّف كل خيار. وفي حالات كثيرة يكون الاستئجار هو الخيار الأصح، وسنوضح متى. وإن كنت ما زلت تستكشف ما يمكن أن يقدمه وكيل ذكاء اصطناعي لعملك، فابدأ بدليلنا عن [وكلاء الذكاء الاصطناعي للشركات](/ar/insights/ai-agents-for-business).",
+        text: "هكذا يبدو استئجار نظام الذكاء الاصطناعي يوم تقرر المغادرة. في هذا الدليل نشرح ما الذي يشمله امتلاك النظام فعلًا، وأين تنتقل بياناتك، وما الذي تقوله قوانين حماية البيانات في الإمارات والسعودية وتركيا والاتحاد الأوروبي بصورة عامة، وكيف يتكوّن الارتهان لمزوّد واحد، وكم يكلّف كل خيار. وأحيانًا يكون الاستئجار هو الخيار الأصح، وسنوضح متى. وإن كنت ما زلت تستكشف ما يمكن أن يقدمه وكيل ذكاء اصطناعي لعملك، فابدأ بدليلنا عن [وكلاء الذكاء الاصطناعي للشركات](/ar/insights/ai-agents-for-business).",
       },
 
       { t: "h2", id: "rent-vs-own", text: "ما الفرق بين امتلاك نظام الذكاء الاصطناعي واستئجاره؟" },
       {
         t: "p",
-        text: "الاستئجار يعني في الغالب نموذج «البرمجيات كخدمة» (SaaS). ويعرّفه المعهد الوطني الأمريكي للمعايير والتقنية (NIST) بأنه استخدام تطبيقات المزوّد العاملة على بنيته التحتية، بحيث [لا يدير العميل البنية التحتية ولا يتحكم فيها، ولا حتى في قدرات التطبيق نفسه](https://csrc.nist.gov/pubs/sp/800/145/final)، باستثناء إعدادات محدودة خاصة بالمستخدم. تدفع لكل مستخدم أو لكل شهر أو لكل محادثة، والمزوّد هو من يقرر كيف يعمل المنتج، وأين يعمل، وكم سيكلّفك في السنة القادمة.",
+        text: "الاستئجار يعني أن المزوّد يشغّل النظام ويحتفظ ببياناتك ويضع الشروط ما دمت تدفع مقابل استخدامه. أما الامتلاك فيعني أن الأجزاء التي يقوم عليها النظام مسجّلة باسمك، فتستطيع تغيير المزوّد دون أن تبدأ من الصفر.",
       },
       {
         t: "p",
-        text: "أما الامتلاك فيعني أن النظام يُبنى لك، وأن الأجزاء المهمة فيه مسجّلة باسمك. وفي كل نظام ذكاء اصطناعي ست طبقات:",
+        text: "والاستئجار يعني في الغالب نموذج «البرمجيات كخدمة» (SaaS). ويعرّفه المعهد الوطني الأمريكي للمعايير والتقنية (NIST) بأنه استخدام تطبيقات المزوّد العاملة على بنيته التحتية، بحيث [لا يدير العميل البنية التحتية ولا يتحكم فيها، ولا حتى في قدرات التطبيق نفسه](https://csrc.nist.gov/pubs/sp/800/145/final)، باستثناء إعدادات محدودة خاصة بالمستخدم. تدفع لكل مستخدم أو لكل شهر أو لكل محادثة، والمزوّد هو من يقرر كيف يعمل المنتج، وأين يعمل، وكم سيكلّفك في السنة القادمة.",
+      },
+      {
+        t: "p",
+        text: "والنظام المملوك يُبنى لك، وتملك أنت طبقاته الست:",
       },
       {
         t: "table",
@@ -535,10 +543,10 @@ const article: Article = {
         text: "وإذا قرأت هذه النصوص معًا، تجدها تطلب الأمور نفسها ممن يختار نظام ذكاء اصطناعي: أن يعرف أين توجد كل نسخة من البيانات، وأن يوقّع عقدًا مع كل جهة معالجة، وأن يكون قادرًا على تسليم الناس بياناتهم أو تصحيحها أو حذفها. وكل ذلك أسهل حين تكون قاعدة البيانات ملكك.",
       },
 
-      { t: "h2", id: "vendor-lock-in", text: "كيف يحدث الارتباط بمزوّد واحد في أدوات الذكاء الاصطناعي؟" },
+      { t: "h2", id: "vendor-lock-in", text: "كيف يحدث الارتهان لمزوّد واحد في أدوات الذكاء الاصطناعي؟" },
       {
         t: "p",
-        text: "نادرًا ما يأتي الارتباط من بند واحد في العقد. إنه يتراكم مع ارتفاع تكلفة المغادرة. ففي [تحقيقها في سوق الخدمات السحابية](https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf)، وجدت هيئة المنافسة والأسواق البريطانية (CMA) أن أقل من 1% من عملاء الخدمات السحابية يغيّرون مزوّدهم كل عام، وأن كثيرين منهم يرون أن تكلفة التغيير أكبر من فائدته. وحددت الهيئة رسوم نقل البيانات إلى الخارج (egress) والفروق التقنية بين المزوّدين بوصفها العوائق الرئيسية، مع أن رسوم النقل تثقل كاهل العملاء الأصغر أكثر من غيرهم.",
+        text: "الارتهان لمزوّد واحد يعني أن تصبح مغادرته مكلفة جدًا، مالًا أو بيانات أو إعادة عمل، فتبقى معه حتى حين تفضّل الرحيل. ونادرًا ما يأتي هذا الارتهان من بند واحد في العقد، بل يتراكم مع ارتفاع تكلفة المغادرة. ففي [تحقيقها في سوق الخدمات السحابية](https://assets.publishing.service.gov.uk/media/688b20e6ff8c05468cb7b120/summary_of_final_decision.pdf)، وجدت هيئة المنافسة والأسواق البريطانية (CMA) أن أقل من 1% من عملاء الخدمات السحابية يغيّرون مزوّدهم كل عام، وأن كثيرين منهم يرون أن تكلفة التغيير أكبر من فائدته. وحددت الهيئة رسوم نقل البيانات إلى الخارج (egress) والفروق التقنية بين المزوّدين بوصفها العوائق الرئيسية، ووجدت أن استخدام أكثر من مزوّد سحابي في الوقت نفسه ما زال غير شائع بين العملاء الصغار والمتوسطين.",
       },
       { t: "p", text: "وتضيف أدوات الذكاء الاصطناعي طبقات خاصة بها:" },
       {
@@ -559,7 +567,7 @@ const article: Article = {
       { t: "h2", id: "real-costs", text: "كم يكلّف كل خيار فعلًا؟" },
       {
         t: "p",
-        text: "المقارنات المعتادة تضع رسمًا شهريًا أمام عرض سعر لمشروع. والمقارنة العادلة تحسب كل بند على الفترة نفسها، ثلاث سنوات مثلًا:",
+        text: "الاستئجار أرخص في البداية، والامتلاك أعلى تكلفة عند البدء وأقل تكلفة عند المغادرة. والمقارنات المعتادة تضع رسمًا شهريًا أمام عرض سعر لمشروع. والمقارنة العادلة تحسب كل بند على الفترة نفسها، ثلاث سنوات مثلًا:",
       },
       {
         t: "table",
@@ -596,7 +604,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "استخدام النموذج يستحق نظرة أدق. فالمزوّدون يحاسبون لكل مليون رمز من المدخلات والمخرجات، وفي [قائمة الأسعار الحالية](https://developers.openai.com/api/docs/pricing) لدى أحد المزوّدين يكلّف أقوى نموذج نحو مئة ضعف ما يكلّفه أصغر نموذج لكل رمز. لذلك يستحق اختيار النموذج المناسب لكل خطوة في سير العمل أن يُختبر قبل الإطلاق، فخطوة روتينية مثل فرز الرسائل نادرًا ما تحتاج أكبر نموذج.",
+        text: "استخدام النموذج يستحق نظرة أدق. فالمزوّدون يحاسبون لكل مليون رمز من المدخلات والمخرجات، وفي [قائمة الأسعار الحالية](https://developers.openai.com/api/docs/pricing) لدى أحد المزوّدين يكلّف أقوى نموذج لكل رمز ما بين عشرات ومئات أضعاف ما يكلّفه أصغر نموذج. لذلك يستحق اختيار النموذج المناسب لكل خطوة في سير العمل أن يُختبر قبل الإطلاق، فخطوة روتينية مثل فرز الرسائل نادرًا ما تحتاج أكبر نموذج.",
       },
       {
         t: "p",
@@ -725,7 +733,7 @@ const article: Article = {
         a: "حيث تقول استشارتك القانونية إن البيانات يجوز أن تكون، ولهذا يهم أن تختار الاستضافة بنفسك. في الإمارات، لا يجوز تخزين البيانات الصحية المتعلقة بخدمات مقدَّمة داخل الدولة أو معالجتها خارجها دون قرار من الجهة الصحية. وفي السعودية، يبقى نظام حماية البيانات الشخصية منطبقًا على بيانات المقيمين المستضافة في الخارج، ويجب أن يستوفي النقل خارج المملكة شروط المادة 29. هذه معلومات عامة لا استشارة قانونية.",
       },
       {
-        q: "كيف أتجنب الارتباط بمزوّد واحد في أدوات الذكاء الاصطناعي؟",
+        q: "كيف أتجنب الارتهان لمزوّد واحد في أدوات الذكاء الاصطناعي؟",
         a: "اتفق على شروط المغادرة قبل التوقيع. اطلب الكود المصدري أو إيداعه لدى طرف ثالث، وصلاحية المدير على كل حساب باسم شركتك، وتصديرًا موثّقًا لكل البيانات بصيغة شائعة، ووثائق تسليم، وفترة محددة للمساعدة عند المغادرة. وجرّب التصدير مبكرًا. المزوّد الذي يرفض هذه الشروط يخبرك مسبقًا بمدى صعوبة المغادرة.",
       },
       {
@@ -787,7 +795,7 @@ const article: Article = {
     keywords: [
       "امتلاك نظام الذكاء الاصطناعي",
       "استئجار أداة ذكاء اصطناعي",
-      "الارتباط بمزود واحد",
+      "الارتهان لمزود واحد",
       "أين تخزن بيانات الذكاء الاصطناعي",
       "استضافة الذكاء الاصطناعي في السعودية",
       "قانون حماية البيانات الشخصية الإمارات",

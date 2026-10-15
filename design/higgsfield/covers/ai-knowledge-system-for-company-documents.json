@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "A neat stack of blank paper documents and a few slim folders on a dark oak desk in an empty office at night, the top pages slightly fanned out. Thin glowing blue lines of light rise from the pages and gather into a small matte black box beside them, like the documents quietly answering a question. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source and subtle cyan highlights, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no writing on the pages.",
+    "aspect_ratio": "16:9",
+    "resolution": "1k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, handwriting, logo, watermark, signage, readable screen"
+  },
+  "request_id": "70ba82f3-8c3f-4bfc-8e54-220082e3ba97",
+  "created": "2026-10-15T04:21:38.269Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/cd17119f-5c34-4838-b26f-5eea7419b929.png"
+  ],
+  "files": [
+    "design/higgsfield/covers/ai-knowledge-system-for-company-documents-1.png"
+  ]
+}

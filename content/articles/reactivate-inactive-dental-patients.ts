@@ -16,7 +16,7 @@ const article: Article = {
     takeaways: [
       "Patients rarely leave with a no; most drift, and a timely, personal message brings a share of them back without paying to find them again.",
       "Overdue means past that patient's own recall interval, which NICE guidance sets between 3 and 24 months by risk, not a blanket six months.",
-      "The reminder channel matters less than relevance: in a Taiwan dental study, postal, text and phone reminders produced similar return rates.",
+      "The reminder channel matters less than relevance: in a 2011 conference abstract on a Taiwan dental study, postal, text and phone reminders produced similar return rates.",
       "Send three touches over about three weeks, each a pre-approved WhatsApp template with an easy opt-out, then stop.",
       "Track reactivation rate, booked revenue, replies and opt-outs monthly, and book the next visit before patients leave so fewer go inactive.",
     ],
@@ -24,11 +24,15 @@ const article: Article = {
       { t: "h2", id: "cheapest-new-patient", text: "Why is your patient list the cheapest place to find bookings?" },
       {
         t: "p",
+        text: "Because everyone in it has already chosen your clinic once, and bringing them back costs a message rather than an advertising budget.",
+      },
+      {
+        t: "p",
         text: "Open your practice software and sort patients by last visit. A few screens down is someone who was quoted for two crowns last spring, said “let me check my diary”, and never heard from you again. She has not chosen another clinic. She has been busy, and nobody reminded her that the plan was still open.",
       },
       {
         t: "p",
-        text: "Every clinic has hundreds of these files. Patients rarely leave with a no. They drift: a new job, a baby, hesitation over cost, a recall card sent to an old address, a price question nobody answered. Each already knows your clinic and trusts one of your doctors. **The cheapest new patient is the one already in your files.** Winning them back costs a message, not an advertising budget.",
+        text: "Every clinic has hundreds of these files. Patients rarely leave with a no. They drift: a new job, a baby, hesitation over cost, a recall card sent to an old address, a price question nobody answered. Each already knows your clinic and trusts one of your doctors. **The cheapest new patient is the one already in your files.**",
       },
       {
         t: "p",
@@ -43,7 +47,7 @@ const article: Article = {
       { t: "h2", id: "what-counts-as-inactive", text: "What counts as an inactive dental patient?" },
       {
         t: "p",
-        text: "Most clinics call a patient inactive after six months without a visit. That rule is simple, and wrong for many patients. The NICE guideline on dental recall, [CG19](https://www.nice.org.uk/guidance/cg19), says the interval between oral health reviews should be tailored to each patient's disease risk, from 3 months up to 24 months for adults. For practical reasons, adults are assigned 3, 6, 12, 18 or 24 months.",
+        text: "**A patient is inactive when they are past their own recall interval and have no future appointment booked.** Most clinics use a simpler rule, six months without a visit, which is wrong for many patients. The NICE guideline on dental recall, [CG19](https://www.nice.org.uk/guidance/cg19), says the interval between oral health reviews should be tailored to each patient's disease risk, from 3 months up to 24 months for adults. For practical reasons, adults are assigned 3, 6, 9, 12, 15, 18, 21 or 24 months.",
       },
       {
         t: "p",
@@ -51,7 +55,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "So use this definition: **a patient is inactive when they are past their own recall interval and have no future appointment booked.** If your records hold no interval per patient, start recording one at every check-up; until then, use 12 months and have each dentist flag their high-risk patients.",
+        text: "That definition needs a recall interval for each patient. If your records hold none, start recording one at every check-up; until then, use 12 months and have each dentist flag their high-risk patients.",
       },
       { t: "h3", text: "Split the list into six segments" },
       {
@@ -77,11 +81,11 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "The instinct is to send one message to the whole list. Reminders do work: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of 8 trials found text-message reminders increased attendance compared with none (RR 1.14, moderate-quality evidence), similar to phone calls at lower cost per attendance. But those were reminders for appointments already booked. Reactivation asks for something harder: a decision to book.",
+        text: "The instinct is to send one message to the whole list. Reminders do work: a [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) found text-message reminders increased attendance compared with none (7 trials, 5,841 participants; risk ratio 1.14, moderate-quality evidence), similar to phone calls at lower cost per attendance. But those were reminders for appointments already booked. Reactivation asks for something harder: a decision to book.",
       },
       {
         t: "p",
-        text: "The closest evidence for that decision is a [Taiwan study of tooth-scaling reminders](https://scholar.lib.ntnu.edu.tw/en/publications/effects-of-tooth-scaling-reminders-for-dental-outpatients-2/) in 389 dental outpatients, comparing postcards, text messages, phone calls and no reminder. Reminded patients were 2.6 to 2.9 times more likely to revisit, yet return rates were only 11–20% and **did not differ between reminder methods.** The highest return, 26%, came from patients who were satisfied with their care and also received a reminder, and 65% said reminders increased their intention to return.",
+        text: "The closest evidence for that decision is a [Taiwan study of tooth-scaling reminders](https://doi.org/10.1177/1357633X13479700) in 389 dental outpatients, comparing postcards, text messages, phone calls and no reminder. Reminded patients were 2.6 to 2.9 times more likely to revisit. The highest return, 26%, came from patients who were satisfied with their care and also received a reminder, and 65% said reminders increased their intention to return. Yet in [the authors' 2011 conference abstract](https://apha.confex.com/apha/139am/webprogram/Paper247997.html), return rates were only 11–20% and **did not differ between reminder methods.**",
       },
       {
         t: "p",
@@ -230,7 +234,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-brings-patients-back", text: "How Lina brings patients back" },
       {
         t: "p",
-        text: "Lina is Flowramo's AI receptionist for dental clinics, built on the official WhatsApp Business Platform. She remembers each conversation: what the patient asked, whether a price was shared, whether they booked. When a patient goes quiet after asking about an implant, she follows up with an answer to the likely question and two open slots.",
+        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist Flowramo built for dental clinics, runs on the official WhatsApp Business Platform. She remembers each conversation: what the patient asked, whether a price was shared, whether they booked. When a patient goes quiet after asking about an implant, she follows up with an answer to the likely question and two open slots.",
       },
       {
         t: "p",
@@ -244,7 +248,7 @@ const article: Article = {
       },
       {
         q: "What is a good reactivation rate for inactive dental patients?",
-        a: "There is no reliable public benchmark, so measure your own baseline. In a Taiwan study of tooth-scaling reminders, 11–20% of patients returned, rising to 26% among satisfied patients who were reminded, which suggests modest expectations. Track attended visits divided by patients messaged, per segment, and compare month to month rather than against figures from another clinic.",
+        a: "There is no reliable public benchmark, so measure your own baseline. In a Taiwan study of tooth-scaling reminders, the authors' 2011 conference abstract reported that 11–20% of patients returned, and the published paper found 26% among satisfied patients who were reminded, which suggests modest expectations. Track attended visits divided by patients messaged, per segment, and compare month to month rather than against figures from another clinic.",
       },
       {
         q: "Can I send recall reminders on WhatsApp without the patient's consent?",
@@ -271,7 +275,12 @@ const article: Article = {
       },
       {
         label: "Journal of Telemedicine and Telecare — Effects of tooth-scaling reminders for dental outpatients (2013)",
-        url: "https://scholar.lib.ntnu.edu.tw/en/publications/effects-of-tooth-scaling-reminders-for-dental-outpatients-2/",
+        url: "https://doi.org/10.1177/1357633X13479700",
+      },
+      {
+        label:
+          "American Public Health Association, 139th Annual Meeting — the same authors' conference abstract on reminders for dental outpatients (2011)",
+        url: "https://apha.confex.com/apha/139am/webprogram/Paper247997.html",
       },
       {
         label: "Cochrane — Mobile phone messaging reminders for attendance at healthcare appointments (2013)",
@@ -317,7 +326,7 @@ const article: Article = {
     takeaways: [
       "نادرًا ما يغادر المريض برفض صريح؛ أغلب المرضى ينقطعون تدريجيًا، ورسالة شخصية في وقتها تعيد جزءًا منهم دون أن تدفع لتجدهم من جديد.",
       "المريض المتأخر هو من تجاوز فترة الاستدعاء الخاصة به، وإرشادات NICE تحددها بين 3 و24 شهرًا حسب درجة الخطورة، لا ستة أشهر للجميع.",
-      "وسيلة التذكير أقل أهمية من مضمونه: في دراسة تايوانية على مرضى الأسنان، تقاربت نسب العودة بين البريد والرسائل النصية والاتصال.",
+      "وسيلة التذكير أقل أهمية من مضمونه: في ملخص مؤتمر عام 2011 لدراسة تايوانية على مرضى الأسنان، تقاربت نسب العودة بين البريد والرسائل النصية والاتصال.",
       "أرسل ثلاث رسائل خلال نحو ثلاثة أسابيع، كل منها قالب واتساب معتمد مسبقًا مع طريقة سهلة لإيقاف الرسائل، ثم توقف.",
       "راقب كل شهر نسبة العائدين والإيرادات المحجوزة والردود وطلبات الإيقاف، واحجز الزيارة القادمة قبل أن يغادر المريض العيادة.",
     ],
@@ -325,11 +334,15 @@ const article: Article = {
       { t: "h2", id: "cheapest-new-patient", text: "لماذا قائمة مرضاك هي أرخص مصدر للحجوزات؟" },
       {
         t: "p",
+        text: "لأن كل من فيها اختار عيادتك مرة من قبل، واستعادته تكلّفك رسالة لا ميزانية إعلانات.",
+      },
+      {
+        t: "p",
         text: "افتح نظام العيادة ورتّب المرضى حسب تاريخ آخر زيارة. بعد صفحات قليلة ستجد مريضة أخذت عرض سعر لتلبيستين في الربيع الماضي، وقالت «خلني أشوف جدولي وأرد عليكم»، ثم لم يتواصل معها أحد. هي لم تختر عيادة أخرى بعد. كانت مشغولة فقط، ولم يذكّرها أحد بأن خطتها العلاجية ما زالت مفتوحة.",
       },
       {
         t: "p",
-        text: "في كل عيادة مئات الملفات المشابهة. نادرًا ما يغادر المريض برفض صريح؛ هو ينقطع تدريجيًا: وظيفة جديدة، مولود، تردد بسبب التكلفة، تذكير لم يصل، أو سؤال عن السعر لم يرد عليه أحد. وكل واحد منهم يعرف عيادتك ويثق بأحد أطبائك. **أرخص مريض جديد هو المريض الموجود أصلًا في ملفاتك.** واستعادته تكلّفك رسالة، لا ميزانية إعلانات.",
+        text: "في كل عيادة مئات الملفات المشابهة. نادرًا ما يغادر المريض برفض صريح؛ هو ينقطع تدريجيًا: وظيفة جديدة، مولود، تردد بسبب التكلفة، تذكير لم يصل، أو سؤال عن السعر لم يرد عليه أحد. وكل واحد منهم يعرف عيادتك ويثق بأحد أطبائك. **أرخص مريض جديد هو المريض الموجود أصلًا في ملفاتك.**",
       },
       {
         t: "p",
@@ -344,7 +357,7 @@ const article: Article = {
       { t: "h2", id: "what-counts-as-inactive", text: "متى يُعتبر مريض الأسنان منقطعًا؟" },
       {
         t: "p",
-        text: "أغلب العيادات تعتبر المريض منقطعًا بعد ستة أشهر دون زيارة. القاعدة سهلة، لكنها خاطئة مع كثير من المرضى. فإرشادات الاستدعاء الدوري البريطانية الصادرة عن NICE ([CG19](https://www.nice.org.uk/guidance/cg19)) تنص على أن الفترة بين كل فحص وآخر تُحدَّد حسب درجة الخطورة لدى كل مريض، من 3 أشهر إلى 24 شهرًا للبالغين. وعمليًا يُعطى البالغ إحدى هذه الفترات: 3 أو 6 أو 12 أو 18 أو 24 شهرًا.",
+        text: "**المريض المنقطع هو من تجاوز فترة الاستدعاء الخاصة به، وليس لديه أي موعد قادم.** أما أغلب العيادات فتعتبره منقطعًا بعد ستة أشهر دون زيارة، وهي قاعدة سهلة لكنها خاطئة مع كثير من المرضى. فإرشادات الاستدعاء الدوري البريطانية الصادرة عن NICE ([CG19](https://www.nice.org.uk/guidance/cg19)) تنص على أن الفترة بين كل فحص وآخر تُحدَّد حسب درجة الخطورة لدى كل مريض، من 3 أشهر إلى 24 شهرًا للبالغين. وعمليًا يُعطى البالغ إحدى هذه الفترات: 3 أو 6 أو 9 أو 12 أو 15 أو 18 أو 21 أو 24 شهرًا.",
       },
       {
         t: "p",
@@ -352,7 +365,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "لذلك اعتمد هذا التعريف: **المريض المنقطع هو من تجاوز فترة الاستدعاء الخاصة به، وليس لديه أي موعد قادم.** وإن كانت ملفاتك لا تحفظ فترة لكل مريض، فابدأ بتسجيلها في كل فحص، وإلى أن يكتمل ذلك اعتمد 12 شهرًا، واطلب من كل طبيب تحديد مرضاه عاليي الخطورة.",
+        text: "وهذا التعريف يحتاج إلى فترة استدعاء لكل مريض. فإن كانت ملفاتك لا تحفظها، فابدأ بتسجيلها في كل فحص، وإلى أن يكتمل ذلك اعتمد 12 شهرًا، واطلب من كل طبيب تحديد مرضاه عاليي الخطورة.",
       },
       { t: "h3", text: "قسّم القائمة إلى ست فئات" },
       {
@@ -365,7 +378,7 @@ const article: Article = {
           "**متأخرون عن الفحص الدوري:** مرضى منتظمون تجاوزوا فترتهم. يحتاجون إلى تذكير وموعد، لا إلى إقناع.",
           "**خطة علاجية غير مكتملة:** بدأ العلاج ولم ينتهِ، مثل علاج عصب بلا تلبيسة. مخاطرة سريرية قبل أن تكون إيرادًا ضائعًا.",
           "**أخذوا السعر ولم يحجزوا:** سألوا عن الزراعة أو التقويم الشفاف أو القشور ثم اختفوا. السبب عادة السعر أو الخوف أو التوقيت.",
-          "**فاتهم موعد ولم يعوّضوه:** غياب أو إلغاء متأخر بلا موعد بديل. وكثيرًا ما يكون السبب الحرج لا قلة الاهتمام.",
+          "**فاتهم موعد ولم يعوّضوه:** غياب أو إلغاء متأخر بلا موعد بديل. وكثيرًا ما يكون السبب الإحراج لا قلة الاهتمام.",
           "**زيارة واحدة فقط:** جاؤوا مرة لحالة طارئة أو تنظيف، ولم يعودوا.",
           "**انقطاع طويل (من 18 إلى أكثر من 24 شهرًا):** بعضهم انتقل أو غيّر طبيبه، وبعضهم ينتظر سببًا ليعود.",
         ],
@@ -378,11 +391,11 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "أول ما يخطر في البال رسالة واحدة للقائمة كلها. والتذكير يعمل فعلًا: فقد وجدت [مراجعة Cochrane](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) لـ 8 تجارب أن رسائل التذكير النصية رفعت الحضور مقارنة بعدم التذكير (RR 1.14، بجودة أدلة متوسطة)، بأثر مشابه للاتصال الهاتفي وبتكلفة أقل لكل حضور. لكنها كانت تذكيرًا بمواعيد محجوزة مسبقًا. أما الاسترجاع فيطلب شيئًا أصعب: قرار الحجز نفسه.",
+        text: "أول ما يخطر في البال رسالة واحدة للقائمة كلها. والتذكير يعمل فعلًا: فقد وجدت [مراجعة Cochrane](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) أن رسائل التذكير النصية رفعت الحضور مقارنة بعدم التذكير (7 تجارب و5,841 مشاركًا؛ نسبة الخطر 1.14، بجودة أدلة متوسطة)، بأثر مشابه للاتصال الهاتفي وبتكلفة أقل لكل حضور. لكنها كانت تذكيرًا بمواعيد محجوزة مسبقًا. أما الاسترجاع فيطلب شيئًا أصعب: قرار الحجز نفسه.",
       },
       {
         t: "p",
-        text: "وأقرب دليل على هذا القرار [دراسة تايوانية عن تذكير مرضى الأسنان بتنظيف الجير](https://scholar.lib.ntnu.edu.tw/en/publications/effects-of-tooth-scaling-reminders-for-dental-outpatients-2/) شملت 389 مراجعًا، وقارنت بين البطاقة البريدية والرسالة النصية والاتصال الهاتفي وعدم التذكير. كان احتمال عودة من تلقوا تذكيرًا أعلى بـ 2.6 إلى 2.9 مرة، ومع ذلك بقيت نسب العودة بين 11 و20% فقط، **ولم تختلف باختلاف وسيلة التذكير.** وأعلى نسبة عودة، 26%، كانت لدى المرضى الراضين عن علاجهم الذين تلقوا تذكيرًا أيضًا، وقال 65% إن التذكير زاد رغبتهم في العودة.",
+        text: "وأقرب دليل على هذا القرار [دراسة تايوانية عن تذكير مرضى الأسنان بتنظيف الجير](https://doi.org/10.1177/1357633X13479700) شملت 389 مراجعًا، وقارنت بين البطاقة البريدية والرسالة النصية والاتصال الهاتفي وعدم التذكير. كان احتمال عودة من تلقوا تذكيرًا أعلى بـ 2.6 إلى 2.9 مرة. وأعلى نسبة عودة، 26%، كانت لدى المرضى الراضين عن علاجهم الذين تلقوا تذكيرًا أيضًا، وقال 65% إن التذكير زاد رغبتهم في العودة. ومع ذلك، ذكر [ملخص قدّمه الباحثون أنفسهم في مؤتمر عام 2011](https://apha.confex.com/apha/139am/webprogram/Paper247997.html) أن نسب العودة بقيت بين 11 و20% فقط، **وأنها لم تختلف باختلاف وسيلة التذكير.**",
       },
       {
         t: "p",
@@ -526,7 +539,7 @@ const article: Article = {
       { t: "h2", id: "how-lina-brings-patients-back", text: "كيف تعيد لينا المرضى إلى عيادتك" },
       {
         t: "p",
-        text: "لينا هي موظفة الاستقبال الذكية من Flowramo لعيادات الأسنان، مبنية على منصة واتساب للأعمال الرسمية. تتذكر كل محادثة: ماذا سأل المريض، وهل أُرسل له السعر، وهل حجز. وعندما يسكت مريض بعد سؤاله عن الزراعة، تتابعه بجواب عن السؤال المتوقع وموعدين متاحين.",
+        text: "[لينا](/ar/products/lina) موظفة استقبال ذكية على واتساب بنتها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. تتذكر كل محادثة: ماذا سأل المريض، وهل أُرسل له السعر، وهل حجز. وعندما يسكت مريض بعد سؤاله عن الزراعة، تتابعه بجواب عن السؤال المتوقع وموعدين متاحين.",
       },
       {
         t: "p",
@@ -540,7 +553,7 @@ const article: Article = {
       },
       {
         q: "كم نسبة المرضى اللي يرجعون للعيادة بعد رسائل التذكير؟",
-        a: "لا يوجد معيار عام موثوق، لذلك قِس نسبتك أنت. في دراسة تايوانية عن تذكير مرضى الأسنان بتنظيف الجير، عاد بين 11 و20% من المرضى، وارتفعت النسبة إلى 26% بين المرضى الراضين الذين تلقوا تذكيرًا، أي أن التوقعات يجب أن تكون واقعية. احسب الحضور الفعلي مقسومًا على عدد من راسلتهم لكل فئة، وقارن شهرًا بشهر.",
+        a: "لا يوجد معيار عام موثوق، لذلك قِس نسبتك أنت. في دراسة تايوانية عن تذكير مرضى الأسنان بتنظيف الجير، ذكر ملخص قدّمه الباحثون في مؤتمر عام 2011 أن نسبة العائدين تراوحت بين 11 و20%، ووجدت الورقة المنشورة أنها بلغت 26% بين المرضى الراضين الذين تلقوا تذكيرًا، أي أن التوقعات يجب أن تكون واقعية. احسب الحضور الفعلي مقسومًا على عدد من راسلتهم لكل فئة، وقارن شهرًا بشهر.",
       },
       {
         q: "هل أقدر أرسل رسائل تذكير واتساب للمرضى بدون موافقتهم؟",
@@ -567,7 +580,12 @@ const article: Article = {
       },
       {
         label: "Journal of Telemedicine and Telecare — Effects of tooth-scaling reminders for dental outpatients (2013)",
-        url: "https://scholar.lib.ntnu.edu.tw/en/publications/effects-of-tooth-scaling-reminders-for-dental-outpatients-2/",
+        url: "https://doi.org/10.1177/1357633X13479700",
+      },
+      {
+        label:
+          "American Public Health Association, 139th Annual Meeting — the same authors' conference abstract on reminders for dental outpatients (2011)",
+        url: "https://apha.confex.com/apha/139am/webprogram/Paper247997.html",
       },
       {
         label: "Cochrane — Mobile phone messaging reminders for attendance at healthcare appointments (2013)",

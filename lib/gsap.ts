@@ -40,6 +40,16 @@ export function relPos(el: HTMLElement, ancestor: HTMLElement): { x: number; y: 
 }
 
 export { gsap, ScrollTrigger, SplitText, useGSAP };
+
+/**
+ * How headline words come in across the site: out of a soft blur, in place (no rise), so text
+ * sharpens into view. The blur scales with the type size. Use with fromTo(..., FOCUS_TO).
+ */
+export function focusFrom(el: Element): gsap.TweenVars {
+  const size = parseFloat(getComputedStyle(el).fontSize) || 32;
+  return { autoAlpha: 0, filter: `blur(${Math.min(14, Math.max(5, size * 0.16)).toFixed(1)}px)` };
+}
+export const FOCUS_TO: gsap.TweenVars = { autoAlpha: 1, filter: "blur(0px)" };
 export const TABLET_UP = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
 export const PHONE = "(max-width: 767px) and (prefers-reduced-motion: no-preference)";
 

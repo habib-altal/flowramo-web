@@ -46,6 +46,10 @@ const article: Article = {
       { t: "h2", id: "why-whatsapp", text: "Why should a dental clinic take bookings on WhatsApp?" },
       {
         t: "p",
+        text: "Because your patients are already there, and booking inside the chat removes the phone call or web form that loses people who write after hours.",
+      },
+      {
+        t: "p",
         text: "It is 23:41 on a Sunday. A patient who has put off a missing back tooth for a year finally writes to your clinic's WhatsApp: “How much is an implant, and do you have anything next week?” Your receptionist sees it at 10:10 the next morning. By then the patient has a reply, a price and a Wednesday slot from another clinic.",
       },
       {
@@ -251,11 +255,11 @@ const article: Article = {
       { t: "h2", id: "how-lina-works", text: "How Lina runs WhatsApp booking" },
       {
         t: "p",
-        text: "Lina is the AI receptionist Flowramo builds for dental clinics, running on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
+        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, running on the official WhatsApp Business Platform. It answers patients in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect, using only knowledge the clinic approves: services, price ranges, doctors, hours, location, prep and aftercare instructions.",
       },
       {
         t: "p",
-        text: "Lina finds free slots and books, reschedules or cancels in the clinic calendar, then sends confirmations and reminders. It remembers each conversation, follows up when a patient goes quiet, sends aftercare and brings patients back for check-ups. Anything urgent, clinical, sensitive or outside its knowledge goes to your team with the full context; it does not diagnose. The clinic gets a daily briefing of bookings, conversations and patients at risk of being lost.",
+        text: "Lina finds free slots and books or reschedules appointments in the clinic calendar, then sends confirmations and reminders. It remembers each conversation, follows up when a patient goes quiet, sends aftercare and brings patients back for check-ups. Anything urgent, clinical, sensitive or outside its knowledge goes to your team with the full context; it does not diagnose. The clinic gets a daily briefing of bookings, conversations and patients at risk of being lost.",
       },
       {
         t: "p",
@@ -314,6 +318,10 @@ const article: Article = {
     ],
     blocks: [
       { t: "h2", id: "why-whatsapp", text: "لماذا تستقبل عيادة الأسنان الحجوزات عبر واتساب؟" },
+      {
+        t: "p",
+        text: "لأن مرضاك موجودون هناك أصلًا، والحجز داخل المحادثة نفسها يلغي الاتصال الهاتفي أو نموذج الموقع الذي يُخسرك من يراسلونك بعد الدوام.",
+      },
       {
         t: "p",
         text: "الساعة 23:41 من مساء الأحد. مريض أجّل تعويض ضرسه المخلوع سنة كاملة، ثم كتب أخيرًا على واتساب العيادة: «كم سعر الزراعة؟ وعندكم موعد الأسبوع الجاي؟». موظفة الاستقبال تقرأ الرسالة في العاشرة وعشر دقائق صباح اليوم التالي، وفي ذلك الوقت يكون المريض قد تلقى ردًا وسعرًا وموعدًا يوم الأربعاء من عيادة أخرى.",
@@ -521,11 +529,11 @@ const article: Article = {
       { t: "h2", id: "how-lina-works", text: "كيف تدير لينا الحجز عبر واتساب" },
       {
         t: "p",
-        text: "لينا موظفة الاستقبال الذكية التي تبنيها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. ترد على المرضى خلال ثوانٍ، ليلًا ونهارًا، بالعربية والإنجليزية والتركية، بلغة المريض ولهجته، ومن المعلومات التي تعتمدها العيادة فقط: الخدمات ونطاقات الأسعار والأطباء وساعات العمل والموقع وتعليمات التحضير وما بعد العلاج.",
+        text: "[لينا](/ar/products/lina) موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، وتعمل على منصة واتساب للأعمال الرسمية. ترد على المرضى خلال ثوانٍ، ليلًا ونهارًا، بالعربية والإنجليزية والتركية، بلغة المريض ولهجته، ومن المعلومات التي تعتمدها العيادة فقط: الخدمات ونطاقات الأسعار والأطباء وساعات العمل والموقع وتعليمات التحضير وما بعد العلاج.",
       },
       {
         t: "p",
-        text: "تبحث لينا عن المواعيد المتاحة، وتحجز المواعيد أو تغيّرها أو تلغيها في تقويم العيادة، ثم ترسل التأكيدات والتذكيرات. وتتذكر كل محادثة، وتتابع المريض حين يتوقف عن الرد، وترسل رسائل ما بعد العلاج، وتعيد المرضى إلى فحوصاتهم الدورية. وإذا كان الأمر عاجلًا أو سريريًا أو حساسًا أو خارج ما تعرفه، حوّلت المحادثة إلى فريقك مع سياقها كاملًا، ولينا لا تشخّص أبدًا. وكل يوم تتلقى العيادة ملخصًا بالحجوزات والمحادثات والمرضى المعرّضين للضياع.",
+        text: "تبحث لينا عن المواعيد المتاحة، وتحجز المواعيد أو تغيّرها في تقويم العيادة، ثم ترسل التأكيدات والتذكيرات. وتتذكر كل محادثة، وتتابع المريض حين يتوقف عن الرد، وترسل رسائل ما بعد العلاج، وتعيد المرضى إلى فحوصاتهم الدورية. وإذا كان الأمر عاجلًا أو سريريًا أو حساسًا أو خارج ما تعرفه، حوّلت المحادثة إلى فريقك مع سياقها كاملًا، ولينا لا تشخّص أبدًا. وكل يوم تتلقى العيادة ملخصًا بالحجوزات والمحادثات والمرضى المعرّضين للضياع.",
       },
       {
         t: "p",

@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "Cinematic photograph of a small modern technology studio at night, closed and empty, the room lights off. A long dark oak workbench runs across the room: two closed laptops, a neat stack of notebooks, a ceramic mug and a desk lamp switched off. One wide monitor on the bench is turned away at an angle so its screen cannot be seen; it casts a soft blue glow across the wood and the wall. On a low shelf to the right, a small matte black server box with a few tiny blue status lights. A large floor-to-ceiling window behind shows a calm city skyline at night under a deep navy sky with scattered warm lights. Calm, quiet, premium and trustworthy: work is still being done while nobody is there. 28mm lens, eye level, balanced composition with generous empty dark space in the upper left. Deep navy and midnight blue palette with subtle cyan highlights, fine film grain. No people, no text, no logos, no readable screens.",
+    "aspect_ratio": "16:9",
+    "resolution": "2k",
+    "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen, daylight, clutter"
+  },
+  "request_id": "dcb6db0d-c3d0-4820-b0d6-24a42f2dc49c",
+  "created": "2026-10-14T21:55:37.308Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/1763427c-fdda-4858-a40c-6b0f5561d258.png"
+  ],
+  "files": [
+    "design/higgsfield/studio-night/office-qwen-1.png"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "Close-up cinematic photograph of a sleek black server rack in a dark, quiet room, shot from a low three-quarter angle with shallow depth of field. Rows of tiny blue and cyan status lights glow on the front panels, a few soft white pinpoints, neatly bundled cables in the shadows. The background falls away into deep navy darkness with soft blue bokeh. Calm, precise, premium and trustworthy. 50mm lens. The rack fills the right half of the frame; the left half is generous empty dark space. Deep navy and midnight blue palette with cyan highlights, fine film grain. No people, no text, no letters, no numbers, no logos, no labels, no brand names.",
+    "aspect_ratio": "16:9",
+    "resolution": "2k",
+    "negative_prompt": "people, person, hands, text, letters, words, numbers, logo, watermark, labels, brand name, red lights, orange lights, daylight"
+  },
+  "request_id": "3da215a5-c4a3-4fef-b394-286c5d6939a4",
+  "created": "2026-10-14T21:56:53.636Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/31a44dfb-0382-4cc9-a0d4-5c2961423a55.png"
+  ],
+  "files": [
+    "design/higgsfield/solutions-rack/rack-qwen-1.png"
+  ]
+}

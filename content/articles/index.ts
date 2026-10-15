@@ -7,9 +7,11 @@ import ownership from "./own-your-ai-system";
 import whatsappBooking from "./whatsapp-appointment-booking-dental-clinic";
 import scoping from "./how-to-scope-an-ai-project";
 import reactivation from "./reactivate-inactive-dental-patients";
+import knowledge from "./ai-knowledge-system-for-company-documents";
+import arabicWhatsapp from "./arabic-ai-agent-whatsapp-gulf-dialect";
 
-/** Insights order: the first article is featured on the index. Studio articles and Lina articles alternate. */
-export const ARTICLES: Article[] = [aiAgents, aiReceptionist, automation, noShows, ownership, whatsappBooking, scoping, reactivation];
+/** Insights order: the first article is featured on the index and the first three lead the home page. Studio articles lead; Lina articles follow as one example. */
+export const ARTICLES: Article[] = [aiAgents, knowledge, aiReceptionist, arabicWhatsapp, automation, noShows, ownership, whatsappBooking, scoping, reactivation];
 
 export const getArticle = (slug: string) => ARTICLES.find((a) => a.slug === slug);
 

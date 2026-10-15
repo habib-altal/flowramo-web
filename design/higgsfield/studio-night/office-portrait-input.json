@@ -1,0 +1,9 @@
+{
+  "image_urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/1763427c-fdda-4858-a40c-6b0f5561d258.png"
+  ],
+  "prompt": "Recompose this exact scene as a tall vertical photograph (9:16) of the same empty technology studio at night: keep the same dark oak desk, the monitor turned away with its soft blue glow, the closed laptops, the mug, the desk lamp switched off, the small black server box with blue status lights, and the tall window with the city skyline at night under a deep navy sky. Show more of the dark wall and the night sky above, with generous empty dark space in the upper half. Same lighting, palette and mood. No people, no text, no logos, no readable screens.",
+  "aspect_ratio": "9:16",
+  "resolution": "2k",
+  "negative_prompt": "people, person, hands, text, letters, words, numbers, logo, watermark, readable screen, daylight"
+}

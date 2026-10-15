@@ -1,11 +1,12 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, useGSAP, DESKTOP, MOBILE, MOTION_OK, relPos } from "@/lib/gsap";
+import { gsap, useGSAP, DESKTOP, MOBILE, relPos } from "@/lib/gsap";
 import { DemoButton } from "../Demo";
 import { TryLinaButton } from "./TryLina";
 import { useI18n } from "../I18n";
 import { useLina } from "../PageDict";
+import { FocusWords, wordCount } from "../motion/FocusWords";
 
 function PatientBubble({ id }: { id?: string }) {
   const t = useLina();
@@ -45,10 +46,6 @@ export function Hero() {
     () => {
       const mm = gsap.matchMedia();
       const q = gsap.utils.selector(root);
-
-      mm.add(MOTION_OK, () => {
-        gsap.to(q(".load-in"), { opacity: 1, y: 0, duration: 1.2, ease: "expo.out", stagger: 0.09, delay: 0.15 });
-      });
 
       // Desktop: a thin blue thread carries the message from the patient to the booked slot.
       mm.add(DESKTOP, () => {
@@ -152,20 +149,24 @@ export function Hero() {
       </div>
 
       <div className="wrap relative z-10 flex flex-1 flex-col items-center justify-center pb-16 pt-[120px] text-center lg:pt-[104px]">
-        <div className="load-in mb-8 self-start lg:hidden">
+        <div className="hero-in mb-8 self-start lg:hidden" style={{ "--d": "0.1s" } as React.CSSProperties}>
           <PatientBubble />
         </div>
 
-        <h1 className="hero-title load-in text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
-          <span className="block">{t.hero.h1a}</span>
-          <span className="block">{t.hero.h1b}</span>
+        <h1 className="hero-title text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
+          <span className="block">
+            <FocusWords text={t.hero.h1a} />
+          </span>
+          <span className="block">
+            <FocusWords text={t.hero.h1b} from={wordCount(t.hero.h1a)} />
+          </span>
         </h1>
-        <p className="load-in lede mt-7 max-w-[36rem]">{t.hero.sub}</p>
-        <div className="load-in mt-9 flex flex-wrap items-center justify-center gap-3">
+        <p className="hero-in lede mt-7 max-w-[36rem]" style={{ "--d": "0.6s" } as React.CSSProperties}>{t.hero.sub}</p>
+        <div className="hero-in mt-9 flex flex-wrap items-center justify-center gap-3" style={{ "--d": "0.72s" } as React.CSSProperties}>
           <TryLinaButton className="btn btn-blue">{t.hero.primary}</TryLinaButton>
           <DemoButton className="btn btn-line">{t.hero.secondary}</DemoButton>
         </div>
-        <p className="load-in mt-4 max-w-[30rem] text-[13px] text-ink-3">{t.hero.trust}</p>
+        <p className="hero-in mt-4 max-w-[30rem] text-[13px] text-ink-3" style={{ "--d": "0.84s" } as React.CSSProperties}>{t.hero.trust}</p>
 
         {/* Lina's live status line */}
         <div className="hero-seq relative mt-10 h-6 w-full max-w-[340px]" aria-live="off">

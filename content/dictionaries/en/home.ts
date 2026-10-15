@@ -14,7 +14,7 @@ const home = {
     sub: "Agents that answer, book and follow up. Automations that move data to where it belongs. Products built to last. Designed around how your business runs, and installed on infrastructure you own.",
     primary: "Start a project",
     secondary: "Try Lina on WhatsApp",
-    proof: { text: "One of our systems is live on WhatsApp now.", link: "See how it works" },
+    proof: { text: "Lina, the AI receptionist we built for dental clinics, is live on WhatsApp.", link: "See her at work" },
     canvas: {
       label: "How a Flowramo system works: messages, email, documents, calls and forms come in, the system does the work, and bookings, answers, follow-ups, updates and reports come out.",
       inputs: ["WhatsApp", "Email", "Documents", "Voice notes", "Forms"],
@@ -28,7 +28,7 @@ const home = {
     h2: "Most businesses still run on people doing the work of software.",
     items: [
       { title: "Messages wait.", text: "A customer writes at night. Your team replies in the morning, after they have asked someone else.", before: "Unanswered since 23:48", after: "Answered at 23:48" },
-      { title: "Knowledge leaks.", text: "Answers live in one person's head or a folder nobody opens. When that person is away, so is the answer.", before: "Only one person knows the answer", after: "Answered from approved knowledge" },
+      { title: "Knowledge sits with one person.", text: "Answers live in one person's head or a folder nobody opens. When that person is away, so is the answer.", before: "Only one person knows the answer", after: "Answered from approved knowledge" },
       { title: "Follow-ups slip.", text: "The second message, the one that turns interest into revenue, is the one nobody has time to send.", before: "Follow-up not sent, day 6", after: "Followed up on day 2" },
     ],
     close: "Each of these is a system problem, and each has a system answer.",
@@ -37,7 +37,7 @@ const home = {
 
   build: {
     h2: "What we build",
-    sub: "Six kinds of systems, often combined into one.",
+    sub: "Six kinds of systems, and one project can combine several.",
     inLina: "Running in Lina",
     explore: "Explore Lina",
     items: [
@@ -57,7 +57,7 @@ const home = {
         id: "custom-ai",
         outcome: "Internal tools that read documents, images and voice, and turn them into decisions your team can act on.",
         parts: ["Document and image understanding", "Voice-note transcription", "Review queues for your team"],
-        lina: "Photos patients send wait in a queue for the doctor to review.",
+        lina: "Lina reads the photos and voice notes patients send and passes them to the team with the conversation.",
       },
       {
         id: "saas",
@@ -83,7 +83,7 @@ const home = {
   lina: {
     kicker: "A system we built",
     h2: "One of our systems answers patients at 2 am.",
-    sub: "Lina is the AI receptionist we built for dental clinics. It runs a clinic's WhatsApp in Arabic, English and Turkish, books into the calendar, follows up when patients go quiet and hands urgent cases to the doctor. It is the clearest way to see how we build.",
+    sub: "Lina is the AI receptionist we built for dental clinics. She runs a clinic's WhatsApp in Arabic, English and Turkish, books into the calendar, follows up when patients go quiet and hands urgent cases to the doctor. Lina is the clearest way to see how we build.",
     shows: [
       "Agents that book, follow up and escalate",
       "Answers drawn from approved knowledge",
@@ -112,18 +112,18 @@ const home = {
       { name: "Design the system", text: "You get a written blueprint: the system, its limits, what stays human and how we will measure it. Change or add anything before we build.", out: "A written blueprint" },
       { name: "Engineer and connect", text: "We build, connect and test against your real cases, in Arabic and English.", out: "A system tested on your cases" },
       { name: "Install", text: "The system goes live on infrastructure you choose, connected to your own accounts.", out: "Live on your infrastructure" },
-      { name: "Train and stay", text: "We train your team, and an AI assistant set up for your system, to handle everyday issues. When you need us, we are still here.", out: "A team that can run it" },
+      { name: "Train and stay", text: "We train your team to run it, or set up an AI assistant that handles everyday issues for them. After launch we stay available when you need us.", out: "A team that can run it" },
     ],
   },
 
   own: {
     h2: "Yours to keep.",
-    sub: "We build systems the way you would want to own them.",
+    sub: "You own where it runs, the accounts it uses and the data it keeps.",
     items: [
       { title: "Your infrastructure", text: "Installed on hosting you choose and control." },
       { title: "Your accounts", text: "Connected to your own WhatsApp, calendar and tools." },
       { title: "Your data", text: "Customer conversations and records stay in systems you own." },
-      { title: "No subscription", text: "You pay for the system, not for permission to keep using it." },
+      { title: "No subscription", text: "You pay for the system, not for permission to keep using it. Hosting and messaging are billed to your own accounts." },
     ],
   },
 
@@ -137,7 +137,7 @@ const home = {
       },
       {
         q: "How is a project priced?",
-        a: "Each system is scoped and priced on a call, because every project adds some things and leaves others out. You pay once for a system you own, not a monthly subscription.",
+        a: "We price each system after a call, once we know what it has to do. The written blueprint states scope and price before any build begins. You pay for the project, not a monthly subscription. Hosting and messaging are billed by those providers to your own accounts.",
       },
       {
         q: "Who owns the system and the data?",
@@ -149,15 +149,15 @@ const home = {
       },
       {
         q: "What if the AI gets something wrong with a customer?",
-        a: "Every system we build has limits. It answers from approved knowledge, says when it does not know, and hands sensitive or urgent cases to a person with the full conversation.",
+        a: "Every system we build has limits. It answers from approved knowledge, says when it does not know, and hands sensitive or urgent cases to a person with the full conversation. Before launch we test it on your real cases, and you change anything you don't like.",
       },
       {
         q: "What happens after launch?",
-        a: "We train your team, and an AI assistant set up for your system, to handle everyday issues. Hosting and messaging are billed by those providers straight to your own accounts. When you need us, we are still here.",
+        a: "We train your team to run the system, or set up an AI assistant that handles everyday issues for them. Hosting and messaging are billed by those providers straight to your own accounts. We stay available whenever you need us.",
       },
       {
         q: "How do we start?",
-        a: "Tell us what slows your team down. We reply by email, set up a call, and come back with a written blueprint before any build begins.",
+        a: "Tell us what slows your team down. We reply by email or WhatsApp, set up a call, and come back with a written blueprint before any build begins.",
       },
     ],
   },

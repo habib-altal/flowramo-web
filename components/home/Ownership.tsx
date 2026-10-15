@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Database, KeyRound, Server, Users } from "lucide-react";
-import { gsap, useGSAP, SplitText, TABLET_UP, PHONE } from "@/lib/gsap";
+import { gsap, useGSAP, SplitText, TABLET_UP, PHONE, focusFrom, FOCUS_TO } from "@/lib/gsap";
 import { MARK_PATH, MARK_VIEWBOX } from "../brand-paths";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
@@ -52,9 +52,10 @@ export function Ownership() {
 
       mm.add(TABLET_UP, () => {
         gsap.set(q(".ow-row"), { color: "var(--color-ink-3)" });
-        const split = SplitText.create(q(".ow-h2")[0], { type: "lines", mask: "lines" });
+        const h2 = q(".ow-h2")[0];
+        const split = SplitText.create(h2, { type: "words" });
         const tl = gsap.timeline({ defaults: { ease: "power2.out" }, scrollTrigger: { trigger: root.current, start: "top 30%", end: "bottom bottom", scrub: 0.7 } });
-        tl.from(split.lines, { yPercent: 115, duration: 0.7, stagger: 0.1 }, 0).from(q(".ow-sub"), { autoAlpha: 0, y: 20, duration: 0.6 }, 0.2);
+        tl.fromTo(split.words, focusFrom(h2), { ...FOCUS_TO, duration: 0.7, stagger: 0.06 }, 0).fromTo(q(".ow-sub"), { autoAlpha: 0, filter: "blur(6px)" }, { ...FOCUS_TO, duration: 0.6 }, 0.3);
         build(tl);
         return () => split.revert();
       });

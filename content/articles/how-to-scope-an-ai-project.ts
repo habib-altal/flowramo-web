@@ -67,25 +67,25 @@ const article: Article = {
       { t: "h2", id: "why-vague-scope-fails", text: "Why do AI projects fail when the scope is vague?" },
       {
         t: "p",
-        text: "Trying AI has become common. Stanford's [2026 AI Index](" +
-          AI_INDEX +
-          ") reports that organisational AI use rose from 55% in 2023 to 88% in 2025. Running AI agents in daily operations is much rarer: their deployment was still in the single digits across nearly all business functions.",
-      },
-      {
-        t: "p",
-        text: "The clearest explanation of that gap comes from the people who build these systems. For a 2024 [RAND study](" +
+        text: "Most often because the problem was never pinned down. For a 2024 [RAND study](" +
           RAND +
-          "), researchers interviewed experienced data scientists and machine-learning engineers about why AI projects fail. RAND notes that, by some estimates, more than 80% of AI projects fail, twice the rate of IT projects that do not involve AI. The interviewees named five root causes:",
+          "), researchers interviewed experienced data scientists and machine-learning engineers about why AI projects fail, and a misunderstood or miscommunicated problem was the most common root cause. RAND notes that, by some estimates, more than 80% of AI projects fail, twice the rate of IT projects that do not involve AI. The interviewees named five root causes:",
       },
       {
         t: "ul",
         items: [
-          "**The problem is misunderstood or miscommunicated.** This was the most common cause: the people asking for the system and the people building it meant different things.",
+          "**The problem is misunderstood or miscommunicated.** The people asking for the system and the people building it meant different things.",
           "**The data isn't there.** The organisation lacks the data needed to build an effective model.",
           "**Technology comes first.** The team chases the latest tool instead of a real problem for the people who will use it.",
           "**The infrastructure is missing.** Nothing is in place to manage the data and run the finished system.",
           "**The problem is too hard.** AI is applied to work it cannot yet do reliably.",
         ],
+      },
+      {
+        t: "p",
+        text: "Adoption figures point the same way. Trying AI has become common: Stanford's [2026 AI Index](" +
+          AI_INDEX +
+          ") reports that organisational AI use rose from 55% in 2023 to 88% in 2025. Running AI agents in daily operations is much rarer: their deployment was still in the single digits across nearly all business functions.",
       },
       {
         t: "p",
@@ -119,7 +119,7 @@ const article: Article = {
       { t: "h2", id: "blueprint-contents", text: "What should an AI project blueprint contain?" },
       {
         t: "p",
-        text: "Eleven sections cover most projects, from a WhatsApp agent to a pipeline that reads invoices. Some need a single line. The process map and the will-and-won't lists usually take the most work.",
+        text: "An AI project blueprint should contain eleven sections: the problem in business terms, today's process map, inputs and data sources, what the system will and won't do, hand-off rules, success metrics and a baseline, integrations and accounts, risks and guardrails, hosting and ownership, a timeline, and the price and what changes it. Together they cover most projects, from a WhatsApp agent to a pipeline that reads invoices. Some need a single line. The process map and the will-and-won't lists usually take the most work.",
       },
       { t: "h3", text: "1. The problem in business terms" },
       {
@@ -456,25 +456,25 @@ const article: Article = {
       { t: "h2", id: "why-vague-scope-fails", text: "لماذا تفشل مشاريع الذكاء الاصطناعي حين يكون النطاق غامضًا؟" },
       {
         t: "p",
-        text: "تجربة الذكاء الاصطناعي صارت أمرًا شائعًا. يذكر [مؤشر الذكاء الاصطناعي لعام 2026 من جامعة ستانفورد](" +
-          AI_INDEX +
-          ") أن نسبة المؤسسات التي تستخدم الذكاء الاصطناعي ارتفعت من 55% في 2023 إلى 88% في 2025. أما تشغيل وكلاء الذكاء الاصطناعي (AI agents) في العمل اليومي فأندر بكثير: ما زالت نسبة نشرهم دون 10% في كل وظائف الأعمال تقريبًا.",
-      },
-      {
-        t: "p",
-        text: "وأوضح تفسير لهذه الفجوة يأتي ممن يبنون هذه الأنظمة. في [دراسة لمؤسسة RAND](" +
+        text: "السبب الأكثر شيوعًا أن المشكلة نفسها لم تُحدَّد بوضوح. ففي [دراسة لمؤسسة RAND](" +
           RAND +
-          ") نُشرت عام 2024، قابل الباحثون علماء بيانات ومهندسي تعلّم آلة من أصحاب الخبرة، وسألوهم لماذا تفشل مشاريع الذكاء الاصطناعي. وتشير RAND إلى أن أكثر من 80% من هذه المشاريع تفشل وفق بعض التقديرات، أي ضعف نسبة الفشل في مشاريع تقنية المعلومات التي لا يدخل فيها الذكاء الاصطناعي. وحدد المشاركون خمسة أسباب جذرية:",
+          ") نُشرت عام 2024، قابل الباحثون علماء بيانات ومهندسي تعلّم آلة من أصحاب الخبرة، وسألوهم لماذا تفشل مشاريع الذكاء الاصطناعي، فكان سوء فهم المشكلة أو سوء توصيلها أكثر الأسباب الجذرية شيوعًا. وتشير RAND إلى أن أكثر من 80% من هذه المشاريع تفشل وفق بعض التقديرات، أي ضعف نسبة الفشل في مشاريع تقنية المعلومات التي لا يدخل فيها الذكاء الاصطناعي. وحدد المشاركون خمسة أسباب جذرية:",
       },
       {
         t: "ul",
         items: [
-          "**سوء فهم المشكلة أو سوء توصيلها.** وهو السبب الأكثر شيوعًا: من يطلب النظام ومن يبنيه يقصد كلٌّ منهما شيئًا مختلفًا.",
+          "**سوء فهم المشكلة أو سوء توصيلها.** من يطلب النظام ومن يبنيه يقصد كلٌّ منهما شيئًا مختلفًا.",
           "**غياب البيانات.** لا تملك المؤسسة البيانات اللازمة لبناء نموذج فعّال.",
           "**التقنية أولًا.** ينشغل الفريق بأحدث أداة بدل مشكلة حقيقية يعانيها من سيستخدمون النظام.",
           "**بنية تحتية ناقصة.** لا يوجد ما يدير البيانات ويشغّل النظام بعد اكتماله.",
           "**مشكلة أصعب من قدرة التقنية.** يُطبَّق الذكاء الاصطناعي على عمل لا يستطيع إنجازه بموثوقية حتى الآن.",
         ],
+      },
+      {
+        t: "p",
+        text: "وأرقام الاستخدام تشير إلى الاتجاه نفسه. فتجربة الذكاء الاصطناعي صارت أمرًا شائعًا: يذكر [مؤشر الذكاء الاصطناعي لعام 2026 من جامعة ستانفورد](" +
+          AI_INDEX +
+          ") أن نسبة المؤسسات التي تستخدم الذكاء الاصطناعي ارتفعت من 55% في 2023 إلى 88% في 2025. أما تشغيل وكلاء الذكاء الاصطناعي (AI agents) في العمل اليومي فأندر بكثير: ما زالت نسبة نشرهم دون 10% في كل وظائف الأعمال تقريبًا.",
       },
       {
         t: "p",
@@ -508,7 +508,7 @@ const article: Article = {
       { t: "h2", id: "blueprint-contents", text: "ماذا يتضمن مخطط مشروع الذكاء الاصطناعي؟" },
       {
         t: "p",
-        text: "أحد عشر بندًا تكفي لأغلب المشاريع، من وكيل يرد على واتساب إلى نظام يقرأ الفواتير. بعضها يكفيه سطر واحد، وأكثرها جهدًا عادة خريطة سير العمل وقائمتا ما سيفعله النظام وما لن يفعله.",
+        text: "يتضمن مخطط مشروع الذكاء الاصطناعي أحد عشر بندًا: المشكلة بلغة العمل، وخريطة سير العمل كما يحدث اليوم، والمدخلات ومصادر البيانات، وما سيفعله النظام وما لن يفعله، وقواعد التسليم إلى الموظفين، ومقاييس النجاح وخط الأساس، والربط والحسابات، والمخاطر والضوابط، والاستضافة والملكية، والجدول الزمني، والسعر وما الذي يغيّره. وهذه البنود تكفي لأغلب المشاريع، من وكيل يرد على واتساب إلى نظام يقرأ الفواتير. بعضها يكفيه سطر واحد، وأكثرها جهدًا عادة خريطة سير العمل وقائمتا ما سيفعله النظام وما لن يفعله.",
       },
       { t: "h3", text: "1. المشكلة بلغة العمل" },
       {
@@ -532,7 +532,7 @@ const article: Article = {
       { t: "h3", text: "4. ما سيفعله النظام، وما لن يفعله" },
       {
         t: "p",
-        text: "اكتب قائمتين صريحتين. الأولى تسمّي كل مهمة والقناة التي تعمل عليها («يجيب عن أسئلة الأسعار من قائمة الأسعار المعتمدة»، «يحجز في التقويم المشترك»). والثانية تسمّي ما يبقى خارج النظام حتى لا يفترض أحد غير ذلك: الخصومات، واسترداد المبالغ، والاستشارات القانونية، وأي أمر طبي. والقائمة الثانية تمنع من الخلافات أكثر مما تمنعه الأولى.",
+        text: "اكتب قائمتين صريحتين. الأولى تسمّي كل مهمة والقناة التي تعمل عليها («يجيب عن أسئلة الأسعار من قائمة الأسعار المعتمدة»، «يحجز في التقويم المشترك»). والثانية تسمّي ما يبقى خارج النظام حتى لا يفترض أحد غير ذلك: الخصومات، واسترداد المبالغ، والاستشارات القانونية، وأي أمر طبي. والقائمة الثانية تمنع خلافات أكثر مما تمنعه الأولى.",
       },
       { t: "h3", text: "5. قواعد التسليم إلى الموظفين" },
       {
@@ -551,12 +551,12 @@ const article: Article = {
         t: "p",
         text: "سمِّ كل نظام سيقرأ منه الذكاء الاصطناعي أو يكتب فيه، وهل لديه واجهة برمجية (API)، وباسم من يعمل الحساب. حين تكون الحسابات باسم شركتك (حساب واتساب للأعمال، والتقويم، ومزوّد نموذج الذكاء الاصطناعي، والاستضافة)، تبقى السيطرة بيدك مهما تغيّر الموظفون أو المزوّدون.",
       },
-      { t: "h3", text: "8. المخاطر وحواجز الأمان" },
+      { t: "h3", text: "8. المخاطر والضوابط" },
       {
         t: "p",
         text: "قد تنتج النماذج اللغوية ما يسميه [ملف NIST للذكاء الاصطناعي التوليدي](" +
           NIST_GENAI +
-          ") «confabulation»، أي محتوى يُقدَّم بثقة وهو خاطئ، ويعرفه كثيرون باسم «الهلوسة». وحواجز الأمان هي الرد التصميمي على ذلك: يجيب النظام من المعرفة المعتمدة فقط، ويقول إنه لا يعرف ويسلّم الحالة حين لا يكون متأكدًا، ويعمل ضمن صلاحيات محدودة (يعرض المواعيد المتاحة مثلًا، لكنه لا يلغي حجزًا مدفوعًا).",
+          ") «confabulation»، أي محتوى يُقدَّم بثقة وهو خاطئ، ويعرفه كثيرون باسم «الهلوسة». والضوابط هي الرد التصميمي على ذلك: يجيب النظام من المعرفة المعتمدة فقط، ويقول إنه لا يعرف ويسلّم الحالة حين لا يكون متأكدًا، ويعمل ضمن صلاحيات محدودة (يعرض المواعيد المتاحة مثلًا، لكنه لا يلغي حجزًا مدفوعًا).",
       },
       {
         t: "p",
@@ -676,7 +676,7 @@ const article: Article = {
             "حساب واتساب للأعمال، ونظام متابعة الأعمال، وتقويم الفنيين، وكلها باسم الشركة",
           ],
           [
-            "المخاطر وحواجز الأمان",
+            "المخاطر والضوابط",
             "ما يجب ألا يحدث أبدًا، وما الذي يمنعه",
             "أي ذكر للغاز يحوّل الحالة فورًا، ولا يقول النظام لمستأجر أبدًا إن المشكلة تحتمل الانتظار",
           ],
@@ -777,7 +777,7 @@ const article: Article = {
     faq: [
       {
         q: "كيف أحدد نطاق مشروع ذكاء اصطناعي؟",
-        a: "ابدأ بوصف المشكلة بلغة العمل، وبخريطة لسير العمل كما يحدث اليوم. ثم اكتب مخططًا يحدد البيانات التي يحتاجها النظام، وما سيفعله وما لن يفعله، ومتى يسلّم الحالة لموظف، وكيف سيُقاس النجاح مقارنة بخط الأساس، والأنظمة والحسابات التي سيرتبط بها، والمخاطر وحواجز الأمان، وأين يُستضاف ومن يملكه، والجدول الزمني، والسعر مع قاعدة التغيير.",
+        a: "ابدأ بوصف المشكلة بلغة العمل، وبخريطة لسير العمل كما يحدث اليوم. ثم اكتب مخططًا يحدد البيانات التي يحتاجها النظام، وما سيفعله وما لن يفعله، ومتى يسلّم الحالة لموظف، وكيف سيُقاس النجاح مقارنة بخط الأساس، والأنظمة والحسابات التي سيرتبط بها، والمخاطر والضوابط، وأين يُستضاف ومن يملكه، والجدول الزمني، والسعر مع قاعدة التغيير.",
       },
       {
         q: "لماذا تفشل أغلب مشاريع الذكاء الاصطناعي؟",
@@ -801,7 +801,7 @@ const article: Article = {
       },
       {
         q: "ما الأسئلة التي أسألها لشركة الذكاء الاصطناعي قبل التوقيع؟",
-        a: "اسأل بالتحديد: ما الذي سيفعله النظام وما الذي لن يفعله، ومتى يسلّم الحالة لموظف، وكيف سيُقاس النجاح ومقارنة بأي خط أساس، وعلى حسابات من واستضافة من سيعمل، ومن يملك الكود والبيانات، وكم ستكون تكاليف التشغيل عند حجم عملك، وكيف تُسعَّر التغييرات، وماذا يبقى لك إن توقفتما عن العمل معًا.",
+        a: "اسأل بالتحديد: ما الذي سيفعله النظام وما الذي لن يفعله، ومتى يسلّم الحالة لموظف، وكيف سيُقاس النجاح ومقارنة بأي خط أساس، وعلى حسابات من واستضافة من سيعمل، ومن يملك الكود والبيانات، وكم ستكون تكاليف التشغيل عند حجم عملك، وكيف تُسعَّر التغييرات، وماذا يبقى لك إن انتهى التعاون بينكما.",
       },
     ],
     sources,

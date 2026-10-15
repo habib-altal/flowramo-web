@@ -1,12 +1,14 @@
-/** The opening of every inner page: one large headline, one plain sentence. */
+import { FocusWords, wordCount } from "../motion/FocusWords";
+
+/** The opening of every inner page: one large headline, one plain sentence. Both animate in CSS, so they start on first paint. */
 export function PageHeader({ h1, sub, children }: { h1: string; sub?: string; children?: React.ReactNode }) {
   return (
     <header className="wrap pb-[clamp(56px,7vw,96px)] pt-[clamp(132px,13vw,184px)]">
-      <h1 className="display-lg max-w-[18ch]" data-split>
-        {h1}
+      <h1 className="display-lg max-w-[18ch]">
+        <FocusWords text={h1} />
       </h1>
       {sub && (
-        <p className="lede mt-7 max-w-[40rem]" data-reveal>
+        <p className="hero-in lede mt-7 max-w-[40rem]" style={{ "--d": `${0.3 + wordCount(h1) * 0.075}s` } as React.CSSProperties}>
           {sub}
         </p>
       )}

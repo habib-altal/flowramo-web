@@ -20,7 +20,8 @@ const sources = [
     url: AGENT_COMPANY,
   },
   {
-    label: "Brynjolfsson, Li and Raymond — Generative AI at Work, Quarterly Journal of Economics (2025)",
+    label:
+      "Brynjolfsson, Li and Raymond — Generative AI at Work (arXiv v2, 2024; published in the Quarterly Journal of Economics, 2025)",
     url: GEN_AI_AT_WORK,
   },
   {
@@ -157,10 +158,14 @@ const article: Article = {
           ") reports that on RE-Bench, a 2024 set of open-ended machine-learning research tasks, top AI systems given a two-hour budget scored four times higher than human experts. Given 32 hours, the humans outscored them two to one. Give an agent short, well-defined tasks and keep the long, open-ended ones with your team.",
       },
 
-      { t: "h2", id: "where-agents-fail", text: "Where AI agents fail, and the guardrail for each" },
+      {
+        t: "h2",
+        id: "where-agents-fail",
+        text: "What are the four ways AI agents fail, and how do you guard against each?",
+      },
       {
         t: "p",
-        text: "Agents fail in a business in four recurring ways. Each one has a guardrail you can design in from the first day.",
+        text: "AI agents fail in a business in four recurring ways: hallucination, prompt injection, unclear ownership and no human hand-off. Each one has a guardrail you can design in from the first day.",
       },
       { t: "h3", text: "1. Hallucination: confident answers that are wrong" },
       {
@@ -178,7 +183,7 @@ const article: Article = {
       { t: "h3", text: "2. Prompt injection: instructions hidden in the input" },
       {
         t: "p",
-        text: "An agent reads text from outside: customer messages, emails, web pages, PDFs. Any of it can carry instructions. OWASP puts [prompt injection](" +
+        text: "Prompt injection is text the agent reads (a message, email or file) that contains instructions it then follows. Agents read a lot of outside text, from customer messages and emails to web pages and PDFs, and any of it can carry such instructions. OWASP puts [prompt injection](" +
           OWASP_LLM01 +
           ") first in its 2025 list and separates direct attacks, typed by a user, from indirect ones hidden in content the model processes. A 2023 paper that demonstrated [indirect prompt injection](" +
           INDIRECT_INJECTION +
@@ -238,7 +243,7 @@ const article: Article = {
         ],
       },
 
-      { t: "h2", id: "choose-first-use-case", text: "How to choose your first AI agent use case" },
+      { t: "h2", id: "choose-first-use-case", text: "How do you choose your first AI agent use case?" },
       {
         t: "p",
         text: "The first project decides whether your team trusts the next one. Pick a job where the agent can succeed visibly and fail cheaply.",
@@ -351,7 +356,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "We will publish results when clinics agree to share them. Until then, you can read how [an AI receptionist works in a dental clinic](/en/insights/ai-receptionist-for-dental-clinics) or [see Lina in detail](/en/products/lina).",
+        text: "We will publish results once a clinic agrees to share them. Until then, you can read how [an AI receptionist works in a dental clinic](/en/insights/ai-receptionist-for-dental-clinics) or [see Lina in detail](/en/products/lina).",
       },
     ],
     faq: [
@@ -417,7 +422,7 @@ const article: Article = {
     blocks: [
       {
         t: "p",
-        text: "تصل رسالة في الحادية عشرة وأربعين دقيقة ليلًا. عميل محتمل يسأل عن السعر، ويقترح موعدين، ويريد أن يعرف إن كنتم توصلون إلى الدمام. لا يرد أحد حتى التاسعة والنصف صباحًا، وفي تلك الساعات يكون قد راسل اثنين من منافسيك. هذه هي الفجوة التي تُسوَّق وكلاء الذكاء الاصطناعي لسدّها.",
+        text: "تصل رسالة في الحادية عشرة وأربعين دقيقة ليلًا. عميل محتمل يسأل عن السعر، ويقترح موعدين، ويريد أن يعرف إن كنتم توصلون إلى الدمام. لا يرد أحد حتى التاسعة والنصف صباحًا، وفي تلك الساعات يكون قد راسل اثنين من منافسيك. وهذه بالضبط الفجوة التي يَعِد بائعو وكلاء الذكاء الاصطناعي بسدّها.",
       },
       {
         t: "p",
@@ -498,10 +503,10 @@ const article: Article = {
           ") أن أفضل أنظمة الذكاء الاصطناعي، في اختبار RE-Bench الذي صدر عام 2024 ويضم مهام بحثية مفتوحة في تعلّم الآلة، سجّلت أربعة أضعاف نتيجة الخبراء البشر حين كانت المهلة ساعتين. وحين امتدت المهلة إلى 32 ساعة، تفوّق البشر بضعف نتيجتها. أعطِ الوكيل مهام قصيرة واضحة الحدود، واترك المهام الطويلة المفتوحة لفريقك.",
       },
 
-      { t: "h2", id: "where-agents-fail", text: "أين يخطئ وكلاء الذكاء الاصطناعي، وما الضابط لكل خطأ؟" },
+      { t: "h2", id: "where-agents-fail", text: "ما الطرق الأربع التي يخطئ بها وكلاء الذكاء الاصطناعي، وما الضابط لكل منها؟" },
       {
         t: "p",
-        text: "يخطئ الوكلاء داخل الشركات بأربع طرق تتكرر. ولكل منها ضابط تستطيع تصميمه من اليوم الأول.",
+        text: "يخطئ وكلاء الذكاء الاصطناعي داخل الشركات بأربع طرق تتكرر: الهلوسة، وحقن الأوامر، والملكية غير الواضحة، وغياب التحويل إلى موظف. ولكل منها ضابط تستطيع تصميمه من اليوم الأول.",
       },
       { t: "h3", text: "1. الهلوسة: إجابة واثقة وخاطئة" },
       {
@@ -519,7 +524,7 @@ const article: Article = {
       { t: "h3", text: "2. حقن الأوامر: تعليمات مخفية في المدخلات" },
       {
         t: "p",
-        text: "الوكيل يقرأ نصوصًا تأتي من الخارج: رسائل العملاء، والبريد، وصفحات الويب، وملفات PDF. وأي منها قد يحمل تعليمات. تضع OWASP [حقن الأوامر (Prompt Injection)](" +
+        text: "حقن الأوامر (Prompt Injection) نص يقرؤه الوكيل، كرسالة أو بريد أو ملف، ويحمل تعليمات ينفّذها الوكيل بعد ذلك. والوكيل يقرأ نصوصًا كثيرة تأتي من الخارج، من رسائل العملاء والبريد إلى صفحات الويب وملفات PDF، وأي منها قد يحمل تعليمات من هذا النوع. وتضع OWASP [حقن الأوامر](" +
           OWASP_LLM01 +
           ") في المرتبة الأولى في قائمتها لعام 2025، وتفرّق بين الهجوم المباشر الذي يكتبه المستخدم، وغير المباشر المخفي في محتوى يعالجه النموذج. وورقة بحثية من عام 2023 أثبتت [حقن الأوامر غير المباشر](" +
           INDIRECT_INJECTION +
@@ -589,7 +594,7 @@ const article: Article = {
         items: [
           "**اكتب قائمة المرشحات.** دوّن كل مهمة متكررة تعتمد على المحادثات أو المستندات، مع عددها الأسبوعي والدقائق التي يستغرقها كل منها. حاصل ضرب العدد في الدقائق هو الوقت الذي يمكن أن تستعيده.",
           "**قيّم كل مهمة بأربعة أسئلة.** هل القواعد مكتوبة، أم موجودة في رأس شخص واحد؟ هل المعلومات التي يحتاجها الوكيل موجودة في نظام يستطيع قراءته؟ كم يكلّف الخطأ؟ وهل يمكن التراجع عنه؟",
-          "**اختر الكثير عددًا القليل كلفة خطأ.** الرد على الاستفسارات وتأهيلها، والحجز، والتوجيه تحصل عادة على تقييم جيد. أما اعتماد المدفوعات، وتقديم استشارات قانونية أو طبية، وكل ما لا يمكن التراجع عنه، فلا تصلح بداية.",
+          "**اختر مهمة كثيرة التكرار قليلة كلفة الخطأ.** الرد على الاستفسارات وتأهيلها، والحجز، والتوجيه تحصل عادة على تقييم جيد. أما اعتماد المدفوعات، وتقديم استشارات قانونية أو طبية، وكل ما لا يمكن التراجع عنه، فلا تصلح بداية.",
           "**اكتب الوصف الوظيفي للوكيل.** حدد المدخلات، والإجراءات المسموح بها، وأسباب التحويل إلى موظف، ومعنى «اكتملت المهمة» في الحالة الواحدة.",
           "**ابنِ مجموعة اختبار من تاريخك الفعلي.** اجمع رسائل أو مستندات سابقة، ومنها الحالات الصعبة، مع الإجابة الصحيحة لكل منها. وكل نسخة من الوكيل يجب أن تجتاز هذه المجموعة قبل التشغيل.",
           "**ابدأ وموظف في الحلقة.** دع الوكيل يكتب المسودة والموظف يعتمدها. ثم اسمح له بالعمل وحده في الفئات التي كانت مسوداته فيها صحيحة باستمرار، ووسّع نطاقه فئة بعد فئة.",
@@ -692,7 +697,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "سننشر النتائج حين توافق العيادات على مشاركتها. وإلى ذلك الحين، يمكنك أن تقرأ كيف [تعمل موظفة الاستقبال الذكية في عيادة الأسنان](/ar/insights/ai-receptionist-for-dental-clinics)، أو [تتعرف إلى لينا بالتفصيل](/ar/products/lina).",
+        text: "سننشر النتائج حين توافق عيادة على مشاركتها. وإلى ذلك الحين، يمكنك أن تقرأ كيف [تعمل موظفة الاستقبال الذكية في عيادة الأسنان](/ar/insights/ai-receptionist-for-dental-clinics)، أو [تتعرف إلى لينا بالتفصيل](/ar/products/lina).",
       },
     ],
     faq: [

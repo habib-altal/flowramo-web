@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/i18n";
 import type { HomeDict } from "@/content/dictionaries/en/home";
 import { SystemCanvas } from "./SystemCanvas";
 import { TryLinaLink } from "../lina/TryLina";
+import { FocusWords, wordCount } from "../motion/FocusWords";
 
 /*
   Server-rendered so the headline paints with the first byte (it is the LCP element).
@@ -15,16 +16,16 @@ export function HomeHero({ t, lang }: { t: HomeDict; lang: Locale }) {
       <div className="wrap">
         <h1 id="home-title" className="hero-title home-title max-w-[17ch] rtl:max-w-[24ch]">
           <span className="hl">
-            <span>{h.h1a}</span>
+            <FocusWords text={h.h1a} />
           </span>
           <span className="hl">
-            <span>{h.h1b}</span>
+            <FocusWords text={h.h1b} from={wordCount(h.h1a)} />
           </span>
         </h1>
 
         <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
           <p className="hero-in lede max-w-[40rem]">{h.sub}</p>
-          <div className="hero-in flex flex-col items-start gap-4 lg:items-end" style={{ "--d": "0.6s" } as React.CSSProperties}>
+          <div className="hero-in flex flex-col items-start gap-4 lg:items-end" style={{ "--d": "0.75s" } as React.CSSProperties}>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${lang}/contact`} className="btn btn-ink">
                 {h.primary}

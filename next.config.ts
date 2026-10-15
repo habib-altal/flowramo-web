@@ -7,11 +7,13 @@ const dev = process.env.NODE_ENV !== "production";
 // scripts (theme flag, JSON-LD, Next's payload) stay allowed, but every outside origin is closed.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com`,
+  // In production Vercel Analytics loads from this origin (/_vercel/insights); only dev pulls its script from the CDN.
+  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""}`,
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  `connect-src 'self' ${supabase} https://va.vercel-scripts.com${dev ? " ws: wss:" : ""}`,
+  `connect-src 'self' ${supabase}${dev ? " https://va.vercel-scripts.com ws: wss:" : ""}`,
   "media-src 'self'",
   "object-src 'none'",
   "base-uri 'self'",
@@ -25,7 +27,7 @@ const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()" },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ];
@@ -34,7 +36,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Only the canonical domain gets indexed; *.vercel.app deployment URLs never compete with it.
+      { source: "/:path*", has: [{ type: "host", value: "(?<deployment>.+)\\.vercel\\.app" }], headers: [{ key: "X-Robots-Tag", value: "noindex" }] },
+    ];
   },
   async redirects() {
     return [

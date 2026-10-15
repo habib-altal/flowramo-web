@@ -15,7 +15,7 @@ const common = {
     about: "About",
     contact: "Contact",
     cta: "Start a project",
-    demo: "Book a Demo",
+    demo: "Book a private demo",
     home: "Flowramo home",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -49,7 +49,7 @@ const common = {
 
   demo: {
     title: "Book a private demo",
-    sub: "See Lina answer your own patients' questions, with your clinic's prices and hours, before you decide anything.",
+    sub: "Watch Lina handle the questions your patients ask, then put your own to her. No commitment.",
     name: "Your name",
     namePh: "Dr. Ayşe Kaya",
     clinic: "Clinic name",
@@ -88,7 +88,7 @@ const common = {
     home: "Home",
     cta: {
       title: "See Lina answer your patients.",
-      sub: "A private demo with your clinic's own prices, hours and questions. No commitment.",
+      sub: "In a private demo, watch Lina handle the questions your patients ask, then put your own to her. No commitment.",
       button: "Book a private demo",
     },
     ctaStudio: {
@@ -101,6 +101,7 @@ const common = {
   journal: {
     h2: "Latest insights",
     all: "All insights",
+    topics: { studio: "AI systems", lina: "Dental clinics" },
   },
 };
 

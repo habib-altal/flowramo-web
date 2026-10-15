@@ -51,15 +51,20 @@ function DemoModal({ onClose }: { onClose: () => void }) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const payload = {
-      doctor_name: String(data.get("doctor_name") ?? "").trim(),
-      clinic_name: String(data.get("clinic_name") ?? "").trim(),
-      whatsapp: String(data.get("whatsapp") ?? "").trim(),
-      country: String(data.get("country") ?? "").trim(),
-      email: String(data.get("email") ?? "").trim() || null,
+      doctor_name: String(data.get("doctor_name") ?? "").trim().slice(0, 120),
+      clinic_name: String(data.get("clinic_name") ?? "").trim().slice(0, 160),
+      whatsapp: String(data.get("whatsapp") ?? "").trim().slice(0, 40),
+      country: String(data.get("country") ?? "").trim().slice(0, 80),
+      email: String(data.get("email") ?? "").trim().slice(0, 160) || null,
       source: "website",
       language: locale,
     };
     setName(payload.doctor_name.split(" ").filter(Boolean)[0] ?? "");
+    // Honeypot: people never see this field; bots fill it.
+    if (String(data.get("hp_note") ?? "")) {
+      setStatus("sent");
+      return;
+    }
     setStatus("sending");
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/website_leads`, {
@@ -115,7 +120,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
             </button>
           </div>
         ) : (
-          <form onSubmit={submit} className="flex flex-col gap-5">
+          <form method="post" onSubmit={submit} className="flex flex-col gap-5">
             <div className="pe-10">
               <h2 id={titleId} className="text-[30px] font-[580] leading-[1.05] tracking-[-0.035em]">
                 {d.title}
@@ -125,11 +130,11 @@ function DemoModal({ onClose }: { onClose: () => void }) {
             <div className="grid gap-3 sm:grid-cols-2">
               <label className={label}>
                 {d.name}
-                <input id="demo-name" name="doctor_name" required autoComplete="name" className={field} placeholder={d.namePh} />
+                <input id="demo-name" name="doctor_name" required autoComplete="name" maxLength={120} className={field} placeholder={d.namePh} />
               </label>
               <label className={label}>
                 {d.clinic}
-                <input id="demo-clinic" name="clinic_name" required autoComplete="organization" className={field} placeholder={d.clinicPh} />
+                <input id="demo-clinic" name="clinic_name" required autoComplete="organization" maxLength={160} className={field} placeholder={d.clinicPh} />
               </label>
               <label className={label}>
                 {d.whatsapp}
@@ -141,20 +146,25 @@ function DemoModal({ onClose }: { onClose: () => void }) {
                   inputMode="tel"
                   dir="ltr"
                   autoComplete="tel"
-                  pattern="[+0-9 ()\-]{7,}"
+                  maxLength={40}
+                  pattern="[+0-9 \(\)\-]{7,40}"
                   className={`${field} text-start`}
                   placeholder={d.whatsappPh}
                 />
               </label>
               <label className={label}>
                 {d.country}
-                <input id="demo-country" name="country" required autoComplete="country-name" className={field} placeholder={d.countryPh} />
+                <input id="demo-country" name="country" required autoComplete="country-name" maxLength={80} className={field} placeholder={d.countryPh} />
               </label>
               <label className={`${label} sm:col-span-2`}>
                 <span>
                   {d.email} <span className="sr-only">{d.optional}</span>
                 </span>
-                <input id="demo-email" name="email" type="email" dir="ltr" autoComplete="email" className={`${field} text-start`} placeholder={d.emailPh} />
+                <input id="demo-email" name="email" type="email" dir="ltr" autoComplete="email" maxLength={160} className={`${field} text-start`} placeholder={d.emailPh} />
+              </label>
+              <label className="sr-only" aria-hidden="true">
+                Leave empty
+                <input name="hp_note" tabIndex={-1} autoComplete="off" />
               </label>
             </div>
             {status === "error" && (

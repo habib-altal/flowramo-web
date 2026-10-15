@@ -1,0 +1,6 @@
+{
+  "prompt": "Cinematic photograph of a small modern technology studio at night, closed and empty, the room lights off. A long dark oak workbench runs across the room: two closed laptops, a neat stack of notebooks, a ceramic mug and a desk lamp switched off. One wide monitor on the bench is turned away at an angle so its screen cannot be seen; it casts a soft blue glow across the wood and the wall. On a low shelf to the right, a small matte black server box with a few tiny blue status lights. A large floor-to-ceiling window behind shows a calm city skyline at night under a deep navy sky with scattered warm lights. Calm, quiet, premium and trustworthy: work is still being done while nobody is there. 28mm lens, eye level, balanced composition with generous empty dark space in the upper left. Deep navy and midnight blue palette with subtle cyan highlights, fine film grain. No people, no text, no logos, no readable screens.",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "negative_prompt": "people, person, face, hands, text, letters, words, numbers, logo, watermark, signage, readable screen, daylight, clutter"
+}

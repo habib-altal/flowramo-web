@@ -1,0 +1,20 @@
+{
+  "model": "bytedance/seedance-2.5/image-to-video",
+  "input": {
+    "image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/31a44dfb-0382-4cc9-a0d4-5c2961423a55.png",
+    "end_image_url": "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/31a44dfb-0382-4cc9-a0d4-5c2961423a55.png",
+    "prompt": "Locked-off macro shot, the camera does not move. A black server rack in a dark room. The tiny blue and cyan status lights blink and flicker calmly in irregular rhythms, like a system quietly at work, and the soft blue bokeh lights in the background pulse very gently. The rack, the cables and the darkness stay perfectly still. No people, no text. Calm, precise, slow, cinematic, seamless loop.",
+    "duration": 6,
+    "resolution": "720p",
+    "bitrate_mode": "standard",
+    "generate_audio": false
+  },
+  "request_id": "3912d9c8-bb72-461b-bb33-d915a69b2f8e",
+  "created": "2026-10-14T22:02:25.045Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/2ddf7cbb-f9a5-445c-a97e-15af07c7b62d.mp4"
+  ],
+  "files": [
+    "design/higgsfield/solutions-rack/rack-loop-1.mp4"
+  ]
+}

@@ -83,26 +83,27 @@ export function Process() {
           </div>
         </div>
 
-        {/* Below 1024px: a vertical rail that draws as you read. */}
-        <ol className="wrap relative mt-14 grid gap-10 ps-[calc(clamp(20px,4vw,40px)+52px)] lg:hidden">
-          <span className="absolute bottom-2 start-[calc(clamp(20px,4vw,40px)+17px)] top-2 w-px bg-line" aria-hidden="true" />
-          <span className="absolute bottom-2 start-[calc(clamp(20px,4vw,40px)+17px)] top-2 w-px origin-top bg-blue" data-draw="y" aria-hidden="true" />
+        {/* Below 1024px: numbered steps that play in order, each line drawing on to the next number. */}
+        <ol className="wrap relative mt-14 grid gap-10 ps-[calc(clamp(20px,4vw,40px)+52px)] lg:hidden" data-steps>
           {t.steps.map((s, i) => {
             const Icon = ICONS[i];
             return (
-              <li key={s.name} className="relative" data-reveal>
-                <span className="absolute -start-[52px] top-0 grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-blue bg-paper text-[13px] font-semibold tabular-nums text-blue" aria-hidden="true">
+              <li key={s.name} className="relative" data-step>
+                {i < t.steps.length - 1 && <span className="absolute -bottom-10 -start-[34.5px] top-9 w-px bg-blue" data-step-link aria-hidden="true" />}
+                <span className="absolute -start-[52px] top-0 grid h-9 w-9 place-items-center rounded-full border-[1.5px] border-blue bg-paper text-[13px] font-semibold tabular-nums text-blue" data-step-dot aria-hidden="true">
                   {i + 1}
                 </span>
-                <div className="flex items-center gap-3">
-                  <h3 className="text-[19px] font-[580] leading-tight tracking-[-0.015em]">{s.name}</h3>
-                  <Icon size={17} strokeWidth={1.75} className="text-ink-3" aria-hidden="true" />
+                <div data-step-body>
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-[19px] font-[580] leading-tight tracking-[-0.015em]">{s.name}</h3>
+                    <Icon size={17} strokeWidth={1.75} className="text-ink-3" aria-hidden="true" />
+                  </div>
+                  <p className="mt-2.5 max-w-[34rem] text-[15.5px] leading-[1.62] text-ink-2">{s.text}</p>
+                  <p className="mt-3 flex items-center gap-2 text-[13.5px] font-medium text-blue-deep">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden="true" />
+                    {s.out}
+                  </p>
                 </div>
-                <p className="mt-2.5 max-w-[34rem] text-[15.5px] leading-[1.62] text-ink-2">{s.text}</p>
-                <p className="mt-3 flex items-center gap-2 text-[13.5px] font-medium text-blue-deep">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue" aria-hidden="true" />
-                  {s.out}
-                </p>
               </li>
             );
           })}

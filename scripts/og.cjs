@@ -94,7 +94,7 @@ ${lina ? `<div class="bubble"><div class="b bp">${rtl ? "مرحبًا، هل ت�
       title: "نهندس أنظمة ذكاء اصطناعي<br>تحمل العمل الحقيقي.",
     },
     { file: "lina-en", lang: "en", lina: true, kicker: "Lina · AI receptionist for dental clinics", title: "Your clinic keeps moving.<br>Even when you don't." },
-    { file: "lina-ar", lang: "ar", lina: true, kicker: "لينا · موظفة استقبال ذكية لعيادات الأسنان", title: "عيادتك لا تتوقف.<br>حتى عندما تتوقف أنت." },
+    { file: "lina-ar", lang: "ar", lina: true, kicker: "لينا · موظفة استقبال ذكية لعيادات الأسنان", title: "عيادتك لا تتوقف.<br>حتى في غيابك." },
   ];
   for (const lang of ["en", "ar"]) {
     await reader.goto(`${BASE}/${lang}/insights`, { waitUntil: "networkidle" });

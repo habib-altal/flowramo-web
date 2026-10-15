@@ -1,0 +1,6 @@
+{
+  "prompt": "Close-up cinematic photograph of a sleek black server rack in a dark, quiet room, shot from a low three-quarter angle with shallow depth of field. Rows of tiny blue and cyan status lights glow on the front panels, a few soft white pinpoints, neatly bundled cables in the shadows. The background falls away into deep navy darkness with soft blue bokeh. Calm, precise, premium and trustworthy. 50mm lens. The rack fills the right half of the frame; the left half is generous empty dark space. Deep navy and midnight blue palette with cyan highlights, fine film grain. No people, no text, no letters, no numbers, no logos, no labels, no brand names.",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "negative_prompt": "people, person, hands, text, letters, words, numbers, logo, watermark, labels, brand name, red lights, orange lights, daylight"
+}

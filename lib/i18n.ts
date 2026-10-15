@@ -29,3 +29,7 @@ export const formatDate = (locale: Locale, iso: string) =>
   new Intl.DateTimeFormat(locale === "ar" ? "ar-u-ca-gregory-nu-latn" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
     new Date(iso),
   );
+
+/** "11 min read" / "11 دقيقة للقراءة": Arabic counts take "دقائق" from 3 to 10 and "دقيقة" otherwise. */
+export const readingTime = (locale: Locale, template: string, n: number) =>
+  template.replace("{n}", String(n)).replace("{unit}", locale === "ar" && n >= 3 && n <= 10 ? "دقائق" : "دقيقة");

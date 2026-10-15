@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
-import { gsap, useGSAP, ScrollTrigger, SplitText, TABLET_UP, PHONE } from "@/lib/gsap";
+import { gsap, useGSAP, ScrollTrigger, SplitText, TABLET_UP, PHONE, focusFrom, FOCUS_TO } from "@/lib/gsap";
 import { MARK_PATH, MARK_VIEWBOX } from "../brand-paths";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
@@ -62,10 +62,8 @@ export function LinaShowcase() {
           },
         );
         gsap.fromTo(q(".lc-photo"), { autoAlpha: 0 }, { autoAlpha: 1, ease: "none", scrollTrigger: { trigger: host, start: "top 40%", end: "top 5%", scrub: true } });
-        const split = SplitText.create(q(".lc-h2")[0], {
-          type: "lines",
-          mask: "lines",
-        });
+        const h2 = q(".lc-h2")[0];
+        const split = SplitText.create(h2, { type: "words" });
         const tl = gsap.timeline({
           defaults: { ease: "power2.out" },
           scrollTrigger: {
@@ -76,8 +74,8 @@ export function LinaShowcase() {
           },
         });
         tl.from(q(".lc-kicker"), { autoAlpha: 0, y: 16, duration: 0.5 }, 0)
-          .from(split.lines, { yPercent: 115, duration: 0.9, stagger: 0.12 }, 0.15)
-          .from(q(".lc-sub"), { autoAlpha: 0, y: 24, duration: 0.7 }, 0.9)
+          .fromTo(split.words, focusFrom(h2), { ...FOCUS_TO, duration: 0.8, stagger: 0.06 }, 0.15)
+          .fromTo(q(".lc-sub"), { autoAlpha: 0, filter: "blur(6px)" }, { ...FOCUS_TO, duration: 0.7 }, 0.9)
           .from(q(".lc-show"), { autoAlpha: 0, y: 16, duration: 0.5, stagger: 0.15 }, 1.3)
           .from(q(".lc-phone"), { autoAlpha: 0, y: 90, scale: 0.96, duration: 1.2 }, 0.4)
           .from(q(".lc-glow"), { opacity: 0, scale: 0.7, duration: 1.4 }, 0.4);

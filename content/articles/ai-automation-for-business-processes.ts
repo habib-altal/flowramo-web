@@ -35,7 +35,7 @@ const article: Article = {
       { t: "h2", id: "choose-the-process", text: "Which business processes should you automate first?" },
       {
         t: "p",
-        text: "Good first candidates share four traits. Check every process you are considering against them before you look at a single tool.",
+        text: "Automate first the process that is high-volume, repetitive, rule-based and costly to delay. Check every process you are considering against these four traits before you look at a single tool.",
       },
       {
         t: "ul",
@@ -138,7 +138,7 @@ const article: Article = {
       { t: "h2", id: "rules-or-ai", text: "Rule-based automation or AI: which fits each step?" },
       {
         t: "p",
-        text: "Much of what gets sold as AI automation is plain automation: when this happens, do that. Rules are cheap to run, predictable and easy to audit. AI earns its place where the input is unstructured: a free-text message, a voice note, a scanned invoice, a question phrased in a way nobody anticipated.",
+        text: "Rule-based automation follows fixed instructions written in advance; AI automation uses a language model to interpret inputs that come in no fixed format. Much of what gets sold as AI automation is plain rule-based automation: when this happens, do that. Rules are cheap to run, predictable and easy to audit. AI earns its place where the input is unstructured: a free-text message, a voice note, a scanned invoice, a question phrased in a way nobody anticipated.",
       },
       {
         t: "table",
@@ -246,7 +246,7 @@ const article: Article = {
       { t: "h2", id: "hidden-costs", text: "What costs are easy to miss?" },
       {
         t: "p",
-        text: "The build is the visible cost. The running costs arrive later, and they are the ones most often left out of a business case. Engineers at Google made the point about machine learning in 2015, when [Sculley and colleagues](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) wrote that “it is common to incur massive ongoing maintenance costs in real-world ML systems.”",
+        text: "Five running costs are easy to miss: maintenance, monitoring, model changes, usage fees and people's time. The build is the visible cost; these arrive later, and they are the ones most often left out of a business case. Engineers at Google made the point about machine learning in 2015, when [Sculley and colleagues](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) wrote that “it is common to incur massive ongoing maintenance costs in real-world ML systems.”",
       },
       {
         t: "table",
@@ -379,7 +379,7 @@ const article: Article = {
       "ارسم العملية كما تجري فعلًا، باستثناءاتها وجداولها الجانبية، وقِس وضعها الحالي أسبوعين إلى أربعة أسابيع قبل أن تبني أي شيء.",
       "استخدم القواعد الثابتة للمدخلات المنظمة والقرارات المحددة، والذكاء الاصطناعي للمدخلات غير المنظمة مثل الرسائل الحرة والرسائل الصوتية والمستندات الممسوحة. وأفضل الأنظمة تجمع بين الاثنين.",
       "أداء الذكاء الاصطناعي متفاوت: في تجربة ميدانية شملت 758 مستشارًا في BCG، ساعدهم في المهام التي تقع ضمن قدراته، وقلّل الإجابات الصحيحة في مهمة تقع خارجها مباشرة. فاختبره على حالاتك أنت.",
-      "صمّم التحويل إلى الموظف قبل أن تصمّم المسار المعتاد. فقد حمّلت محكمة كندية شركة Air Canada مسؤولية ما قاله روبوت المحادثة في موقعها لأحد العملاء.",
+      "صمّم التحويل إلى الموظف قبل أن تصمّم المسار المعتاد. فقد حمّلت هيئة كندية لتسوية النزاعات المدنية شركة Air Canada مسؤولية ما قاله روبوت المحادثة في موقعها لأحد العملاء.",
       "خصّص ميزانية للصيانة والمراقبة وتغيّر النماذج، فسلوك النموذج نفسه قد يتغير بين إصدار وآخر، ومزودو النماذج يوقفونها وفق جداولهم هم.",
     ],
     blocks: [
@@ -389,13 +389,13 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "والشركات الصغيرة هي الأبعد عن الركب، أي أن أمامها الفرصة الأكبر. في الاتحاد الأوروبي، استخدمت [20.0% من الشركات](https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2) التي يعمل فيها 10 موظفين أو أكثر الذكاءَ الاصطناعي عام 2025، وارتفعت النسبة إلى 55.0% بين الشركات الكبيرة، بينما لم تتجاوز 17.0% بين الصغيرة. الصعب هو حسن الاختيار: إن اخترت العملية الخطأ فقد تقضي شهورًا في أتمتة شيء يحدث مرتين في الأسبوع، أو تسلّم الذكاء الاصطناعي قرارًا كان يحتاج إلى إنسان. في هذا الدليل: كيف تختار، وكيف تستعد، ومتى تتفوق القواعد البسيطة على الذكاء الاصطناعي، والتكاليف التي نادرًا ما تظهر في أول عرض سعر.",
+        text: "والشركات الصغيرة هي الأكثر تأخرًا، ولذلك أمامها المجال الأوسع للّحاق. في الاتحاد الأوروبي، استخدمت [20.0% من الشركات](https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20251211-2) التي يعمل فيها 10 موظفين أو أكثر الذكاءَ الاصطناعي عام 2025، وارتفعت النسبة إلى 55.0% بين الشركات الكبيرة، بينما لم تتجاوز 17.0% بين الصغيرة. الصعب هو حسن الاختيار: إن اخترت العملية الخطأ فقد تقضي شهورًا في أتمتة شيء يحدث مرتين في الأسبوع، أو تسلّم الذكاء الاصطناعي قرارًا كان يحتاج إلى إنسان. في هذا الدليل: كيف تختار، وكيف تستعد، ومتى تتفوق القواعد البسيطة على الذكاء الاصطناعي، والتكاليف التي نادرًا ما تظهر في أول عرض سعر.",
       },
 
       { t: "h2", id: "choose-the-process", text: "ما العمليات التي تستحق الأتمتة أولًا؟" },
       {
         t: "p",
-        text: "العمليات المرشحة الجيدة تشترك في أربع صفات. راجع كل عملية تفكر فيها على ضوئها قبل أن تنظر في أي أداة.",
+        text: "ابدأ بأتمتة العملية التي تتكرر كثيرًا، وتسير بخطوات متشابهة، وتحكمها قواعد واضحة، ويكلّفك تأخيرها. وراجع كل عملية تفكر فيها على ضوء هذه الصفات الأربع قبل أن تنظر في أي أداة.",
       },
       {
         t: "ul",
@@ -408,7 +408,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "والصفة الأخيرة هي الأكثر استهانةً بها. في تدقيق شمل 2,241 شركة أمريكية، نشرته [Harvard Business Review](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) عام 2011، ردّت 37% منها على استفسار ورد عبر الموقع خلال ساعة، ولم تردّ 23% منها أبدًا، وبلغ متوسط زمن الرد 42 ساعة لدى الشركات التي ردّت خلال 30 يومًا. ويذكر المقال نفسه أن الشركات التي حاولت التواصل مع العميل المحتمل خلال ساعة كانت أرجح بنحو سبعة أضعاف في تأهيله من الشركات التي تأخرت ولو ساعة إضافية. فحين يكون العمل هو الرد على الناس، تكون السرعة غالبًا أول ما تجني منه الأتمتة عائدها.",
+        text: "والصفة الأخيرة هي أكثرها تعرّضًا للاستهانة. في تدقيق شمل 2,241 شركة أمريكية، نشرته [Harvard Business Review](https://hbr.org/2011/03/the-short-life-of-online-sales-leads) عام 2011، ردّت 37% منها على استفسار ورد عبر الموقع خلال ساعة، ولم تردّ 23% منها أبدًا، وبلغ متوسط زمن الرد 42 ساعة لدى الشركات التي ردّت خلال 30 يومًا. ويذكر المقال نفسه أن الشركات التي حاولت التواصل مع العميل المحتمل خلال ساعة كانت فرصتها في تأهيله أعلى بنحو سبعة أضعاف من الشركات التي تأخرت ولو ساعة إضافية. فحين يكون العمل هو الرد على الناس، تكون السرعة غالبًا أول ما تجني منه الأتمتة عائدها.",
       },
       {
         t: "p",
@@ -493,7 +493,7 @@ const article: Article = {
       { t: "h2", id: "rules-or-ai", text: "قواعد ثابتة أم ذكاء اصطناعي: ما الذي يناسب كل خطوة؟" },
       {
         t: "p",
-        text: "كثير مما يُباع على أنه أتمتة بالذكاء الاصطناعي هو أتمتة عادية: إذا حدث هذا، فافعل ذاك. والقواعد رخيصة التشغيل، ونتائجها متوقعة، ومراجعتها سهلة. أما الذكاء الاصطناعي فمكانه حيث تكون المدخلات غير منظمة: رسالة مكتوبة بحرية، أو رسالة صوتية، أو فاتورة ممسوحة ضوئيًا، أو سؤال بصياغة لم يتوقعها أحد.",
+        text: "الأتمتة بالقواعد تنفّذ تعليمات ثابتة مكتوبة مسبقًا، أما الأتمتة بالذكاء الاصطناعي فتستخدم نموذجًا لغويًا لفهم مدخلات لا تأتي بصيغة ثابتة. وكثير مما يُباع على أنه أتمتة بالذكاء الاصطناعي هو أتمتة عادية بالقواعد: إذا حدث هذا، فافعل ذاك. والقواعد رخيصة التشغيل، ونتائجها متوقعة، ومراجعتها سهلة. أما الذكاء الاصطناعي فمكانه حيث تكون المدخلات غير منظمة: رسالة مكتوبة بحرية، أو رسالة صوتية، أو فاتورة ممسوحة ضوئيًا، أو سؤال بصياغة لم يتوقعها أحد.",
       },
       {
         t: "table",
@@ -531,7 +531,7 @@ const article: Article = {
       },
       {
         t: "quote",
-        text: "كلما تقدّم نظام التحكم، ازدادت أهمية ما يقدّمه المشغّل البشري.",
+        text: "كلما تقدّم نظام التحكم، ربما ازدادت أهمية ما يسهم به المشغّل البشري.",
         cite: "Lisanne Bainbridge، «Ironies of Automation»، مجلة Automatica (1983). ترجمة عن الأصل الإنجليزي.",
       },
       { t: "p", text: "حدّد لكل خطوة في خريطتك أيّ الأنماط الثلاثة ينطبق عليها:" },
@@ -553,7 +553,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "والمسؤولية تبقى على الشركة. في قضية [Moffatt ضد Air Canada](https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do) عام 2024، حمّلت محكمة في مقاطعة بريتش كولومبيا الكندية شركة الطيران المسؤولية بعد أن أعطى روبوت المحادثة في موقعها عميلًا معلومات خاطئة عن أسعار تذاكر العزاء. وجاء في الحكم: «لا فرق إن كانت المعلومة قد جاءت من صفحة ثابتة أو من روبوت محادثة».",
+        text: "والمسؤولية تبقى على الشركة. في قضية [Moffatt ضد Air Canada](https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do) عام 2024، حمّلت هيئة تسوية النزاعات المدنية في مقاطعة بريتش كولومبيا الكندية شركة الطيران المسؤولية بعد أن أعطى روبوت المحادثة في موقعها عميلًا معلومات خاطئة عن أسعار التذاكر المخفّضة للسفر بسبب وفاة قريب. وجاء في القرار: «لا فرق إن كانت المعلومة قد جاءت من صفحة ثابتة أو من روبوت محادثة».",
       },
 
       { t: "h2", id: "connect-your-tools", text: "اربط الأتمتة بالأدوات التي تستخدمها أصلًا" },
@@ -601,7 +601,7 @@ const article: Article = {
       { t: "h2", id: "hidden-costs", text: "ما التكاليف التي يسهل أن تغيب عن الحساب؟" },
       {
         t: "p",
-        text: "تكلفة البناء هي الظاهرة. أما تكاليف التشغيل فتأتي لاحقًا، وهي الأكثر غيابًا عن دراسات الجدوى. وقد نبّه مهندسون في Google إلى ذلك في أنظمة تعلّم الآلة عام 2015، إذ كتب [Sculley وزملاؤه](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) أن «تحمّل تكاليف صيانة مستمرة وضخمة أمر شائع في أنظمة تعلّم الآلة الفعلية».",
+        text: "خمس تكاليف تشغيل يسهل أن تغيب عن الحساب: الصيانة، والمراقبة، وتغيّر النماذج، ورسوم الاستخدام، ووقت الموظفين. تكلفة البناء هي الظاهرة، أما هذه فتأتي لاحقًا، وهي الأكثر غيابًا عن دراسات الجدوى. وقد نبّه مهندسون في Google إلى ذلك في أنظمة تعلّم الآلة عام 2015، إذ كتب [Sculley وزملاؤه](https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf) أن «تحمّل تكاليف صيانة مستمرة وضخمة أمر شائع في أنظمة تعلّم الآلة الفعلية».",
       },
       {
         t: "table",
@@ -657,7 +657,7 @@ const article: Article = {
       },
       {
         q: "كيف أمنع نظام الذكاء الاصطناعي من إعطاء العملاء إجابات خاطئة؟",
-        a: "اقصره على المعرفة التي اعتمدتها، وامنحه مجموعة صغيرة من الإجراءات المحددة، واجعله يحوّل الحالة إلى موظف حين لا يكون متأكدًا أو حين تكون الحالة حساسة. وراجع عينة من المحادثات كل أسبوع. فالشركة تبقى مسؤولة عما يقوله نظامها: في قضية Moffatt ضد Air Canada عام 2024، حمّلت محكمة كندية شركة الطيران المسؤولية عن معلومات خاطئة قدّمها روبوت المحادثة في موقعها لأحد العملاء.",
+        a: "اقصره على المعرفة التي اعتمدتها، وامنحه مجموعة صغيرة من الإجراءات المحددة، واجعله يحوّل الحالة إلى موظف حين لا يكون متأكدًا أو حين تكون الحالة حساسة. وراجع عينة من المحادثات كل أسبوع. فالشركة تبقى مسؤولة عما يقوله نظامها: في قضية Moffatt ضد Air Canada عام 2024، حمّلت هيئة كندية لتسوية النزاعات المدنية شركة الطيران المسؤولية عن معلومات خاطئة قدّمها روبوت المحادثة في موقعها لأحد العملاء.",
       },
       {
         q: "هل أحتاج إلى تغيير أدواتي الحالية لأستخدم أتمتة الذكاء الاصطناعي؟",

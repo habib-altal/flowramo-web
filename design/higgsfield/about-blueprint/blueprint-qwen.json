@@ -1,0 +1,17 @@
+{
+  "model": "alibaba/qwen-image-3/text-to-image",
+  "input": {
+    "prompt": "Overhead editorial photograph of a drafting table at blue hour. A large sheet of deep blue blueprint paper covers most of the table, printed with a clean technical drawing made only of thin white lines: rectangles connected by straight lines and arrows, small circles at the joints, like a diagram of a system. Beside it lie a mechanical pencil, a steel ruler and a small brass compass. Soft cool light falls from a window at the top of the frame, gentle shadows. Calm, precise, premium, thoughtful. Generous empty space on the left third. Deep navy, midnight blue and soft white palette, fine film grain. No people, no hands, no text, no letters, no words, no numbers, no logos, no handwriting.",
+    "aspect_ratio": "16:9",
+    "resolution": "2k",
+    "negative_prompt": "people, person, hands, text, letters, words, numbers, handwriting, logo, watermark, signature, warm orange light"
+  },
+  "request_id": "0b18f5ea-85cc-4313-a62f-d51a64d4321b",
+  "created": "2026-10-14T21:57:49.529Z",
+  "urls": [
+    "https://d3u0tzju9qaucj.cloudfront.net/0206798c-f8a9-42ab-bad5-635ef6302b8c/1a7aef17-2696-4632-ab3a-b14b9ee1b0e2.png"
+  ],
+  "files": [
+    "design/higgsfield/about-blueprint/blueprint-qwen-1.png"
+  ]
+}

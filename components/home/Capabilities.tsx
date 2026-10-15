@@ -117,11 +117,11 @@ export function Capabilities() {
                     <div key={open ? "open" : "closed"} className="cap-in pb-9 pt-1 lg:rounded-[28px] lg:border lg:border-line lg:bg-card lg:p-[clamp(28px,3.4vw,44px)] lg:shadow-[0_40px_80px_-60px_rgba(12,12,11,0.35)]">
                       <p className="max-w-[30ch] text-[clamp(1.25rem,2vw,1.7rem)] font-[500] leading-[1.3] tracking-[-0.022em] text-ink">{it.outcome}</p>
 
-                      {/* The parts, drawn as a small system: nodes on one line, lighting up in order. */}
+                      {/* The parts, drawn as a small system: each node appears, then its line reaches the next one. */}
                       <ul className="relative mt-8 flex flex-col gap-4 ps-8">
-                        <span className="cap-rail absolute bottom-[9px] start-[5px] top-[9px] w-px bg-line-strong" aria-hidden="true" />
                         {it.parts.map((p, n) => (
                           <li key={p} className="cap-node relative text-[16px] leading-[1.5] text-ink-2" style={{ "--i": n } as React.CSSProperties}>
+                            {n < it.parts.length - 1 && <span className="cap-link absolute -bottom-[22px] -start-[27px] top-[17px] w-px bg-line-strong" aria-hidden="true" />}
                             <span className="absolute -start-8 top-[6px] h-[11px] w-[11px] rounded-full border-[1.5px] border-blue bg-card" aria-hidden="true" />
                             {p}
                           </li>

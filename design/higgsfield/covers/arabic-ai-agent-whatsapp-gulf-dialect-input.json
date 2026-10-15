@@ -1,0 +1,6 @@
+{
+  "prompt": "A smartphone lying face up on a dark stone surface at night, its screen glowing softly with a few abstract rounded message bubbles in blue and white that contain no writing. Beside it stands a small polished brass Arabic coffee pot (dallah) and a tiny handleless coffee cup. Soft shadows of a carved wooden mashrabiya lattice fall across the surface from a dim light. Minimal editorial still life photographed at night in a dark room, deep navy and midnight blue palette with one soft blue light source from the phone, warm brass highlights kept subtle, calm, premium, quiet, shallow depth of field, generous empty dark space on the left third of the frame for a title, realistic, fine film grain. No people, no hands, no text, no letters, no numbers, no logos, no readable screen.",
+  "aspect_ratio": "16:9",
+  "resolution": "1k",
+  "negative_prompt": "people, person, face, hands, text, letters, words, numbers, arabic writing, calligraphy, logo, watermark, signage, readable screen, emoji"
+}

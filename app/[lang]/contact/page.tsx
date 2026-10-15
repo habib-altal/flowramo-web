@@ -6,6 +6,7 @@ import { getCommon, getHome, getPages } from "@/content/dictionaries";
 import { JsonLd, pageSchema } from "@/lib/schema";
 import { ContactForm } from "@/components/pages/ContactForm";
 import { TryLinaLink } from "@/components/lina/TryLina";
+import { FocusWords, wordCount } from "@/components/motion/FocusWords";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
   const { lang } = await params;
@@ -26,25 +27,27 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
       <JsonLd data={pageSchema(lang, common, "/contact", c.meta.title, c.meta.description, "ContactPage")} />
       <div className="wrap grid gap-14 pb-[clamp(96px,12vw,160px)] pt-[clamp(132px,13vw,184px)] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
         <div>
-          <h1 className="display-md" data-split>
-            {c.h1}
+          <h1 className="display-md">
+            <FocusWords text={c.h1} />
           </h1>
-          <p className="lede mt-7 max-w-[30rem]" data-reveal>
+          <p className="hero-in lede mt-7 max-w-[30rem]" style={{ "--d": `${0.3 + wordCount(c.h1) * 0.075}s` } as React.CSSProperties}>
             {c.sub}
           </p>
 
           <h2 className="mt-14 text-[15px] font-semibold" data-reveal>
             {c.next.h2}
           </h2>
-          <ol className="relative mt-5 flex flex-col gap-4">
-            <span className="absolute bottom-3 start-[13.5px] top-3 w-px bg-line" aria-hidden="true" />
-            <span className="absolute bottom-3 start-[13.5px] top-3 w-px bg-blue" data-draw="y" aria-hidden="true" />
+          {/* Each line joins one number to the next, so it never runs past the last step. */}
+          <ol className="mt-5 flex flex-col gap-4" data-steps>
             {c.next.steps.map((s, i) => (
-              <li key={s} className="relative flex items-start gap-4 text-[16px] leading-[1.55] text-ink-2" data-reveal="start">
-                <span className="grid h-7 w-7 flex-none place-items-center rounded-full border-[1.5px] border-blue bg-paper text-[12.5px] font-semibold tabular-nums text-blue" aria-hidden="true">
+              <li key={s} className="relative flex items-start gap-4 text-[16px] leading-[1.55] text-ink-2" data-step>
+                {i < c.next.steps.length - 1 && <span className="absolute -bottom-4 start-[13.5px] top-7 w-px bg-blue" data-step-link aria-hidden="true" />}
+                <span className="grid h-7 w-7 flex-none place-items-center rounded-full border-[1.5px] border-blue bg-paper text-[12.5px] font-semibold tabular-nums text-blue" data-step-dot aria-hidden="true">
                   {i + 1}
                 </span>
-                <span className="pt-0.5">{s}</span>
+                <span className="pt-0.5" data-step-body>
+                  {s}
+                </span>
               </li>
             ))}
           </ol>

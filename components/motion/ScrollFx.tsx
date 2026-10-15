@@ -1,16 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { gsap, useGSAP, ScrollTrigger, SplitText, MOTION_OK } from "@/lib/gsap";
+import { gsap, useGSAP, ScrollTrigger, SplitText, MOTION_OK, focusFrom, FOCUS_TO } from "@/lib/gsap";
 
 /*
   Site-wide scroll motion, declared in markup so server components can use it:
 
-    data-split            headline lines rise out of a mask as they enter
-    data-reveal[=kind]    block enters: "up" (default), "fade", "start", "end", "scale"
+    data-split            headline whose words sharpen out of a soft blur, in place, as it enters
+    data-reveal[=kind]    block enters: "up" (default; text sharpens in place, other blocks lift a little),
+                          "fade", "start", "end", "scale"
     data-words            paragraph whose words light up as it scrolls past
     data-parallax=0.15    element drifts against the scroll by that factor
-    data-draw=x|y         line grows along its axis as its parent scrolls through
+    data-steps            numbered list that plays in order: each [data-step-dot] appears, its
+                          [data-step-body] sharpens, then its [data-step-link] draws down to the next dot
     data-progress         bar that fills with page scroll (reading progress)
 
   Everything is visible without JavaScript and with reduced motion. Before this runs,
@@ -19,8 +21,10 @@ import { gsap, useGSAP, ScrollTrigger, SplitText, MOTION_OK } from "@/lib/gsap";
   Bespoke scenes (sticky stages) animate themselves and do not use these attributes.
 */
 
-const FROM: Record<string, (rtl: boolean) => gsap.TweenVars> = {
-  up: () => ({ autoAlpha: 0, y: 34 }),
+const TEXT = new Set(["P", "H1", "H2", "H3", "H4", "H5", "H6", "LI", "BLOCKQUOTE"]);
+
+const FROM: Record<string, (rtl: boolean, el: HTMLElement) => gsap.TweenVars> = {
+  up: (_, el) => (TEXT.has(el.tagName) ? { autoAlpha: 0, filter: "blur(6px)" } : { autoAlpha: 0, y: 24 }),
   fade: () => ({ autoAlpha: 0 }),
   start: (rtl) => ({ autoAlpha: 0, x: rtl ? 26 : -26 }),
   end: (rtl) => ({ autoAlpha: 0, x: rtl ? -26 : 26 }),
@@ -38,30 +42,52 @@ export function ScrollFx() {
       mm.add(MOTION_OK, () => {
         const rtl = html.dir === "rtl";
 
-        // Headlines: lines (never letters, which would break Arabic joining) rise from a mask.
+        // Headlines: whole words (never letters, which would break Arabic joining) sharpen in reading order.
         gsap.utils.toArray<HTMLElement>("[data-split]").forEach((el) => {
-          SplitText.create(el, {
-            type: "lines",
-            mask: "lines",
-            autoSplit: true,
-            onSplit: (self) =>
-              gsap.from(self.lines, {
-                yPercent: 118,
-                duration: 1.2,
-                ease: "expo.out",
-                stagger: 0.1,
-                scrollTrigger: { trigger: el, start: "top 90%", once: true },
-              }),
+          const split = SplitText.create(el, { type: "words" });
+          gsap.fromTo(split.words, focusFrom(el), {
+            ...FOCUS_TO,
+            duration: 1.25,
+            ease: "power2.out",
+            stagger: 0.065,
+            clearProps: "filter",
+            scrollTrigger: { trigger: el, start: "top 90%", once: true },
           });
         });
 
         // Blocks: one batch per moment, so things entering together stagger together.
         const blocks = gsap.utils.toArray<HTMLElement>("[data-reveal]");
-        blocks.forEach((el) => gsap.set(el, (FROM[el.dataset.reveal || "up"] ?? FROM.up)(rtl)));
+        blocks.forEach((el) => gsap.set(el, (FROM[el.dataset.reveal || "up"] ?? FROM.up)(rtl, el)));
         ScrollTrigger.batch(blocks, {
           start: "top 91%",
           once: true,
-          onEnter: (batch) => gsap.to(batch, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: 1.1, ease: "expo.out", stagger: 0.085, overwrite: true }),
+          onEnter: (batch) =>
+            gsap.to(batch, {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+              filter: (_: number, el: HTMLElement) => (el.style.filter ? "blur(0px)" : "none"),
+              duration: 1.1,
+              ease: "expo.out",
+              stagger: 0.085,
+              overwrite: true,
+              clearProps: "filter",
+            }),
+        });
+
+        // Numbered steps: a number appears, its text sharpens, and only then does the line draw on to the next number.
+        gsap.utils.toArray<HTMLElement>("[data-steps]").forEach((list) => {
+          const tl = gsap.timeline({ scrollTrigger: { trigger: list, start: "top 86%", once: true } });
+          list.querySelectorAll<HTMLElement>("[data-step]").forEach((step, i) => {
+            const at = i * 0.5;
+            const dot = step.querySelector("[data-step-dot]");
+            const body = step.querySelector("[data-step-body]");
+            const link = step.querySelector("[data-step-link]");
+            if (dot) tl.fromTo(dot, { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2.2)" }, at);
+            if (body) tl.fromTo(body, { autoAlpha: 0, filter: "blur(5px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out", clearProps: "filter" }, at + 0.08);
+            if (link) tl.fromTo(link, { scaleY: 0 }, { scaleY: 1, transformOrigin: "50% 0%", duration: 0.3, ease: "power1.inOut" }, at + 0.18);
+          });
         });
 
         // Paragraphs read in as you scroll: each word lights up in turn.
@@ -85,21 +111,6 @@ export function ScrollFx() {
             el,
             { y: () => k * 140 },
             { y: () => -k * 140, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true } },
-          );
-        });
-
-        // Lines that draw themselves along with the content they connect.
-        gsap.utils.toArray<HTMLElement>("[data-draw]").forEach((el) => {
-          const x = el.dataset.draw === "x";
-          gsap.fromTo(
-            el,
-            x ? { scaleX: 0 } : { scaleY: 0 },
-            {
-              ...(x ? { scaleX: 1 } : { scaleY: 1 }),
-              ease: "none",
-              transformOrigin: x ? (rtl ? "100% 50%" : "0% 50%") : "50% 0%",
-              scrollTrigger: { trigger: el.parentElement ?? el, start: "top 78%", end: "bottom 62%", scrub: 0.6 },
-            },
           );
         });
 

@@ -9,7 +9,7 @@ const pages = {
         "AI agents, business automation, custom AI applications, SaaS engineering, AI knowledge systems and integrations, designed around how your business runs and installed on infrastructure you own.",
     },
     h1: "Systems for the work your team repeats every day.",
-    sub: "Six kinds of systems. Most projects combine two or three of them into one system that fits how your business already runs.",
+    sub: "Six kinds of systems. One project can combine several into a single system that fits how your business already runs.",
     includes: "What goes into it",
     uses: "Where it fits",
     inLina: "Running in Lina",

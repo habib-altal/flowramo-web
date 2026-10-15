@@ -13,10 +13,10 @@ const lina = {
     bubble: "Hi, do you offer dental implants?",
     h1a: "Your clinic keeps moving.",
     h1b: "Even when you don't.",
-    sub: "Lina turns every WhatsApp message into a booked appointment, a timely follow-up and a patient who keeps coming back. At 2 pm or 2 am, without adding a single hire.",
+    sub: "Lina is an AI receptionist for your clinic's WhatsApp. She answers patients within seconds, at 2 pm or 2 am, books them into your calendar and follows up with the ones who go quiet.",
     primary: "Try Lina on WhatsApp",
     secondary: "Book a private demo",
-    trust: "Built on the official WhatsApp Business Platform. You approve everything Lina knows.",
+    trust: "Runs on the official WhatsApp Business Platform, on hosting your clinic owns. You approve everything Lina knows.",
     statuses: ["Understanding patient…", "Checking clinic knowledge…", "Finding availability…", "Consultation booked"],
     card: { label: "Consultation booked", when: "Tuesday · 14:30", who: "Dr. Kaya · Implant consultation" },
   },
@@ -24,7 +24,7 @@ const lina = {
   journey: {
     h2a: "One message.",
     h2b: "An entire patient journey.",
-    sub: "Most clinics answer the question. Lina owns everything that happens after it.",
+    sub: "Answering the first question is the easy part. Lina stays with the patient until the next check-up.",
     meta: "WhatsApp · 23:41",
     stages: [
       "Asks",
@@ -88,7 +88,7 @@ const lina = {
 
   watch: {
     h2: "Watch Lina think.",
-    sub: "A real patient, a real hesitation, in Arabic. And everything Lina understands before she replies.",
+    sub: "A typical patient with a typical hesitation, in Arabic, and what Lina picks up before she replies.",
     replay: "Replay",
     patient: "Omar Haddad",
     initials: "OH",
@@ -117,7 +117,7 @@ const lina = {
     stages: [
       {
         name: "Discover",
-        line: "A new patient finds you at 23:00. The clinic that replies first usually wins.",
+        line: "A new patient finds you at 23:00. Answer in the morning and they may have booked elsewhere.",
         actions: ["Replies within seconds, day or night", "Speaks the patient's own language", "Shares your real services and prices"],
       },
       {
@@ -127,7 +127,7 @@ const lina = {
       },
       {
         name: "Trust",
-        line: "Price and fear stall more bookings than any competitor does.",
+        line: "Price and fear stall bookings. Lina answers both before she offers a slot.",
         actions: ["Notices hesitation and slows down", "Answers worries before suggesting a slot", "Brings the doctor in when it matters"],
       },
       {
@@ -148,7 +148,7 @@ const lina = {
       {
         name: "Return",
         line: "Treatment ends. The relationship doesn't.",
-        actions: ["Remembers past treatments", "Invites patients back for check-ups", "Asks happy patients for a Google review"],
+        actions: ["Remembers past treatments", "Invites patients back for check-ups", "Sends aftercare after each visit"],
       },
     ],
   },
@@ -244,6 +244,7 @@ const lina = {
     summary: {
       title: "While you were away",
       range: "18:30 – 07:45",
+      example: "Example night",
       stats: ["conversations handled", "appointments booked", "follow-ups completed", "patient recovered"],
     },
   },
@@ -264,8 +265,8 @@ const lina = {
   },
 
   integrations: {
-    h2: "Everything your clinic runs on, connected.",
-    sub: "WhatsApp, your calendar, patient records and your own clinic documents. Lina reads from and writes to all of them, so nothing gets typed twice and nothing gets forgotten.",
+    h2: "WhatsApp, clinic knowledge and calendar, connected.",
+    sub: "Lina works inside your clinic's WhatsApp, reads only the knowledge you approved and writes each booking straight into your calendar. Nobody types an appointment twice.",
     nodes: { wa: "WhatsApp", cal: "Calendar", pt: "Patient data", an: "Analytics", kn: "Clinic knowledge", ai: "AI" },
     flow: [
       "New message",
@@ -281,7 +282,7 @@ const lina = {
 
   human: {
     h2: "Lina knows when not to be Lina.",
-    sub: "Anything urgent, clinical or sensitive goes straight to your team with the full conversation attached, and the patient is told exactly what happens next. Automation where it helps. A human where it matters.",
+    sub: "Anything urgent, clinical or sensitive goes straight to your team with the full conversation attached, and the patient is told exactly what happens next.",
     meta: "Nour Saleh · WhatsApp",
     time: "02:07",
     patient: "My face is swelling and the pain has been getting worse since last night.",
@@ -327,18 +328,22 @@ const lina = {
         a: "No. Lina is installed for your clinic as a system you own, priced as a project once we understand how your clinic works. Hosting and WhatsApp messaging are billed by those providers directly to your clinic's own accounts.",
       },
       {
+        q: "What if something stops working, or Lina gets an answer wrong?",
+        a: "Before launch we test Lina on your clinic's real questions, and you approve what she knows. After launch we train your team, or set up an AI assistant for your system, to handle everyday issues, and you can reach the person who built it.",
+      },
+      {
         q: "How do we get started?",
-        a: "Book a private demo. You will see Lina answer real questions with your own prices and hours. We onboard clinics personally, one at a time.",
+        a: "Book a private demo. You'll watch Lina handle the questions your patients ask, then put your own to her. We onboard clinics personally, one at a time.",
       },
     ],
   },
 
   closing: {
     l1: "Your patients are already talking.",
-    l2: "Make every conversation count.",
+    l2: "Make sure none of them waits.",
     primary: "Try Lina on WhatsApp",
     secondary: "Book a private demo",
-    note: "We onboard clinics personally, one at a time.",
+    note: "No monthly subscription to us. Lina is installed on your clinic's own hosting and set up with you personally.",
   },
 };
 

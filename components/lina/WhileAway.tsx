@@ -172,10 +172,13 @@ export function WhileAway() {
 
           <div className="wa-summary absolute inset-x-0 bottom-[clamp(40px,9vh,96px)] px-5">
             <div className="mx-auto max-w-[880px] rounded-[30px] border border-line bg-card p-6 text-start text-ink shadow-[0_40px_100px_-50px_rgba(12,12,11,0.4)] sm:p-9">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
                 <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.03em]">{a.summary.title}</h3>
                 <span className="flex items-center gap-2 text-[13.5px] text-ink-2">
                   <span className="lina-dot scale-75" aria-hidden="true" /> <span dir="ltr">{a.summary.range}</span>
+                  {/* The figures below are illustrative, not usage data. */}
+                  <span className="text-ink-3" aria-hidden="true">·</span>
+                  <span className="text-[12.5px] text-ink-3">{a.summary.example}</span>
                 </span>
               </div>
               <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4">

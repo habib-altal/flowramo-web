@@ -40,7 +40,7 @@ Status before the repositioning: first full build on 2026-10-04, following Habib
 | Human + AI | `HumanAI.tsx` | "Lina knows when not to be Lina." Urgent case escalated to the doctor. |
 | Social proof | `Testimonials.tsx` | Hidden until real clinics agree to be quoted. Never invent testimonials or results. |
 | FAQ | `Faq.tsx` | Seven objections answered plainly (replace the receptionist? official WhatsApp? emergencies at 2 am?). Also emitted as FAQPage structured data. |
-| Closing | `Closing.tsx` | "Your patients are already talking. Make every conversation count." |
+| Closing | `Closing.tsx` | "Your patients are already talking. Make sure none of them waits." |
 
 ## Data
 - "Book a Demo" (Lina page) and the `/contact` form write to Supabase `website_leads` with the publishable key (RLS allows anon insert only). Verified as the `anon` role on 2026-10-04.

@@ -24,6 +24,10 @@ const article: Article = {
       { t: "h2", id: "why-reply-speed-matters", text: "Why does reply speed decide who gets the patient?" },
       {
         t: "p",
+        text: "Because a patient comparing clinics tends to book with the first one that answers clearly, and a front desk that closes at 21:00 cannot be first to a message sent at 23:41.",
+      },
+      {
+        t: "p",
         text: "It is 23:41 on a Wednesday. A message lands on your clinic's WhatsApp: “Hi, how much is an implant? I can come Saturday.” The clinic closed at 21:00. At 10:05 the next morning your receptionist replies, politely and with the right price. At 10:40 the patient answers: “Thanks, I already booked somewhere else.”",
       },
       {
@@ -87,7 +91,11 @@ const article: Article = {
         ],
       },
 
-      { t: "h2", id: "ai-vs-human-vs-chatbot", text: "AI receptionist vs human receptionist vs auto-reply" },
+      {
+        t: "h2",
+        id: "ai-vs-human-vs-chatbot",
+        text: "How does an AI receptionist compare with a human receptionist and an auto-reply?",
+      },
       {
         t: "p",
         text: "Owners weighing an AI receptionist for dental clinics often lump it in with the auto-reply, or with the simple dental clinic chatbot on WhatsApp that offers a menu of buttons. They do very different jobs.",
@@ -104,7 +112,7 @@ const article: Article = {
           ["Reminders and follow-up", "When there is time", "Fixed blasts", "Timed to each patient's situation"],
           ["Judgment and empathy", "Strongest", "None", "Limited; should hand over"],
           ["Emergencies and complaints", "Handles them", "Cannot", "Detects them and escalates to staff"],
-          ["Cost profile", "Salary for one shift; nights and holidays cost extra", "Low, but does little", "Subscription plus WhatsApp template fees"],
+          ["Cost profile", "Salary for one shift; nights and holidays cost extra", "Low, but does little", "A one-off build or a subscription, plus WhatsApp template fees"],
           ["Escalation", "Walks to the dentist", "None", "Hands the chat to staff with full context"],
         ],
         caption: "No row makes your team unnecessary. The AI absorbs volume and night hours; people keep judgment.",
@@ -193,7 +201,7 @@ const article: Article = {
         ],
       },
 
-      { t: "h2", id: "30-day-rollout", text: "A 30-day rollout plan" },
+      { t: "h2", id: "30-day-rollout", text: "How do you roll out an AI receptionist in 30 days?" },
       {
         t: "p",
         text: "You can go live in a month without risking a patient relationship, in this order.",
@@ -226,13 +234,13 @@ const article: Article = {
       { t: "h2", id: "how-lina-does-this", text: "How Lina does this" },
       {
         t: "p",
-        text: "Lina is the AI receptionist we build at Flowramo, designed around the rules above. She runs your clinic's WhatsApp on the official WhatsApp Business Platform and replies in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect.",
+        text: "[Lina](/en/products/lina) is the AI WhatsApp receptionist Flowramo built for dental clinics, designed around the rules above. She runs your clinic's WhatsApp on the official WhatsApp Business Platform and replies in seconds, day and night, in Arabic, English and Turkish, matching the patient's language and dialect.",
       },
       {
         t: "ul",
         items: [
           "Answers only from knowledge your clinic approves: services, prices or ranges, doctors, hours, location, preparation and aftercare.",
-          "Finds free slots and books, reschedules or cancels in your calendar, then sends confirmations and reminders.",
+          "Finds free slots and books or reschedules in your calendar, then sends confirmations and reminders.",
           "Remembers each conversation, follows up when a patient goes quiet, sends aftercare and invites patients back for check-ups.",
           "Hands urgent, clinical or sensitive conversations to your team with the full context. She does not diagnose.",
           "Sends you a daily briefing of bookings, conversations and patients at risk of being lost.",
@@ -259,7 +267,7 @@ const article: Article = {
       },
       {
         q: "How much does an AI receptionist for a dental clinic cost?",
-        a: "Expect two parts: the vendor's subscription and Meta's WhatsApp fees. Since 1 July 2025 Meta charges per delivered template message, such as reminders sent outside the 24-hour window, while free-form replies inside the customer service window are free. Compare the total with the cost of after-hours staff cover, and with the first visits you lose to slow replies.",
+        a: "Expect two parts: the vendor's fee (a monthly subscription, or a one-off price for a system you own) and Meta's WhatsApp fees. Since 1 July 2025 Meta charges per delivered template message, such as reminders sent outside the 24-hour window, while free-form replies inside the customer service window are free. Compare the total with the cost of after-hours staff cover, and with the first visits you lose to slow replies.",
       },
     ],
     sources: [
@@ -319,6 +327,10 @@ const article: Article = {
     ],
     blocks: [
       { t: "h2", id: "why-reply-speed-matters", text: "لماذا تحدد سرعة الرد أي عيادة تكسب المريض؟" },
+      {
+        t: "p",
+        text: "لأن المريض الذي يقارن بين العيادات يحجز غالبًا مع أول عيادة ترد عليه بإجابة واضحة، ومكتب استقبال يغلق في التاسعة مساءً لا يمكن أن يكون الأول في الرد على رسالة تصل في 23:41.",
+      },
       {
         t: "p",
         text: "الساعة 23:41 ليلة الأربعاء. تصل رسالة إلى واتساب العيادة: «السلام عليكم، بكم زراعة السن؟ أقدر أجيكم السبت». العيادة أغلقت في التاسعة مساءً. في العاشرة وخمس دقائق صباحًا تفتح موظفة الاستقبال المحادثة وترد بلطف وبالسعر الصحيح. وفي العاشرة وأربعين دقيقة يأتي الرد: «مشكورين، حجزت في عيادة ثانية».",
@@ -384,7 +396,7 @@ const article: Article = {
         ],
       },
 
-      { t: "h2", id: "ai-vs-human-vs-chatbot", text: "موظف استقبال ذكي أم موظفة استقبال أم رد آلي؟" },
+      { t: "h2", id: "ai-vs-human-vs-chatbot", text: "ما الفرق بين موظف الاستقبال الذكي وموظفة الاستقبال والرد الآلي؟" },
       {
         t: "p",
         text: "كثير من أصحاب العيادات يضعون موظف الاستقبال الذكي في سلة واحدة مع الرد الآلي في واتساب، أو مع «الشات بوت» البسيط الذي يعرض على المريض قائمة أزرار. لكن الثلاثة يؤدون أعمالًا مختلفة تمامًا. هذه مقارنة منصفة.",
@@ -399,9 +411,9 @@ const article: Article = {
           ["الأسئلة المكتوبة بحرية", "نعم", "فقط عبر الزر الصحيح", "نعم، من المعلومات التي اعتمدتها العيادة"],
           ["الحجز في التقويم", "نعم", "نادرًا؛ يكتفي غالبًا بتسجيل طلب", "نعم، إذا رُبط بتقويم العيادة"],
           ["التذكير والمتابعة", "حين يتوفر الوقت", "رسائل جماعية ثابتة", "في توقيت يناسب وضع كل مريض"],
-          ["الحكمة والتعاطف", "الأقوى", "لا شيء", "محدود، ويجب أن يحوّل للفريق"],
+          ["التقدير والتعاطف", "الأقوى", "لا شيء", "محدود، ويجب أن يحوّل للفريق"],
           ["الطوارئ والشكاوى", "تتعامل معها", "لا يستطيع", "يكتشفها ويحوّلها للفريق"],
-          ["طبيعة التكلفة", "راتب لوردية واحدة، والليل والإجازات تكلفة إضافية", "منخفضة، لكنه لا يؤدي عملًا يُذكر", "اشتراك ورسوم قوالب واتساب"],
+          ["طبيعة التكلفة", "راتب لوردية واحدة، والليل والإجازات تكلفة إضافية", "منخفضة، لكنه لا يؤدي عملًا يُذكر", "سعر بناء لمرة واحدة أو اشتراك، إضافة إلى رسوم قوالب واتساب"],
           ["التحويل إلى شخص", "تمشي إلى مكتب الطبيب", "غير موجود", "يسلّم المحادثة للفريق مع سياقها كاملًا"],
         ],
         caption: "لا يوجد صف يجعل فريقك غير ضروري. الذكاء الاصطناعي يحمل الضغط وساعات الليل، والناس يحتفظون بالحكم والتقدير.",
@@ -490,7 +502,7 @@ const article: Article = {
         ],
       },
 
-      { t: "h2", id: "30-day-rollout", text: "خطة التشغيل في 30 يومًا" },
+      { t: "h2", id: "30-day-rollout", text: "كيف تشغّل موظف الاستقبال الذكي خلال 30 يومًا؟" },
       {
         t: "p",
         text: "تستطيع أن تبدأ خلال شهر دون أن تخاطر بعلاقتك مع أي مريض، إذا مشيت بهذا الترتيب.",
@@ -523,13 +535,13 @@ const article: Article = {
       { t: "h2", id: "how-lina-does-this", text: "كيف تفعل لينا ذلك" },
       {
         t: "p",
-        text: "لينا هي موظفة الاستقبال الذكية التي نبنيها في Flowramo، وقد صُممت حول القواعد السابقة نفسها. تدير واتساب عيادتك على منصة واتساب للأعمال الرسمية، وترد خلال ثوانٍ ليلًا ونهارًا بالعربية والإنجليزية والتركية، بلغة المريض ولهجته.",
+        text: "[لينا](/ar/products/lina) هي موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان على واتساب، وقد صُممت حول القواعد السابقة نفسها. تدير واتساب عيادتك على منصة واتساب للأعمال الرسمية، وترد خلال ثوانٍ ليلًا ونهارًا بالعربية والإنجليزية والتركية، بلغة المريض ولهجته.",
       },
       {
         t: "ul",
         items: [
           "تجيب فقط من معلومات تعتمدها عيادتك: الخدمات، والأسعار أو نطاقاتها، والأطباء، وساعات العمل، والموقع، والتحضير، وتعليمات ما بعد العلاج.",
-          "تجد المواعيد المتاحة، وتحجز أو تعدّل أو تلغي في تقويمك، ثم ترسل التأكيدات والتذكيرات.",
+          "تجد المواعيد المتاحة، وتحجز المواعيد أو تعدّلها في تقويمك، ثم ترسل التأكيدات والتذكيرات.",
           "تتذكر كل محادثة، وتتابع المريض حين يصمت، وترسل تعليمات ما بعد العلاج، وتدعو المرضى للعودة إلى الفحص الدوري.",
           "تحوّل المحادثات العاجلة أو الطبية أو الحساسة إلى فريقك مع سياقها كاملًا. ولا تشخّص.",
           "ترسل لك ملخصًا يوميًا بالحجوزات والمحادثات والمرضى المعرّضين للضياع.",
@@ -556,7 +568,7 @@ const article: Article = {
       },
       {
         q: "كم تكلفة موظف استقبال ذكي لعيادة أسنان؟",
-        a: "التكلفة من جزأين: اشتراك المزوّد، ورسوم واتساب التي تفرضها Meta. منذ 1 يوليو 2025 تحاسب Meta على كل رسالة قالب تُسلَّم، مثل التذكيرات المرسلة خارج نافذة الـ24 ساعة، بينما الردود الحرة داخل نافذة خدمة العملاء مجانية. قارن المجموع بتكلفة تغطية ما بعد الدوام بموظفين، وبالزيارات الأولى التي تخسرها بسبب الرد المتأخر.",
+        a: "التكلفة من جزأين: أجر المزوّد (اشتراك شهري، أو سعر لمرة واحدة لنظام تملكه)، ورسوم واتساب التي تفرضها Meta. منذ 1 يوليو 2025 تحاسب Meta على كل رسالة قالب تُسلَّم، مثل التذكيرات المرسلة خارج نافذة الـ24 ساعة، بينما الردود الحرة داخل نافذة خدمة العملاء مجانية. قارن المجموع بتكلفة تغطية ما بعد الدوام بموظفين، وبالزيارات الأولى التي تخسرها بسبب الرد المتأخر.",
       },
     ],
     sources: [

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { track } from "@vercel/analytics";
@@ -17,6 +17,9 @@ type Status = "idle" | "sending" | "sent" | "error";
 export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contact"]["form"]; intent?: string }) {
   const { locale } = useI18n();
   const [status, setStatus] = useState<Status>("idle");
+  // Until the script runs, a submit would be a native GET that puts the lead in the URL; keep the button off till then.
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
   const [name, setName] = useState("");
   const [intent, setIntent] = useState(f.intents.some((i) => i.id === initialIntent) ? initialIntent! : "");
 
@@ -26,7 +29,7 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
     const first = String(data.get("name") ?? "").trim().split(/\s+/)[0] ?? "";
     setName(first);
     // Honeypot: people never see this field; bots fill it.
-    if (String(data.get("website") ?? "")) {
+    if (String(data.get("hp_note") ?? "")) {
       setStatus("sent");
       return;
     }
@@ -76,7 +79,7 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
   const label = "text-[14px] font-medium text-ink";
 
   return (
-    <form onSubmit={submit} className="rounded-[28px] border border-line bg-card p-6 sm:p-9" noValidate={false}>
+    <form method="post" onSubmit={submit} className="rounded-[28px] border border-line bg-card p-6 sm:p-9" noValidate={false}>
       <fieldset>
         <legend className={label}>{f.intent}</legend>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -102,7 +105,7 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
         </label>
         <label className="block">
           <span className={label}>{f.whatsapp}</span>
-          <input name="whatsapp" required type="tel" inputMode="tel" autoComplete="tel" maxLength={40} pattern="[+0-9 ()-]{7,40}" placeholder={f.whatsappPh} dir="ltr" className={`${field} text-start rtl:text-end`} />
+          <input name="whatsapp" required type="tel" inputMode="tel" autoComplete="tel" maxLength={40} pattern="[+0-9 \(\)\-]{7,40}" placeholder={f.whatsappPh} dir="ltr" className={`${field} text-start rtl:text-end`} />
         </label>
         <label className="block">
           <span className={label}>{f.country}</span>
@@ -127,8 +130,8 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
           />
         </label>
         <label className="absolute -start-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
-          Website
-          <input name="website" tabIndex={-1} autoComplete="off" />
+          Leave empty
+          <input name="hp_note" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
@@ -145,7 +148,7 @@ export function ContactForm({ f, intent: initialIntent }: { f: PagesDict["contac
             {f.privacy}
           </Link>
         </p>
-        <button type="submit" disabled={status === "sending"} className="btn btn-ink flex-none disabled:opacity-60">
+        <button type="submit" disabled={!ready || status === "sending"} className="btn btn-ink flex-none disabled:opacity-60">
           {status === "sending" ? f.sending : f.submit}
         </button>
       </div>

@@ -12,18 +12,22 @@ export function Inline({ text }: { text: string }) {
     if (m.index > last) out.push(<Fragment key={key++}>{text.slice(last, m.index)}</Fragment>);
     if (m[1]) {
       out.push(<strong key={key++}>{m[1]}</strong>);
-    } else if (m[3].startsWith("/")) {
+    } else if (/^\/(?![/\\])/.test(m[3])) {
+      // Same-site path ("//host" and "/\host" are other sites, so they don't count).
       out.push(
         <Link key={key++} href={m[3]}>
           {m[2]}
         </Link>,
       );
-    } else {
+    } else if (/^(https:\/\/|mailto:)/i.test(m[3])) {
       out.push(
-        <a key={key++} href={m[3]} target="_blank" rel="noopener">
+        <a key={key++} href={m[3]} target="_blank" rel="noopener noreferrer">
           {m[2]}
         </a>,
       );
+    } else {
+      // Any other scheme (data:, javascript:, http:) renders as plain text.
+      out.push(<Fragment key={key++}>{m[2]}</Fragment>);
     }
     last = m.index + m[0].length;
   }

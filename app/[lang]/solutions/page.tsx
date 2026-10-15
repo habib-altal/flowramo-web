@@ -7,6 +7,7 @@ import { getCommon, getHome, getPages } from "@/content/dictionaries";
 import { JsonLd, pageSchema } from "@/lib/schema";
 import { PageCta, PageHeader } from "@/components/pages/PageHeader";
 import { SolutionsNav } from "@/components/pages/SolutionsNav";
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/solutions">): Promise<Metadata> {
   const { lang } = await params;
@@ -27,6 +28,12 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
     <main id="main">
       <JsonLd data={pageSchema(lang, common, "/solutions", s.meta.title, s.meta.description, "CollectionPage")} />
       <PageHeader h1={s.h1} sub={s.sub} />
+      {/* Infrastructure at work, quietly (Higgsfield loop). */}
+      <div className="wrap pb-[clamp(40px,5vw,72px)]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] bg-night sm:aspect-[21/9]" data-reveal="fade">
+          <AmbientVideo name="server-rack" position="72% 50%" />
+        </div>
+      </div>
       <SolutionsNav label={common.footer.capabilities} items={common.capabilities} />
 
       <div className="wrap">
@@ -43,13 +50,12 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
             <div className="grid gap-10 sm:grid-cols-2 sm:gap-8">
               <div>
                 <h3 className="text-[14px] font-semibold text-ink">{s.includes}</h3>
-                <ul className="relative mt-5 flex flex-col gap-3.5 ps-7">
-                  <span className="absolute bottom-[8px] start-[4.5px] top-[8px] w-px bg-line-strong" aria-hidden="true" />
-                  <span className="absolute bottom-[8px] start-[4.5px] top-[8px] w-px bg-blue" data-draw="y" aria-hidden="true" />
-                  {it.parts.map((p) => (
-                    <li key={p} className="relative text-[15.5px] leading-[1.5] text-ink-2" data-reveal="start">
-                      <span className="absolute -start-7 top-[6px] h-[10px] w-[10px] rounded-full border-[1.5px] border-blue bg-paper" aria-hidden="true" />
-                      {p}
+                <ul className="mt-5 flex flex-col gap-3.5 ps-7" data-steps>
+                  {it.parts.map((p, i) => (
+                    <li key={p} className="relative text-[15.5px] leading-[1.5] text-ink-2" data-step>
+                      {i < it.parts.length - 1 && <span className="absolute -bottom-5 -start-[23.5px] top-4 w-px bg-blue" data-step-link aria-hidden="true" />}
+                      <span className="absolute -start-7 top-[6px] h-[10px] w-[10px] rounded-full border-[1.5px] border-blue bg-paper" data-step-dot aria-hidden="true" />
+                      <span data-step-body>{p}</span>
                     </li>
                   ))}
                 </ul>

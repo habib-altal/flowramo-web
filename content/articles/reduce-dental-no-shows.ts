@@ -35,7 +35,10 @@ const article: Article = {
         t: "p",
         text: "A dental chair-hour is perishable inventory. Like an airline seat, an empty slot can't be stored and sold tomorrow: once 10:30 passes with nobody in the chair, that revenue is gone for good, while rent, salaries and equipment costs stay the same.",
       },
-      { t: "p", text: "Replace these illustrative numbers with your own:" },
+      {
+        t: "p",
+        text: "The formula is simple: **monthly no-show cost = appointments × no-show rate × average visit value.** Replace these illustrative numbers with your own:",
+      },
       {
         t: "callout",
         title: "Illustrative example",
@@ -96,12 +99,7 @@ const article: Article = {
       { t: "h2", id: "fix-the-system", text: "Why the fix is the appointment system, not the patient" },
       {
         t: "p",
-        text: "In East London, 25 general practices ran a two-year quality-improvement programme on missed appointments. The mean did-not-attend rate fell from 7% to 5.2%, about 4,030 fewer missed appointments. The most effective practice intervention was not aimed at patients at all: it was [shortening the forward-booking period](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7716879/). One practice that cut its booking horizon to a single day halved its rate, from 7.8% to 3.9%.",
-      },
-      {
-        t: "quote",
-        text: "To reduce non-attendance, it appears that the appointment system needs to change, not the patient.",
-        cite: "Margham, Williams, Steadman and Hull, British Journal of General Practice (2021)",
+        text: "In East London, 25 general practices ran a two-year quality-improvement programme on missed appointments. The mean did-not-attend rate fell from 7% to 5.2%, about 4,030 fewer missed appointments. The most effective practice intervention was not aimed at patients at all: it was [shortening the forward-booking period](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7716879/). One practice that cut its booking horizon to a single day halved its rate, from 7.8% to 3.9%. In other words, changing the appointment system itself is what reduced missed appointments.",
       },
       {
         t: "p",
@@ -111,7 +109,7 @@ const article: Article = {
       { t: "h2", id: "what-reminders-can-do", text: "What can appointment reminders do, and what can't they?" },
       {
         t: "p",
-        text: "Reminders are the best-studied tool. A [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of 8 randomised trials with 6,615 participants found that text-message reminders improved attendance compared with no reminder (risk ratio 1.14, moderate-quality evidence). Put simply, attendance was about 14% higher in relative terms. Text reminders worked about as well as phone-call reminders and cost less per attendance.",
+        text: "Reminders are the best-studied tool. A [Cochrane review](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) of 8 randomised trials with 6,615 participants found that text-message reminders improved attendance compared with no reminder (7 trials, 5,841 participants; risk ratio 1.14, moderate-quality evidence). Put simply, attendance was about 14% higher in relative terms. Text reminders worked about as well as phone-call reminders and cost less per attendance.",
       },
       {
         t: "p",
@@ -250,14 +248,14 @@ const article: Article = {
         text: "Expect movement over weeks, not days; both Helsinki and East London measured change over years. What you want is a line that keeps going down.",
       },
 
-      { t: "h2", id: "where-ai-fits", text: "Where an AI receptionist fits" },
+      { t: "h2", id: "where-ai-fits", text: "Where does an AI receptionist fit in?" },
       {
         t: "p",
         text: "Most of this playbook is simple. The hard part is doing it every day, including at 22:00 when a patient replies 2 and the front desk has gone home. That is the gap an [AI receptionist for dental clinics](/en/insights/ai-receptionist-for-dental-clinics) is built to close.",
       },
       {
         t: "p",
-        text: "Lina, Flowramo's AI receptionist, runs this on your clinic's WhatsApp. She sends confirmations and two-way reminders, understands the reply even when it is free text in Arabic, English or Turkish (“Thursday doesn't work, anything next week after 5?”), and reschedules straight into your calendar at any hour. When a slot opens, she can offer it to patients who asked for an earlier time. When someone misses a visit, she messages them the same day with new slots, and patients at risk of being lost appear in the clinic's daily briefing. Anything clinical, urgent or sensitive goes to your team with the full conversation.",
+        text: "[Lina](/en/products/lina), the AI WhatsApp receptionist Flowramo built for dental clinics, runs this on your clinic's WhatsApp. She sends confirmations and two-way reminders, understands the reply even when it is free text in Arabic, English or Turkish (“Thursday doesn't work, anything next week after 5?”), and reschedules straight into your calendar at any hour. When someone misses a visit, she messages them the same day with new slots, and patients at risk of being lost appear in the clinic's daily briefing. Anything clinical, urgent or sensitive goes to your team with the full conversation.",
       },
     ],
     faq: [
@@ -357,7 +355,10 @@ const article: Article = {
         t: "p",
         text: "ساعة الكرسي في عيادة الأسنان بضاعة لا تُخزَّن. مثل مقعد الطائرة، لا يمكن بيع الموعد الفارغ في الغد: إذا مرّت الساعة العاشرة والنصف دون مريض على الكرسي، ذهب دخلها نهائيًا، بينما يبقى الإيجار والرواتب وتكاليف الأجهزة كما هي.",
       },
-      { t: "p", text: "هذه طريقة الحساب بأرقام توضيحية، ضع أرقام عيادتك مكانها." },
+      {
+        t: "p",
+        text: "والمعادلة بسيطة: **تكلفة الغياب الشهرية = عدد المواعيد × نسبة الغياب × متوسط قيمة الزيارة.** وهذا مثال بأرقام توضيحية، ضع أرقام عيادتك مكانها.",
+      },
       {
         t: "callout",
         title: "مثال توضيحي",
@@ -412,12 +413,7 @@ const article: Article = {
       { t: "h2", id: "fix-the-system", text: "لماذا يكمن الحل في نظام المواعيد لا في المريض؟" },
       {
         t: "p",
-        text: "في شرق لندن، نفّذت 25 عيادة طب عام برنامجًا لتحسين الجودة استمر عامين لتقليل المواعيد الفائتة. انخفض متوسط نسبة عدم الحضور من 7% إلى 5.2%، أي نحو 4,030 موعدًا فائتًا أقل. والتدخل الأنجح لم يكن موجّهًا إلى المرضى أصلًا، بل كان [تقصير مدة الحجز المسبق](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7716879/). وعيادة واحدة قصّرت هذه المدة إلى يوم واحد خفّضت نسبة الغياب لديها إلى النصف، من 7.8% إلى 3.9%.",
-      },
-      {
-        t: "quote",
-        text: "لتقليل عدم الحضور، يبدو أن نظام المواعيد هو ما يحتاج إلى التغيير، لا المريض.",
-        cite: "Margham وزملاؤه، British Journal of General Practice (2021). ترجمة عن الأصل الإنجليزي.",
+        text: "في شرق لندن، نفّذت 25 عيادة طب عام برنامجًا لتحسين الجودة استمر عامين لتقليل المواعيد الفائتة. انخفض متوسط نسبة عدم الحضور من 7% إلى 5.2%، أي نحو 4,030 موعدًا فائتًا أقل. والتدخل الأنجح لم يكن موجّهًا إلى المرضى أصلًا، بل كان [تقصير مدة الحجز المسبق](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7716879/). وعيادة واحدة قصّرت هذه المدة إلى يوم واحد خفّضت نسبة الغياب لديها إلى النصف، من 7.8% إلى 3.9%. أي أن تغيير نظام المواعيد نفسه هو ما خفّض المواعيد الفائتة.",
       },
       {
         t: "p",
@@ -431,7 +427,7 @@ const article: Article = {
       },
       {
         t: "p",
-        text: "التذكير هو أكثر الأدوات دراسة. وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) شملت 8 تجارب عشوائية و6,615 مشاركًا أن التذكير بالرسائل النصية رفع نسبة الحضور مقارنة بعدم التذكير (نسبة الخطر 1.14، بأدلة متوسطة الجودة)، أي أن الحضور كان أعلى بنحو 14% بالمقارنة النسبية. وكان أثر الرسائل قريبًا من أثر الاتصال الهاتفي، بتكلفة أقل لكل زيارة تمّت.",
+        text: "التذكير هو أكثر الأدوات دراسة. وجدت [مراجعة كوكرين](https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments) شملت 8 تجارب عشوائية و6,615 مشاركًا أن التذكير بالرسائل النصية رفع نسبة الحضور مقارنة بعدم التذكير (7 تجارب و5,841 مشاركًا؛ نسبة الخطر 1.14، بأدلة متوسطة الجودة)، أي أن الحضور كان أعلى بنحو 14% بالمقارنة النسبية. وكان أثر الرسائل قريبًا من أثر الاتصال الهاتفي، بتكلفة أقل لكل زيارة تمّت.",
       },
       {
         t: "p",
@@ -570,14 +566,14 @@ const article: Article = {
         text: "توقّع أن ترى التغيير خلال أسابيع لا أيام، فدراستا هلسنكي وشرق لندن قاستا التغيير على مدى سنوات. ما تريده هو خط يواصل النزول.",
       },
 
-      { t: "h2", id: "where-ai-fits", text: "أين تأتي موظفة الاستقبال الذكية؟" },
+      { t: "h2", id: "where-ai-fits", text: "أين تأتي موظفة الاستقبال الذكية في هذه الخطة؟" },
       {
         t: "p",
         text: "أغلب ما في هذه الخطة بسيط. الصعب هو تطبيقه كل يوم، بما في ذلك الساعة العاشرة ليلًا حين يرد مريض بـ2 ويكون فريق الاستقبال قد غادر. هذه هي الفجوة التي صُممت لها [موظفة الاستقبال الذكية لعيادات الأسنان](/ar/insights/ai-receptionist-for-dental-clinics).",
       },
       {
         t: "p",
-        text: "لينا، موظفة الاستقبال الذكية من Flowramo، تتولى ذلك على واتساب عيادتك. ترسل التأكيدات والتذكيرات التفاعلية، وتفهم الرد حتى لو كان نصًا حرًا بالعربية أو الإنجليزية أو التركية («الخميس ما يناسبني، فيه شي الأسبوع الجاي بعد الخمس؟»)، وتغيّر الموعد مباشرة في تقويم العيادة في أي ساعة. وحين يتحرر موعد، تستطيع أن تعرضه على المرضى الذين طلبوا موعدًا أقرب. وإذا فات مريضًا موعده، تراسله في اليوم نفسه بمواعيد جديدة، ويظهر المرضى المعرّضون للضياع في الملخص اليومي للعيادة. وأي أمر سريري أو عاجل أو حساس يُحوَّل إلى فريقك مع المحادثة كاملة.",
+        text: "[لينا](/ar/products/lina)، موظفة الاستقبال الذكية التي بنتها Flowramo لعيادات الأسنان، تتولى ذلك كله على واتساب عيادتك. ترسل التأكيدات والتذكيرات التفاعلية، وتفهم الرد حتى لو كان نصًا حرًا بالعربية أو الإنجليزية أو التركية («الخميس ما يناسبني، فيه شي الأسبوع الجاي بعد الخمس؟»)، وتغيّر الموعد مباشرة في تقويم العيادة في أي ساعة. وإذا فات مريضًا موعده، تراسله في اليوم نفسه بمواعيد جديدة، ويظهر المرضى المعرّضون للضياع في الملخص اليومي للعيادة. وأي أمر سريري أو عاجل أو حساس يُحوَّل إلى فريقك مع المحادثة كاملة.",
       },
     ],
     faq: [

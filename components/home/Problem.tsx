@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Check } from "lucide-react";
-import { gsap, useGSAP, SplitText, TABLET_UP, PHONE } from "@/lib/gsap";
+import { gsap, useGSAP, SplitText, TABLET_UP, PHONE, focusFrom, FOCUS_TO } from "@/lib/gsap";
 import { useI18n } from "../I18n";
 import { useHome } from "../PageDict";
 
@@ -106,10 +106,11 @@ export function Problem() {
         const paint = () => {
           clock.textContent = time.solved > 0.5 ? fmt(START) : fmt(time.m);
         };
-        const split = SplitText.create(q(".pr-h2")[0], { type: "lines", mask: "lines" });
+        const h2 = q(".pr-h2")[0];
+        const split = SplitText.create(h2, { type: "words" });
 
         const tl = gsap.timeline({ defaults: { ease: "power2.out" }, scrollTrigger: { trigger: host, start: "top top", end: "bottom bottom", scrub: 0.7, invalidateOnRefresh: true } });
-        tl.from(split.lines, { yPercent: 115, duration: 1, stagger: 0.12 }, 0)
+        tl.fromTo(split.words, focusFrom(h2), { ...FOCUS_TO, duration: 0.9, stagger: 0.07 }, 0)
           .from(q(".pr-card"), { autoAlpha: 0, y: 60, duration: 0.8, stagger: 1 }, 1)
           .to(time, { m: START + WAIT, duration: 1.6, ease: "none", onUpdate: paint }, 1.4)
           .from(q(".pr-day"), { scaleY: 0, transformOrigin: "50% 100%", duration: 0.25, stagger: 0.15 }, 3.2)

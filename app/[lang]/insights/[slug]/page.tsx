@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, Plus } from "lucide-react";
-import { alternates, formatDate, hasLocale, url } from "@/lib/i18n";
+import { alternates, formatDate, hasLocale, readingTime, url } from "@/lib/i18n";
 import { getCommon } from "@/content/dictionaries";
 import { ARTICLES, coverOf, getArticle } from "@/content/articles";
 import { JsonLd, articleSchema } from "@/lib/schema";
@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
                 {b.updated} <time dateTime={article.updated}>{formatDate(lang, article.updated)}</time>
               </span>
               <span aria-hidden="true">·</span>
-              <span>{b.minutes.replace("{n}", String(body.minutes))}</span>
+              <span>{readingTime(lang, b.minutes, body.minutes)}</span>
             </p>
           </div>
           <figure className="mt-10 overflow-hidden rounded-[28px] border border-line bg-night lg:mt-14">
@@ -207,7 +207,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
                 >
                   <img src={coverOf(r.slug)} alt="" width={1280} height={720} loading="lazy" decoding="async" className="aspect-[16/9] w-full object-cover object-[70%_50%]" />
                   <span className="flex flex-1 flex-col p-6 sm:p-7">
-                  <span className="text-[13px] text-ink-3">{b.minutes.replace("{n}", String(r[lang].minutes))}</span>
+                  <span className="text-[13px] text-ink-3">{readingTime(lang, b.minutes, r[lang].minutes)}</span>
                   <span className="mt-3 text-[clamp(1.25rem,1.8vw,1.5rem)] font-[560] leading-[1.2] tracking-[-0.025em]">{r[lang].title}</span>
                   <span className="mt-3 line-clamp-2 text-[15px] leading-[1.6] text-ink-2">{plain(r[lang].description)}</span>
                   <span className="mt-auto flex items-center gap-1.5 pt-6 text-[14.5px] font-medium">
