@@ -17,7 +17,7 @@ export function HomeClosing({ t, lang, email }: { t: HomeDict["closing"]; lang: 
         <h2 id="closing-title" className="display-xl max-w-[14ch]" data-split>
           {t.l1}
         </h2>
-        <p data-reveal className="mt-6 max-w-[32ch] text-[clamp(1.5rem,2.8vw,2.4rem)] font-[500] leading-[1.2] tracking-[-0.03em] text-moon-2">{t.l2}</p>
+        <p data-reveal className="mt-6 max-w-[32ch] text-[clamp(1.5rem,2.8vw,2.4rem)] font-[500] leading-[1.2] tracking-[-0.02em] text-moon-2">{t.l2}</p>
         <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5" data-reveal>
           <Link href={`/${lang}/contact`} className="btn btn-moon h-[54px] px-7 text-[16px]">
             {t.primary}

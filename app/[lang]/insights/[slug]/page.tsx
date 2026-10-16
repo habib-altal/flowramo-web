@@ -79,7 +79,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
             </ol>
           </nav>
           <div className="max-w-[54rem]">
-            <h1 className="article-title text-[clamp(2.3rem,4.8vw,4.3rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }} data-split>
+            <h1 className="article-title text-[clamp(2.3rem,4.8vw,4.3rem)] font-[560] leading-[1.08] tracking-[-0.026em]" style={{ fontStretch: "96%" }} data-split>
               {body.title}
             </h1>
             <p className="lede mt-6 max-w-[42rem]" data-reveal>
@@ -156,7 +156,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
             </div>
 
             <section aria-labelledby="faq" className="mt-20">
-              <h2 id="faq" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] tracking-[-0.03em]">
+              <h2 id="faq" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] tracking-[-0.02em]">
                 {b.faq}
               </h2>
               <div className="mt-6 border-t border-line">
@@ -195,7 +195,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
       {related.length > 0 && (
         <section aria-labelledby="related" className="wrap mt-28">
           <div className="flex items-end justify-between gap-6 border-b border-line pb-5">
-            <h2 id="related" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] tracking-[-0.03em]">
+            <h2 id="related" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] tracking-[-0.02em]">
               {b.related}
             </h2>
             <Link href={`/${lang}/insights`} className="text-[14.5px] font-medium text-ink-2 hover:text-ink">
@@ -228,7 +228,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/insight
 
       <section className="wrap flex flex-col items-center py-32 text-center">
         <span className="lina-dot" aria-hidden="true" />
-        <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.02] tracking-[-0.04em]" style={{ fontStretch: "92%" }}>
+        <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.1] tracking-[-0.025em]" style={{ fontStretch: "96%" }}>
           {cta.title}
         </p>
         <p className="lede mt-5 max-w-[32rem]">{cta.sub}</p>

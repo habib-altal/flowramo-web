@@ -132,7 +132,7 @@ export function LinaMoment() {
         </div>
 
         <div className="wrap relative flex h-full flex-col items-center justify-center pb-[6vh] text-center">
-          <h2 className="text-[clamp(2.3rem,4.9vw,5rem)] font-[560] leading-[1] tracking-[-0.044em]" style={{ fontStretch: "92%" }}>
+          <h2 className="text-[clamp(2.3rem,4.9vw,5rem)] font-[560] leading-[1.08] tracking-[-0.027em]" style={{ fontStretch: "96%" }}>
             <span className="lm-l1 block">{t.lina.l1}</span>{" "}
             <span className="lm-l2 block text-moon-2">{t.lina.l2}</span>
           </h2>

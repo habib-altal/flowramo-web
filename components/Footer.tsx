@@ -76,7 +76,7 @@ export function Footer() {
       </div>
 
       <div className="wrap">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-[13.5px] text-ink-3">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-line pb-[max(48px,calc(env(safe-area-inset-bottom)+32px))] pt-6 text-[13.5px] text-ink-3">
         <span>{f.rights}</span>
         <Link href={switchHref} hrefLang={other} className="inline-flex items-center gap-1.5 transition-colors hover:text-ink">
           <Globe size={14} aria-hidden="true" />

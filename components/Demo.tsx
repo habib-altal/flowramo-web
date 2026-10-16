@@ -111,7 +111,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
             <span className="grid h-11 w-11 place-items-center rounded-full bg-blue text-white">
               <Check size={20} />
             </span>
-            <h2 id={titleId} className="text-[28px] font-[580] leading-tight tracking-[-0.03em]">
+            <h2 id={titleId} className="text-[28px] font-[580] leading-tight tracking-[-0.02em]">
               {name ? fill(d.thanks, { name }) : d.thanksAnon}
             </h2>
             <p className="text-ink-2">{d.thanksSub}</p>
@@ -122,7 +122,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
         ) : (
           <form method="post" onSubmit={submit} className="flex flex-col gap-5">
             <div className="pe-10">
-              <h2 id={titleId} className="text-[30px] font-[580] leading-[1.05] tracking-[-0.035em]">
+              <h2 id={titleId} className="text-[30px] font-[580] leading-[1.12] tracking-[-0.022em]">
                 {d.title}
               </h2>
               <p className="mt-2 text-ink-2">{d.sub}</p>

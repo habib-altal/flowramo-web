@@ -9,7 +9,7 @@ export function JournalTeaser({ lang, t }: { lang: Locale; t: CommonDict }) {
   return (
     <section className="wrap pb-[clamp(88px,10vw,140px)]" aria-labelledby="journal-title">
       <div className="flex items-baseline justify-between gap-6">
-        <h2 id="journal-title" className="text-[clamp(1.6rem,2.6vw,2.3rem)] font-[560] tracking-[-0.03em]" data-split>
+        <h2 id="journal-title" className="text-[clamp(1.6rem,2.6vw,2.3rem)] font-[560] tracking-[-0.02em]" data-split>
           {t.journal.h2}
         </h2>
         <Link href={`/${lang}/insights`} className="flex flex-none items-center gap-1.5 text-[14.5px] font-medium text-ink-2 hover:text-ink">

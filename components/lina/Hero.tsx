@@ -30,7 +30,7 @@ function BookedCard({ className = "" }: { className?: string }) {
         <span className="lina-dot" aria-hidden="true" />
         {t.hero.card.label}
       </div>
-      <div className="mt-2 text-[22px] font-[580] leading-tight tracking-[-0.03em]">{t.hero.card.when}</div>
+      <div className="mt-2 text-[22px] font-[580] leading-tight tracking-[-0.02em]">{t.hero.card.when}</div>
       <div className="mt-1 text-[13.5px] text-ink-2">{t.hero.card.who}</div>
     </div>
   );
@@ -215,7 +215,7 @@ export function Hero() {
           <div id="hero-bubble-wrap" aria-hidden="true" className="hero-seq absolute bottom-[calc(100%+28px)] start-0 hidden lg:block">
             <PatientBubble id="hero-bubble" />
           </div>
-          <h1 className="hero-title text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[0.95] tracking-[-0.047em]" style={{ fontStretch: "92%" }}>
+          <h1 className="hero-title text-[clamp(2.7rem,5.6vw,6.6rem)] font-[560] leading-[1.06] tracking-[-0.02em]" style={{ fontStretch: "96%" }}>
             <span className="block">
               <FocusWords text={t.hero.h1a} />
             </span>{" "}

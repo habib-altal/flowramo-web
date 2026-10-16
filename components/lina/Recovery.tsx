@@ -78,10 +78,10 @@ export function Recovery() {
   return (
     <section ref={root} id="recovery" className="scrolly h-[380vh]" aria-label={r.l2}>
       <div className="stage">
-        <StageProgress />
+        <StageProgress anchor=".rc-title" />
         <div className="wrap grid h-full content-center gap-8 pb-8 pt-[84px] lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-12">
           <div className="min-w-0">
-            <h2 className="rc-title text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1] tracking-[-0.042em]" style={{ fontStretch: "92%" }}>
+            <h2 className="rc-title text-[clamp(2.1rem,4.2vw,4.1rem)] font-[560] leading-[1.08] tracking-[-0.026em]" style={{ fontStretch: "96%" }}>
               <span className="block">{r.l1}</span>{" "}
               <span className="rc-l2 block text-ink-3">{r.l2}</span>
             </h2>
@@ -119,7 +119,7 @@ export function Recovery() {
             </svg>
 
             <div
-              className="rc-card relative mx-auto mt-5 w-full max-w-[320px] rounded-[20px] border border-line bg-card p-4 shadow-[0_24px_60px_-30px_rgba(12,12,11,0.45)] lg:absolute lg:left-[var(--l)] lg:top-[var(--t)] lg:mt-0 lg:w-[290px]"
+              className="rc-card relative mx-auto mt-5 w-full max-w-[320px] rounded-[20px] border border-line bg-card p-4 shadow-[0_24px_60px_-30px_rgba(12,12,11,0.45)] lg:absolute lg:left-[min(var(--l),calc(100%_-_290px))] lg:top-[var(--t)] lg:mt-0 lg:w-[290px]"
               style={{ "--l": `${((sara.cx + 24) / W) * 100}%`, "--t": `${((sara.cy + 20) / H) * 100}%` } as React.CSSProperties}
             >
               <div className="flex items-center justify-between">

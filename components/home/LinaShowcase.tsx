@@ -110,8 +110,8 @@ export function LinaShowcase() {
   const [mvx, mvy, mvs] = MARK_VIEWBOX.split(" ").map(Number);
 
   return (
-    <section ref={root} id="lina" data-nav="dark" className="pin-host relative bg-night text-moon md:h-[300vh]" aria-labelledby="lina-title">
-      <div className="pin-stage lc-stage relative overflow-hidden bg-night md:sticky md:top-0 md:flex md:h-svh md:items-center md:pt-[68px]">
+    <section ref={root} id="lina" data-nav="dark" className="pin-host relative bg-night text-moon tab:h-[300vh]" aria-labelledby="lina-title">
+      <div className="pin-stage lc-stage relative overflow-hidden bg-night tab:sticky tab:top-0 tab:flex tab:h-svh tab:items-center tab:pt-[68px]">
         <StageProgress tone="dark" />
         {/* The clinic Lina works for, at night (the Higgsfield still from the Lina page), kept dark behind the copy. */}
         <div className="lc-photo pointer-events-none absolute inset-0" aria-hidden="true">
@@ -132,18 +132,19 @@ export function LinaShowcase() {
           }}
           aria-hidden="true"
         />
-        <div className="wrap relative grid w-full gap-16 py-[clamp(104px,13vw,184px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-10 md:py-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-20">
+        <div className="wrap relative grid w-full gap-16 py-[clamp(104px,13vw,184px)] md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] md:items-center md:gap-10 tab:py-0 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-20">
           <div>
             <p className="lc-kicker flex items-center gap-2.5 text-[14.5px] font-medium text-moon-2">
               <span className="h-2 w-2 rounded-full bg-cyan shadow-[0_0_0_4px_rgba(0,206,255,0.16)]" aria-hidden="true" />
               {l.kicker}
             </p>
-            <h2 id="lina-title" className="lc-h2 display-lg mt-6 max-w-[13ch]">
+            <h2 id="lina-title" className="lc-h2 display-md mt-[clamp(14px,2.4vh,24px)] max-w-[18ch]">
               {l.h2}
             </h2>
-            <p className="lc-sub mt-7 max-w-[35rem] text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.62] text-moon-2">{l.sub}</p>
+            <p className="lc-sub mt-[clamp(16px,2.8vh,28px)] max-w-[35rem] text-[clamp(1rem,1.4vw,1.2rem)] leading-[1.62] text-moon-2">{l.sub}</p>
 
-            <ul className="mt-9 grid gap-x-8 gap-y-3 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+            {/* Short laptop screens drop these four lines (the paragraph above says the same) so the buttons keep clear of the bottom edge. */}
+            <ul className="mt-[clamp(20px,3.4vh,36px)] grid gap-x-8 gap-y-3 short:hidden sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
               {l.shows.map((s) => (
                 <li key={s} className="lc-show flex items-start gap-3 text-[15.5px] leading-[1.5] text-moon">
                   <Check size={16} strokeWidth={2.25} className="mt-[3px] flex-none text-cyan" aria-hidden="true" />
@@ -152,7 +153,7 @@ export function LinaShowcase() {
               ))}
             </ul>
 
-            <div className="mt-11 flex flex-wrap gap-3 max-sm:flex-col">
+            <div className="mt-[clamp(24px,4.4vh,44px)] flex flex-wrap gap-3 max-sm:flex-col">
               <Link href={`/${locale}/products/lina`} className="lc-cta btn btn-night-line">
                 {l.primary}
               </Link>

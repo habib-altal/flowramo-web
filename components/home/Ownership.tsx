@@ -74,8 +74,8 @@ export function Ownership() {
 
   const k = 104 / mvs;
   return (
-    <section ref={root} className="pin-host relative bg-paper-2 md:h-[300vh]" aria-labelledby="own-title">
-      <div className="pin-stage py-[clamp(96px,12vw,150px)] md:sticky md:top-0 md:flex md:h-svh md:items-center md:py-0 md:pt-[68px]">
+    <section ref={root} className="pin-host relative bg-paper-2 tab:h-[300vh]" aria-labelledby="own-title">
+      <div className="pin-stage py-[clamp(96px,12vw,150px)] tab:sticky tab:top-0 tab:flex tab:h-svh tab:items-center tab:py-0 tab:pt-[68px]">
         <StageProgress />
         <div className="wrap grid w-full items-center gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-10 lg:gap-20">
           <div>

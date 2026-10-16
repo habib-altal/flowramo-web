@@ -13,8 +13,21 @@ import { useI18n } from "../I18n";
   Place it as a direct child of the sticky stage. It follows the stage's scroller (the nearest .scrolly or
   section) from "top top" to "bottom bottom", and shows only while that stage really is sticky: not where
   the story becomes a normal list, nor with reduced motion. Without JS it stays hidden; the page is complete.
+
+  The rail is centred on the stage's height. Where content runs to the screen edge at that height (a sideways
+  track, a full-bleed board), pass `anchor`, a selector inside the stage, and the rail centres on that element
+  instead, typically the headline, whose side of the screen is clear. The anchor applies from `anchorFrom` up
+  (desktop by default): below it the headline usually spans the full width and the centre is the clear spot.
 */
-export function StageProgress({ tone = "light" }: { tone?: "light" | "dark" | "auto" }) {
+export function StageProgress({
+  tone = "light",
+  anchor,
+  anchorFrom = "(min-width: 1024px)",
+}: {
+  tone?: "light" | "dark" | "auto";
+  anchor?: string;
+  anchorFrom?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useI18n();
 
@@ -28,6 +41,15 @@ export function StageProgress({ tone = "light" }: { tone?: "light" | "dark" | "a
     const isPinned = () => getComputedStyle(stage).position === "sticky" && host.offsetHeight > window.innerHeight * 1.5;
     let pinned = isPinned();
     let idle = 0;
+
+    const place = () => {
+      const a = anchor && window.matchMedia(anchorFrom).matches ? stage.querySelector<HTMLElement>(anchor) : null;
+      if (!a || !a.offsetHeight) return el.style.removeProperty("--sp-y");
+      const s = stage.getBoundingClientRect();
+      const r = a.getBoundingClientRect();
+      el.style.setProperty("--sp-y", `${Math.round(r.top - s.top + r.height / 2)}px`);
+    };
+    place();
 
     const showCue = (on: boolean) => cue.toggleAttribute("data-on", on);
     const sync = (self: ScrollTrigger) => {
@@ -48,6 +70,7 @@ export function StageProgress({ tone = "light" }: { tone?: "light" | "dark" | "a
       onToggle: sync,
       onRefresh: (self) => {
         pinned = isPinned();
+        place();
         sync(self);
       },
     });

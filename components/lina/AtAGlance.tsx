@@ -12,7 +12,7 @@ export function AtAGlance({ t, lang }: { t: LinaDict["glance"]; lang: Locale }) 
   const value = "text-[16px] leading-[1.6] text-ink";
   return (
     <section id="at-a-glance" className="wrap grid gap-8 pt-28 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-20 lg:pt-36" aria-labelledby="glance-title">
-      <h2 id="glance-title" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] leading-tight tracking-[-0.03em]" data-reveal>
+      <h2 id="glance-title" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] leading-tight tracking-[-0.02em]" data-reveal>
         {t.h2}
       </h2>
       <dl className="border-t border-line" data-reveal>

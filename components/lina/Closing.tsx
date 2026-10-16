@@ -32,7 +32,7 @@ export function Closing() {
         <h2 className="display-xl max-w-[13ch]">
           <span className="c-1 block">{c.l1}</span>
         </h2>
-        <p className="c-2 mt-6 text-[clamp(1.6rem,3vw,2.6rem)] font-[520] tracking-[-0.03em] text-ink-2">{c.l2}</p>
+        <p className="c-2 mt-6 text-[clamp(1.6rem,3vw,2.6rem)] font-[520] tracking-[-0.02em] text-ink-2">{c.l2}</p>
         <div className="c-3 mt-10 flex flex-col items-center gap-4">
           <div className="flex flex-wrap justify-center gap-3">
             <TryLinaButton className="btn btn-blue">{c.primary}</TryLinaButton>

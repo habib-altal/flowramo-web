@@ -49,7 +49,7 @@ export function Process() {
   return (
     <section ref={root} id="how" className="pin-host relative border-t border-line lg:h-[380vh]" aria-labelledby="process-title">
       <div className="pin-stage py-[clamp(96px,12vw,150px)] lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-center lg:overflow-hidden lg:py-0 lg:pt-[68px]">
-        <StageProgress />
+        <StageProgress anchor="#process-title" />
         <div className="wrap w-full">
           <h2 id="process-title" className="display-md max-w-[22ch]" data-split>
             {t.h2}

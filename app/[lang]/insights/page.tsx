@@ -53,7 +53,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
             <span className="text-[13.5px] text-ink-3">
               <time dateTime={featured.published}>{formatDate(lang, featured.published)}</time> · {minutes(featured[lang].minutes)}
             </span>
-            <h2 className="mt-4 text-[clamp(1.8rem,3.2vw,2.9rem)] font-[560] leading-[1.04] tracking-[-0.035em]" style={{ fontStretch: "92%" }}>
+            <h2 className="mt-4 text-[clamp(1.8rem,3.2vw,2.9rem)] font-[560] leading-[1.1] tracking-[-0.022em]" style={{ fontStretch: "96%" }}>
               {featured[lang].title}
             </h2>
             <p className="mt-5 max-w-[34rem] text-[16.5px] leading-[1.6] text-ink-2">{plain(featured[lang].description)}</p>
@@ -98,7 +98,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/insights"
 
       <section className="wrap flex flex-col items-center py-32 text-center">
         <span className="lina-dot" aria-hidden="true" />
-        <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.02] tracking-[-0.04em]" style={{ fontStretch: "92%" }}>
+        <p className="mt-6 max-w-[16ch] text-[clamp(2rem,4.4vw,3.6rem)] font-[560] leading-[1.1] tracking-[-0.025em]" style={{ fontStretch: "96%" }}>
           {b.ctaStudio.title}
         </p>
         <p className="lede mt-5 max-w-[32rem]">{b.ctaStudio.sub}</p>

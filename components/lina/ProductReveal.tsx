@@ -41,8 +41,8 @@ function Headline({ decorative = false }: { decorative?: boolean }) {
     <Tag
       id={decorative ? undefined : "product-title"}
       aria-hidden={decorative || undefined}
-      className="text-[clamp(2.1rem,4.4vw,4.4rem)] font-[560] leading-[1] tracking-[-0.044em]"
-      style={{ fontStretch: "92%" }}
+      className="text-[clamp(2.1rem,4.4vw,4.4rem)] font-[560] leading-[1.08] tracking-[-0.027em]"
+      style={{ fontStretch: "96%" }}
     >
       <span className="block">{t.product.h2a}</span>{" "}
       <span className="block text-ink-3">{t.product.h2b}</span>

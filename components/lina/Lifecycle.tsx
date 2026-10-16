@@ -152,7 +152,7 @@ export function Lifecycle() {
           <div className="flex min-w-0 flex-col justify-between gap-8">
             <div>
               <div className="text-[15px] font-medium text-blue">{stage.name}</div>
-              <p className="lc-line mt-3 text-[clamp(1.6rem,2.6vw,2.35rem)] font-[540] leading-[1.12] tracking-[-0.03em]">{stage.line}</p>
+              <p className="lc-line mt-3 text-[clamp(1.6rem,2.6vw,2.35rem)] font-[540] leading-[1.12] tracking-[-0.02em]">{stage.line}</p>
             </div>
             <div className="h-1 w-full overflow-hidden rounded-full bg-paper-2">
               <div

@@ -72,7 +72,7 @@ export default async function SolutionsPage({ params }: PageProps<"/[lang]/solut
         {build.items.map((it) => (
           <section key={it.id} id={it.id} data-spy className="grid scroll-mt-[150px] gap-10 border-t border-line py-[clamp(56px,7vw,96px)] md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20" aria-labelledby={`${it.id}-title`}>
             <div className="md:sticky md:top-[160px] md:self-start">
-              <h2 id={`${it.id}-title`} className="text-[clamp(1.9rem,3.2vw,2.9rem)] font-[560] leading-[1.05] tracking-[-0.035em]" data-split>
+              <h2 id={`${it.id}-title`} className="text-[clamp(1.9rem,3.2vw,2.9rem)] font-[560] leading-[1.12] tracking-[-0.022em]" data-split>
                 {names[it.id]}
               </h2>
               <p className="mt-5 max-w-[30rem] text-[clamp(1.1rem,1.5vw,1.3rem)] leading-[1.5] text-ink-2" data-reveal>

@@ -205,7 +205,7 @@ export function WhileAway() {
           <div className="wa-summary absolute inset-x-0 bottom-[clamp(40px,9vh,96px)] px-5 motion-reduce:static motion-reduce:mt-6 motion-reduce:w-full motion-reduce:pb-16">
             <div className="mx-auto max-w-[880px] rounded-[30px] border border-line bg-card p-6 text-start text-ink shadow-[0_40px_100px_-50px_rgba(12,12,11,0.4)] sm:p-9">
               <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-                <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.03em]">{a.summary.title}</h3>
+                <h3 className="text-[clamp(1.4rem,2.4vw,2rem)] font-[560] tracking-[-0.02em]">{a.summary.title}</h3>
                 <span className="flex items-center gap-2 text-[13.5px] text-ink-2">
                   <span className="lina-dot scale-75" aria-hidden="true" /> <span dir="ltr">{a.summary.range}</span>
                   {/* The figures below are illustrative, not usage data. */}

@@ -153,28 +153,28 @@ export function Problem() {
   );
 
   return (
-    <section ref={root} id="problem" className="pin-host relative bg-paper-2 md:h-[320vh]" aria-labelledby="problem-title">
-      <div className="pin-stage py-[clamp(88px,12vw,140px)] md:sticky md:top-0 md:flex md:h-svh md:flex-col md:justify-center md:py-0 md:pt-[68px]">
+    <section ref={root} id="problem" className="pin-host relative bg-paper-2 tab:h-[320vh]" aria-labelledby="problem-title">
+      <div className="pin-stage py-[clamp(88px,12vw,140px)] tab:sticky tab:top-0 tab:flex tab:h-svh tab:flex-col tab:justify-center tab:py-0 tab:pt-[68px]">
         <StageProgress />
         <div className="wrap">
-          <h2 id="problem-title" className="pr-h2 display-md max-w-[20ch]">
+          <h2 id="problem-title" className="pr-h2 display-md max-w-[20ch] short:max-w-[30ch]">
             {t.h2}
           </h2>
 
-          <div className="relative mt-[clamp(36px,5vh,64px)]">
+          <div className="relative mt-[clamp(28px,4.4vh,64px)]">
             {/* The blue line that answers each card as it passes. */}
-            <span className="pr-sweep-track pointer-events-none absolute -bottom-4 -top-4 inset-x-0 z-10 hidden md:block" aria-hidden="true">
+            <span className="pr-sweep-track pointer-events-none absolute -bottom-4 -top-4 inset-x-0 z-10 hidden tab:block" aria-hidden="true">
               <span className="pr-sweep absolute inset-y-0 start-0 w-px bg-blue opacity-0 shadow-[0_0_18px_2px_rgba(0,80,248,0.45)]" />
             </span>
             <ul className="pr-grid grid gap-4 md:grid-cols-3 lg:gap-5">
               {t.items.map((it, i) => (
-                <li key={it.title} className="pr-card flex flex-col rounded-[24px] border border-[color-mix(in_oklab,var(--color-blue)_35%,var(--color-line))] bg-card p-6 lg:p-7">
-                  <div className="h-[86px]">
+                <li key={it.title} className="pr-card flex flex-col rounded-[24px] border border-[color-mix(in_oklab,var(--color-blue)_35%,var(--color-line))] bg-card p-6 lg:p-7 short:p-5">
+                  <div className="h-[86px] short:h-[74px]">
                     <Visual i={i} />
                   </div>
-                  <h3 className="mt-5 text-[clamp(1.15rem,1.6vw,1.4rem)] font-[560] leading-tight tracking-[-0.02em]">{it.title}</h3>
+                  <h3 className="mt-5 short:mt-3 text-[clamp(1.15rem,1.6vw,1.4rem)] font-[560] leading-tight tracking-[-0.02em]">{it.title}</h3>
                   <p className="mt-2 text-[15px] leading-[1.6] text-ink-2 md:max-lg:text-[14.5px]">{it.text}</p>
-                  <div className="mt-auto pt-5">
+                  <div className="mt-auto pt-5 short:pt-4">
                     <div className="border-t border-line pt-4">
                       <p className="pr-before relative inline-flex items-center gap-2 text-[13.5px] text-ink-3">
                         <span className="pr-dot h-1.5 w-1.5 flex-none rounded-full bg-blue" aria-hidden="true" />
@@ -194,7 +194,7 @@ export function Problem() {
             </ul>
           </div>
 
-          <p className="pr-close mt-[clamp(28px,4.5vh,56px)] max-w-[30ch] text-[clamp(1.35rem,2.2vw,1.9rem)] font-[520] leading-[1.25] tracking-[-0.025em]">{t.close}</p>
+          <p className="pr-close mx-auto mt-[clamp(26px,4.2vh,56px)] max-w-[46ch] text-center text-[clamp(1.35rem,2.2vw,1.9rem)] font-[520] leading-[1.3] tracking-[-0.02em] text-balance">{t.close}</p>
         </div>
       </div>
     </section>

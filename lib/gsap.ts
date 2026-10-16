@@ -50,8 +50,9 @@ export function focusFrom(el: Element): gsap.TweenVars {
   return { autoAlpha: 0, filter: `blur(${Math.min(14, Math.max(5, size * 0.16)).toFixed(1)}px)` };
 }
 export const FOCUS_TO: gsap.TweenVars = { autoAlpha: 1, filter: "blur(0px)" };
-export const TABLET_UP = "(min-width: 768px) and (prefers-reduced-motion: no-preference)";
-export const PHONE = "(max-width: 767px) and (prefers-reduced-motion: no-preference)";
+// Matches the `tab:` CSS variant: wide enough to pin, and no taller than 3:5 (a phone in desktop view is taller).
+export const TABLET_UP = "(min-width: 768px) and (min-aspect-ratio: 3/5) and (prefers-reduced-motion: no-preference)";
+export const PHONE = "(max-width: 767px) and (prefers-reduced-motion: no-preference), (max-aspect-ratio: 599/1000) and (prefers-reduced-motion: no-preference)";
 
 /** Document-relative position of an element, ignoring transforms. */
 export function docPos(el: HTMLElement): { x: number; y: number } {

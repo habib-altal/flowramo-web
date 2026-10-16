@@ -11,7 +11,7 @@ export function ClinicGuides({ h2, lang }: { h2: string; lang: Locale }) {
   const b = getCommon(lang).blog;
   return (
     <section id="guides" className="wrap grid gap-8 pt-20 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-20 lg:pt-28" aria-labelledby="guides-title">
-      <h2 id="guides-title" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] leading-tight tracking-[-0.03em]" data-reveal>
+      <h2 id="guides-title" className="text-[clamp(1.6rem,2.4vw,2.1rem)] font-[560] leading-tight tracking-[-0.02em]" data-reveal>
         {h2}
       </h2>
       <ul className="border-t border-line">

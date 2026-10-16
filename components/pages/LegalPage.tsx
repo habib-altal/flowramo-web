@@ -8,7 +8,7 @@ export function LegalPage({ t }: { t: Legal }) {
     <main id="main" className="wrap pb-[clamp(96px,12vw,160px)] pt-[clamp(132px,13vw,184px)]">
       <ReadingProgress />
       <article className="mx-auto max-w-[44rem]">
-        <h1 className="article-title text-[clamp(2.4rem,4.6vw,3.8rem)] font-[560] leading-[1.02] tracking-[-0.04em]" data-split>
+        <h1 className="article-title text-[clamp(2.4rem,4.6vw,3.8rem)] font-[560] leading-[1.1] tracking-[-0.025em]" data-split>
           {t.h1}
         </h1>
         <p className="mt-4 text-[14px] text-ink-3">{t.updated}</p>

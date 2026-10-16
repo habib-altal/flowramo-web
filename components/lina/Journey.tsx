@@ -150,25 +150,25 @@ export function Journey() {
 
           {/* Story rail */}
           <div className="order-1 flex min-w-0 flex-col lg:order-2">
-            <h2 className="text-[clamp(2rem,4.6vw,4.6rem)] font-[560] leading-[0.97] tracking-[-0.044em]" style={{ fontStretch: "92%" }}>
+            <h2 className="text-[clamp(2rem,4.6vw,4.6rem)] short:text-[clamp(2rem,3.6vw,3.4rem)] font-[560] leading-[1.07] tracking-[-0.027em]" style={{ fontStretch: "96%" }}>
               <span className="block">{t.journey.h2a}</span>{" "}
               <span className="block">{t.journey.h2b}</span>
             </h2>
-            <p className="mt-5 hidden max-w-[26rem] text-[17px] text-ink-2 lg:block">{t.journey.sub}</p>
+            <p className="mt-5 hidden max-w-[26rem] text-[17px] text-ink-2 short:mt-3 short:text-[16px] lg:block">{t.journey.sub}</p>
             <div className="mt-3 flex items-center gap-2 text-[14px] text-ink-2 lg:hidden">
               <span className="lina-dot scale-75" aria-hidden="true" />
               <span className="j-label font-medium text-ink">{STAGES[0]}</span>
               <span className="j-count tabular-nums text-ink-3">1 / {STAGES.length}</span>
             </div>
 
-            <ol className="relative mt-8 hidden max-w-[420px] flex-col lg:flex">
+            <ol className="relative mt-8 hidden max-w-[420px] flex-col short:mt-5 lg:flex">
               <span className="absolute bottom-[14px] start-[3.5px] top-[14px] w-px bg-line" aria-hidden="true" />
               <span className="j-fill absolute bottom-[14px] start-[3.5px] top-[14px] w-px origin-top bg-blue" aria-hidden="true" />
               {STAGES.map((s, i) => (
                 <li
                   key={s}
                   data-state={i === 0 ? "active" : "future"}
-                  className="j-stage group flex items-center gap-3 py-[5px] text-[15px] transition-colors duration-300 data-[state=active]:text-ink data-[state=future]:text-ink-3 data-[state=past]:text-ink-2"
+                  className="j-stage group flex items-center gap-3 py-[5px] text-[15px] short:py-[2.5px] short:text-[14.5px] transition-colors duration-300 data-[state=active]:text-ink data-[state=future]:text-ink-3 data-[state=past]:text-ink-2"
                 >
                   <span className="relative z-10 h-2 w-2 rounded-full bg-line transition-all duration-300 group-data-[state=active]:scale-125 group-data-[state=active]:bg-blue group-data-[state=past]:bg-blue/50" />
                   <span className="group-data-[state=active]:font-medium">{s}</span>
